@@ -1,0 +1,76 @@
+{
+ "dimensions": [
+  {
+   "code": "ART",
+   "filter": "item",
+   "values": [
+    "Kles- og pelsmoll",
+    "Kakerlakk",
+    "Veggedyr",
+    "Faraomaur",
+    "Brun pelsbille",
+    "Stikkeveps",
+    "Stokkmaur",
+    "Stripet borebille",
+    "Husbukk",
+    "Svart jordmaur",
+    "Skjeggkre"
+   ]
+  },
+  {
+   "code": "AAR",
+   "filter": "item",
+   "values": [
+    "Alle aar",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ]
+  },
+  {
+   "code": "MND",
+   "filter": "item",
+   "values": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Okt",
+    "Nov",
+    "Des"
+   ]
+  },
+  {
+   "code": "MEASURE_TYPE",
+   "filter": "item",
+   "values": [
+    "% AV AARETS BEKJEMPELSER"
+   ]
+  }
+ ],
+ "response": {
+  "format": "json-stat2",
+  "maxRowCount": 50000
+ }
+}

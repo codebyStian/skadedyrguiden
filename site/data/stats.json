@@ -1,0 +1,172 @@
+{
+ "updated": "2026-11-18",
+ "fhi_tables": {
+  "786": "Månedvis fordeling alle arter_120126",
+  "773": "Antall bekjempelser pr år_120126"
+ },
+ "gbif": {
+  "years": "2017-2026",
+  "keys": {
+   "mus": 7429082,
+   "rotte": 2439261,
+   "skjeggkre": 6098843,
+   "solvkre": 1421091,
+   "veggedyr": 2021062,
+   "veps": 1311671,
+   "stokkmaur": 1312773,
+   "flatt": 2182588
+  },
+  "fylker": {
+   "03": {
+    "mus": 28,
+    "rotte": 328,
+    "skjeggkre": 12,
+    "solvkre": 9,
+    "veggedyr": 2,
+    "veps": 98,
+    "stokkmaur": 10,
+    "flatt": 11
+   },
+   "11": {
+    "mus": 21,
+    "rotte": 204,
+    "skjeggkre": 12,
+    "solvkre": 12,
+    "veggedyr": 0,
+    "veps": 246,
+    "stokkmaur": 7,
+    "flatt": 171
+   },
+   "15": {
+    "mus": 26,
+    "rotte": 30,
+    "skjeggkre": 7,
+    "solvkre": 2,
+    "veggedyr": 0,
+    "veps": 78,
+    "stokkmaur": 15,
+    "flatt": 103
+   },
+   "18": {
+    "mus": 33,
+    "rotte": 32,
+    "skjeggkre": 23,
+    "solvkre": 3,
+    "veggedyr": 0,
+    "veps": 63,
+    "stokkmaur": 20,
+    "flatt": 38
+   },
+   "31": {
+    "mus": 54,
+    "rotte": 61,
+    "skjeggkre": 9,
+    "solvkre": 11,
+    "veggedyr": 0,
+    "veps": 255,
+    "stokkmaur": 38,
+    "flatt": 123
+   },
+   "32": {
+    "mus": 126,
+    "rotte": 678,
+    "skjeggkre": 64,
+    "solvkre": 37,
+    "veggedyr": 3,
+    "veps": 492,
+    "stokkmaur": 57,
+    "flatt": 135
+   },
+   "33": {
+    "mus": 47,
+    "rotte": 89,
+    "skjeggkre": 36,
+    "solvkre": 23,
+    "veggedyr": 0,
+    "veps": 157,
+    "stokkmaur": 42,
+    "flatt": 67
+   },
+   "34": {
+    "mus": 158,
+    "rotte": 16,
+    "skjeggkre": 10,
+    "solvkre": 2,
+    "veggedyr": 0,
+    "veps": 313,
+    "stokkmaur": 74,
+    "flatt": 25
+   },
+   "39": {
+    "mus": 24,
+    "rotte": 87,
+    "skjeggkre": 6,
+    "solvkre": 16,
+    "veggedyr": 1,
+    "veps": 265,
+    "stokkmaur": 20,
+    "flatt": 71
+   },
+   "40": {
+    "mus": 21,
+    "rotte": 34,
+    "skjeggkre": 0,
+    "solvkre": 4,
+    "veggedyr": 0,
+    "veps": 106,
+    "stokkmaur": 24,
+    "flatt": 54
+   },
+   "42": {
+    "mus": 26,
+    "rotte": 152,
+    "skjeggkre": 5,
+    "solvkre": 26,
+    "veggedyr": 0,
+    "veps": 200,
+    "stokkmaur": 57,
+    "flatt": 324
+   },
+   "46": {
+    "mus": 57,
+    "rotte": 873,
+    "skjeggkre": 16,
+    "solvkre": 3,
+    "veggedyr": 1,
+    "veps": 152,
+    "stokkmaur": 8,
+    "flatt": 91
+   },
+   "50": {
+    "mus": 95,
+    "rotte": 96,
+    "skjeggkre": 14,
+    "solvkre": 20,
+    "veggedyr": 0,
+    "veps": 321,
+    "stokkmaur": 99,
+    "flatt": 126
+   },
+   "55": {
+    "mus": 34,
+    "rotte": 17,
+    "skjeggkre": 7,
+    "solvkre": 9,
+    "veggedyr": 0,
+    "veps": 43,
+    "stokkmaur": 15,
+    "flatt": 7
+   },
+   "56": {
+    "mus": 2,
+    "rotte": 1,
+    "skjeggkre": 2,
+    "solvkre": 1,
+    "veggedyr": 0,
+    "veps": 10,
+    "stokkmaur": 8,
+    "flatt": 4
+   }
+  }
+ }
+}
