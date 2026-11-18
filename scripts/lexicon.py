@@ -22,22 +22,41 @@ CSS = """<style>
 .bars{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;align-items:end;height:180px;border-bottom:1px solid var(--line);margin-bottom:34px}.bars div{background:#dfe7e3;border-radius:6px 6px 0 0;position:relative}.bars div.top{background:#f2c230}
 .bars div span{position:absolute;bottom:-26px;left:0;right:0;text-align:center;font-size:12px;color:var(--mute)}
 .vs{display:grid;grid-template-columns:1fr auto 1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:12px}.vs>div{padding:20px 22px}.vs .mid{display:grid;place-items:center;background:var(--soft);font-family:"Instrument Serif",serif;font-size:22px;padding:0 16px}
+.cred{font-size:12px;color:var(--mute);margin-top:6px}.cred a{color:inherit}.cred.dk{color:#9fb0aa}.th-f{margin:0 0 14px}.th-f .th{margin-bottom:0!important}
+.icg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.ic{border:1px solid var(--line);border-radius:16px;padding:20px 22px}.ic h3{margin:0 0 8px;font-size:17px}.ic ul{margin:0;padding-left:18px}.ic li{margin:4px 0;font-size:15.5px}
 .vs b{font-size:19px;display:block}.vs .th{aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:14px}.vs .th img{width:100%;height:100%;object-fit:cover}.vs .th[data-ph]{min-height:0}.vs em{color:var(--mute);font-size:14px}.vs p{margin:10px 0 0;font-size:15px}
 .aside{position:sticky;top:96px;display:grid;gap:14px;align-self:start}.card{border-radius:18px;padding:24px}.card.dk{background:#0f2a24;color:#fff}.card.dk p{color:#b9c6c1}.card.sf{background:var(--soft)}
 .card h3{margin:0 0 6px;font-size:20px}.card p{margin:0 0 16px;font-size:15px}.card .btn{width:100%;justify-content:center;box-sizing:border-box}
 .rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:14px}.rel a{text-decoration:none;border-radius:16px;overflow:hidden;border:1px solid var(--line);display:block}.rel a:hover{background:var(--soft)}.rel .ph{aspect-ratio:16/10;border-radius:0}.rel .ph img{width:100%;height:100%;object-fit:cover}.rel b{display:block;padding:14px 16px 16px;font-size:16px;line-height:1.35}
 .more{display:flex;flex-wrap:wrap;gap:8px}.more a{border:1px solid var(--line);border-radius:999px;padding:9px 16px;text-decoration:none;font-size:15px}.more a:hover{background:var(--soft)}
-@media(max-width:900px){.sx .wrap,.lxb{grid-template-columns:1fr}.tiles,.tiles.n3{grid-template-columns:repeat(2,1fr)}.tiles.n3 .tile:last-child{grid-column:span 2}.feat{grid-template-columns:1fr}.aside{position:static}.vs{grid-template-columns:1fr}.vs .mid{padding:6px}}
+@media(max-width:900px){.sx .wrap,.lxb{grid-template-columns:1fr}.tiles,.tiles.n3{grid-template-columns:repeat(2,1fr)}.tiles.n3 .tile:last-child{grid-column:span 2}.feat,.icg{grid-template-columns:1fr}.aside{position:static}.vs{grid-template-columns:1fr}.vs .mid{padding:6px}}
 </style>"""
 
 
+PHOTOS, INFO = {}, {}
+FIELDS = [("storrelse", "Størrelse"), ("utseende", "Utseende"), ("hvor", "Hvor du finner den"), ("tegn", "Spor og tegn"), ("livssyklus", "Livssyklus og sesong"),
+          ("skade", "Skade og helse"), ("forebygg", "Forebygging"), ("tiltak", "Slik blir du kvitt den")]
+
+
+def credit(sid):
+    p = PHOTOS.get(sid)
+    if not p: return ""
+    lic = f'<a href="{E(p["license_url"])}" rel="license noopener">{E(p["license"])}</a>' if p.get("license_url") else E(p["license"])
+    return f'<figcaption class="cred">Foto: {E(p["author"])} · {lic} · <a href="{E(p["page"])}" rel="noopener">Wikimedia Commons</a></figcaption>'
+
+
 def thumb(sid, fallback, name):
+    if sid in PHOTOS:
+        return f'<figure class="th-f"><div class="ph th"><img src="../assets/img/foto-{sid}.webp" alt="{E(name)} ({E(PHOTOS[sid]["taxon"])})" loading="lazy"></div>{credit(sid)}</figure>'
     fb = f"this.onerror=function(){{this.parentNode.dataset.ph=1;this.remove()}};this.src='../assets/img/{fallback}.webp'" if fallback else "this.parentNode.dataset.ph=1;this.remove()"
     return f'<div class="ph th" data-label="{E(name)}"><img src="../assets/img/art-{sid}.webp" alt="{E(name)}" loading="lazy" onerror="{fb}"></div>'
 
 
 def cap(t):
     return t[:1].upper() + t[1:]
+
+
+RECS = None
 
 
 def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop):
@@ -70,7 +89,13 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
                    (f'<img src="../assets/img/{artimg[r]}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">' if artimg.get(r) else "") +
                    f'</div><b>{E(titles[r])}</b></a>' for r in rel)
     more = "".join(f'<a href="{slugs[o["id"]]}.html">{E(o["name"])}</a>' for o in kb if o is not s)
-    image = f'<img src="../assets/img/{img}.webp" alt="{E(s["name"])}" onerror="this.parentNode.dataset.ph=1;this.remove()">' if img else ""
+    if s["id"] in PHOTOS:
+        image = f'<img src="../assets/img/foto-{s["id"]}.webp" alt="{E(s["name"])}">'
+    else:
+        image = f'<img src="../assets/img/{img}.webp" alt="{E(s["name"])}" onerror="this.parentNode.dataset.ph=1;this.remove()">' if img else ""
+    inf = INFO.get(s["id"], {})
+    infoh = "".join(f'<div class="ic"><h3>{t}</h3><ul>{"".join(f"<li>{E(x)}</li>" for x in inf[k])}</ul></div>' for k, t in FIELDS if inf.get(k))
+    infoh = f'<section><h2>Fakta om {E(s["name"].lower())}</h2><div class="icg">{infoh}</div><p class="small mute">Kilde: <a href="{E(s["source"]["url"])}" rel="noopener">{E(s["source"]["title"])}</a>.</p></section>' if infoh else ""
     pest_card = (f'<div class="card sf"><h3>Utstyr mot {E(s["name"].lower())}</h3><p>Feller, åter og forebygging hos Skadedyrbutikken.</p><a class="btn arrow" href="{shop}">Se utvalget </a></div>'
                  if s["pest"] else '<div class="card sf"><h3>Ikke et skadedyr</h3><p>Denne arten gjør normalt ingen skade og trenger ikke bekjempes.</p></div>')
     return f'''{CSS}<section class="sx"><div class="wrap"><div>
@@ -78,9 +103,11 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
 <h1>{E(s["name"])}</h1><p class="lat">{E(s["latin"])}</p>
 <div class="badges"><span class="badge {"y" if s["pest"] else ""}">{"Skadedyr" if s["pest"] else "Ikke et skadedyr"}</span><span class="badge">{E(GROUP.get(s["group"], ""))}</span>{'<span class="badge">Kontrollert mot FHI</span>' if s.get("checked") else ""}</div>
 <div class="ctas"><a class="btn y arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a>{f'<a class="btn ghost arrow" href="{shop}">Se utstyr </a>' if s["pest"] else ""}</div></div>
-<div class="ph" data-label="{E(s["name"])}">{image}</div></div></section>
+<figure style="margin:0"><div class="ph" data-label="{E(s["name"])}">{image}</div>{credit(s["id"]).replace('class="cred"', 'class="cred dk"')}</figure></div></section>
 <div class="wrap">{tiles_h}<div class="lxb"><div>
 <section><h2>Slik kjenner du den igjen</h2><ul class="feat">{feats}</ul></section>
+{infoh}
+{RECS("sp:" + s["id"], "leksikon-" + s["id"], "Utstyr mot " + s["name"].lower()) if s["pest"] and RECS else ""}
 {f"<section><h2>Kan forveksles med</h2>{vs}</section>" if vs else ""}
 {bars}
 {f'<section><h2>Les mer</h2><div class="rel">{relh}</div></section>' if relh else ""}

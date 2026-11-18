@@ -1,4 +1,5 @@
 """Felles topp/bunn for undersider. Kjør: python scripts/page.py"""
+import json, pathlib
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign={}"
@@ -42,6 +43,37 @@ def foot(base):
 </html>
 '''
 
+_RECS = None
+
+
+def recs_for(key):
+    global _RECS
+    if _RECS is None:
+        f = pathlib.Path(__file__).resolve().parent.parent / "site/data/recs.json"
+        _RECS = json.loads(f.read_text()) if f.exists() else {}
+    return _RECS.get(key) or []
+
+
+def utm(url, camp):
+    return url + ("&" if "?" in url else "?") + f"utm_source=skadedyrguiden&utm_medium=referral&utm_campaign={camp}"
+
+
+def price(p):
+    try: return f"{float(str(p).replace(',', '.')):,.0f} kr".replace(",", " ")
+    except Exception: return ""
+
+
+def recs(key, camp, title="Riktig utstyr", compact=False):
+    """Produktkort valgt av produktagenten (scripts/products_match.py). Tom streng hvis ingen tips finnes."""
+    items = recs_for(key)
+    if not items: return ""
+    cards = "".join(f'''<a class="rc" href="{H.escape(utm(r["url"], camp))}" rel="sponsored noopener">
+<div class="rci">{f'<img src="{H.escape(r["image"])}" alt="" loading="lazy" onerror="this.remove()">' if r.get("image") else ""}</div>
+<div class="rcb"><span class="rcr">{H.escape(r.get("role", ""))}</span><b>{H.escape(r["name"])}</b><span class="rcw">{H.escape(r.get("why", ""))}</span>
+<span class="rcp">{price(r.get("price"))}<i>Se produktet →</i></span></div></a>''' for r in items)
+    return f'''<section class="recs{" cmp" if compact else ""}"><div class="rch"><h2>{title}</h2><span class="small mute">Valgt for denne siden · kjøp hos Skadedyrbutikken</span></div><div class="rcg">{cards}</div></section>'''
+
+
 def prod(title, text, cat, camp):
     return f'''<div class="prod"><div><b>{title}</b><span>{text}</span></div><a class="btn y arrow" href="{SHOP.format(cat,camp)}">Se utvalget </a></div>'''
 
@@ -63,7 +95,7 @@ ARTICLES = {
 <p>Gå rundt huset med lommelykt. Sjekk særlig der rør og kabler går inn, under dører, langs grunnmuren, i lufteventiler og i takfoten. Bruk materialer musa ikke gnager gjennom, som stålull kombinert med fugemasse, metallnetting eller børstelister på dører. Skum alene stopper sjelden en mus.</p>
 <h2>Feller: plassering betyr mer enn antall</h2>
 <p>Mus går helst langs vegger. Sett fellene vinkelrett mot veggen der du har sett spor, og bruk flere feller i stedet for én. Sjekk dem ofte. Hvis du får fangst i flere uker, er det fortsatt en åpen inngang et sted.</p>
-{prod("Feller og tettemidler for mus", "Mekaniske feller, åtestasjoner og tettematerialer.", "gnagere", "art-mus")}
+{recs("art:mus-om-hosten", "art-mus") or prod("Feller og tettemidler for mus", "Mekaniske feller, åtestasjoner og tettematerialer.", "gnagere", "art-mus")}
 <h2>Når bør du ringe en fagperson?</h2>
 <p>Hvis problemet kommer tilbake etter at du har tettet, hvis du finner tegn på rotter, eller hvis du har en bedrift der du må dokumentere skadedyrkontrollen.</p>
 <p class="small mute">Eksempelartikkel i konseptet. Fakta skal kvalitetssikres mot fagkilder, for eksempel Folkehelseinstituttet, før publisering.</p>
@@ -83,7 +115,7 @@ ARTICLES = {
 <div class="box"><b>Finner du noe?</b> Si fra i resepsjonen og be om et rom som ikke ligger vegg i vegg med det første.</div>
 <h2>Når du kommer hjem</h2>
 <p>Pakk ut i gangen eller på badet, ikke på soverommet. Vask klær du har brukt på høyeste temperatur tøyet tåler, og tørk dem i tørketrommel. Ting som ikke tåler vask kan legges i fryseren i flere døgn. Støvsug kofferten og ta posen ut med en gang.</p>
-{prod("Utstyr mot veggedyr", "Feller, overvåking og utstyr til reise og hjem.", "insekter", "art-veggedyr")}
+{recs("art:veggedyr-pa-reise", "art-veggedyr") or prod("Utstyr mot veggedyr", "Feller, overvåking og utstyr til reise og hjem.", "insekter", "art-veggedyr")}
 <h2>Mistenker du veggedyr hjemme?</h2>
 <p>Ikke flytt madrasser og møbler mellom rom, og ikke kast dem uinnpakket. Da sprer du problemet. Veggedyr er vanskelige å bli kvitt på egen hånd, så kontakt en skadedyrtekniker tidlig.</p>
 <p class="small mute">Eksempelartikkel i konseptet. Fakta skal kvalitetssikres mot fagkilder, for eksempel Folkehelseinstituttet, før publisering.</p>
@@ -159,7 +191,7 @@ def regional_pages():
 </div></section>
 <article class="band"><div class="art">{a["body"]}
 {box}
-{prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else ""}
+{recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
 <h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
 <p class="small mute">Artikkelen er skrevet for Skadedyrguiden og bygger på kildene over. Den erstatter ikke råd fra en fagperson.</p>
 {('<h2>Les også</h2><ul>' + "".join(f'<li><a href="{b["slug"]}.html">{H.escape(b["title"])}</a></li>' for b in others) + '</ul>') if others else ""}
@@ -171,12 +203,14 @@ def regional_pages():
     if old.exists(): old.unlink()
     for slug, (title, desc, body) in TOOLS.items():
         f = ROOT / "verktoy" / (slug + ".html"); f.parent.mkdir(exist_ok=True)
-        f.write_text(head(title + " – Skadedyrguiden", desc, "../") + body + foot("../"), encoding="utf-8")
+        r = recs("tool:" + slug, slug, "Utstyret du trenger")
+        r = f'<section class="band" style="padding-top:0"><div class="wrap">{r}</div></section>' if r else ""
+        f.write_text(head(title + " – Skadedyrguiden", desc, "../") + body + r + foot("../"), encoding="utf-8")
 
 
 if __name__ == "__main__":
     regional_pages()
-    import extra; extra.build(head, foot, prod); extra.newsletter_pages(head, foot)
+    import extra; extra.build(head, foot, prod, recs); extra.newsletter_pages(head, foot)
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")

@@ -431,7 +431,7 @@ function open(k){const p=P.find(x=>x.k===k);if(!p)return;last=document.activeEle
  db.innerHTML=`<div class="ph">${IMG(p.k)}</div><div class="in"><span class="kicker">${p.l}</span><h2 id="dt">${p.n}</h2>
  <div class="facts"><div><small>Sesong</small><b>${p.s}</b></div><div><small>Størrelse</small><b>${p.size}</b></div><div><small>Typisk sted</small><b>${p.where}</b></div></div>
  <h3>Tegn du ser etter</h3><ul>${p.signs.map(s=>`<li>${s}</li>`).join('')}</ul><h3>Gjør dette først</h3><p>${p.first}</p>
- <div class="acts"><a class="btn y arrow" href="${U(p.cat,'leksikon-'+p.k)}">Se utstyr </a>${p.art?`<a class="btn arrow" href="${p.art}">Les artikkelen </a>`:''}${LX[p.k]?`<a class="btn arrow" href="leksikon/${LX[p.k]}.html">I leksikonet </a>`:''}</div></div>`;
+ ${window.SG_recs?SG_recs('sp:'+({maur:'stokkmaur',fluer:''}[p.k]??p.k),'leksikon-'+p.k,4,'Riktig utstyr mot '+p.n.toLowerCase()):''}<div class="acts"><a class="btn y arrow" href="${U(p.cat,'leksikon-'+p.k)}">Alt utstyr </a>${p.art?`<a class="btn arrow" href="${p.art}">Les artikkelen </a>`:''}${LX[p.k]?`<a class="btn arrow" href="leksikon/${LX[p.k]}.html">I leksikonet </a>`:''}</div></div>`;
  dr.classList.add('on');dr.setAttribute('aria-hidden','false');dr.querySelector('.x').focus();}
 const LX={mus:'husmus',rotte:'brunrotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'stikkeveps',melmoll:'melmoll'};
 window.SG_open=open;

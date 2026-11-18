@@ -18,7 +18,7 @@ IMG = {"mus": "mus", "rotte": "rotte", "veggedyr": "veggedyr", "skjeggkre": "skj
        "jordmaur": "maur", "melmoll": "melmoll", "skogmus": "region-midt", "flatt": "region-sor"}
 
 
-def build(head, foot, prod):
+def build(head, foot, prod, recs=None):
     from faq import FAQ
     from articles import ARTICLES, EXTRA
     titles = {a["slug"]: a["title"] for a in ARTICLES + EXTRA}
@@ -47,6 +47,9 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
     L = ROOT / "leksikon"; L.mkdir(exist_ok=True)
     cards = []
     import lexicon
+    lexicon.RECS = recs
+    _p = ROOT / 'data/photos.json'; lexicon.PHOTOS.update(json.loads(_p.read_text()) if _p.exists() else {})
+    _i = REPO / 'kb/species_info.json'; lexicon.INFO.update(json.loads(_i.read_text()) if _i.exists() else {})
     stats = json.loads((ROOT / "data/stats.json").read_text())["fhi"]
     artimg = {x["slug"]: x.get("img") for x in ARTICLES + EXTRA}
     for s in kb:

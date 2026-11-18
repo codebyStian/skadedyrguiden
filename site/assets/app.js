@@ -205,6 +205,19 @@
     return arts.filter((a) => !region || a.regions.includes(region))
       .sort((x, y) => inSeason(y) - inSeason(x)).slice(0, n);
   }
+  /* ---------- produkttips (valgt av produktagenten, data/recs.json) ---------- */
+  let RECS = null;
+  fetch("data/recs.json").then((r) => r.ok ? r.json() : {}).then((d) => { RECS = d; window.dispatchEvent(new Event("sg-recs")); }).catch(() => (RECS = {}));
+  const price = (p) => { const n = parseFloat(String(p).replace(",", ".")); return isFinite(n) ? Math.round(n).toLocaleString("nb-NO") + " kr" : ""; };
+  function recsHTML(key, camp, n = 3, title = "Riktig utstyr") {
+    const list = (RECS && RECS[key] || []).slice(0, n); if (!list.length) return "";
+    const u = (x) => x + (x.includes("?") ? "&" : "?") + "utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=" + camp;
+    return `<div class="recs cmp"><div class="rch"><h3 class="ph3" style="margin:0">${esc(title)}</h3></div><div class="rcg">${list.map((r) =>
+      `<a class="rc" href="${esc(u(r.url))}" rel="sponsored noopener"><div class="rci">${r.image ? `<img src="${esc(r.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</div><div class="rcb"><span class="rcr">${esc(r.role || "")}</span><b>${esc(r.name)}</b><span class="rcw">${esc(r.why || "")}</span><span class="rcp">${price(r.price)}<i>Se produktet →</i></span></div></a>`).join("")}</div></div>`;
+  }
+  window.SG_recs = recsHTML;
+  window.addEventListener("sg-recs", () => { try { monthTip(); } catch {} });
+
   function articles(region) {
     const list = pickArts(region, 4); if (!list.length) return "";
     return `<h3 class="ph3">Aktuelt for ${REGION[region].name}</h3><div class="rarts">${list.map((a) =>
@@ -238,7 +251,7 @@
       ${SP.map(([k, n]) => `<div class="mrow"><span>${n}</span><span class="mbar"><i style="width:${Math.round(100 * (g[k] || 0) / maxOf(k))}%"></i></span><b>${fmt(g[k] || 0)}</b></div>`).join("")}
       <div id="near"></div>
       <p class="src">Kilde: <a href="https://www.gbif.org/occurrence/search?country=NO" rel="noopener">GBIF.org</a> (inkl. Artsobservasjoner), oppdateres ukentlig.</p>
-      ${monthNow()}${articles(f.region)}`;
+      ${monthNow()}${articles(f.region)}${recsHTML("reg:" + f.region, "region-" + f.region, 3, "Utstyr folk i " + REGION[f.region].name + " trenger nå")}`;
     const [lat, lon] = here ? [loc.lat, loc.lon] : [f.c[1], f.c[0]];
     const w = await weather(lat, lon); wx = w; if (here) fxFromWeather(w);
     const r = mouseRisk(w), n = $("#now");
@@ -370,7 +383,7 @@
     const draw = () => {
       const t = T[type].find((x) => x[0].includes(M));
       box.innerHTML = `<div class="htype" role="group" aria-label="Type hytte"><button type="button" data-h="fjell" aria-pressed="${type === "fjell"}">Fjellhytte</button><button type="button" data-h="sjo" aria-pressed="${type === "sjo"}">Hytte ved sjøen</button></div>
-        <span class="kicker">${g}</span><h2>${t[1]}</h2><p class="mute">${t[2]}</p><ul class="checks">${t[3].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("")}</ul><a class="btn arrow" href="artikler/${art[type]}.html">Les hele guiden </a>`;
+        <span class="kicker">${g}</span><h2>${t[1]}</h2><p class="mute">${t[2]}</p><ul class="checks">${t[3].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("")}</ul><a class="btn arrow" href="artikler/${art[type]}.html">Les hele guiden </a>${recsHTML("hytte:" + type, "hytte-" + type, 3, "Til hytta")}`;
       const img = document.querySelector("#monthTip")?.closest(".feat")?.querySelector(".ph img");
       if (img) img.src = `assets/img/${type === "sjo" ? "region-sor" : "hytte"}.webp`;
     };
