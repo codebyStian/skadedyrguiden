@@ -23,8 +23,8 @@ SYN = {"mus": "mus musefelle gnagere", "rotte": "rotte rottefelle rotter gnagere
        "skogsmaur": "maur", "jordmaur": "maur", "melmoll": "møll matmøll melmøll", "kakerlakk": "kakerlakk", "flatt": "flått"}
 
 
-def toks(s):
-    return [w for w in re.findall(r"[a-zæøå]{3,}", s.lower()) if w not in STOP]
+def toks(s):  # enkel stemming: de første 6 bokstavene (grevling/grevlinger, sølvkre/sølvkreet)
+    return [w[:6] for w in re.findall(r"[a-zæøå]{3,}", s.lower()) if w not in STOP]
 
 
 docs = [toks(" ".join([p["name"]] * 3 + p["category"] * 2 + [p["description"], p.get("text", "")[:600]])) for p in CAT]
@@ -94,6 +94,8 @@ Regler:
 - Bare produkter som virker mot akkurat dette dyret. Aldri et produkt for et annet dyr (f.eks. ikke musefelle på en flåttside, ikke åte mot maur på en skjeggkreside).
 - Følg rådene på siden: anbefaler den mekaniske feller og tetting framfor gift, velg det.
 - Ikke produkter som krever godkjenning/sertifikat eller er «kun for profesjonelle».
+- Ikke ultralydskremmere mot gnagere eller insekter (FHI: dårlig dokumentert effekt).
+- Levende fangst av vilt (f.eks. grevling) krever tillatelse – velg heller skremsel/avvisning og tetting, og nevn aldri at fellen kan brukes fritt.
 - Siden handler om en art som ikke er et skadedyr eller er fredet/vernet (f.eks. grevling, flaggermus, humler, hoggorm): velg bare forebygging, skremsel, tetting eller verneutstyr – aldri noe som dreper dyret. Finnes ikke noe passende: returner tom liste.
 - Varier: hovedtiltaket først, så forebygging/tetting, overvåking eller verneutstyr.
 - role: ett av «Bekjemp», «Forebygg», «Tett», «Overvåk», «Beskytt», «Fang levende», «Skrem bort».
