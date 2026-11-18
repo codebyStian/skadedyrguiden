@@ -24,6 +24,7 @@ function toFact(claim, facts) {
   const c = norm(claim); if (!c.length) return [];
   return facts.filter((f) => {
     const w = norm(f), hits = c.filter((x) => w.some((y) => same(x, y))).length;
+    if (["ikke", "mindre", "uten", "kortere"].some((n) => w.includes(n) !== c.includes(n))) return false;   // ikke la «sølvglinsende» treffe «mindre sølvglinsende»
     return hits >= Math.min(2, c.length, w.length) && Math.max(hits / c.length, hits / w.length) >= 0.6;
   });
 }
