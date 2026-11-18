@@ -17,6 +17,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
+      - name: Check token
+        env:
+          T: ${{ secrets.CF_WORKERS_TOKEN }}
+          A: ${{ secrets.CF_ACCOUNT_ID }}
+        run: |
+          echo "token length: ${#T}"
+          curl -s -H "Authorization: Bearer $T" https://api.cloudflare.com/client/v4/user/tokens/verify | python3 -c "import json,sys;d=json.load(sys.stdin);print('verify:',d.get('success'),d.get('result',{}).get('status'),d.get('errors'))"
+          curl -s -H "Authorization: Bearer $T" "https://api.cloudflare.com/client/v4/accounts/$A/workers/subdomain" | python3 -c "import json,sys;d=json.load(sys.stdin);print('subdomain:',d.get('success'),d.get('result'),d.get('errors'))"
       - name: Deploy
         working-directory: worker
         env:
