@@ -45,6 +45,12 @@ p{margin:0 0 1em}
 .ph{position:relative;overflow:hidden;border-radius:18px;background:radial-gradient(120% 90% at 80% 10%,#2b5248 0%,#0f2a24 60%,#0a1d19 100%)}
 .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 a:hover .ph img{transform:scale(1.035)}
+/* bilde som ikke finnes ennå: bevisst, typografisk flate i stedet for et gjentatt foto */
+.ph[data-ph]{background:radial-gradient(90% 120% at 100% 0%,#2b5248 0%,#163a32 45%,#0f2a24 100%)}
+.ph[data-ph]::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(242,194,48,.18) 1.2px,transparent 1.3px);background-size:18px 18px;-webkit-mask:linear-gradient(135deg,#000,transparent 70%);mask:linear-gradient(135deg,#000,transparent 70%)}
+.ph[data-ph]::after{content:attr(data-label);position:absolute;left:22px;bottom:16px;right:22px;font:400 clamp(30px,3.4vw,44px)/1 "Instrument Serif",Georgia,serif;color:var(--y);letter-spacing:-.01em}
+a:nth-child(3n+2) .ph[data-ph]{background:radial-gradient(90% 120% at 0% 100%,#3a4f2a 0%,#24361c 50%,#18261a 100%)}
+a:nth-child(3n) .ph[data-ph]{background:radial-gradient(90% 120% at 100% 100%,#4a3524 0%,#2e2118 55%,#1d1612 100%)}
 /* header */
 .top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:28px;padding:12px max(5vw,18px);flex-wrap:wrap}

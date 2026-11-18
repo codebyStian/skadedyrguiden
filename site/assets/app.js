@@ -214,9 +214,9 @@
     const box = $("#seasonArts"); if (!box || !arts) return;
     const reg = loc && loc.region, list = pickArts(reg, 6).filter(inSeason);
     const t = $("#seasonTitle"); if (t) t.innerHTML = `Aktuelt i <em>${MONTHS[M]}</em>${reg ? " · " + REGION[reg].name : ""}`;
-    box.innerHTML = list.map((a) => `<a href="artikler/${a.slug}.html"><div class="ph">${IMG(a.img)}</div><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3></a>`).join("");
+    box.innerHTML = list.map((a) => `<a href="artikler/${a.slug}.html"><div class="ph" data-label="${esc(a.cat)}">${IMG(a.img)}</div><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3></a>`).join("");
   }
-  const IMG = (n) => `<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/img/hero.webp'">`;
+  const IMG = (n) => `<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">`;
 
   function monthNow() {
     if (!stats?.fhi?.monthly) return "";

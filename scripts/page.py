@@ -146,7 +146,7 @@ def regional_pages():
         others = [b for b in RA if b is not a and set(b["regions"]) & set(a["regions"])][:3]
         body = f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
 <div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div></div>
-<div class="ph"><img src="../assets/img/{a["img"]}.webp" alt="" onerror="this.onerror=null;this.src='../assets/img/hero.webp'"></div>
+<div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a["img"]}.webp" alt="" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
 </div></section>
 <article class="band"><div class="art">{a["body"]}
 {prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else ""}
