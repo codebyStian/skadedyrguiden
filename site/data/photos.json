@@ -1,0 +1,122 @@
+{
+ "mus": {
+  "file": "Домовая мышь (Mus musculus), Москва.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%94%D0%BE%D0%BC%D0%BE%D0%B2%D0%B0%D1%8F_%D0%BC%D1%8B%D1%88%D1%8C_(Mus_musculus),_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Dion Art",
+  "taxon": "Mus musculus"
+ },
+ "skogmus": {
+  "file": "Apodemus sylvaticus (Sardinia).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Apodemus_sylvaticus_(Sardinia).jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "author": "Hans Hillewaert",
+  "taxon": "Apodemus sylvaticus"
+ },
+ "rotte": {
+  "file": "Brown rat (Rattus norvegicus) Drenthe 2.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Brown_rat_(Rattus_norvegicus)_Drenthe_2.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Charles J. Sharp",
+  "taxon": "Rattus norvegicus"
+ },
+ "veggedyr": {
+  "file": "Bed bug, Cimex lectularius.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bed_bug,_Cimex_lectularius.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "author": "Content Providers(s): CDC/ Harvard University, Dr. Gary Alpert; Dr. Harold Harla",
+  "taxon": "Cimex lectularius"
+ },
+ "svaletege": {
+  "file": "Oeciacus hirundinis 02.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Oeciacus_hirundinis_02.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Syrio",
+  "taxon": "Oeciacus hirundinis"
+ },
+ "skjeggkre": {
+  "file": "Ctenolepisma_longicaudatum_-_iNaturalist_97661106.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Ctenolepisma_longicaudatum_-_iNaturalist_97661106.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "author": "Helio Lourencini",
+  "taxon": "Ctenolepisma longicaudatum"
+ },
+ "solvkre": {
+  "file": "Lepisma saccharina 1a.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Lepisma_saccharina_1a.JPG",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "author": "Aiwok",
+  "taxon": "Lepisma saccharinum"
+ },
+ "veps": {
+  "file": "Common Wasp (Vespula (Paravespula) vulgaris) (8655496146).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Common_Wasp_(Vespula_(Paravespula)_vulgaris)_(8655496146).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "author": "Martin Cooper from Ipswich, UK",
+  "taxon": "Vespula vulgaris"
+ },
+ "kjempetreveps": {
+  "file": "Urocerus gigas5.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Urocerus_gigas5.jpg",
+  "license": "CC BY-SA 2.0 de",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+  "author": "Holger Gröschl",
+  "taxon": "Urocerus gigas"
+ },
+ "stokkmaur": {
+  "file": "Camponotus herculeanus.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Camponotus_herculeanus.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "author": "No machine-readable author provided. Denis Barthel assumed (based on copyright c",
+  "taxon": "Camponotus herculeanus"
+ },
+ "skogsmaur": {
+  "file": "A Formica rufa sideview.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:A_Formica_rufa_sideview.jpg",
+  "license": "CC BY-SA 2.5",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "author": "Richard Bartz, Munich Makro Freak",
+  "taxon": "Formica rufa"
+ },
+ "jordmaur": {
+  "file": "Lasius niger.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Lasius_niger.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "author": "Marcus33",
+  "taxon": "Lasius niger"
+ },
+ "melmoll": {
+  "file": "Plodia interpunctella dorsal Bytom.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Plodia_interpunctella_dorsal_Bytom.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Adrian Tync",
+  "taxon": "Plodia interpunctella"
+ },
+ "kakerlakk": {
+  "file": "Blattodea. Cascuda. Santiago de Compostela 1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Blattodea._Cascuda._Santiago_de_Compostela_1.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "author": "Lmbuga",
+  "taxon": "Blattella germanica"
+ },
+ "flatt": {
+  "file": "Ixodes ricinus on dry grass.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Ixodes_ricinus_on_dry_grass.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "W.alter",
+  "taxon": "Ixodes ricinus"
+ }
+}

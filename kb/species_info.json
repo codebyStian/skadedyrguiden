@@ -1,0 +1,607 @@
+{
+ "mus": {
+  "storrelse": [
+   "Kroppslengde på 6–10 cm og vekt på 12–28 g",
+   "Halen er omtrent like lang som kroppen (7–10 cm)",
+   "Bakfotens avtrykk er 12–14 mm langt"
+  ],
+  "utseende": [
+   "Pelsen er oftest grålig med nyanser av brunt på ryggen og lysere underside",
+   "Føttene er brungrå med hvite tåspisser",
+   "Spiss snute med små øyne og små ører",
+   "Fortennene har et karakteristisk hakk på innsiden"
+  ],
+  "hvor": [
+   "Innendørs i bebygde strøk i Norge (fraværende i fjellet og enkelte øyer)",
+   "Bygger bol nær mat og varme, blant annet i vegger, under gulv, i møbler og kasser",
+   "Beveger seg vanligvis bare noen få meter fra bolet",
+   "Kan forekomme utendørs med bol gravd ned i bakken"
+  ],
+  "tegn": [
+   "Små, sylinderformede ekskrementer på 3–6 mm med spisse ender",
+   "Sterk, karakteristisk lukt",
+   "Fotspor med fire tær på frembeina, fem på bakbeina, og ofte slepespor etter halen",
+   "Gnagemerker på emballasje, bygningsdeler og ledninger"
+  ],
+  "livssyklus": [
+   "Kjønnsmoden ved 5–8 ukers alder",
+   "Drektighetstiden varer i 3 uker",
+   "Får 4–7 unger per kull (opptil 12 unger) og omkring 8 kull årlig innendørs",
+   "Lever i omtrent 1 år"
+  ],
+  "skade": [
+   "Gnager på vegger, gulv, tak, dører, møbler og isolasjon",
+   "Kan forårsake kortslutning og brann ved å gnage på strømledninger, samt skade datakabler",
+   "Spiser, forurenser og ødelegger matvarer og dyrefôr med urin og ekskrementer",
+   "Luktplager fra døde individer i gulv og vegger, samt potensiell spredning av smittestoffer"
+  ],
+  "forebygg": [
+   "Tette alle åpninger og sprekker som er større enn 6 mm med metallnetting, metallbeslag, betong eller tettepasta",
+   "Kappe greiner som henger inn over tak, og sikre at kjellervinduer og dører er helt tette",
+   "Montere glatte sperrer på minst 40 cm på yttervegger og 30–45 cm brede krager rundt ledninger og tau",
+   "Fjerne høyt gress, kratt, skrot, nedfallsfrukt og lett tilgjengelig fugle- og dyremat inntil bygninger"
+  ],
+  "tiltak": [
+   "Fjerne tilgang på mat, vann og skjulesteder, og plassere varer minst 45 cm over gulvet",
+   "Fangst med tradisjonelle klappfeller eller flerfangstfeller for levende mus",
+   "Vaske med våt klut i stedet for å koste eller støvsuge for å unngå oppvirvling av smittepartikler"
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Husmus",
+   "url": "https://www.fhi.no/sk/skadedyrveilederen/gnagere/husmus/"
+  }
+ },
+ "skogmus": {
+  "storrelse": [],
+  "utseende": [],
+  "hvor": [],
+  "tegn": [],
+  "livssyklus": [],
+  "skade": [],
+  "forebygg": [],
+  "tiltak": [],
+  "kilde": {
+   "title": "FHI Skadedyrhåndboka: oversikt over skadedyr",
+   "url": "https://fhi.no/sk/skadedyrhandboka/oversikter/alfabetisk-etter-norsk-navn"
+  }
+ },
+ "rotte": {
+  "storrelse": [
+   "Vekt på 200–500 gram.",
+   "Kroppslengde på 18–25 cm og hale på 15–21 cm.",
+   "Bakfoten setter 2,0–2,5 cm lange avtrykk."
+  ],
+  "utseende": [
+   "Pelsen varierer fra grå til brun og svart.",
+   "Halen er kortere enn kroppen, hårløs, skjellbelagt, mørk på oversiden og lys under.",
+   "Butt snute, små øyne og små, hårete ører.",
+   "Store, krumme og kontinuerlig voksende fortenner som etterlater 4 mm brede gnagespor."
+  ],
+  "hvor": [
+   "Inne i hus (vegger, gulv og tak), ute i bakken eller elvebredder, samt i kloakksystemer.",
+   "Under containere, paller, skrot og varmeavgivende maskiner.",
+   "Vanlig i store deler av Norge og resten av verden, oftest nær mennesker."
+  ],
+  "tegn": [
+   "Rektangulære, butt-endede ekskrementer (1,2–2,5 cm lange) som ofte er skinnende svarte.",
+   "Flisete hull i bygningsmaterialer på ca. 5 cm i diameter og 4 mm brede gnagemerker.",
+   "Ganger og hull i bakken med diameter på ca. 8 cm, ofte inntil vegger.",
+   "Spor i støv eller mel med 4 tær foran, 5 tær bak og ofte slepespor etter halen."
+  ],
+  "livssyklus": [
+   "Yngler hovedsakelig om våren og høsten med en drektighetstid på 22 dager.",
+   "Får vanligvis 4–7 kull i året med 8–12 unger per kull.",
+   "Kjønnsmoden alder nås etter 2–3 måneder.",
+   "Levetid er normalt rundt ett år."
+  ],
+  "skade": [
+   "Gnag på strømledninger og kabler med fare for kortslutning og brann, samt vannskader ved gnag på rør.",
+   "Bygningsskader på isolasjon, vegger, gulv, dører, tak og møbler.",
+   "Spising og forurensing av matvarer og dyrefôr med urin og ekskrementer.",
+   "Smittefare (særlig diaréfremkallende bakterier), allergiske reaksjoner, bitt og lukt fra kadavre."
+  ],
+  "forebygg": [
+   "Sikre bygningen ved å tette alle åpninger som er større enn 12 mm."
+  ],
+  "tiltak": [
+   "Bruk av klappfeller mot dyr som har kommet inn i bygninger.",
+   "Rengjøring med våt klut (unngå kosting og støvsuging) for å hindre oppvirvling av smittepartikler.",
+   "Bruk av munnbind og gummihansker under opprydding og ved håndtering av dyr.",
+   "Tette igjen hull i bakken med papir for å sjekke om gangene er aktive."
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Brunrotte",
+   "url": "https://fhi.no/sk/skadedyrveilederen/gnagere/brunrotte/"
+  }
+ },
+ "veggedyr": {
+  "storrelse": [
+   "Voksne veggedyr er 5–6 mm lange og 3 mm brede.",
+   "Eggene er 1 mm lange.",
+   "Nymfene er mindre enn de voksne."
+  ],
+  "utseende": [
+   "Rødbrune i fargen med en oval og sterkt flattrykt kropp.",
+   "Mangler vinger og har en leddelt sugesnabel som ligger bakover under kroppen i hvile.",
+   "Svulmer opp og blir mørkere etter at de har sugd blod.",
+   "Eggene er hvite, mens nymfene er lysere enn de voksne."
+  ],
+  "hvor": [
+   "Innendørs, særlig i og rundt senger, sofaer og lenestoler der folk sover.",
+   "I sprekker, hulrom, bak lister, bilder, skap, gardiner, stikkontakter og løsnet tapet.",
+   "På overnattingssteder som hoteller, campinghytter, studenthjem og i private boliger."
+  ],
+  "tegn": [
+   "Små svarte, brune eller lysegrå ekskrementflekker (grå flekker lyser under UV-lys ved 385 nm).",
+   "Blodflekker på sengetøy eller laken etter måltid.",
+   "Funn av tomme huder, hvite egg og levende eller døde insekter på gjemmestedene.",
+   "En karakteristisk lukt fra alarmferomoner i rom med mange individer."
+  ],
+  "livssyklus": [
+   "Hunnen legger 5–8 egg per uke (opptil 200 totalt) som klekker etter 4–21 døgn.",
+   "Har fem nymfestadier og må suge blod minst én gang mellom hvert stadium.",
+   "Hele livssyklusen tar omtrent 2 måneder ved 22 °C, opptil ett år ved lav temperatur, og stopper under 10 °C.",
+   "Kan overleve lenge uten mat; voksne i opptil 485 dager og nymfer i opptil ni måneder ved 10 °C."
+  ],
+  "skade": [
+   "Gir kløende stikk som kan gi sekundære bakterieinfeksjoner dersom man klør på dem.",
+   "Det er ikke dokumentert at de overfører sykdommer til mennesker under naturlige forhold."
+  ],
+  "forebygg": [
+   "Undersøke sengen og tekstilkanter grundig med lommelykt ved ankomst på overnattingssteder.",
+   "Holde bagasjen lukket i kofferten, oppe på koffertstativ eller plassert på badet borte fra sengen.",
+   "Kulde- eller varmebehandle bagasje ved mistanke om smitte etter reise.",
+   "Undersøke brukte møbler og innbo nøye før de tas inn i boligen."
+  ],
+  "tiltak": [
+   "Gjennomføre en byggomfattende og integrert bekjempelse (IPM) som også omfatter naboleiligheter.",
+   "Bruke giftfrie metoder, da veggedyr er resistente mot tradisjonelle kjemiske insektmidler.",
+   "Benytte profesjonelle skadedyrbekjempere for en kombinasjon av tilpassede metoder.",
+   "Gjennomføre etterkontroll for å sikre at angrepet er fullstendig utryddet."
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrhåndboka: Veggedyr",
+   "url": "https://fhi.no/sk/skadedyrhandboka/teger/veggedyr"
+  }
+ },
+ "svaletege": {
+  "storrelse": [
+   "Voksne individer er 3,5–4 mm lange"
+  ],
+  "utseende": [
+   "Lys gulbrun farge med lange, gulbrune hår på kroppen",
+   "Flat kroppsform med tilbakedannede vinger som kun utgjør korte skjell",
+   "Smalt halsskjold som er under 1,5 ganger bredere enn hodet"
+  ],
+  "hvor": [
+   "I fuglereir, særlig hos taksvale og låvesvale, men også tårnseiler, gråspurv, stær og due",
+   "Overvintrer i reder samt i nærliggende sprekker og skjulesteder",
+   "Kan forville seg inn i hus og soverom fra reir under takskjegget",
+   "Utbredt over hele Sør-Norge, Europa og land rundt Middelhavet"
+  ],
+  "tegn": [],
+  "livssyklus": [
+   "Egg legges i fuglereder og klekkes etter 6–8 dager ved 18–20 °C",
+   "Nymfene må finne næring innen to uker etter klekking",
+   "Voksne individer kan overleve opptil et år uten mat på fuktige, kalde steder",
+   "Hunner legger rundt 50 egg når de suger fugleblod"
+  ],
+  "skade": [
+   "Kan stikke mennesker innendørs, men stikk forekommer sjelden i Norge",
+   "Menneskeblod gir utilstrekkelig næring til formering, og de fleste dør etter omtrent fire uker inne i boliger"
+  ],
+  "forebygg": [
+   "Montere finmasket netting i vinduer som brukes til lufting",
+   "Sikre fasaden og takskjegget mot at det etableres nye svalereir"
+  ],
+  "tiltak": [
+   "Fjerne svalereir om høsten etter at hekkesesongen er over og fuglene har forlatt dem"
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Svaletege",
+   "url": "https://www.fhi.no/nettpub/skadedyrveilederen/veggedyr-og-andre-teger/svaletege/"
+  }
+ },
+ "skjeggkre": {
+  "storrelse": [
+   "Voksne individer er vanligvis 10–14 mm lange, men kan nå opptil 18 mm uten antenner og haletråder.",
+   "Nymfene er 2 mm lange når de klekker fra egget."
+  ],
+  "utseende": [
+   "Vingeløse insekter med en flattrykt, avlang og avsmalnende kropp med tydelig behåring.",
+   "Mørkegrå og spraglete farge med skjell, mens de yngste nymfene mangler skjell og er lysere.",
+   "Hodet har to lange antenner og to kortere kjevefølere.",
+   "Bakkroppen har tre lange haletråder, der den midterste er nesten like lang som selve kroppen."
+  ],
+  "hvor": [
+   "Lever kun innendørs i Norge hele året, og påtreffes ofte i nyere bygninger og moderne leiligheter over hele landet.",
+   "Har tilhold i rom med høy fuktighet som baderom, vaskerom og kjøkken, men overlever også i tørre rom uten sluk eller innlagt vann.",
+   "Gjemmer seg i sprekker, bak fotlister, under dørterskler, i sokler samt i innbyggingskasser for kabler og rør."
+  ],
+  "tegn": [
+   "Oppdages ofte idet lyset slås på om natten, ettersom insektene er nattaktive.",
+   "Fangst av individer i utplasserte limfeller på mistenkte oppholdssteder."
+  ],
+  "livssyklus": [
+   "Utvikling fra nymfe til voksen krever 14 stadier og tar fra 18 måneder til 3 år avhengig av temperaturen.",
+   "Kjønnsmodne voksne kan leve lenge og produserer rundt 50 egg per år.",
+   "Utvikling og aktivitet hemmes under 16 °C og stanser fullstendig ved 11 °C.",
+   "Temperaturer over 26 °C forkorter levetiden, og temperaturer over 40 °C tar livet av dem i løpet av få timer."
+  ],
+  "skade": [
+   "Gjør under normale forhold minimal materiell skade i boliger, men oppleves sjenerende for beboere.",
+   "Kan ved store bestander skade boksamlinger, frimerker, museumsgjenstander og tekstiler av lin eller bomull."
+  ],
+  "forebygg": [
+   "Inspisere paller, pappesker, møbler og kasser som tas inn, spesielt via varelagre, bruktbutikker og terminaler med stor vareflyt.",
+   "Være oppmerksom på innførsel via bager og vesker, selv om risikoen er lav på dagtid når dyrene er passive."
+  ],
+  "tiltak": [
+   "Punktbehandling med forgiftet åte i dråpestørrelser på 10–20 mg per m² langs lister, kriker og sprekker.",
+   "Grundig støvsuging og tørrmopping for å fjerne smuler og matrester samt minimere fuktighet.",
+   "Tetting av sprekker, lister, kabelganger og rørgjennomføringer med fugemasse, samt netting på luftekanaler.",
+   "Bruk av limfeller for å kartlegge og overvåke bestanden i bygningen."
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrhåndboka: Skjeggkre",
+   "url": "https://fhi.no/sk/skadedyrhandboka/smadyr-andre/skjeggkre"
+  }
+ },
+ "solvkre": {
+  "storrelse": [
+   "Voksne individer er 7–12 mm lange (uten antenner og haletråder)",
+   "Nyklekte nymfer er omtrent 2 mm lange"
+  ],
+  "utseende": [
+   "Vingeløse insekter med flattrykt, avsmalnende kropp og sølvglinsende gråfarge",
+   "Unge individer mangler skjell og er hvite",
+   "Har to lange antenner, to kortere kjevefølere og tre korte haletråder bak som er under halve kroppslengden"
+  ],
+  "hvor": [
+   "Finnes kun innendørs i Norge, over hele landet hele året",
+   "Vanligst i fuktige og varme rom som bad, vaskerom og kjøkken",
+   "Gjemmer seg i sprekker, bak lister, skap, under fliser og gulvbelegg",
+   "Påtreffes i bolighus, sykehus, skoler, museer, næringsmiddellokaler og dyrestaller"
+  ],
+  "tegn": [
+   "Insekter observeres pilende unna når lyset slås på i mørke rom",
+   "Funn av individer fanget i glatte kummer, skåler eller badekar de ikke kan klatre ut av",
+   "Kan være en indikasjon på fuktproblemer eller muggsopp i rommet"
+  ],
+  "livssyklus": [
+   "Egg klekker etter 20–40 dager",
+   "Gjennomgår 8 hudskifter før de blir kjønnsmodne voksne etter omtrent 5–6 måneder",
+   "Kan skifte hud opptil 20 ganger og erstatter tapte bein og antenner ved hudskifte",
+   "Kan leve i opptil 4 år, og hunnen legger 20–100 egg i sin levetid"
+  ],
+  "skade": [
+   "Gjør normalt ingen eller minimal materiell skade i vanlige boliger",
+   "Kan gnage i stykker bøker, papir, frimerkesamlinger, tekstiler og museumsgjenstander over lengre tid"
+  ],
+  "forebygg": [
+   "Fjern fuktkilder og utbedre eventuelle fuktskader raskt",
+   "Tett sprekker og hulrom for å redusere tilgjengelige gjemmesteder"
+  ],
+  "tiltak": [
+   "Tørk ut rommet over en lengre periode ved hjelp av økt varme og bedre ventilasjon",
+   "Bruk støvsuger i stedet for våt vask, og frys støvsugerposen etterpå for å drepe insektene",
+   "Tett sprekker og skjulesteder langs lister og overganger",
+   "Profesjonell bekjemper kan i vanskelige tilfeller legge ut forgiftet åte i små dråper langs vegger og lister"
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Sølvkre",
+   "url": "https://www.fhi.no/nettpub/skadedyrveilederen/smadyr-andre/solvkre-/"
+  }
+ },
+ "veps": {
+  "storrelse": [
+   "Arbeidere er 11–19 mm lange, mens dronningen er noe større.",
+   "Arten geithams har arbeidere på 18–24 mm og dronninger på opptil 35 mm.",
+   "Bolet starter på størrelse med en valnøtt og kan i august bli større enn en fotball."
+  ],
+  "utseende": [
+   "Glatt bakkropp uten hår, med vekselvis gule og svarte ringer.",
+   "Vingene er smale i hvileposisjon fordi de foldes på langs.",
+   "Artene har ulike mønstre i gult og svart på hodet.",
+   "Hunner og arbeidere har stikkbrodd koblet til giftkjertel i bakkroppen, mens droner mangler brodd."
+  ],
+  "hvor": [
+   "Finnes over hele Norge, og er vanlige i og rundt bolighus.",
+   "Bygger bol i busker, hule trær, innunder tak, på loft eller i hulrom i bakken (som gamle musereir).",
+   "Overvintrer i hule trær, jordhull, vedstabler eller i kroker på loft."
+  ],
+  "tegn": [
+   "Kuleformede, papiraktige bol laget av tyggede trefibre under takutspring, på loft eller i vegetasjon.",
+   "Vepsetrafikk som jevnlig flyr inn og ut av sprekker, luftekanaler eller hull i bakken."
+  ],
+  "livssyklus": [
+   "Ettårige samfunn der kun unge, befruktede dronninger overvintrer og starter nye bol i april.",
+   "Dronningen aler opp de første arbeiderne som blir voksne i juni og overtar driften av bolet.",
+   "Arbeiderne lever i 2–3 uker, og dronningen kan legge opptil 12 000 egg på én sommer.",
+   "Nye dronninger og droner klekkes og parer seg på sensommeren; kolonien dør ut om høsten ved frostnetter, og bolet brukes aldri om igjen."
+  ],
+  "skade": [
+   "Gir smertefulle stikk som kan gi hevelser, pusteproblemer ved stikk i hals/munn, eller dødelig allergisjokk.",
+   "Kan være svært plagsomme og innpåslitne rundt mat og søtsaker utendørs i august og september.",
+   "Potensielle smittespredere via søppel og åtsler, kan skade frukt og bakervarer, samt angripe honningbier (skader ikke bygningskonstruksjoner)."
+  ],
+  "forebygg": [
+   "Følge med om våren på loft, takutspring og luftekanaler for å oppdage tidlig bolbygging.",
+   "Montere netting foran åpninger og sprekker som leder inn til loft.",
+   "Fjerne små bol tidlig i sesongen før vepsekolonien vokser seg stor."
+  ],
+  "tiltak": [
+   "Bekjempelse gjøres best om kvelden eller natten iført heldekkende verneutstyr som birøkterdrakt eller regntøy.",
+   "Fritthengende bol kan fjernes uten kjemikalier ved å tres i en plastpose eller støvsuges, for deretter å fryses i dypfryser.",
+   "Kjemiske midler som vepseskum, sprøytemidler stukket inn i bolet, eller insektpulver ved åpninger til skjulte bol.",
+   "Gamle bol kan trygt fjernes om vinteren da alle vepsene er døde og bolet ikke gjenbrukes."
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Stikkeveps",
+   "url": "https://www.fhi.no/nettpub/skadedyrveilederen/veps-og-bier/stikkeveps/"
+  }
+ },
+ "kjempetreveps": {
+  "storrelse": [
+   "Hunnen er 2,4–4,4 cm lang, mens hannen er noe mindre.",
+   "Fullt utvokste larver blir opptil 4 cm lange.",
+   "Larveganger og utgangshull måler 4–7 mm i diameter, og gangene kan bli over 1 meter lange."
+  ],
+  "utseende": [
+   "Kroppen er jevnt sylindrisk uten vepsetalje; hunnen har gule og svarte farger, gule bein og antenner, to gule flekker bak hodet samt et langt eggleggingsrør.",
+   "Hannen har svart forkropp og orangerød bakkropp med svart ende.",
+   "Larvene er hvite og sylindriske med tydelige ledd, lite hode, tre par korte ben og en liten mørk pigg på bakkroppen."
+  ],
+  "hvor": [
+   "I skogområder over store deler av Norge, ofte i soleksponert treverk på nedre deler av trær, tømmer eller stubber.",
+   "Tilknyttet nylig døde eller døende bartrær som gran, furu, lerk og edelgran."
+  ],
+  "tegn": [
+   "Sirkelrunde utflygingshull med en diameter på 4–7 mm i treverket.",
+   "Kryssende larveganger i veden pakket med fint boremel av gnagspon og avføring."
+  ],
+  "livssyklus": [
+   "Voksne veps flyr fra juli til september, og paringen foregår oppe i tretoppene.",
+   "Hunnen borer eggene et par cm inn i fersk ved sammen med en sopp som bryter ned veden til larvemat.",
+   "Larveutviklingen tar vanligvis to til tre år, men kan ta lenger tid dersom treet tørker.",
+   "Puppestadiet foregår i de ytterste 2 cm av larvegangen før den ferdige vepsen gnager seg ut."
+  ],
+  "skade": [
+   "Ufarlig for mennesker da den ikke kan stikke."
+  ],
+  "forebygg": [],
+  "tiltak": [],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Kjempetreveps",
+   "url": "https://www.fhi.no/nettpub/skadedyrveilederen/veps-og-bier/kjempetreveps/"
+  }
+ },
+ "stokkmaur": {
+  "storrelse": [
+   "Norges største maurart.",
+   "Dronninger blir opptil 18 mm lange.",
+   "Arbeiderne varierer i størrelse fra 5 til 14 mm."
+  ],
+  "utseende": [
+   "Hodet er helt svart og ryggen er jevnt krummet.",
+   "Jordstokkmaur og skogstokkmaur er tofargede i rødbrunt og sort, mens sotstokkmaur er ensfarget sort.",
+   "Hannene og de unge dronningene har vinger fram til etter paring.",
+   "Spruter ikke maursyre og bøyer ikke bakkroppen mellom beina ved forstyrrelse."
+  ],
+  "hvor": [
+   "Finnes over store deler av Norge.",
+   "I bygninger: Yttervegger, gulv, tak, samt varme soner som soloppvarmede vegger og gulv med varmekabler og isopor.",
+   "Utendørs: Gamle stubber, råtnende treverk, vedstabler, levende trær eller jordreir (i Sør-Norge)."
+  ],
+  "tegn": [
+   "Jevn maurtrafikk inne i huset eller inn mot bygningen, inkludert aktivitet på senvinteren.",
+   "Hauger av oppgnagd sagflis eller tygd isolasjonsmateriale som mauren kaster ut.",
+   "Store mengder vingede maur innendørs på forsommeren.",
+   "Lyder inne i vegger og hulrom, som forsterkes dersom man banker på overflaten."
+  ],
+  "livssyklus": [
+   "Sverming og paring skjer på forsommeren; hannene dør etterpå, og dronningen klipper av vingene for å stifte koloni.",
+   "Egg legges av dronningen fra våren fram til midten av august.",
+   "Nye kjønnsindivider klekkes om høsten, overvintrer i reiret og svermer først påfølgende vår.",
+   "Det tar 7 til 10 år før et nystiftet samfunn er stort nok til å produsere nye hanner og dronninger."
+  ],
+  "skade": [
+   "Påfører bygningsskade ved å gnage ut reirrom i treverk og isolasjonsmaterialer som isopor."
+  ],
+  "forebygg": [
+   "Beskjær grener fra busker og trær så de ikke henger over tak eller inn mot huset.",
+   "Fjern gamle trestubber, unngå råtnende trevirke i hagen og ikke stable fyringsved inntil husveggen.",
+   "Utbedre fuktskader raskt, mal vinduskarmer jevnlig og sørg for god ventilasjon på loft og i krypkjellere."
+  ],
+  "tiltak": [
+   "Åpne infiserte konstruksjoner for å fjerne samfunnet fysisk med støvsuger eller ved direkte påføring av bekjempelsesmiddel.",
+   "Legg ut forgiftet åte i maurstiene dersom reiret er utilgjengelig, helst tidlig på sommeren.",
+   "Tett igjen sprekker, hull og inngangspartier etter at bekjempelsen er vellykket."
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrhåndboka: Stokkmaur",
+   "url": "https://fhi.no/sk/skadedyrhandboka/maur/stokkmaur"
+  }
+ },
+ "skogsmaur": {
+  "storrelse": [
+   "Arbeidere er 4,5–9 mm lange",
+   "Dronninger og hanner (flygemaur) måler 8–11 mm"
+  ],
+  "utseende": [
+   "Tofarget kropp i oransjerødt og svart",
+   "Tofarget hode, til forskjell fra stokkmaur som har helt svart hode"
+  ],
+  "hvor": [
+   "I tilknytning til skog over store deler av Norge",
+   "I maurtuer på bakken som også går et godt stykke ned i jorda",
+   "Kan opptre i hager, på terrasser, rundt bygninger og unntaksvis inne i hus"
+  ],
+  "tegn": [
+   "Synlige tuer bygget opp av barnåler og annet organisk materiale",
+   "Hektiske maurstier på bakken og oppover trestammer",
+   "Hauger med innsamlet reirmateriale innendørs"
+  ],
+  "livssyklus": [
+   "Sverming med flygemaur foregår i perioden mai til juli",
+   "Nye kolonier etableres ved at arbeidere tar med seg én eller flere dronninger fra en eksisterende tue",
+   "Samfunnene danner sammenhengende nettverk og kan ha hundrevis av dronninger og flere hundre tusen arbeidere"
+  ],
+  "skade": [
+   "Gjør normalt ingen skade på bygninger eller mennesker",
+   "Kan bite og sprute ubehagelig maursyre ved forstyrrelse",
+   "Reirmateriale dratt inn i hus kan skape lokale fuktproblemer"
+  ],
+  "forebygg": [
+   "Klippe ned og begrense vegetasjon helt inntil husveggen",
+   "Kjemisk forebygging har ingen hensikt og bør unngås"
+  ],
+  "tiltak": [
+   "Sperre adkomst til trær nær huset med insektklister på stammen for å bryte maurstiene",
+   "Fjerne reir inne med spade eller industristøvsuger, og tette sprekker der mauren kom inn",
+   "Grave bort utendørs tuer nær huset helt ned i jorda ved store plager",
+   "Eventuelt bruke maurvanningsmiddel på stedet etter at en utetue er gravd vekk"
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Rød skogsmaur",
+   "url": "https://www.fhi.no/sk/skadedyrveilederen/maur/rod-skogsmaur/"
+  }
+ },
+ "jordmaur": {
+  "storrelse": [
+   "Arbeidere er 3–5 mm lange.",
+   "Dronningene er dobbelt så store som arbeiderne.",
+   "Et samfunn kan bestå av opptil 10 000 maur."
+  ],
+  "utseende": [
+   "Kroppen er svart.",
+   "Har fine hår på det lengste leddet på antennene (synlig med forstørrelse).",
+   "Dronninger opptrer med vinger som «flygemaur» under svermingen."
+  ],
+  "hvor": [
+   "Vanlig i lavtliggende strøk i Sør-Norge, og finnes utendørs nord til og med Trøndelag.",
+   "Trives i hager og menneskepåvirkede områder.",
+   "Reir legges ofte utendørs i jord, sand, råttent treverk eller under varme steiner og heller.",
+   "Kan etablere reir innendørs på varme steder med tilgang på myke materialer."
+  ],
+  "tegn": [
+   "Trafikk av maur i faste, travle maurstier mot søte kilder.",
+   "Maur som opptrer inne på leting etter mat tidlig på våren.",
+   "Store mengder bevingede maur innendørs i juli–august (indikerer reir i bygget)."
+  ],
+  "livssyklus": [
+   "Sverming foregår på sensommeren i juli–august.",
+   "Nye dronninger kvitter seg med vingene og kjemper til kun én overlevende dronning gjenstår per reir.",
+   "Dronningen kan leve i over 20 år.",
+   "Kolonien og reiret utvides hovedsakelig i løpet av våren og sommeren."
+  ],
+  "skade": [
+   "Kan ødelegge og hule ut myke bygningsmaterialer som isolasjon og råteskadet treverk innendørs.",
+   "Gnager normalt ikke på uskadet, friskt treverk.",
+   "Gjør ingen materiell skade ved næringssøk fra utendørs reir, men skaper sjenanse og irritasjon."
+  ],
+  "forebygg": [
+   "Bytte ut sand med grus under belegningsstein og helleganger.",
+   "Redusere vegetasjon tett inntil husveggene.",
+   "Montere finmasket netting på ventiler på bakkenivå samt tette sprekker og hull i grunnmur.",
+   "Oppbevare søte matvarer i tette beholdere og tørke opp matsøl med en gang."
+  ],
+  "tiltak": [
+   "Sette ut forgiftet sukkerholdig åte i maurstiene innendørs og fjerne annen tilgjengelig søt mat.",
+   "Holde åten tilgjengelig i et par uker etter at siste maur er observert for å ramme nyklekkede maur.",
+   "Fjerne reir fysisk ved graving, kokende vann eller insektsspray dersom det er lett tilgjengelig.",
+   "Avvente tiltak ved tilfeldige næringssøk om våren, da problemet ofte forsvinner av seg selv når det blir mer mat ute."
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Svart jordmaur",
+   "url": "https://www.fhi.no/nettpub/skadedyrveilederen/maur/svart-jordmaur/"
+  }
+ },
+ "melmoll": {
+  "storrelse": [
+   "Voksne individer har et vingespenn på 20–25 mm.",
+   "Larvene blir 13–16 mm lange."
+  ],
+  "utseende": [
+   "Framvingene er smale og blekgrå med mørke sikksakklinjer og flekker, mens bakvingene er skittenhvite med frynser langs bakkanten.",
+   "Vingeskjellene kan slites av hos eldre individer, slik at vingene fremstår mer ensfarget grå.",
+   "Larven er lysegrønn, rosa eller hvit."
+  ],
+  "hvor": [
+   "Forekommer innendørs over hele Norge, spesielt i private husholdninger, kornmøller og bakerier.",
+   "Lever ikke utendørs i Norge.",
+   "Trives best på mørke steder, og larvene oppsøker ofte skjermede sprekker i treverk eller skap for å forpuppe seg."
+  ],
+  "tegn": [
+   "Tette, gråaktige og illeluktende klumper i mel og kornvarer, dannet av klebrig silkespinn, ekskrementer og matrester.",
+   "Silkekokonger og pupper sittende i sprekker, hull eller langt unna selve matkilden.",
+   "Voksne møll som sitter stille på mørke steder om dagen, eller flyr raskt i sikksakkmønster om natten."
+  ],
+  "livssyklus": [
+   "Hunnen legger opptil 200 egg på næringsmiddelet kort tid etter paring, og eggene klekkes etter en til to uker.",
+   "Larvene spinner kontinuerlig klebrige silkerør mens de spiser, før de forlater matkilden for å forpuppe seg i en silkekokong.",
+   "Utviklingen tar tre måneder ved 18 °C og 41 dager ved 28 °C; ved lave temperaturer kan larven gå i dvale.",
+   "Ved normal romtemperatur kan det utvikles fire generasjoner i året, og voksne individer tar vanligvis ikke til seg næring."
+  ],
+  "skade": [
+   "Larver og spinn forurenser og ødelegger mel, gryn, frokostblandinger, frø og andre tørrvarer, samt ferdige bakevarer.",
+   "Klumper av spinn og mel tetter igjen rør, trakter og sikter i kornmøller, noe som kan tvinge fram driftsstans for rengjøring.",
+   "Larvene kan forårsake fysisk skade på utstyr ved å gnage i stykker sikteduker i møller og bakerier."
+  ],
+  "forebygg": [
+   "Oppbevare mel, korn og andre råvarer i tette beholdere av for eksempel hardplast.",
+   "Holde lagre godt gjennomluftet med lav lufttemperatur, samt sørge for jevnlig rullering av varer (for eksempel tømming og vask av melsiloer minst hver tredje måned).",
+   "Oppbevare returvarer og returemballasje godt adskilt fra produksjonslokaler i næringsvirksomheter.",
+   "Plassere matvarer på hyller hevet fra gulvet, fjerne søl raskt, og tette sprekker og revner i rommene."
+  ],
+  "tiltak": [
+   "Kaste infiserte matvarer, eller fryse lett angrepne produkter ved -18 °C i ett døgn (eventuelt varmebehandle ved 55 °C i én time).",
+   "Gjøre grundig rent ved å støvsuge kriker, kroker, maskindeler og rør uten å tilføre fuktighet.",
+   "Ved alvorlige angrep i møller kan spesialutdannede skadedyrbekjempere gjennomføre gassing.",
+   "Bruk av feromoner for å forstyrre reproduksjonen og redusere bestanden i kornmøller."
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Melsmalmott",
+   "url": "https://www.fhi.no/nettpub/skadedyrveilederen/moll-og-sommerfugler/melmoll/"
+  }
+ },
+ "kakerlakk": {
+  "storrelse": [
+   "Voksne individer er 1,0–1,6 cm lange.",
+   "Eggkapselen måler omtrent 8 mm i lengden og 3 mm i bredden."
+  ],
+  "utseende": [
+   "Lysebrun til brungul kropp med to karakteristiske, svarte langsgående striper på halsskjoldet.",
+   "Har velutviklede vinger som kan benyttes til glideflukt.",
+   "Nymfene er mørkere og mangler vinger, men har de samme to mørke stripene.",
+   "Eggkapselen er lys brun, lett buet og tydelig inndelt i ca. 18 segmenter."
+  ],
+  "hvor": [
+   "Finnes kun innendørs i Norge, særlig på varme steder (25–33 °C) med tilgang på vann og fuktighet.",
+   "Gjemmer seg på mørke steder om dagen, som i sprekker og under eller inne i maskiner og utstyr."
+  ],
+  "tegn": [
+   "Observasjon av kakerlakker som beveger seg ute i lyset på dagtid (indikerer høy bestand).",
+   "Ubehagelig og sjenerende lukt forårsaket av kakerlakkenes sekret.",
+   "Matvarer tilgriset med ekskrementer og illeluktende væske."
+  ],
+  "livssyklus": [
+   "Utviklingen består av tre stadier: egg, nymfe og voksen kakerlakk.",
+   "Hunnen bærer eggkapselen (med 30–40 egg) i omtrent 30 dager frem til klekking, og legger opptil seks kapsler i livet.",
+   "Nymfene går gjennom 5–7 stadier over 35–120 dager, avhengig av temperatur (raskest ved 30 °C).",
+   "Voksne hanner lever i 90–140 dager, mens hunnene har en levetid på 140–280 dager."
+  ],
+  "skade": [
+   "Spiser på og forurenser matvarer med avføring og vond lukt.",
+   "Gjør materiell skade ved å gnage på bøker, papir, malerier, herbarier og frimerker.",
+   "Kan utløse allergiske reaksjoner, astma, hudirritasjoner og psykisk stress.",
+   "Har potensial til å overføre smitte, da de bærer på virus, bakterier, sopp og parasitter."
+  ],
+  "forebygg": [],
+  "tiltak": [],
+  "kilde": {
+   "title": "FHI Skadedyrveilederen: Tysk kakerlakk",
+   "url": "https://www.fhi.no/nettpub/skadedyrveilederen/kakerlakker/tysk-kakerlakk/"
+  }
+ }
+}
