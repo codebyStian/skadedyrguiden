@@ -82,6 +82,18 @@ Svar KUN med JSON: {"verdict": "bekreftet|usikker|avvist", "confidence": 0.0-1.0
 
 export default {
   async fetch(req, env) {
+    try { return await handle(req, env); }
+    catch (e) {
+      const msg = String(e?.message || e);
+      const quota = /429|allocation|quota|neurons/i.test(msg);
+      return json({ error: quota ? "Bildeanalysen har nådd dagens grense. Prøv igjen i morgen, eller bruk «Velg tegn» i mellomtiden."
+        : "Noe gikk galt i analysen. Prøv igjen om litt." }, quota ? 503 : 500, cors(req, env));
+    }
+  },
+};
+
+async function handle(req, env) {
+  {
     const h = cors(req, env);
     if (req.method === "OPTIONS") return new Response(null, { headers: h });
     const url = new URL(req.url);
@@ -119,5 +131,5 @@ export default {
       alternatives: cands.slice(1).map((a) => ({ id: a.id, name: BY_ID[a.id].name, confidence: Math.round(a.confidence * 100) })),
       confusable: s.confusable.map((x) => ({ name: BY_ID[x.id]?.name || x.id, how: x.how })), model,
     }, 200, h);
-  },
-};
+  }
+}

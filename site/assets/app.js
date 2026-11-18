@@ -299,7 +299,7 @@
       $("#prev").innerHTML = `<img src="${data}" alt="Bildet du lastet opp">`; drop.classList.add("has");
       if (!AI_URL) { out.innerHTML = `<div class="aicard"><span class="kicker">Ikke koblet på ennå</span><h3>Bildeanalysen er ikke aktivert i denne forhåndsvisningen</h3><p class="mute">Når den er koblet til, sjekkes bildet mot FHIs kjennetegn i to steg før du får svar. Bruk gjerne «Velg tegn» i mellomtiden.</p></div>`; return; }
       out.innerHTML = `<div class="aicard busy"><span class="spin"></span><b>Analyserer bildet …</b><span class="mute small">Steg 1: beskriver det som synes. Steg 2: sjekker mot FHIs kjennetegn.</span></div>`;
-      const r = await getJSON(AI_URL + "/identify", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ image: data, hint: $("#hint").value }) });
+      let r = null; try { const res = await fetch(AI_URL + "/identify", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ image: data, hint: $("#hint").value }) }); r = await res.json(); } catch {}
       if (!r || r.error) { out.innerHTML = `<div class="aicard"><h3>Det gikk ikke</h3><p class="mute">${esc(r?.error || "Analysen svarte ikke. Prøv igjen om litt.")}</p></div>`; return; }
       if (r.level === "ukjent") { out.innerHTML = `<div class="aicard"><span class="kicker">Ingen sikker match</span><h3>Vi kjente ikke igjen dyret</h3><p class="mute">${esc(r.visible || "")}</p><p>Prøv et skarpere bilde tatt ovenfra, gjerne med en mynt ved siden av for størrelse.</p></div>`; return; }
       const lvl = { sannsynlig: "Sannsynlig", mulig: "Mulig", usikker: "Usikker" }[r.level];
