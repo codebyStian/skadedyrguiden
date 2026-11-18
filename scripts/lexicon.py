@@ -113,7 +113,12 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
     inf = INFO.get(s["id"], {})
     li = lambda k: "".join(f"<li>{E(cap(x))}</li>" for x in inf.get(k, []))
     import re as _re
-    size = next((m.group(0) for x in inf.get("storrelse", []) + s["features"] for m in [_re.search(r"\d+(?:[,.]\d+)?\s*(?:[–-]\s*\d+(?:[,.]\d+)?\s*)?(?:mm|cm)", x)] if m), "")
+    texts = inf.get("storrelse", []) + s["features"]
+    rng = r"\d+(?:[,.]\d+)?\s*(?:[–-]|til)\s*\d+(?:[,.]\d+)?\s*(?:mm|cm)"
+    pref = [x for x in texts if not _re.search(r"dronning|hann", x, _re.I)] + texts
+    size = next((m.group(0) for x in pref for m in [_re.search(rng, x)] if m), "") or \
+           next((m.group(0) for x in pref for m in [_re.search(r"\d+(?:[,.]\d+)?\s*(?:mm|cm)", x)] if m), "")
+    size = _re.sub(r"\s*til\s*", "–", size)
     parts = []
     if inf.get("storrelse") or inf.get("utseende"):
         parts.append(f'''<div class="fx id"><div class="big"><small>Størrelse</small><b>{E(size) or "–"}</b><ul>{li("storrelse")}</ul></div><div><small>Utseende</small><ul class="ok">{li("utseende")}</ul></div></div>''')
@@ -154,7 +159,7 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
 COMPARE = {}
 CMP_CSS = """<style>
 .cmpx{border:1px solid var(--line);border-radius:22px;overflow:hidden;margin:2em 0;background:#fff}
-.cmpx .test{background:#0f2a24;color:#fff;padding:18px 24px;display:flex;gap:14px;align-items:flex-start}.cmpx .test b{color:#f2c230;white-space:nowrap}
+.cmpx .test{background:#0f2a24;color:#fff;padding:18px 24px;display:flex;gap:14px;align-items:flex-start}.cmpx .test b{color:#f2c230;white-space:nowrap;flex:none}
 .cmpx .pics{display:grid;grid-template-columns:1fr 1fr}.cmpx .pic{position:relative}.cmpx .pic .ph{aspect-ratio:4/3;border-radius:0}.cmpx .pic img{width:100%;height:100%;object-fit:cover}
 .cmpx .pic .nm{position:absolute;left:14px;bottom:14px;background:rgba(15,42,36,.86);color:#fff;border-radius:12px;padding:8px 14px}.cmpx .pic .nm b{display:block;font-size:18px}.cmpx .pic .nm em{font-size:13px;color:#cfdad6}
 .cmpx .pic .nm a{color:#fff}.cmpx .pic+.pic{border-left:3px solid #fff}
