@@ -129,7 +129,7 @@ ARTICLES = [
  "sources": [("FHI: Stokkmaur", f"{FHI}/maur/stokkmaur"), ("FHI: Rød skogsmaur", "https://www.fhi.no/sk/skadedyrveilederen/maur/rod-skogsmaur/"),
              ("FHI: Svart jordmaur", "https://www.fhi.no/nettpub/skadedyrveilederen/maur/svart-jordmaur/"), ("FHI: Statistikk om skadedyr", "https://fhi.no/tema/skadedyr/statistikk")]},
 {
- "slug": "husbukk", "regions": ["sor"], "cat": "Treskadedyr", "min": 4, "img": "region-sor",
+ "slug": "husbukk", "regions": ["sor"], "cat": "Treskadedyr", "min": 4, "img": "husbukk",
  "title": "Husbukk langs kysten av Telemark og Agder: tegn du ser etter",
  "lead": "Husbukken er en stor bille som spiser tørt treverk i bygninger. Den har en flekkvis utbredelse i Sør-Norge, og angrepene utvikler seg sakte over mange år.",
  "body": """
@@ -193,7 +193,7 @@ ARTICLES = [
  "sources": [("FHI: Skjeggkre", f"{FHI}/smadyr-andre/skjeggkre"), ("FHI: Sølvkre", "https://www.fhi.no/nettpub/skadedyrveilederen/smadyr-andre/solvkre-/"),
              ("FHI: Byggomfattende bekjempelse", f"{FHI}/forebygging-og-bekjempelse/byggomfattende-bekjempelse")]},
 {
- "slug": "stripet-borebille", "regions": ["vest", "nord"], "cat": "Treskadedyr", "min": 4, "img": "region-vest",
+ "slug": "stripet-borebille", "regions": ["vest", "nord"], "cat": "Treskadedyr", "min": 4, "img": "borebille",
  "title": "Små runde hull i treverket? Det kan være stripet borebille",
  "lead": "Stripet borebille – også kalt mit, mott eller mår – er vanligst i fuktige kyststrøk og finnes nord til og med Troms. Hullene er ofte spor etter gamle angrep.",
  "body": """
@@ -237,7 +237,7 @@ ARTICLES = [
  "prod": ("Feller for gård og hytte", "Klappfeller, fleremusfeller og tettemateriell.", "gnagere"),
  "sources": [("FHI: Husmus", f"{FHI}/gnagere/husmus"), ("FHI: Klatremus", f"{FHI}/gnagere/klatremus"), ("FHI: Småskogmus", f"{FHI}/gnagere/smaskogmus")]},
 {
- "slug": "smagnagerar", "regions": ["nord"], "cat": "Gnagere", "min": 4, "img": "region-nord",
+ "slug": "smagnagerar", "regions": ["nord"], "cat": "Gnagere", "min": 4, "img": "smagnager",
  "title": "Smågnagerår: når det kryr av mus og lemen",
  "lead": "Mus og lemen svinger kraftig i antall, med topper hvert tredje–fjerde år. I toppårene øker også presset mot hytter og hus.",
  "body": """
@@ -286,3 +286,185 @@ ARTICLES = [
 ]
 
 REGION_ARTICLES = {r: [a for a in ARTICLES if r in a["regions"]][:3] for r in ["ost", "sor", "vest", "midt", "nord"]}
+
+ARTICLES += [
+{
+ "slug": "flaggermus-pa-loftet", "regions": ["ost", "sor", "vest", "midt"], "months": [5, 6, 7, 8, 9], "cat": "Vilt i huset", "min": 4, "img": "flaggermus",
+ "title": "Flaggermus på loftet: fredet, nyttig – og slik gjør du det riktig",
+ "lead": "Alle flaggermus i Norge er fredet. Har de slått seg ned på loftet eller i veggen, må du vente til de har forlatt huset før du tetter.",
+ "body": """
+<h2>Fredet og nyttig</h2>
+<p>Det er registrert elleve arter flaggermus i Norge, og alle er fredet. Flere står også på Norsk rødliste. Det betyr at du ikke har lov til å fange eller avlive dem uten tillatelse. Flaggermus spiser store mengder insekter, blant annet mygg.</p>
+<h2>Hvorfor velger de huset ditt?</h2>
+<p>Flaggermus kan bruke loft for å hvile på dagtid, og noen ganger lager de ynglekolonier i bygninger. Koloniene foretrekker varme, tørre og mørke steder, som mørkeloft og hulrom mellom ytter- og innervegg. Flere arter liker seg under pipebeslaget eller rundt pipa på loftet.</p>
+<div class="box"><b>Ikke steng unger inne</b>Innflygingshull kan bare tettes når flaggermusene ikke er i huset. Stenger du dem inne, kan dyrene dukke opp andre steder i huset eller dø i veggen.</div>
+<h2>Hva er problemet?</h2>
+<p>Det største problemet er som regel møkk og urin, som kan gi vond lukt og misfarging der koloniene er store og ventilasjonen er dårlig. Du risikerer ikke rabiessmitte ved å ha flaggermus i huset der du bor.</p>
+<h2>Slik gjør du</h2>
+<ul>
+<li>Følg med på når flaggermusene flyr ut om kvelden, og finn inngangene.</li>
+<li>Tett først når de har forlatt huset for sesongen.</li>
+<li>Sett gjerne opp flaggermuskasser ute, så har de et annet sted å være.</li>
+<li>Bruk hansker som hindrer bitt og væske hvis du må håndtere en flaggermus, også en død. Vask søl med klorin eller alkoholbasert desinfeksjon.</li>
+<li>Ikke vekk flaggermus i dvale om vinteren – det tærer på energien de trenger for å overleve.</li>
+</ul>
+""",
+ "prod": None,
+ "sources": [("FHI Skadedyrhåndboka: Flaggermus", f"{FHI}/pattedyr-andre/flaggermus"), ("Miljødirektoratet: Flaggermus", "https://www.miljodirektoratet.no/ansvarsomrader/arter-naturtyper/truede-arter-og-naturtyper/flaggermus/"),
+             ("Statsforvalteren: Flaggermus i hus (brosjyre)", "https://www.statsforvalteren.no/link/4347ce71843c4d238ee6a2ec6b0c8efa.pdf")]},
+{
+ "slug": "hoggorm", "regions": ["ost", "sor", "vest", "midt"], "months": [4, 5, 6, 7, 8, 9], "cat": "Vilt i hagen", "min": 4, "img": "hoggorm",
+ "title": "Hoggorm i hagen og på hytta: kjennetegn og hva du gjør ved bitt",
+ "lead": "Hoggormen er Norges eneste giftige slange. Den er fredet, sjelden aggressiv – og et bitt skal alltid tas på alvor.",
+ "body": """
+<h2>Kjenn igjen hoggormen</h2>
+<p>Det mest karakteristiske kjennetegnet er et svart sikksakkbånd langs ryggen. Grunnfargen er grå (mest hanner) eller brun (mest hunner), og det finnes også helt svarte hoggormer. Hoggorm finnes over det meste av Sør-Norge. I kulturlandskapet liker den brakklagte enger, gjerne nær steingjerder, bringebærkratt eller annet skjul.</p>
+<h2>Hoggormen er fredet</h2>
+<p>Hoggorm er fredet, som de andre slangene i Norge. Må du flytte en hoggorm, er det greit å sette den ut noen hundre meter unna stedet der du fant den.</p>
+<div class="box"><b>Blir du bitt</b>Kontakt lege eller Giftinformasjonen på 22 59 13 00. Ved alvorlige symptomer: ring 113. Hold deg mest mulig i ro – ikke klem, skjær eller sug på bittstedet. Barn som er bitt, bør bæres.</div>
+<h2>Slik unngår du bitt</h2>
+<ul>
+<li>Hold gresset kort og rydd bort kratt og steinhauger nær huset og der barn leker.</li>
+<li>Bruk støvler eller kraftige sko i lyng og høyt gress.</li>
+<li>Se deg for når du plukker bær eller løfter på steiner og materialer.</li>
+<li>Rundt 30 prosent av hoggormbitt er tørrbitt uten gift, men du kan ikke vite det på forhånd. Ta derfor alle bitt på alvor.</li>
+</ul>
+""",
+ "prod": None,
+ "sources": [("FHI Skadedyrhåndboka: Hoggorm", "https://www.fhi.no/sk/skadedyrhandboka/krypdyr-reptiler/hoggorm/"), ("FHI Skadedyrveilederen: Hoggorm", "https://www.fhi.no/nettpub/skadedyrveilederen/krypdyr-reptiler/hoggorm/"),
+             ("TU/NTB: Færre hoggorm-henvendelser hos FHI", "https://www.tu.no/nyhetsstudio/faerre-hoggorm-henvendelser-hos-fhi-i-sommer-hadde-ventet-flere/126310")]},
+{
+ "slug": "fluer-om-hosten", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [9, 10, 11, 3, 4], "cat": "Insekter", "min": 4, "img": "loftsfluer",
+ "title": "Plutselig fullt av fluer om høsten? Loftsfluer, gressfluer og fruktfluer",
+ "lead": "Når det blir kaldt, søker flere fluearter inn i hus for å overvintre. De fleste gjør ingen skade – men det hjelper å vite hvilken flue du har.",
+ "body": """
+<h2>Loftsfluer: mørke fluer i vinduene på loftet</h2>
+<p>Loftsfluer er mørke og grålige og forveksles ofte med vanlig husflue. Forkroppen er tett dekket av gylne, krøllete hår. Om høsten kryper de inn i uoppvarmede rom i hus og hytter og sitter tett samlet i hulrom, kroker og sprekker. De gjør ingen materiell skade, men kan være til sjenanse når de blir mange.</p>
+<p>Det er ikke alltid mulig å stenge dem helt ute fra et loft med mange sprekker, men å tette det du kan, reduserer problemet betraktelig.</p>
+<h2>Gressfluer: små, gulsvarte fluer i enorme mengder</h2>
+<p>Gressfluer kan om høsten samle seg i enorme ansamlinger nær høye hus, gjerne på varme dager i oktober. De gjør ingen skade på personer eller bygning. Invasjonen varer bare noen få dager, og fluer som kommer inn i oppvarmede rom, dør etter kort tid. Hold vinduer og dører lukket mens det står på, eller bruk myggnetting.</p>
+<h2>Fruktfluer: små fluer på kjøkkenet</h2>
+<p>Fruktfluer er vanligst om høsten, fra september til november. De formerer seg på gjærende frukt, skvetter i tomflasker og søppel. Finn og fjern kilden – det er der larvene er. Selv etter at kilden er borte, kan det sverme fruktfluer i flere uker.</p>
+<div class="box"><b>Store spyfluer innendørs?</b>Mange spyfluer inne i et rom kan bety et dødt dyr i nærheten, for eksempel en mus eller fugl i veggen eller en luftekanal.</div>
+""",
+ "prod": ("Mot fluer", "Fluenetting, feller og lysfeller.", "insekter"),
+ "sources": [("FHI: Loftsfluer", f"{FHI}/fluer-og-mygg/loftsfluer"), ("FHI: Gressflue", f"{FHI}/fluer-og-mygg/gressflue"),
+             ("FHI: Fruktfluer, eddikfluer", f"{FHI}/fluer-og-mygg/fruktfluer-eddikfluer"), ("FHI: Spyfluer", f"{FHI}/fluer-og-mygg/spyfluer")]},
+{
+ "slug": "klesmoll-og-pelsbille", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": list(range(1, 13)), "cat": "Tekstiler", "min": 4, "img": "klesmoll",
+ "title": "Hull i ullgenseren? Klesmøll og brun pelsbille",
+ "lead": "Klesmøll er insektet som gjør størst skade på tekstiler i Norge. Brun pelsbille har spredt seg fra Oslo til tettsteder i resten av landet.",
+ "body": """
+<h2>Klesmøll</h2>
+<p>Klesmøll finnes innendørs over hele landet, men overlever ikke ute fordi vinteren er for kald. Det er larvene som gjør skaden: de lever av materialer fra dyr, som ull og pels. Voksne klesmøll er 5–8 millimeter lange, med gylne, blekt gulbrune forvinger og rødgule hår på hodet. Larvene er hvite med lysebrunt hode og spinner ofte et rør de spiser fra.</p>
+<p>Klesmøll foretrekker skitne tekstiler, og ullplagg som blir liggende bortglemt lenge, er et perfekt oppvekststed. Ser du en klesmøll som flyr, er det mest sannsynlig en hann.</p>
+<h2>Brun pelsbille – «Majorstu-billen»</h2>
+<p>Brun pelsbille ble funnet første gang i Norge på Majorstuen i Oslo i 1983. Nå er den svært vanlig i Oslo og sprer seg til tettsteder i resten av landet. Billen er 2,5–4 millimeter, rundaktig, med brun bakkropp og svart forkropp. Larven blir rundt åtte millimeter, er brun med gullaktig behåring og har en lang haledusk.</p>
+<div class="box"><b>Kulde virker</b>Gjenstander kan fryses, men de må bli gjennomkalde. En bylt med klær bruker lang tid på å bli like kald i midten som på utsiden.</div>
+<h2>Slik forebygger du</h2>
+<ul>
+<li>Vask eller rens ulltøy før du legger det bort.</li>
+<li>Pakk ull, pels og fjær i tette plastposer eller bokser.</li>
+<li>Støvsug grundig langs lister, i skap og under møbler.</li>
+<li>Rist og luft plagg som henger lenge urørt.</li>
+</ul>
+""",
+ "prod": ("Mot møll og pelsbiller", "Feromonfeller og oppbevaring.", "insekter"),
+ "sources": [("FHI: Klesmøll", f"{FHI}/moll-og-sommerfugler/klesmoll"), ("FHI Skadedyrveilederen: Klesmøll", "https://www.fhi.no/sk/skadedyrveilederen/moll-og-sommerfugler/klesmoll-/"),
+             ("FHI: Brun pelsbille", f"{FHI}/biller/brun-pelsbille"), ("FHI: Forebygging av skadedyrangrep", f"{FHI}/forebygging-og-bekjempelse/forebygging-av-skadedyrangrep"),
+             ("FHI: Bekjempelse av skadedyr", f"{FHI}/forebygging-og-bekjempelse/bekjempelse-av-skadedyr")]},
+{
+ "slug": "brunskogsnegl", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [4, 5, 6, 7, 8, 9, 10], "cat": "Hage", "min": 5, "img": "snegl",
+ "title": "Brunsnegl i hagen: når og hvordan du tar dem",
+ "lead": "Brunskogsneglen – også kalt brunsnegl eller mordersnegl – er en fremmed art med svært høy risiko. Timing er alt: hver snegl du tar før egglegging, teller.",
+ "body": """
+<h2>Hva er brunskogsnegl?</h2>
+<p>Brunskogsnegl (Arion vulgaris) ble registrert i Norge første gang i 1988 og har spredt seg over store deler av landet. Den regnes som en invaderende art med svært høy risiko. Den er vanlig langs kysten fra svenskegrensen til Troms, med spredte forekomster i innlandet.</p>
+<h2>Sneglens år</h2>
+<ul>
+<li><b>Vår:</b> Når temperaturen stiger over rundt fem grader, blir sneglene aktive og vokser raskt.</li>
+<li><b>Sommer:</b> I løpet av sommeren blir de utvokst og kjønnsmodne.</li>
+<li><b>August–september:</b> Paring og egglegging. De fleste eggene legges fra slutten av august til slutten av september.</li>
+<li><b>Høst:</b> De voksne dør som regel i oktober. Små snegler overvintrer i jordhuler, steinhauger og komposthauger.</li>
+</ul>
+<div class="box"><b>Ta dem tidlig</b>Hver snegl kan legge opptil 400 egg. Hver snegl du fjerner før egglegging, betyr mye for neste års bestand.</div>
+<h2>Tiltak som virker best sammen</h2>
+<ul>
+<li>Plukk snegler tidlig, gjerne om kvelden eller etter regn.</li>
+<li>Løft på bøtter, potter og planker, og fjern snegler og egg.</li>
+<li>Klipp plenen ofte, så jorda holder seg tørrere.</li>
+<li>Rydd hageavfall og fuktige, skyggefulle gjemmesteder.</li>
+<li>Samarbeid med naboene – det hjelper lite at bare én hage gjør tiltak.</li>
+</ul>
+<p>Bekjempelse er krevende og krever flere tiltak samtidig. Nærmere råd kan du få fra NIBIO.</p>
+""",
+ "prod": ("Mot snegler", "Sneglefeller og sperrer til hage og bed.", "hus-og-hage"),
+ "sources": [("Store norske leksikon: Brunskogsnegl", "https://snl.no/brunskogsnegl"), ("Bergen kommune / NIBIO: Brunskogsnegl (brosjyre)", "https://bergen.kommune.no/api/rest/filer/V56473"),
+             ("Bærum kommune: Tiltak mot brunsnegle", "https://www.Baerum.kommune.no/contentassets/183c7a16d9304602a014dbddb0daa51b/tiltak-mot-brunsnegle.pdf"),
+             ("Midt-Telemark kommune: Brunsneglekampanje", "https://midt-telemark.kommune.no/_f/p5/icf4effcc-acfd-44a8-b3ec-b724813a29c9/brunsnegle-kampanje.pdf"),
+             ("Handlingsplan for bekjempelse av iberiaskogsnegl (regjeringen.no)", "https://www.regjeringen.no/globalassets/upload/lmd/vedlegg/brosjyrer_veiledere_rapporter/handlingsplan_iberia_kortversjon.pdf")]},
+{
+ "slug": "maker-pa-taket", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [2, 3, 4, 5, 6, 7], "cat": "Fugler", "min": 4, "img": "maker",
+ "title": "Måker på taket: gjør tiltak før hekkingen starter",
+ "lead": "Måker er fredet. Når de først har begynt å bygge reir, må du la dem være i fred – derfor er det før hekkingen du kan gjøre noe.",
+ "body": """
+<h2>Hvorfor bråker måkene?</h2>
+<p>Flere måkearter hekker i byer og tettsteder for å finne mat og beskyttelse. Bråket skjer særlig i hekkeperioden, som i store deler av landet er fra mai til midten av juli. Flate tak er et yndet hekkested.</p>
+<div class="box"><b>Fristen er før reiret</b>Når reirbyggingen er i gang, skal måkene få hekke i fred, og det er forbudt å fjerne eller forstyrre reir. Forebyggende tiltak må gjøres før hekkingen starter.</div>
+<h2>Det du kan gjøre i god tid</h2>
+<ul>
+<li>Finn ut hvor på taket måkene hekket i fjor. Det er ofte få steder det er mulig å lage reir.</li>
+<li>Gjør disse stedene utilgjengelige før sesongen, for eksempel med nett, vaier eller netting.</li>
+<li>Ikke mat måkene, og vær nøye med søppel og matavfall.</li>
+<li>Fjern gamle reir om vinteren, når fuglene ikke hekker. Da risikerer du heller ikke fuglelopper.</li>
+</ul>
+<h2>Hva gjelder hvis måkene allerede hekker?</h2>
+<p>Måker er totalfredet. Støy, ekskrementer eller at måkene stuper mot folk, gir ikke grunnlag for skadefelling. Hold avstand til reiret, så går hekkeperioden over. Forstyrrer du måkene, varer bråket ofte lenger.</p>
+<p>Finner du syke eller døde måker og mistenker smittsom sykdom, for eksempel fugleinfluensa, skal du varsle Mattilsynet.</p>
+""",
+ "prod": ("Fuglesikring", "Pigger, nett og vaier til tak og fasader.", "fugler"),
+ "sources": [("Miljødirektoratet: Forebyggende måketiltak må gjøres før hekkingen starter", "https://www.miljodirektoratet.no/aktuelt/fagmeldinger/2026/april-2026/forebyggende-maketiltak-ma-gjores-for-hekkingen-starter/"),
+             ("Mattilsynet: Spørsmål og svar om måker", "https://mattilsynet.no/dyr/dyrevelferd/sporsmal-og-svar-om-maker"), ("FHI: Måker", f"{FHI}/fugler/maker"),
+             ("BirdLife Norge: Hekketid og måker", "https://www.birdlife.no/innhold/bilder/2022/05/10/8819/maker_og_hekketid.pdf")]},
+{
+ "slug": "humler-og-bier-i-veggen", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [4, 5, 6, 7, 8], "cat": "Insekter", "min": 4, "img": "humle",
+ "title": "Humler eller bier i veggen: hva gjør du?",
+ "lead": "Humler og bier er nyttige pollinatorer og sjelden et problem. Men de kan bygge bol i husvegger. Først må du vite om det er humler, bier eller veps.",
+ "body": """
+<h2>Humle, bie eller veps?</h2>
+<ul>
+<li><b>Humler</b> har robust, tykk og tett behåret kropp, ofte med hvite, gule eller røde bånd. Det finnes 35 arter humler i Norge.</li>
+<li><b>Honningbier</b> er mer behåret enn veps og har lang tunge. Brodden har kraftige mothaker.</li>
+<li><b>Veps</b> har sterkt gule og svarte, sparsomt behårede striper og lager papiraktige bol. Det gjør ikke bier eller humler.</li>
+</ul>
+<h2>Humler i veggen</h2>
+<p>Om våren kommer humledronninger ofte inn gjennom åpne vinduer og dører når de leter etter et sted å anlegge bol. Bolet kan ligge i en steinrøys, et gammelt musebol, et fuglereir eller en isolert vegg. Trehumla bygger gjerne bol i hulrom i vegger eller fuglekasser og kan få store bol i løpet av sommeren. Humlene er fredelige, men kan stikke hvis de plages.</p>
+<div class="box"><b>Ofte er det beste å vente</b>Et humlebol varer bare én sesong. Er det ikke i veien, kan det få være til høsten. Tett hullet når bolet er forlatt.</div>
+<h2>Bier i veggen</h2>
+<p>En bisverm som finner et egnet hulrom i en vegg, tak eller pipe, kan slå seg ned permanent og bli i mange år. Da bør du kontakte en birøkter eller skadedyrfirma tidlig. Kuben kan ofte finnes ved å kjenne etter varme på veggen.</p>
+<h2>Tips om våren</h2>
+<ul>
+<li>Bruk insektnett i vinduer som står åpne.</li>
+<li>Tett sprekker i kledning og rundt ventiler før dronningene leter etter bolplass.</li>
+</ul>
+""",
+ "prod": None,
+ "sources": [("FHI: Humler", f"{FHI}/veps-og-bier/humler"), ("FHI: Honningbie", f"{FHI}/veps-og-bier/honningbie"), ("FHI Skadedyrveilederen: Humler", "https://www.fhi.no/sk/skadedyrveilederen/veps-og-bier/humler/")]},
+]
+
+MONTHS = {
+ "grevling-pa-tomta": [3, 4, 5, 6, 7, 8, 9, 10], "rotter-i-byen": [10, 11, 12, 1, 2, 3], "flatt-langs-kysten": [4, 5, 6, 7, 8, 9, 10],
+ "stokkmaur-eller-skogsmaur": [4, 5, 6, 7, 8], "husbukk": list(range(1, 13)), "vepsebol": [4, 5, 6, 7, 8, 9],
+ "fukt-solvkre-skjeggkre": list(range(1, 13)), "stripet-borebille": list(range(1, 13)), "mus-pa-garden": [9, 10, 11, 12, 1, 2, 3],
+ "smagnagerar": [8, 9, 10, 11], "hytta-for-vinteren": [9, 10, 11, 12],
+}
+for a in ARTICLES:
+    a.setdefault("months", MONTHS.get(a["slug"], list(range(1, 13))))
+ARTICLES[[a["slug"] for a in ARTICLES].index("flatt-langs-kysten")]["regions"] = ["ost", "sor", "vest", "midt", "nord"]
+
+# Eldre artikler som ligger i page.py, men skal med i oversikten
+EXTRA = [
+ {"slug": "mus-om-hosten", "title": "Mus i huset om høsten: finn hullet før musa gjør det", "cat": "Gnagere", "img": "mus", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [9, 10, 11, 12, 1, 2]},
+ {"slug": "veggedyr-pa-reise", "title": "Veggedyr på reise: sjekk hotellrommet på to minutter", "cat": "Insekter", "img": "veggedyr", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [6, 7, 8, 9, 10]},
+]
+REGION_ARTICLES = {r: [a for a in ARTICLES if r in a["regions"]] for r in ["ost", "sor", "vest", "midt", "nord"]}

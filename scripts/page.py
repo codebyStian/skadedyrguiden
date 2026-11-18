@@ -138,7 +138,7 @@ a.onerror=()=>{{document.getElementById('pmsg').textContent='Lyden lages fortsat
 def regional_pages():
     import json, html as H, sys
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-    from articles import ARTICLES as RA, REGION_ARTICLES
+    from articles import ARTICLES as RA, REGION_ARTICLES, EXTRA
     from tools import TOOLS
     RN = {"ost": "Østlandet", "sor": "Sørlandet", "vest": "Vestlandet", "midt": "Trøndelag", "nord": "Nord-Norge"}
     for a in RA:
@@ -155,8 +155,10 @@ def regional_pages():
 {('<h2>Les også</h2><ul>' + "".join(f'<li><a href="{b["slug"]}.html">{H.escape(b["title"])}</a></li>' for b in others) + '</ul>') if others else ""}
 </div></article>'''
         (ROOT / "artikler" / (a["slug"] + ".html")).write_text(head(a["title"] + " – Skadedyrguiden", a["lead"], "../") + body + foot("../"), encoding="utf-8")
-    reg = {r: [{"slug": a["slug"], "title": a["title"], "cat": a["cat"]} for a in lst] for r, lst in REGION_ARTICLES.items()}
-    (ROOT / "data" / "regions.json").write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding="utf-8")
+    allart = [{k: a[k] for k in ("slug", "title", "cat", "img", "regions", "months")} for a in RA] + EXTRA
+    (ROOT / "data" / "articles.json").write_text(json.dumps(allart, ensure_ascii=False, indent=1), encoding="utf-8")
+    old = ROOT / "data" / "regions.json"
+    if old.exists(): old.unlink()
     for slug, (title, desc, body) in TOOLS.items():
         f = ROOT / "verktoy" / (slug + ".html"); f.parent.mkdir(exist_ok=True)
         f.write_text(head(title + " – Skadedyrguiden", desc, "../") + body + foot("../"), encoding="utf-8")

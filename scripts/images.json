@@ -85,6 +85,61 @@
   "w": 2000,
   "prompt": "A northern Norwegian fishing village with red wooden fishermen's cabins on stilts by the sea under steep dramatic mountains. Wide establishing shot that fills the whole frame edge to edge, soft late-afternoon light with some colour and contrast, neutral season with no snow and no autumn leaves, no fog, no haze, no blank areas."
  },
+ "grevling": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A European badger with its black and white striped face snuffling on a lawn at dusk next to a wooden garden terrace of a Norwegian house, soft warm light from a window."
+ },
+ "husbukk": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "Close-up of an old pine wooden beam in a Norwegian attic with a few oval exit holes in the wood and a little fine wood dust below, side light."
+ },
+ "borebille": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "Close-up of an antique wooden chair leg with many small round pinholes in the wood, soft window light, shallow depth of field."
+ },
+ "smagnager": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A Norwegian lemming with black and yellow-brown fur sitting on moss and crowberry heather in arctic tundra, soft overcast light."
+ },
+ "flaggermus": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A small brown bat hanging under the wooden roof boards of a dim Norwegian attic, a beam of evening light through a gap."
+ },
+ "hoggorm": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A grey European adder with a black zigzag stripe basking on a sun-warmed flat rock beside a dry stone wall and raspberry bushes."
+ },
+ "snegl": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A large brown slug on a lettuce leaf in a Norwegian vegetable garden after rain, water drops, close-up."
+ },
+ "maker": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A herring gull standing on the flat roof edge of a city building in a Norwegian coastal town, cloudy sky."
+ },
+ "humle": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A fluffy bumblebee entering a small gap in the wooden cladding of a red Norwegian house, summer light, close-up."
+ },
+ "klesmoll": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A folded grey wool sweater on a shelf with a few small moth holes, a clothes moth resting on the wool, soft light."
+ },
+ "loftsfluer": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "Several dark flies clustered in the corner of an old attic window frame in autumn light, close-up."
+ },
  "by-oslo": {
   "ar": "16:9",
   "w": 2000,
@@ -124,10 +179,5 @@
   "ar": "16:9",
   "w": 2000,
   "prompt": "Bodø, a modern harbour town with fishing boats and a jagged mountain range across the sea. Wide establishing shot that fills the whole frame edge to edge, soft late-afternoon light with some colour and contrast, neutral season with no snow and no autumn leaves, no fog, no haze, no blank areas."
- },
- "grevling": {
-  "ar": "4:3",
-  "w": 1200,
-  "prompt": "A European badger with its black and white striped face snuffling on a lawn at dusk next to a wooden garden terrace of a Norwegian house, soft warm light from a window."
  }
 }

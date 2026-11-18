@@ -44,7 +44,7 @@
 
   const SP = [["mus", "Husmus"], ["rotte", "Brunrotte"], ["skjeggkre", "Skjeggkre"], ["veps", "Stikkeveps"], ["flatt", "Flått"]];
 
-  let geo = null, stats = null, regions = null, loc = store.get("sg-loc"), wx = null;
+  let geo = null, stats = null, arts = null, loc = store.get("sg-loc"), wx = null;
 
   /* ---------- geometri ---------- */
   function P(lon, lat) {
@@ -199,11 +199,25 @@
 
   /* ---------- panel ---------- */
   function maxOf(sp) { return Math.max(...Object.values(stats.gbif.fylker).map((r) => r[sp] || 0), 1); }
-  function articles(region) {
-    const list = regions?.[region]; if (!list?.length) return "";
-    return `<h3 class="ph3">Aktuelt for ${REGION[region].name}</h3><div class="rarts">${list.map((a) =>
-      `<a href="artikler/${a.slug}.html"><span class="cat">${esc(a.cat)}</span><b>${esc(a.title)}</b><span class="soon">Les</span></a>`).join("")}</div>`;
+  const inSeason = (a) => a.months.includes(M + 1);
+  function pickArts(region, n) {
+    if (!arts) return [];
+    return arts.filter((a) => !region || a.regions.includes(region))
+      .sort((x, y) => inSeason(y) - inSeason(x)).slice(0, n);
   }
+  function articles(region) {
+    const list = pickArts(region, 4); if (!list.length) return "";
+    return `<h3 class="ph3">Aktuelt for ${REGION[region].name}</h3><div class="rarts">${list.map((a) =>
+      `<a href="artikler/${a.slug}.html"><span class="cat">${esc(a.cat)}</span><b>${esc(a.title)}</b><span class="soon">${inSeason(a) ? "Nå i " + MONTHS[M] : "Les"}</span></a>`).join("")}</div>`;
+  }
+  function season2() {
+    const box = $("#seasonArts"); if (!box || !arts) return;
+    const reg = loc && loc.region, list = pickArts(reg, 6).filter(inSeason);
+    const t = $("#seasonTitle"); if (t) t.innerHTML = `Aktuelt i <em>${MONTHS[M]}</em>${reg ? " · " + REGION[reg].name : ""}`;
+    box.innerHTML = list.map((a) => `<a href="artikler/${a.slug}.html"><div class="ph">${IMG(a.img)}</div><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3></a>`).join("");
+  }
+  const IMG = (n) => `<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/img/hero.webp'">`;
+
   function monthNow() {
     if (!stats?.fhi?.monthly) return "";
     const pick = { "Veggedyr": "Veggedyr", "Stikkeveps": "Stikkeveps", "Svart jordmaur": "Svart jordmaur", "Stokkmaur": "Stokkmaur", "Skjeggkre": "Skjeggkre" };
@@ -258,6 +272,7 @@
     setHeroImage(c ? ["by-" + c.id, "region-" + f.region] : ["region-" + f.region], `${c ? c.name : f.name} · ${MONTHS[M]}`);
     $("#locChip") && ($("#locChip").innerHTML = `Viser ${esc(c ? c.name : f.name)} · <button type="button" data-forget>Glem</button>`);
     if (svg) { select(f.id, false); drawMe(l.lat, l.lon); }
+    season2();
   }
   function alertMsg(t) { const m = $("#locMsg"); if (m) m.textContent = t; }
   function locate() {
@@ -330,7 +345,8 @@
   /* ---------- oppstart ---------- */
   async function init() {
     startFX();
-    [geo, stats, regions] = await Promise.all([getJSON("data/norge.json"), getJSON("data/stats.json"), getJSON("data/regions.json")]);
+    [geo, stats, arts] = await Promise.all([getJSON("data/norge.json"), getJSON("data/stats.json"), getJSON("data/articles.json")]);
+    season2();
     calendar(); photo();
     if (!geo || !stats) { const p = $("#panel"); if (p) p.innerHTML = `<p class="mute">Kartdata er ikke tilgjengelig her.</p>`; return; }
     renderMap(); panelNational();

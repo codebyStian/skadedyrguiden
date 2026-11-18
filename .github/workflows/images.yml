@@ -6,7 +6,7 @@ on:
   push:
     branches: [main]
     paths: ["scripts/images.json", "scripts/gen_images.py", ".github/workflows/images.yml"]
-  schedule: [{ cron: "30 0 * * *" }]   # rett etter at Cloudflares gratiskvote nullstilles (00:00 UTC)
+  schedule: [{ cron: "30 0 * * *" }, { cron: "50 0 * * *" }]   # etter at gratiskvotene nullstilles (00:00 UTC); 00:50 bruker Workers-kontoen
   workflow_dispatch:
     inputs:
       account: { description: "Cloudflare-konto: images (standard) eller workers", required: false, default: "images" }
@@ -29,7 +29,7 @@ jobs:
         env:
           WT: ${{ secrets.CF_WORKERS_TOKEN }}
         run: |
-          if [ "${{ inputs.account }}" = "workers" ]; then
+          if [ "${{ inputs.account }}" = "workers" ] || [ "${{ github.event.schedule }}" = "50 0 * * *" ]; then
             id=$(curl -s -H "Authorization: Bearer $WT" "https://api.cloudflare.com/client/v4/accounts" | python3 -c "import json,sys;print(json.load(sys.stdin)['result'][0]['id'])")
             echo "::add-mask::$id"; echo "id=$id" >> "$GITHUB_OUTPUT"; echo "use=workers" >> "$GITHUB_OUTPUT"
           fi

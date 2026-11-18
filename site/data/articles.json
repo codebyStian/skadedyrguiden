@@ -1,0 +1,409 @@
+[
+ {
+  "slug": "grevling-pa-tomta",
+  "title": "Grevling på tomta: hva kan du gjøre – og hva har du lov til?",
+  "cat": "Vilt i hagen",
+  "img": "grevling",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt"
+  ],
+  "months": [
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ {
+  "slug": "rotter-i-byen",
+  "title": "Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?",
+  "cat": "Gnagere",
+  "img": "rotte",
+  "regions": [
+   "ost",
+   "vest"
+  ],
+  "months": [
+   10,
+   11,
+   12,
+   1,
+   2,
+   3
+  ]
+ },
+ {
+  "slug": "flatt-langs-kysten",
+  "title": "Flått langs kysten: sjekk deg selv etter turen",
+  "cat": "Flått",
+  "img": "region-sor",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt",
+   "nord"
+  ],
+  "months": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ {
+  "slug": "stokkmaur-eller-skogsmaur",
+  "title": "Stokkmaur eller skogsmaur? Slik ser du forskjellen",
+  "cat": "Maur",
+  "img": "maur",
+  "regions": [
+   "ost",
+   "midt"
+  ],
+  "months": [
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "slug": "husbukk",
+  "title": "Husbukk langs kysten av Telemark og Agder: tegn du ser etter",
+  "cat": "Treskadedyr",
+  "img": "husbukk",
+  "regions": [
+   "sor"
+  ],
+  "months": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ]
+ },
+ {
+  "slug": "vepsebol",
+  "title": "Vepsebolet: fjern det tidlig i sesongen",
+  "cat": "Veps",
+  "img": "veps",
+  "regions": [
+   "sor",
+   "midt"
+  ],
+  "months": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ]
+ },
+ {
+  "slug": "fukt-solvkre-skjeggkre",
+  "title": "Sølvkre og skjeggkre: hva er forskjellen, og hva hjelper?",
+  "cat": "Fukt",
+  "img": "skjeggkre",
+  "regions": [
+   "vest"
+  ],
+  "months": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ]
+ },
+ {
+  "slug": "stripet-borebille",
+  "title": "Små runde hull i treverket? Det kan være stripet borebille",
+  "cat": "Treskadedyr",
+  "img": "borebille",
+  "regions": [
+   "vest",
+   "nord"
+  ],
+  "months": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ]
+ },
+ {
+  "slug": "mus-pa-garden",
+  "title": "Mus på gården: låve, stabbur og fôrlager",
+  "cat": "Gnagere",
+  "img": "region-midt",
+  "regions": [
+   "midt"
+  ],
+  "months": [
+   9,
+   10,
+   11,
+   12,
+   1,
+   2,
+   3
+  ]
+ },
+ {
+  "slug": "smagnagerar",
+  "title": "Smågnagerår: når det kryr av mus og lemen",
+  "cat": "Gnagere",
+  "img": "smagnager",
+  "regions": [
+   "nord"
+  ],
+  "months": [
+   8,
+   9,
+   10,
+   11
+  ]
+ },
+ {
+  "slug": "hytta-for-vinteren",
+  "title": "Før du stenger hytta: sikre den mot mus på 20 minutter",
+  "cat": "Hytte",
+  "img": "hytte",
+  "regions": [
+   "nord",
+   "ost",
+   "midt"
+  ],
+  "months": [
+   9,
+   10,
+   11,
+   12
+  ]
+ },
+ {
+  "slug": "flaggermus-pa-loftet",
+  "title": "Flaggermus på loftet: fredet, nyttig – og slik gjør du det riktig",
+  "cat": "Vilt i huset",
+  "img": "flaggermus",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt"
+  ],
+  "months": [
+   5,
+   6,
+   7,
+   8,
+   9
+  ]
+ },
+ {
+  "slug": "hoggorm",
+  "title": "Hoggorm i hagen og på hytta: kjennetegn og hva du gjør ved bitt",
+  "cat": "Vilt i hagen",
+  "img": "hoggorm",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt"
+  ],
+  "months": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ]
+ },
+ {
+  "slug": "fluer-om-hosten",
+  "title": "Plutselig fullt av fluer om høsten? Loftsfluer, gressfluer og fruktfluer",
+  "cat": "Insekter",
+  "img": "loftsfluer",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt",
+   "nord"
+  ],
+  "months": [
+   9,
+   10,
+   11,
+   3,
+   4
+  ]
+ },
+ {
+  "slug": "klesmoll-og-pelsbille",
+  "title": "Hull i ullgenseren? Klesmøll og brun pelsbille",
+  "cat": "Tekstiler",
+  "img": "klesmoll",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt",
+   "nord"
+  ],
+  "months": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ]
+ },
+ {
+  "slug": "brunskogsnegl",
+  "title": "Brunsnegl i hagen: når og hvordan du tar dem",
+  "cat": "Hage",
+  "img": "snegl",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt",
+   "nord"
+  ],
+  "months": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ {
+  "slug": "maker-pa-taket",
+  "title": "Måker på taket: gjør tiltak før hekkingen starter",
+  "cat": "Fugler",
+  "img": "maker",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt",
+   "nord"
+  ],
+  "months": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "slug": "humler-og-bier-i-veggen",
+  "title": "Humler eller bier i veggen: hva gjør du?",
+  "cat": "Insekter",
+  "img": "humle",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt",
+   "nord"
+  ],
+  "months": [
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "slug": "mus-om-hosten",
+  "title": "Mus i huset om høsten: finn hullet før musa gjør det",
+  "cat": "Gnagere",
+  "img": "mus",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt",
+   "nord"
+  ],
+  "months": [
+   9,
+   10,
+   11,
+   12,
+   1,
+   2
+  ]
+ },
+ {
+  "slug": "veggedyr-pa-reise",
+  "title": "Veggedyr på reise: sjekk hotellrommet på to minutter",
+  "cat": "Insekter",
+  "img": "veggedyr",
+  "regions": [
+   "ost",
+   "sor",
+   "vest",
+   "midt",
+   "nord"
+  ],
+  "months": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ }
+]
