@@ -17,6 +17,17 @@ function cors(req, env) {
 }
 const json = (obj, status, h) => new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json; charset=utf-8", ...h } });
 
+const norm = (s) => String(s).toLowerCase().replace(/[^a-zæøå0-9 ]/g, " ").split(/\s+/).filter((w) => w.length > 2);
+// Kobler modellens formulering til et kjennetegn som faktisk står i faktaarket (ordoverlapp), ellers forkastes det.
+const same = (x, y) => x === y || (x.length > 4 && y.length > 4 && x.slice(0, 5) === y.slice(0, 5) && x.endsWith("løs") === y.endsWith("løs"));
+function toFact(claim, facts) {
+  const c = norm(claim); if (!c.length) return [];
+  return facts.filter((f) => {
+    const w = norm(f), hits = c.filter((x) => w.some((y) => same(x, y))).length;
+    return hits >= Math.min(2, c.length, w.length) && Math.max(hits / c.length, hits / w.length) >= 0.6;
+  });
+}
+
 function parseJSON(t) {
   if (typeof t !== "string") return t;
   const m = t.match(/\{[\s\S]*\}/);
@@ -84,8 +95,7 @@ export default {
 
     const { model, out: v } = await vision(env, img, body.hint);
     const cands = (v.candidates || []).filter((c) => BY_ID[c.id]).map((c) => {
-      const allowed = new Set(BY_ID[c.id].features);
-      const matched = (c.matched || []).filter((m) => allowed.has(m));   // bare kjennetegn som faktisk står i faktaarket
+      const matched = [...new Set((c.matched || []).flatMap((m) => toFact(m, BY_ID[c.id].features)))];   // bare kjennetegn fra faktaarket
       const conf = Math.max(0, Math.min(1, Number(c.confidence) || 0));
       return { id: c.id, confidence: matched.length ? conf : Math.min(conf, 0.35), matched, against: c.against || [] };
     }).sort((a, b) => b.confidence - a.confidence);
