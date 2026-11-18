@@ -100,7 +100,7 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .biz{background:var(--soft)}
 @media(max-width:860px){.feat,.feat.rev{grid-template-columns:1fr}.feat .ph{aspect-ratio:4/3}.feat.rev .ph{order:-1}}
 .cal{overflow-x:auto}
-.cal table{border-collapse:separate;border-spacing:4px;width:100%;min-width:620px}
+.cal table{border-collapse:separate;border-spacing:4px;width:100%;min-width:620px;table-layout:fixed}.cal th:first-child{width:8.5em}
 .cal th{font-size:13px;font-weight:500;color:var(--mute);padding:0 0 6px}
 .cal th.now{color:var(--ink);font-weight:700}
 .cal td{height:34px;border-radius:7px;background:var(--soft)}
@@ -238,7 +238,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <div class="ph"><img src="assets/img/bedrift.webp" alt="Profesjonelt bakeri med åtestasjon langs veggen" loading="lazy" onerror="this.remove()"></div>
 </div></section>
 
-<section class="band" id="kalender" style="padding-top:0"><div class="wrap">
+<section class="band" id="kalender"><div class="wrap">
   <div class="head"><div><span class="kicker">Sesongkalender</span><h2>Forebygg før sesongen starter</h2></div><p class="mute">Når på året du typisk møter de vanligste skadedyrene i Norge. Inneværende måned er markert.</p></div>
   <div class="cal"><table id="cal"></table></div>
   <div class="legend"><span><i style="background:var(--y)"></i>Høysesong</span><span><i style="background:color-mix(in srgb,var(--y) 35%,var(--soft))"></i>Kan forekomme</span></div>
@@ -346,7 +346,7 @@ sEl.addEventListener('change',score);rEl.addEventListener('click',e=>{const b=e.
 
 const A=[['Insekter · 5 min','Veggedyr på reise: sjekk hotellrommet på to minutter','artikler/veggedyr-pa-reise.html','veggedyr'],['Hage · 4 min','Vepsebol under takskjegget: når kan du fjerne det selv?','#','veps'],['Insekter · 7 min','Skjeggkre i nyere boliger: hvorfor de kommer og hva som virker','#','skjeggkre']];
 document.getElementById('side').innerHTML=A.map(([c,t,h,i])=>`<a href="${h}"><div><span class="cat">${c}</span><h3>${t}</h3></div><div class="ph">${IMG(i)}</div></a>`).join('');
-const B=[['Gnagere','Rotte eller mus? Slik ser du forskjellen på sporene','#','rotte'],['Hytte','Når hytta står tom: forebygg mus før du stenger for vinteren','#','hytte'],['Bedrift','Skadedyrsikring i matbedrifter: dette bør internkontrollen vise','#','bedrift']];
+const B=[['Gnagere','Rotte eller mus? Slik ser du forskjellen på sporene','#','rotte'],['Matskap','Melmøll i skapet: slik blir du kvitt dem for godt','#','melmoll'],['Sommer','Fluer på kjøkkenet: insektnett, avfall og feller som virker','#','fluer']];
 document.getElementById('row3').innerHTML=B.map(([c,t,h,i])=>`<a href="${h}"><div class="ph">${IMG(i)}</div><span class="cat">${c}</span><h3>${t}</h3></a>`).join('');
 
 document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten','24 min'],['Veggedyr: den uønskede souveniren','27 min'],['Skjeggkre: hvorfor nyere boliger får dem','22 min']].map(([t,l],i)=>`<div class="ep"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">${l}</span></div>`).join('');
