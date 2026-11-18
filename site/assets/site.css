@@ -1,0 +1,60 @@
+/*
+VOICE: kunnskapsrik nabo-fagperson; rolig, konkret, aldri skremmende
+IDEA: en felthåndbok / artsbestemmelse for huset ditt – snittegning med merkelapper
+PICTURE: snitt av et hus der hvert rom viser hvilket skadedyr som trives der
+COLOUR and TYPE: varselgul flate, dyp skiferblå, tomatrød aksent på hvit grunn; Archivo 800 + Archivo
+LAYOUT: tittel over stort husnitt med info-panel, deretter verktøy, artikler, podkast, kalender, butikkbro
+*/
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#11171a);--ink:light-dark(#18201d,#eef1ec);--mute:light-dark(#57605c,#a9b2ad);
+--y:#f4c430;--yd:#d9a90f;--s:light-dark(#1e3a4a,#9cc3d6);--sd:#1e3a4a;--r:#d8432c;
+--card:light-dark(#f4f6f5,#1a2226);--line:light-dark(#dfe4e1,#2b363b);--onY:#18201d}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-weight:800;line-height:1.08;text-wrap:balance;margin:0 0 .5em}
+h1{font-size:clamp(32px,5vw,52px);letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:-.015em}
+h3{font-size:19px;line-height:1.25}
+p{margin:0 0 1em}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(36px,5vw,72px) max(5vw,16px)}
+.yellow{background:var(--y);color:var(--onY)}
+.slate{background:var(--sd);color:#eef4f6}
+.slate .mute{color:#b9cbd4}
+.mute{color:var(--mute)}
+.small{font-size:13.5px}
+.btn{display:inline-flex;align-items:center;gap:.5em;min-height:44px;padding:0 20px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid currentColor;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}
+.btn.fill{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.yellow .btn.fill,.slate .btn.fill{background:#18201d;color:#fff;border-color:#18201d}
+.btn.red{background:var(--r);border-color:var(--r);color:#fff}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--r);outline-offset:3px}
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding:10px max(5vw,16px);flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.01em}
+.logo svg{width:34px;height:34px}
+.nav{display:flex;gap:4px 18px;flex-wrap:wrap;flex:1;font-size:15px}
+.nav a{text-decoration:none;padding:8px 0}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.shop{margin-left:auto}
+.concept{background:var(--r);color:#fff;text-align:center;font-size:13.5px;padding:6px 16px}
+/* footer */
+footer{background:#121a1d;color:#cfd8d4;font-size:15px}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px}
+footer a{color:#fff;text-decoration:none}footer a:hover{text-decoration:underline}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+footer h3{color:#fff;font-size:16px}
+/* article */
+.art{max-width:720px;margin:0 auto}
+.art .lead{font-size:19px;line-height:1.55}
+.art h2{font-size:26px;margin-top:1.6em}
+.art li{margin-bottom:.4em}
+.box{border-left:6px solid var(--y);background:var(--card);padding:18px 22px;border-radius:0 12px 12px 0;margin:1.6em 0}
+.prod{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--y);color:var(--onY);border-radius:16px;padding:18px 22px;margin:2em 0}
+.prod svg{width:52px;height:52px}
+@media(max-width:600px){.prod{grid-template-columns:1fr}.top .shop{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:860px){.top .wrap{gap:4px 12px;padding-block:8px}.nav{order:3;flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:20px;font-size:14.5px;scrollbar-width:none}.nav a{flex:none;padding:6px 0}.top .shop{margin-left:auto;min-height:40px;padding:0 14px;font-size:14px}.logo{font-size:18px}.logo svg{width:30px;height:30px}}

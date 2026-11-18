@@ -1,0 +1,34 @@
+name: Deploy
+
+# Laster site/ opp til en egen mappe på webhotellet (Uniweb), helt adskilt fra trustcom.io.
+# Kjører bare når du starter den manuelt, til konseptet er godkjent.
+on:
+  workflow_dispatch:
+
+concurrency: { group: deploy, cancel-in-progress: false }
+permissions: { contents: read }
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check settings
+        env:
+          DIR: ${{ vars.SFTP_REMOTE_DIR }}
+        run: |
+          [ -n "$DIR" ] || { echo "Set the repository variable SFTP_REMOTE_DIR (e.g. skadedyrguiden.no/www)"; exit 1; }
+          case "$DIR" in *trustcom*|www|public_html|.) echo "Refusing: $DIR looks like the trustcom.io webroot"; exit 1;; esac
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y lftp
+      - name: Upload over SFTP (no deletes)
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          DIR: ${{ vars.SFTP_REMOTE_DIR }}
+        run: |
+          lftp -u "$SFTP_USER","$SFTP_PASSWORD" "sftp://$SFTP_HOST" -e "
+            set sftp:auto-confirm yes; set net:max-retries 3;
+            mkdir -p -f $DIR;
+            mirror -R --only-newer --no-perms --parallel=4 --verbose site/ $DIR/;
+            bye"
