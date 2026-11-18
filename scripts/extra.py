@@ -46,23 +46,13 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
     # --- Leksikon ---
     L = ROOT / "leksikon"; L.mkdir(exist_ok=True)
     cards = []
+    import lexicon
+    stats = json.loads((ROOT / "data/stats.json").read_text())["fhi"]
+    artimg = {x["slug"]: x.get("img") for x in ARTICLES + EXTRA}
     for s in kb:
-        slug = SLUG[s["id"]]; img = IMG.get(s["id"])
-        rel = [r for r in REL.get(s["id"], []) if r in titles]
-        conf = "".join(f'<li><a href="{SLUG[c["id"]]}.html">{H.escape(byid[c["id"]]["name"])}</a>: {H.escape(c["how"])}</li>' for c in s["confusable"] if c["id"] in byid)
-        body = f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
-<div><span class="kicker"><a href="index.html" style="color:inherit">Skadedyrleksikon</a> · {"Skadedyr" if s["pest"] else "Ikke et skadedyr"}</span>
-<h1 style="font-size:clamp(40px,5vw,64px)">{H.escape(s["name"])}</h1><p class="mute" style="font-size:19px"><em>{H.escape(s["latin"])}</em></p>
-<p><a class="btn y arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a></p></div>
-<div class="ph" data-label="{H.escape(s["name"])}">{f'<img src="../assets/img/{img}.webp" alt="" onerror="this.parentNode.dataset.ph=1;this.remove()">' if img else ""}</div>
-</div></section>
-<article class="band"><div class="art">
-<h2>Kjennetegn</h2><ul>{"".join(f"<li>{H.escape(f)}</li>" for f in s["features"])}</ul>
-{f"<h2>Kan forveksles med</h2><ul>{conf}</ul>" if conf else ""}
-{f'<h2>Les mer</h2><ul>{"".join(f"""<li><a href="../artikler/{r}.html">{H.escape(titles[r])}</a></li>""" for r in rel)}</ul>' if rel else ""}
-{prod("Utstyr hos Skadedyrbutikken", "Produkter mot " + s["name"].lower() + ".", CAT.get(s["group"], "insekter"), "leksikon-" + slug) if s["pest"] else '<div class="box"><b>Ikke et skadedyr</b>Denne arten gjør normalt ingen skade og trenger ikke bekjempes.</div>'}
-<p class="small mute">Kilde: <a href="{s["source"]["url"]}" rel="noopener">{H.escape(s["source"]["title"])}</a>.</p>
-</div></article>'''
+        slug = SLUG[s["id"]]
+        body = lexicon.page(s, kb=kb, byid=byid, slugs=SLUG, img=IMG.get(s["id"]), rel=[r for r in REL.get(s["id"], []) if r in titles], titles=titles,
+                            artimg=artimg, stats=stats, shop=SHOP.format(CAT.get(s["group"], "insekter"), "leksikon-" + slug))
         desc = f'{s["name"]} ({s["latin"]}): kjennetegn, forvekslingsarter og hva du gjør. Basert på Folkehelseinstituttets skadedyrhåndbok.'
         (L / f"{slug}.html").write_text(head(f'{s["name"]} – kjennetegn og råd – Skadedyrguiden', desc, "../") + body + foot("../"), encoding="utf-8")
         cards.append(f'<a class="lx" href="{slug}.html"><b>{H.escape(s["name"])}</b><em>{H.escape(s["latin"])}</em><span>{"Skadedyr" if s["pest"] else "Ufarlig"}</span></a>')

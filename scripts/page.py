@@ -49,7 +49,7 @@ ARTICLES = {
 "artikler/mus-om-hosten.html": ("Mus i huset om høsten – Skadedyrguiden",
  "Slik finner du inngangene mus bruker om høsten, hva du tetter med, og hvor fellene gjør mest nytte.",
  f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
-<div><span class="kicker">Gnagere · 6 min</span><h1 style="font-size:clamp(34px,4.6vw,56px)">Mus i huset om høsten: finn hullet før musa gjør det</h1><p class="mute" style="font-size:19px;max-width:44ch">Om høsten flytter mange mus inn der det er varmt. Det viktigste verktøyet er en lommelykt, ikke gift.</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div></div>
+<div><span class="kicker">Gnagere · 6 min</span><h1 style="font-size:clamp(34px,4.6vw,56px)">Mus i huset om høsten: finn hullet før musa gjør det</h1><p class="mute" style="font-size:19px;max-width:44ch">Om høsten flytter mange mus inn der det er varmt. Det viktigste verktøyet er en lommelykt, ikke gift.</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div><p style="margin-top:22px"><a class="btn y arrow" href="../index.html#hvadet">Mus eller rotte? Last opp et bilde </a></p></div>
 <div class="ph"><img src="../assets/img/mus.webp" alt="Husmus ved gulvlist" onerror="this.remove()"></div>
 </div></section>
 <article class="band"><div class="art">
@@ -142,14 +142,23 @@ def regional_pages():
     from articles import ARTICLES as RA, REGION_ARTICLES, EXTRA
     from tools import TOOLS
     RN = {"ost": "Østlandet", "sor": "Sørlandet", "vest": "Vestlandet", "midt": "Trøndelag", "nord": "Nord-Norge"}
+    CHECK = {"fukt-solvkre-skjeggkre": "Sølvkre eller skjeggkre?", "stokkmaur-eller-skogsmaur": "Stokkmaur eller skogsmaur?", "vepsebol": "Veps, humle eller bie?",
+             "humler-og-bier-i-veggen": "Humle, bie eller veps?", "husbukk": "Husbukk eller borebille?", "stripet-borebille": "Borebille eller husbukk?",
+             "klesmoll-og-pelsbille": "Møll eller pelsbille?", "rotter-i-byen": "Rotte eller mus?", "mus-pa-garden": "Husmus eller skogmus?",
+             "smagnagerar": "Hvilken gnager er det?", "fluer-om-hosten": "Hvilket insekt er det?", "flatt-langs-kysten": "Flått eller noe annet?",
+             "brunskogsnegl": "Brunskogsnegl eller annen snegl?", "hoggorm": "Hoggorm eller buorm?"}
     for a in RA:
+        q = CHECK.get(a["slug"])
+        chk = f'<p style="margin-top:22px"><a class="btn y arrow" href="../index.html#hvadet">{q} Last opp et bilde </a></p>' if q else ""
+        box = f'<div class="box"><b>Usikker på hva du har funnet?</b>Last opp et bilde, så får du et forslag til art med kjennetegnene vurderingen bygger på, kontrollert mot Folkehelseinstituttets skadedyrhåndbok. <a href="../index.html#hvadet">Finn ut hvilket dyr det er →</a></div>' if q else ""
         regs = ", ".join(RN[r] for r in a["regions"])
         others = [b for b in RA if b is not a and set(b["regions"]) & set(a["regions"])][:3]
         body = f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
-<div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div></div>
+<div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div>{chk}</div>
 <div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a["img"]}.webp" alt="" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
 </div></section>
 <article class="band"><div class="art">{a["body"]}
+{box}
 {prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else ""}
 <h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
 <p class="small mute">Artikkelen er skrevet for Skadedyrguiden og bygger på kildene over. Den erstatter ikke råd fra en fagperson.</p>
