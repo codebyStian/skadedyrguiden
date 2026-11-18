@@ -342,9 +342,25 @@
     }
   }
 
+  /* ---------- månedens tips (hytte/hjem) ---------- */
+  function monthTip() {
+    const box = $("#monthTip"); if (!box) return;
+    const T = [
+      [[8, 9], "Gjør dette i " + MONTHS[M], "Før du stenger hytta for <em>vinteren</em>", "En tom, kald hytte er perfekt vinterkvarter for mus. Tjue minutter med lommelykt før du låser, sparer deg for gnagde madrasser i påsken.",
+        [["Tett under dører og rundt rør", "Musebørster, netting og tettemasse for gnagere."], ["Ta med deg all mat", "Også tørrvarer, fuglefrø og dyrefôr."], ["Sett feller langs veggene", "Fleremusfeller kan stå hele vinteren."]], "hytta-for-vinteren", "Les hele guiden"],
+      [[10, 11, 0, 1], "Gjør dette i " + MONTHS[M], "Når hytta står tom i <em>vinter</em>", "Musene har funnet vinterkvarter nå. Det viktigste er å følge med hver gang du er på hytta.",
+        [["Sjekk fellene", "Tøm dem og sett dem tilbake langs veggene."], ["Se etter ferske spor", "Ekskrementer og gnag viser hvor de kommer inn."], ["Ikke la mat bli igjen", "Heller ikke tørrvarer, fuglefrø eller dyrefôr."]], "hytta-for-vinteren", "Les hele guiden"],
+      [[2, 3, 4], "Gjør dette i " + MONTHS[M], "Når du åpner hytta for <em>sesongen</em>", "Etter vinteren ser du hvem som har bodd der. Og nå kommer vepsedronningene fram og leter etter bolplass.",
+        [["Rydd etter mus med hansker", "Unngå å virvle opp støv."], ["Se etter små vepsebol", "Et bol på størrelse med en valnøtt er lett å fjerne nå."], ["Tett der musene kom inn", "Før neste høst er det lett å glemme."]], "vepsebol", "Les om vepsebol"],
+      [[5, 6, 7], "Gjør dette i " + MONTHS[M], "Sommer på hytta: <em>veps og flått</em>", "Vepsebolene vokser, og flåtten er aktiv i høyt gress og kratt.",
+        [["Hold gresset kort", "Rundt hytta og der barna leker."], ["Sjekk deg for flått", "Etter tur i skog og kratt."], ["Hold avstand til store bol", "Bol i vegger bør fagfolk ta."]], "flatt-langs-kysten", "Les om flått"]];
+    const t = T.find((x) => x[0].includes(M)); if (!t) return;
+    box.innerHTML = `<span class="kicker">${t[1]}</span><h2>${t[2]}</h2><p class="mute">${t[3]}</p><ul class="checks">${t[4].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("")}</ul><a class="btn arrow" href="artikler/${t[5]}.html">${t[6]} </a>`;
+  }
+
   /* ---------- oppstart ---------- */
   async function init() {
-    startFX();
+    startFX(); monthTip();
     [geo, stats, arts] = await Promise.all([getJSON("data/norge.json"), getJSON("data/stats.json"), getJSON("data/articles.json")]);
     season2();
     calendar(); photo();
