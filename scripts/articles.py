@@ -5,6 +5,55 @@ FHI = "https://fhi.no/sk/skadedyrhandboka"
 
 ARTICLES = [
 {
+ "slug": "grevling-pa-tomta", "regions": ["ost", "sor", "vest", "midt"], "cat": "Vilt i hagen", "min": 6, "img": "grevling",
+ "title": "Grevling på tomta: hva kan du gjøre – og hva har du lov til?",
+ "lead": "Grevlingen er fredelig og angriper ikke mennesker, men den kan grave opp plenen og lage hi under terrassen. Her er hva som virker, når du kan tette hiet, og hva regelverket sier.",
+ "body": """
+<h2>Kjenn igjen grevlingen og sporene</h2>
+<p>Grevlingen er det nest største mårdyret i norsk natur, etter jerven. Den har svart-hvitt hode, svart underside, grå og grov pels på rygg og sider, og korte bein med lange, kraftige klør for å grave. Kroppen er rundt 67–90 centimeter lang. Vekten er lavest om våren, etter vintersøvnen.</p>
+<ul>
+<li><b>Hull i plenen.</b> Grevlingen graver etter meitemark og oldenborrelarver. Graver den mye, kan det tyde på at plenen har mye larver.</li>
+<li><b>Toalettgroper.</b> Grevlingen legger avføringen i små groper, opptil ti centimeter dype, utenfor hiet og langs grensene for territoriet.</li>
+<li><b>Hi med jordhaug.</b> Hovedhiet har vanligvis en stor jordhaug foran inngangen, som er 30–35 centimeter bred. Det skiller det fra revehi. Grevlingen har også midlertidige hi, ofte nær bygninger.</li>
+</ul>
+<h2>Hvorfor kommer den akkurat til deg?</h2>
+<p>Grevlingen går ikke i ekte dvale, men sover gjennom vinterhalvåret og tærer på fettreservene. Om våren er den sulten og leter etter mat, og gravingen i plenen er som regel begrenset til en periode om våren og en periode på sensommeren og høsten. Ungene fødes i hiet på senvinteren, vanligvis i februar–mars, og kommer først ut mot slutten av april eller begynnelsen av mai.</p>
+<div class="box"><b>Det viktigste rådet</b>Ikke steng et grevlinghi før du er sikker på at det er tomt. Stenger du inne unger, blir det et dyrevelferdsproblem – og skaden kan bli større hvis grevlingen graver seg inn igjen.</div>
+<h2>Slik får du grevlingen til å flytte</h2>
+<ul>
+<li>Fjern maten: lukk søppeldunker (bind dem gjerne fast), sikre kompostbingen og plukk opp nedfallsfrukt.</li>
+<li>Gjør stedet ubehagelig: sterk lukt som salmiakk, plaststrimler eller folie som rasler, en radio eller lys med bevegelsessensor.</li>
+<li>Legg en presenning over de mest utsatte delene av plenen i noen dager.</li>
+<li>Sett opp et lavt eller elektrisk gjerde rundt hagen. Grevlingen graver fort under vanlige gjerder, så sperringen må gå ned i bakken – gjerne minst 30 centimeter, eller kraftig netting.</li>
+</ul>
+<p>Ultralyd- og vibrasjonsapparater anbefales ikke, fordi det ikke finnes vitenskapelig dokumentasjon på at de virker. Kjemiske avskrekkingsmidler har heller ikke vist effekt mot grevling.</p>
+<h2>Når og hvordan du tetter hiet</h2>
+<ol>
+<li><b>Vent til høsten.</b> Om våren og sommeren kan det være unger i hiet.</li>
+<li><b>Sjekk at hiet er i bruk – eller tomt.</b> Strø sand i åpningen og se etter fotspor, eller sett en lett steinhelle foran. Grevlingen velter den lett, og da ser du om den bruker hiet.</li>
+<li><b>La ett hull stå åpent en periode,</b> slik at grevlingen kan forlate stedet.</li>
+<li><b>Tett når grevlingen er ute,</b> helst om kvelden eller natten, og sperr så det ikke kan graves nytt hi samme sted – med netting som går ned i bakken.</li>
+</ol>
+<h2>Hva sier regelverket?</h2>
+<p>Kommunen flytter normalt ikke grevlinger, og det er ikke lov å fange grevling levende for å flytte den et annet sted.</p>
+<p>Etter viltforskriften kan den som får skade, felle grevling uten særskilt tillatelse hele året når det er nødvendig for å stanse eller avverge skade på eiendom. Men det gjelder bare når alle vilkårene er oppfylt:</p>
+<ul>
+<li>Skaden er, eller kan bli, av vesentlig økonomisk betydning.</li>
+<li>Du har prøvd forebyggende tiltak som er rimelige ut fra verdiene og kostnadene.</li>
+<li>Fellingen gjelder det dyret som gjør skade, og vil sannsynligvis stanse skaden.</li>
+</ul>
+<p>Hull i plenen, rot i blomsterbed, kompost eller søppel regnes <b>ikke</b> som skade av vesentlig økonomisk betydning. Det som kan gi grunnlag, er typisk at grevlingen har gravd hi under grunnmuren og skader eller truer den. Skadefelling skal rapporteres til kommunen, og i tettbygde strøk er skytevåpen som hovedregel ikke tillatt uten tillatelse fra politiet. Skadefelling skal være siste utvei – snakk med kommunen eller viltnemnda først. Ordinær jakttid er ifølge Stjørdal kommune fra 21. august til 31. januar; sjekk gjeldende jakttider før du gjør noe.</p>
+<p>Grevlingen spiser også brunsnegl, så noen naboer ser den som en hjelper i hagen.</p>
+""",
+ "prod": ("Gjerde og sperring", "Netting og utstyr til å sperre under terrasser og boder.", "hus-og-hage"),
+ "sources": [("FHI Skadedyrhåndboka: Grevling", f"{FHI}/pattedyr-andre/grevling"),
+             ("Miljødirektoratet: Jeg opplever problemer med en art – hva kan jeg gjøre?", "https://www.miljodirektoratet.no/ansvarsomrader/arter-naturtyper/vilt/vilt-som-gjor-skade/Jeg-opplever-prorblemer-med-en-art-hva-kan-jeg-gjore/"),
+             ("Oslo kommune: Grevling i hagen? Tips og råd", "https://www.oslo.kommune.no/get-file/1132988/bd774e75285b27dd1ef64222103ae2e43571173df64871b78a62deecd0b84a04"),
+             ("Lier kommune: Grevling i hagen?", "https://www.Lier.kommune.no/globalassets/09.-teknisk-og-eiendom/landbruk/dokumenter/utmark-og-vilt/grevlingplager_infohefte_nettversjon.pdf"),
+             ("Stjørdal kommune: Grevling i hagen?", "https://www.stjordal.kommune.no/_f/p3/ieb2b1edb-1630-4fc2-8b4c-0ebdb69223e0/grevling-i-hagen.pdf"),
+             ("Bærum kommune: Vilt i bebyggelsen – grevling", "https://www.baerum.kommune.no/tjenester/natur-friluftsliv-og-naturmangfold/jakt-fiske-og-vilt/vilt--og-fiskeforvaltning/vilt-i-bebyggelsen-grevling/"),
+             ("Asker kommune: Vilt", "https://www.asker.kommune.no/friluftsliv/jakt-fiske-og-vilt/vilt/")]},
+{
  "slug": "rotter-i-byen", "regions": ["ost", "vest"], "cat": "Gnagere", "min": 5, "img": "rotte",
  "title": "Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?",
  "lead": "Ser du en rotte i hagen eller bakgården, er det huseier eller beboer som må ta tak i det. Slik forebygger du – og slik vet du når det er på tide å ringe en fagperson.",

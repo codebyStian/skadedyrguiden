@@ -124,5 +124,10 @@
   "ar": "16:9",
   "w": 2000,
   "prompt": "Bodø, a modern harbour town with fishing boats and a jagged mountain range across the sea. Wide establishing shot that fills the whole frame edge to edge, soft late-afternoon light with some colour and contrast, neutral season with no snow and no autumn leaves, no fog, no haze, no blank areas."
+ },
+ "grevling": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A European badger with its black and white striped face snuffling on a lawn at dusk next to a wooden garden terrace of a Norwegian house, soft warm light from a window."
  }
 }

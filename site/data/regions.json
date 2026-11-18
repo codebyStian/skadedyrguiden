@@ -1,6 +1,11 @@
 {
  "ost": [
   {
+   "slug": "grevling-pa-tomta",
+   "title": "Grevling på tomta: hva kan du gjøre – og hva har du lov til?",
+   "cat": "Vilt i hagen"
+  },
+  {
    "slug": "rotter-i-byen",
    "title": "Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?",
    "cat": "Gnagere"
@@ -9,14 +14,14 @@
    "slug": "flatt-langs-kysten",
    "title": "Flått langs kysten: sjekk deg selv etter turen",
    "cat": "Flått"
-  },
-  {
-   "slug": "stokkmaur-eller-skogsmaur",
-   "title": "Stokkmaur eller skogsmaur? Slik ser du forskjellen",
-   "cat": "Maur"
   }
  ],
  "sor": [
+  {
+   "slug": "grevling-pa-tomta",
+   "title": "Grevling på tomta: hva kan du gjøre – og hva har du lov til?",
+   "cat": "Vilt i hagen"
+  },
   {
    "slug": "flatt-langs-kysten",
    "title": "Flått langs kysten: sjekk deg selv etter turen",
@@ -26,14 +31,14 @@
    "slug": "husbukk",
    "title": "Husbukk langs kysten av Telemark og Agder: tegn du ser etter",
    "cat": "Treskadedyr"
-  },
-  {
-   "slug": "vepsebol",
-   "title": "Vepsebolet: fjern det tidlig i sesongen",
-   "cat": "Veps"
   }
  ],
  "vest": [
+  {
+   "slug": "grevling-pa-tomta",
+   "title": "Grevling på tomta: hva kan du gjøre – og hva har du lov til?",
+   "cat": "Vilt i hagen"
+  },
   {
    "slug": "rotter-i-byen",
    "title": "Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?",
@@ -43,14 +48,14 @@
    "slug": "fukt-solvkre-skjeggkre",
    "title": "Sølvkre og skjeggkre: hva er forskjellen, og hva hjelper?",
    "cat": "Fukt"
-  },
-  {
-   "slug": "stripet-borebille",
-   "title": "Små runde hull i treverket? Det kan være stripet borebille",
-   "cat": "Treskadedyr"
   }
  ],
  "midt": [
+  {
+   "slug": "grevling-pa-tomta",
+   "title": "Grevling på tomta: hva kan du gjøre – og hva har du lov til?",
+   "cat": "Vilt i hagen"
+  },
   {
    "slug": "stokkmaur-eller-skogsmaur",
    "title": "Stokkmaur eller skogsmaur? Slik ser du forskjellen",
@@ -60,11 +65,6 @@
    "slug": "vepsebol",
    "title": "Vepsebolet: fjern det tidlig i sesongen",
    "cat": "Veps"
-  },
-  {
-   "slug": "mus-pa-garden",
-   "title": "Mus på gården: låve, stabbur og fôrlager",
-   "cat": "Gnagere"
   }
  ],
  "nord": [
