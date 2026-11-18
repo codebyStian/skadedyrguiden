@@ -48,7 +48,9 @@ def credit(sid):
 def thumb(sid, fallback, name):
     if sid in PHOTOS:
         return f'<figure class="th-f"><div class="ph th"><img src="../assets/img/foto-{sid}.webp" alt="{E(name)} ({E(PHOTOS[sid]["taxon"])})" loading="lazy"></div>{credit(sid)}</figure>'
-    fb = f"this.onerror=function(){{this.parentNode.dataset.ph=1;this.remove()}};this.src='../assets/img/{fallback}.webp'" if fallback else "this.parentNode.dataset.ph=1;this.remove()"
+    # Navngitte arter vises aldri med illustrasjonsbilde – mangler ekte foto, vises navnekort.
+    return f'<figure class="th-f"><div class="ph th" data-ph="1" data-label="{E(name)}"></div></figure>'
+    fb = ""
     return f'<div class="ph th" data-label="{E(name)}"><img src="../assets/img/art-{sid}.webp" alt="{E(name)}" loading="lazy" onerror="{fb}"></div>'
 
 
@@ -92,7 +94,7 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
     if s["id"] in PHOTOS:
         image = f'<img src="../assets/img/foto-{s["id"]}.webp" alt="{E(s["name"])}">'
     else:
-        image = f'<img src="../assets/img/{img}.webp" alt="{E(s["name"])}" onerror="this.parentNode.dataset.ph=1;this.remove()">' if img else ""
+        image = ""
     inf = INFO.get(s["id"], {})
     infoh = "".join(f'<div class="ic"><h3>{t}</h3><ul>{"".join(f"<li>{E(x)}</li>" for x in inf[k])}</ul></div>' for k, t in FIELDS if inf.get(k))
     infoh = f'<section><h2>Fakta om {E(s["name"].lower())}</h2><div class="icg">{infoh}</div><p class="small mute">Kilde: <a href="{E(s["source"]["url"])}" rel="noopener">{E(s["source"]["title"])}</a>.</p></section>' if infoh else ""

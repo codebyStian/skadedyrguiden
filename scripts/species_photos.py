@@ -45,11 +45,33 @@ def search(taxon):
         yield s["title"].removeprefix("File:")
 
 
+# Arter der Commons-bildet var dårlig: hent fra iNaturalist (forskningsgodkjente observasjoner, lisens som tillater kommersiell bruk).
+INAT = {"stokkmaur", "jordmaur", "kakerlakk", "rotte"}
+
+
+def inat(taxon):
+    t = api("https://api.inaturalist.org/v1/taxa", q=taxon, rank="species", per_page=1)["results"]
+    if not t: return None
+    obs = api("https://api.inaturalist.org/v1/observations", taxon_id=t[0]["id"], quality_grade="research", photo_license="cc0,cc-by,cc-by-sa",
+              order_by="votes", per_page=10, photos="true")["results"]
+    for o in obs:
+        for ph in o.get("photos", []):
+            if (ph.get("license_code") or "") in ("cc0", "cc-by", "cc-by-sa"):
+                code = ph["license_code"]
+                return {"file": f"iNaturalist foto {ph['id']}", "thumb": ph["url"].replace("square", "large"), "page": f"https://www.inaturalist.org/photos/{ph['id']}",
+                        "license": {"cc0": "CC0", "cc-by": "CC BY 4.0", "cc-by-sa": "CC BY-SA 4.0"}[code],
+                        "license_url": {"cc0": "https://creativecommons.org/publicdomain/zero/1.0/", "cc-by": "https://creativecommons.org/licenses/by/4.0/", "cc-by-sa": "https://creativecommons.org/licenses/by-sa/4.0/"}[code],
+                        "author": re.sub(r"^\(c\)\s*|,.*$", "", ph.get("attribution", "")).strip()[:80] or "iNaturalist-bruker", "w": 1000, "source": "iNaturalist"}
+    return None
+
+
 photos = json.loads(OUT.read_text()) if OUT.exists() else {}
+for sid in INAT:
+    if photos.get(sid, {}).get("source") != "iNaturalist": photos.pop(sid, None)
 for sid, taxon in TAXON.items():
     if sid in photos and (IMG / f"foto-{sid}.webp").exists(): continue
-    got = None
-    for fn in list(p18(taxon)) + list(search(taxon)):
+    got = inat(taxon) if sid in INAT else None
+    for fn in ([] if got else list(p18(taxon)) + list(search(taxon))):
         try:
             got = info(fn)
         except Exception as e:
