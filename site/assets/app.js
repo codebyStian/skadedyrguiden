@@ -123,20 +123,20 @@
   function startFX() {
     const cv = $("#fx"); if (!cv || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = cv.getContext("2d"); let W, H, parts = [], vis = true, raf;
-    const tint = { snow: "rgba(200,220,235,.10)", rain: "rgba(120,150,170,.10)", motes: "rgba(255,210,120,.08)", leaves: "rgba(210,120,40,.08)" };
+    const tint = { snow: "rgba(200,220,235,.04)", rain: "rgba(120,150,170,.04)", motes: "rgba(255,210,120,.03)", leaves: "rgba(210,120,40,.03)" };
     function size() { W = cv.width = cv.clientWidth * devicePixelRatio; H = cv.height = cv.clientHeight * devicePixelRatio; }
     function make() {
-      const n = { snow: 140, rain: 160, motes: 50, leaves: 26 }[fxKind]; parts = [];
+      const n = { snow: 55, rain: 45, motes: 22, leaves: 9 }[fxKind]; parts = [];
       for (let i = 0; i < n; i++) parts.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random(), a: Math.random() * 6.28, s: 0.4 + Math.random() });
       cv.style.background = tint[fxKind];
     }
     function step() {
       ctx.clearRect(0, 0, W, H); const d = devicePixelRatio;
       for (const p of parts) {
-        if (fxKind === "snow") { p.y += (0.4 + p.s) * d; p.x += Math.sin((p.a += 0.01)) * 0.5 * d; ctx.fillStyle = "rgba(255,255,255,.85)"; ctx.beginPath(); ctx.arc(p.x, p.y, (1 + p.r * 2.2) * d, 0, 6.28); ctx.fill(); }
-        else if (fxKind === "rain") { p.y += (9 + p.s * 6) * d; p.x -= 1.2 * d; ctx.strokeStyle = "rgba(220,235,245,.35)"; ctx.lineWidth = d; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x + 2 * d, p.y - 14 * d); ctx.stroke(); }
-        else if (fxKind === "motes") { p.y -= 0.15 * p.s * d; p.x += Math.sin((p.a += 0.008)) * 0.3 * d; ctx.fillStyle = `rgba(255,236,170,${0.25 + 0.35 * Math.abs(Math.sin(p.a))})`; ctx.beginPath(); ctx.arc(p.x, p.y, (1 + p.r * 2) * d, 0, 6.28); ctx.fill(); }
-        else { p.y += (0.6 + p.s * 0.8) * d; p.x += Math.sin((p.a += 0.02)) * 1.4 * d; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = ["#c9672b", "#d99a2b", "#a4472a", "#e0b041"][p.r * 4 | 0]; ctx.beginPath(); ctx.ellipse(0, 0, 7 * d * (0.6 + p.r), 3.4 * d * (0.6 + p.r), 0, 0, 6.28); ctx.fill(); ctx.restore(); }
+        if (fxKind === "snow") { p.y += (0.25 + p.s * 0.5) * d; p.x += Math.sin((p.a += 0.008)) * 0.35 * d; ctx.fillStyle = "rgba(255,255,255,.55)"; ctx.beginPath(); ctx.arc(p.x, p.y, (0.8 + p.r * 1.6) * d, 0, 6.28); ctx.fill(); }
+        else if (fxKind === "rain") { p.y += (7 + p.s * 4) * d; p.x -= 0.8 * d; ctx.strokeStyle = "rgba(220,235,245,.18)"; ctx.lineWidth = d; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x + 2 * d, p.y - 14 * d); ctx.stroke(); }
+        else if (fxKind === "motes") { p.y -= 0.15 * p.s * d; p.x += Math.sin((p.a += 0.008)) * 0.3 * d; ctx.fillStyle = `rgba(255,236,170,${0.12 + 0.2 * Math.abs(Math.sin(p.a))})`; ctx.beginPath(); ctx.arc(p.x, p.y, (1 + p.r * 2) * d, 0, 6.28); ctx.fill(); }
+        else { p.y += (0.35 + p.s * 0.45) * d; p.x += Math.sin((p.a += 0.012)) * 0.9 * d; ctx.save(); ctx.globalAlpha = 0.55; ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = ["#c9672b", "#d99a2b", "#a4472a", "#e0b041"][p.r * 4 | 0]; ctx.beginPath(); ctx.ellipse(0, 0, 5 * d * (0.6 + p.r), 2.4 * d * (0.6 + p.r), 0, 0, 6.28); ctx.fill(); ctx.restore(); }
         if (p.y > H + 20) { p.y = -20; p.x = Math.random() * W; } if (p.y < -20) p.y = H + 10; if (p.x < -20) p.x = W + 10; if (p.x > W + 20) p.x = -10;
       }
       if (vis) raf = requestAnimationFrame(step);
@@ -197,7 +197,7 @@
   function maxOf(sp) { return Math.max(...Object.values(stats.gbif.fylker).map((r) => r[sp] || 0), 1); }
   function articles(region) {
     return `<h3 class="ph3">Aktuelt for ${REGION[region].name}</h3><div class="rarts">${REGION[region].arts.map(([c, t]) =>
-      `<a href="#artikler"><span class="cat">${c}</span><b>${esc(t)}</b><span class="soon">Kommer</span></a>`).join("")}</div>`;
+      `<a href="#artikler"><span class="cat">${c}</span><b>${esc(t)}</b><span class="soon">Ikke skrevet ennå</span></a>`).join("")}</div>`;
   }
   function monthNow() {
     if (!stats?.fhi?.monthly) return "";

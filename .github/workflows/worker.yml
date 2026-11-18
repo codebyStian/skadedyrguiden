@@ -49,7 +49,7 @@ jobs:
               im = Image.open(f"../site/assets/img/{name}.webp").convert("RGB"); im.thumbnail((1024, 1024))
               b = io.BytesIO(); im.save(b, "JPEG", quality=85)
               body = json.dumps({"image": "data:image/jpeg;base64," + base64.b64encode(b.getvalue()).decode()}).encode()
-              req = urllib.request.Request(sys.argv[1] + "/identify", data=body, headers={"Content-Type": "application/json", "Origin": "https://codebystian.github.io"})
+              req = urllib.request.Request(sys.argv[1] + "/identify", data=body, headers={"Content-Type": "application/json", "Origin": "https://codebystian.github.io", "User-Agent": "Mozilla/5.0 (smoke test)"})
               try:
                   r = json.load(urllib.request.urlopen(req, timeout=120))
                   print(name, "->", json.dumps({k: r.get(k) for k in ("level", "confidence", "name", "matched", "check", "visible", "model")}, ensure_ascii=False))
