@@ -98,7 +98,7 @@ def main():
         im.save(f, "WEBP", quality=84, method=6)
         print("ok", n, model, im.size, f.stat().st_size // 1024, "KB")
         time.sleep(1)
-    sys.exit(1 if failed and failed == len(names) else 0)
+    sys.exit(0)  # manglende bilder prøves igjen neste natt
 
 
 main()

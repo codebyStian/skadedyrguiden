@@ -11,7 +11,11 @@
 <link rel="stylesheet" href="assets/site.css">
 <style>
 .hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;color:#fff;background:radial-gradient(90% 120% at 85% 20%,#2b5248 0%,#0f2a24 55%,#08140f 100%);overflow:hidden}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
+#fx{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:screen}
+.locrow{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap;margin-top:18px;color:#d6e0dc}
+.loc{display:inline-flex;gap:8px;align-items:center;min-height:40px;padding:0 4px;border:0;background:none;color:#fff;font:600 15px "Schibsted Grotesk",sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--y)}
+.chip:empty{display:none}.chip{font-size:14px;background:rgba(255,255,255,.12);padding:6px 12px;border-radius:999px}.chip button{background:none;border:0;color:var(--y);font:inherit;cursor:pointer;text-decoration:underline;min-height:24px}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,13,.88) 0%,rgba(6,16,13,.55) 45%,rgba(6,16,13,.05) 80%),linear-gradient(0deg,rgba(6,16,13,.7),transparent 45%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding:0 max(5vw,18px) clamp(40px,6vw,80px)}
 .hero h1{max-width:12ch;margin-bottom:.25em}
@@ -101,6 +105,58 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .checks span{color:var(--mute);font-size:15.5px}
 .biz{background:var(--soft)}
 @media(max-width:860px){.feat,.feat.rev{grid-template-columns:1fr}.feat .ph{aspect-ratio:4/3}.feat.rev .ph{order:-1}}
+[hidden]{display:none!important}
+.local{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.mapbox{position:sticky;top:90px}
+.map{background:var(--soft);border-radius:22px;aspect-ratio:834/1020;overflow:hidden}
+.map svg{width:100%;height:100%;display:block}
+.map path{fill:color-mix(in srgb,var(--pine) 22%,var(--soft));stroke:var(--bg);stroke-width:1.2;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .25s,opacity .25s}
+.map path:hover,.map path:focus-visible{fill:color-mix(in srgb,var(--y) 55%,var(--soft));outline:none}
+.map path.reg{fill:color-mix(in srgb,var(--pine) 45%,var(--soft))}
+.map path.on{fill:var(--y)}
+.map path.dim{opacity:.45}
+.map .dot{fill:#d8432c;stroke:#fff;stroke-width:2;vector-effect:non-scaling-stroke}
+.map .pulse{fill:#d8432c;opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2s infinite}
+@keyframes pulse{to{transform:scale(3);opacity:0}}
+.mapbar{display:flex;gap:10px;margin:12px 0 6px;flex-wrap:wrap}
+.panel h2{font-size:clamp(34px,4vw,52px)}
+.ph3{font-size:18px;margin:28px 0 8px}
+.now{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:12px;margin-top:8px}
+.wx{display:flex;gap:14px;align-items:center;background:var(--soft);border-radius:16px;padding:16px 18px}
+.wx b{font:400 52px/1 "Instrument Serif",Georgia,serif}
+.risk{border-radius:16px;padding:14px 18px;background:var(--pine);color:var(--onDark)}
+.risk small{display:block;color:var(--muteDark)}.risk b{font-size:22px;display:block}.risk span{font-size:14.5px;color:#cfdcd7}
+.risk.r-høy{background:#7a2a1d}.risk.r-lav{background:#2c4a3f}
+.mrow{display:grid;grid-template-columns:8.5em minmax(0,1fr) 3.6em;gap:12px;align-items:center;margin:7px 0;font-size:15.5px}
+.mrow b{text-align:right;font-variant-numeric:tabular-nums}
+.mbar{position:relative;height:10px;border-radius:5px;background:var(--soft)}
+.mbar i{position:absolute;inset:0 auto 0 0;background:var(--pine);border-radius:5px;transition:width .5s}
+:root[data-theme=dark] .mbar i{background:var(--y)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .mbar i{background:var(--y)}}
+.mbar em{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink);opacity:.5}
+.src{font-size:13px;color:var(--mute);margin:10px 0 0}.src a{color:inherit}
+.near{display:flex;flex-wrap:wrap;gap:6px 16px;background:var(--soft);border-radius:12px;padding:12px 16px;font-size:15px;margin:12px 0 0}
+.rarts{display:grid;gap:0;border-top:1px solid var(--line)}
+.rarts a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.rarts .cat{grid-column:1;margin:0}.rarts b{grid-column:1;font-weight:600}.rarts .soon{grid-column:2;grid-row:1/3;align-self:center;font-size:12.5px;color:var(--mute);background:var(--soft);padding:3px 10px;border-radius:999px}
+.tabs{display:flex;gap:4px;background:var(--pine2);padding:4px;border-radius:999px}
+.tabs button{min-height:42px;padding:0 18px;border:0;border-radius:999px;background:none;color:var(--onDark);font:600 15px "Schibsted Grotesk",sans-serif;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--y);color:#111715}
+.drop{position:relative;border:1.5px dashed #3d5f56;border-radius:20px;min-height:230px;display:grid;place-items:center;cursor:pointer;overflow:hidden;margin:22px 0 14px;transition:border-color .2s,background .2s}
+.drop:hover,.drop.over{border-color:var(--y);background:rgba(242,194,48,.06)}
+.drop .dz{display:grid;justify-items:center;gap:6px;text-align:center;padding:20px;color:var(--muteDark)}.drop .dz b{color:var(--onDark)}
+.drop #prev img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.drop.has .dz{position:relative;z-index:1;background:rgba(8,20,16,.7);border-radius:14px;padding:10px 16px}
+.drop.has .dz svg,.drop.has .dz .small{display:none}
+.hintl{display:flex;flex-direction:column;gap:6px;font-size:14.5px;color:var(--muteDark)}
+.hintl select{min-height:48px;border-radius:12px;border:1px solid #2d4d45;background:var(--pine2);color:var(--onDark);font:16px "Schibsted Grotesk",sans-serif;padding:0 12px}
+.aicard h3{font:400 clamp(34px,4vw,48px)/1 "Instrument Serif",Georgia,serif;margin:6px 0 14px}.aicard h3 em{font-size:.5em;color:var(--muteDark)}
+.aicard ul{margin:0 0 12px;padding-left:1.2em}
+.conf{height:8px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:16px}.conf i{display:block;height:100%;background:var(--y)}
+.aicard.busy{display:grid;gap:8px;justify-items:start}
+.spin{width:28px;height:28px;border-radius:50%;border:3px solid rgba(255,255,255,.2);border-top-color:var(--y);animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+@media(max-width:860px){.local{grid-template-columns:1fr}.mapbox{position:static}.map{aspect-ratio:auto;height:min(480px,62vh)}.now{grid-template-columns:1fr}}
+@media(max-width:600px){.mrow{grid-template-columns:6.8em minmax(0,1fr) 3em;font-size:14.5px}.tabs{width:100%}.tabs button{flex:1}}
 .cal{overflow-x:auto}
 .cal table{border-collapse:separate;border-spacing:4px;width:100%;min-width:620px;table-layout:fixed}.cal th:first-child{width:8.5em}
 .cal th{font-size:13px;font-weight:500;color:var(--mute);padding:0 0 6px}
@@ -147,15 +203,16 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 <div class="note">Konseptskisse – arbeidsnavn «Skadedyrguiden». Tekstene er eksempler og må faktasjekkes før publisering.</div>
 <header class="top"><div class="wrap">
   <a class="logo" href="./">Skadedyrguiden<i></i></a>
-  <nav class="nav" aria-label="Hovedmeny"><a href="#leksikon">Leksikon</a><a href="#artikler">Artikler</a><a href="#hvadet">Hva er det?</a><a href="podkast.html">Podkast</a><a href="#kalender">Sesong</a><a href="#verktoy">Verktøy</a></nav>
+  <nav class="nav" aria-label="Hovedmeny"><a href="#leksikon">Leksikon</a><a href="#artikler">Artikler</a><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a><a href="podkast.html">Podkast</a><a href="#kalender">Sesong</a><a href="#verktoy">Verktøy</a></nav>
   <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 
 <main>
 <section class="hero">
   <img src="assets/img/hero.webp" alt="" fetchpriority="high" onerror="this.remove()">
+  <canvas id="fx" aria-hidden="true"></canvas>
   <div class="wrap">
-    <span class="kicker" style="color:#d6e0dc">Høstsesong: musene leter etter vinterkvarter</span>
+    <span class="kicker" style="color:#d6e0dc" id="heroKicker">Høstsesong: musene leter etter vinterkvarter</span>
     <h1>Kunnskap som holder skadedyrene <em>ute.</em></h1>
     <p class="intro">Fagartikler, verktøy og en podkast om skadedyr i hus, hage og bedrift. Finn ut hva du har, hva du gjør først, og når du bør ringe en fagperson.</p>
     <form class="search" id="sf" role="search">
@@ -164,6 +221,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
       <div class="hits" id="hits"></div>
     </form>
     <div class="chips" id="chips"></div>
+    <div class="locrow"><button class="loc" type="button" data-locate><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>Vis det som gjelder der jeg bor</button><span id="locChip" class="chip"></span><span id="locMsg" class="small" aria-live="polite"></span></div>
   </div>
   <span class="credit">Illustrasjonsfoto: AI-generert</span>
 </section>
@@ -180,14 +238,30 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <div class="lex" id="lex"></div>
 </div></section>
 
-<section class="band dark" id="hvadet"><div class="wrap idt">
-  <div>
-    <span class="kicker">Verktøy</span>
-    <h2>Hva er det jeg ser?</h2>
-    <p class="mute" style="max-width:46ch;margin-bottom:26px">Velg tegnene du har lagt merke til. Vi rangerer hvilke skadedyr som passer best, så du vet hvor du skal begynne.</p>
-    <div class="signs" id="signs"></div>
+<section class="band" id="lokalt" style="padding-top:0"><div class="wrap">
+  <div class="head"><div><span class="kicker">Der du bor</span><h2>Skadedyr i <em>ditt</em> fylke</h2></div><p class="mute">Meldte funn, været akkurat nå, sesongen og artiklene som gjelder der du bor. Trykk på et fylke, eller la nettleseren finne deg.</p></div>
+  <div class="local">
+    <div class="mapbox"><div id="map" class="map"></div><div class="mapbar"><button class="btn" type="button" data-locate>Finn meg</button><button class="btn" type="button" id="mapReset">Hele landet</button></div><p class="small mute">Kartdata: Kartverket (CC BY 4.0).</p></div>
+    <div class="panel" id="panel" aria-live="polite"><p class="mute">Laster kart …</p></div>
   </div>
-  <div class="res" id="res" aria-live="polite"></div>
+</div></section>
+
+<section class="band dark" id="hvadet"><div class="wrap">
+  <div class="head"><div><span class="kicker">Verktøy</span><h2>Hva er det jeg ser?</h2></div>
+    <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-tab="t-tegn">Velg tegn</button><button role="tab" aria-selected="false" data-tab="t-foto">Last opp bilde</button></div></div>
+  <div id="t-tegn" class="idt" role="tabpanel">
+    <div><p class="mute" style="max-width:46ch;margin-bottom:26px">Velg tegnene du har lagt merke til. Vi rangerer hvilke skadedyr som passer best, så du vet hvor du skal begynne.</p><div class="signs" id="signs"></div></div>
+    <div class="res" id="res" aria-live="polite"></div>
+  </div>
+  <div id="t-foto" class="idt" role="tabpanel" hidden>
+    <div>
+      <p class="mute" style="max-width:46ch">Ta et skarpt bilde ovenfra, gjerne med en mynt ved siden av. Bildet sjekkes mot kjennetegnene i FHIs skadedyrhåndbok – først av en bildemodell, så av en egen kvalitetskontroll.</p>
+      <div class="drop" id="drop" tabindex="0" role="button" aria-label="Last opp bilde"><div id="prev"></div><div class="dz"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Slipp bildet her eller trykk for å velge</b><span class="small">JPG, PNG eller WEBP. Bildet lagres ikke.</span></div></div>
+      <input type="file" id="file" accept="image/*" capture="environment" hidden>
+      <label class="hintl">Hvor fant du det?<select id="hint"><option value="">Vet ikke</option><option>Kjøkken</option><option>Bad</option><option>Soverom eller seng</option><option>Loft eller kjeller</option><option>Ute eller på terrassen</option><option>Hytte</option></select></label>
+    </div>
+    <div class="res" id="aiOut" aria-live="polite"><span class="kicker">Resultat</span><div class="top1">Last opp et bilde</div><p class="mute" style="max-width:36ch">Du får forslag til art, hvor sikker vurderingen er, og hvilke kjennetegn den bygger på – med lenke til kilden.</p></div>
+  </div>
 </div></section>
 
 <section class="band month"><div class="wrap feat">
@@ -241,9 +315,9 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></section>
 
 <section class="band" id="kalender"><div class="wrap">
-  <div class="head"><div><span class="kicker">Sesongkalender</span><h2>Forebygg før sesongen starter</h2></div><p class="mute">Når på året du typisk møter de vanligste skadedyrene i Norge. Inneværende måned er markert.</p></div>
+  <div class="head"><div><span class="kicker">Sesongkalender</span><h2>Forebygg før sesongen starter</h2></div><p class="mute">Når skadedyrfirmaene i Norge rykker ut, måned for måned. Inneværende måned er markert.</p></div>
   <div class="cal"><table id="cal"></table></div>
-  <div class="legend"><span><i style="background:var(--y)"></i>Høysesong</span><span><i style="background:color-mix(in srgb,var(--y) 35%,var(--soft))"></i>Kan forekomme</span></div>
+  <p class="src" id="calLegend"><span><i style="background:var(--y)"></i>Høysesong</span> <span><i style="background:color-mix(in srgb,var(--y) 35%,var(--soft))"></i>Kan forekomme</span></p>
 </div></section>
 
 <section class="band" id="verktoy" style="padding-top:0"><div class="wrap">
@@ -285,7 +359,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <div class="cols">
     <div><a class="logo" href="./">Skadedyrguiden<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Et konsept fra Skadedyrbutikken.</p></div>
     <div><h3>Les</h3><ul><li><a href="#leksikon">Leksikon</a></li><li><a href="#artikler">Artikler</a></li><li><a href="podkast.html">Podkast</a></li></ul></div>
-    <div><h3>Verktøy</h3><ul><li><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
+    <div><h3>Verktøy</h3><ul><li><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
   </div>
   <div class="base">Bildene på siden er AI-genererte illustrasjonsfoto.</div>
@@ -318,6 +392,7 @@ function open(k){const p=P.find(x=>x.k===k);if(!p)return;last=document.activeEle
  <h3>Tegn du ser etter</h3><ul>${p.signs.map(s=>`<li>${s}</li>`).join('')}</ul><h3>Gjør dette først</h3><p>${p.first}</p>
  <div class="acts"><a class="btn y arrow" href="${U(p.cat,'leksikon-'+p.k)}">Se utstyr </a>${p.art?`<a class="btn arrow" href="${p.art}">Les artikkelen </a>`:''}</div></div>`;
  dr.classList.add('on');dr.setAttribute('aria-hidden','false');dr.querySelector('.x').focus();}
+window.SG_open=open;
 function close(){dr.classList.remove('on');dr.setAttribute('aria-hidden','true');if(last)last.focus()}
 document.getElementById('lex').addEventListener('click',e=>{const b=e.target.closest('.sp');if(b)open(b.dataset.k)});
 dr.addEventListener('click',e=>{if(e.target.closest('[data-close]'))close()});
@@ -359,8 +434,11 @@ document.getElementById('cal').innerHTML=`<thead><tr><th></th>${M.map((m,i)=>`<t
 
 document.getElementById('shop').innerHTML=[['Gnagere','gnagere'],['Insekter','insekter'],['Fugler','fugler'],['Hus og hage','hus-og-hage'],['Verneutstyr','verktoey-og-verneutstyr'],['Lagersalg','lagersalg']].map(([t,p])=>`<a href="${U(p,'shopgrid')}">${t}<span aria-hidden="true">→</span></a>`).join('');
 
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>{x.setAttribute('aria-selected',x===b);document.getElementById(x.dataset.tab).hidden=x!==b})}));
+document.getElementById('aiOut').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;const m={jordmaur:'maur',stokkmaur:'maur',skogmus:'mus'};const k=m[b.dataset.k]||b.dataset.k;if(P.find(p=>p.k===k))open(k);else location.hash='leksikon'});
 document.getElementById('nf').addEventListener('submit',e=>{e.preventDefault();document.getElementById('nfmsg').textContent='Konsept: påmeldingen kobles til nyhetsbrevverktøyet senere.'});
 }
 </script>
+<script src="assets/app.js" defer></script>
 </body>
 </html>
