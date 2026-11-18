@@ -59,5 +59,70 @@
   "ar": "4:3",
   "w": 1400,
   "prompt": "A moody podcast studio, two broadcast microphones on boom arms over a dark walnut table, warm amber desk lamp, deep slate-green acoustic wall, no people."
+ },
+ "region-ost": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "A small coastal town by the outer Oslo fjord in Vestfold, white and ochre wooden houses around a little harbour with sailboats, gentle wooded hills. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "region-sor": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "The southern Norwegian skerry coast with white painted wooden houses on smooth granite rocks by the sea, a small wooden pier. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "region-vest": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "A western Norwegian fjord village, wooden houses at the shore under steep green mountains, low clouds on the peaks. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "region-midt": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Rolling farmland in Trøndelag with red barns and a white farmhouse, a fjord in the distance. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "region-nord": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "A northern Norwegian fishing village with red wooden fishermen's cabins on stilts by the sea under steep dramatic mountains. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "by-oslo": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Oslo residential street with apartment buildings from around 1900 in pastel colours, a tram, trees. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "by-bergen": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Bergen harbour with old colourful wooden wharf houses along the quay, mountains rising behind the city, light drizzle. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "by-trondheim": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Trondheim, colourful old wooden warehouses on stilts along a river, a bridge. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "by-stavanger": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Stavanger old town, narrow street of small white wooden houses with flower boxes, cobblestones. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "by-kristiansand": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Kristiansand, a grid of white wooden houses near a sandy beach and a small marina. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "by-tonsberg": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Tønsberg, the wooden wharf promenade with restaurants and moored boats along a narrow canal, a wooded hill with a stone tower above the town. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "by-tromso": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Tromsø, a bridge over the sound to an island city with wooden houses below snow-capped mountains. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
+ },
+ "by-bodo": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "Bodø, a modern harbour town with fishing boats and a jagged mountain range across the sea. Wide establishing shot, calm overcast daylight, neutral season with no snow and no autumn leaves, the right two thirds of the frame hold the subject, the left third is quieter sky or water for a headline."
  }
 }
