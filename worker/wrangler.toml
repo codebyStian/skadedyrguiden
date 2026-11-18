@@ -1,0 +1,10 @@
+name = "skadedyrguiden-ai"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[ai]
+binding = "AI"
+
+[vars]
+ALLOWED_ORIGINS = "https://codebystian.github.io,http://localhost:8000"

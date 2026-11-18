@@ -1,0 +1,379 @@
+{
+ "_about": "Faktagrunnlag for bildeanalysen og leksikonet. 'checked': true = kjennetegn er kontrollert mot den lenkede FHI-siden. false = må kontrolleres av fagperson før lansering.",
+ "species": [
+  {
+   "id": "mus",
+   "name": "Husmus",
+   "latin": "Mus musculus",
+   "group": "gnager",
+   "pest": true,
+   "features": [
+    "kropp 6–10 cm og hale 7–10 cm",
+    "spiss snute",
+    "små ører",
+    "gråbrun pels",
+    "ekskrementer på størrelse med riskorn"
+   ],
+   "confusable": [
+    {
+     "id": "skogmus",
+     "how": "skogmus har store ører og øyne og lys buk"
+    },
+    {
+     "id": "rotte",
+     "how": "rotter er mye større og har butt snute"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Husmus",
+    "url": "https://www.fhi.no/sk/skadedyrveilederen/gnagere/husmus/"
+   },
+   "checked": true
+  },
+  {
+   "id": "skogmus",
+   "name": "Skogmus",
+   "latin": "Apodemus spp.",
+   "group": "gnager",
+   "pest": true,
+   "features": [
+    "store ører",
+    "store, utstående øyne",
+    "lang hale",
+    "lys eller hvit buk",
+    "brunlig rygg"
+   ],
+   "confusable": [
+    {
+     "id": "mus",
+     "how": "husmus har små ører og mer ensfarget grå pels"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrhåndboka: oversikt over skadedyr",
+    "url": "https://fhi.no/sk/skadedyrhandboka/oversikter/alfabetisk-etter-norsk-navn"
+   },
+   "checked": false
+  },
+  {
+   "id": "rotte",
+   "name": "Brunrotte",
+   "latin": "Rattus norvegicus",
+   "group": "gnager",
+   "pest": true,
+   "features": [
+    "kropp rundt 20–27 cm uten hale",
+    "butt snute",
+    "små ører",
+    "tykk hale kortere enn kroppen",
+    "store, krumme gnagertenner",
+    "ekskrementer 1–2 cm"
+   ],
+   "confusable": [
+    {
+     "id": "mus",
+     "how": "mus er mye mindre"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Brunrotte",
+    "url": "https://fhi.no/sk/skadedyrveilederen/gnagere/brunrotte/"
+   },
+   "checked": true
+  },
+  {
+   "id": "veggedyr",
+   "name": "Veggedyr",
+   "latin": "Cimex lectularius",
+   "group": "insekt",
+   "pest": true,
+   "features": [
+    "rødbrun farge",
+    "oval og sterkt flattrykt kropp",
+    "voksne 5–6 mm lange og 3 mm brede",
+    "nymfer er mindre og lysere",
+    "egg 1 mm og hvite",
+    "svarte ekskrementflekker på seng og madrass"
+   ],
+   "confusable": [
+    {
+     "id": "svaletege",
+     "how": "svaletege er litt mindre, lysere og lengre behåret"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrhåndboka: Veggedyr",
+    "url": "https://fhi.no/sk/skadedyrhandboka/teger/veggedyr"
+   },
+   "checked": true
+  },
+  {
+   "id": "svaletege",
+   "name": "Svaletege",
+   "latin": "Oeciacus hirundinis",
+   "group": "insekt",
+   "pest": false,
+   "features": [
+    "likner veggedyr",
+    "litt mindre enn veggedyr",
+    "lysere farge",
+    "lengre behåring",
+    "knyttet til svalereir"
+   ],
+   "confusable": [
+    {
+     "id": "veggedyr",
+     "how": "veggedyr er rødbrune, større og mindre hårete"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Svaletege",
+    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/veggedyr-og-andre-teger/svaletege/"
+   },
+   "checked": true
+  },
+  {
+   "id": "skjeggkre",
+   "name": "Skjeggkre",
+   "latin": "Ctenolepisma longicaudatum",
+   "group": "insekt",
+   "pest": true,
+   "features": [
+    "vingeløs",
+    "skjellkledd",
+    "mørkegrå og litt spraglete",
+    "mindre sølvglinsende enn sølvkre",
+    "lange haletråder, den lengste omtrent like lang som kroppen",
+    "tydelig behåring",
+    "større enn sølvkre"
+   ],
+   "confusable": [
+    {
+     "id": "solvkre",
+     "how": "sølvkre er mindre, mer sølvglinsende og har kortere haletråder"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrhåndboka: Skjeggkre",
+    "url": "https://fhi.no/sk/skadedyrhandboka/smadyr-andre/skjeggkre"
+   },
+   "checked": true
+  },
+  {
+   "id": "solvkre",
+   "name": "Sølvkre",
+   "latin": "Lepisma saccharinum",
+   "group": "insekt",
+   "pest": false,
+   "features": [
+    "vingeløs",
+    "sølvglinsende",
+    "rundt 1 cm",
+    "kortere haletråder enn skjeggkre",
+    "fuktige steder som bad"
+   ],
+   "confusable": [
+    {
+     "id": "skjeggkre",
+     "how": "skjeggkre er større, mørkere, mer hårete og har lengre haletråder"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Sølvkre",
+    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/smadyr-andre/solvkre-/"
+   },
+   "checked": true
+  },
+  {
+   "id": "veps",
+   "name": "Stikkeveps",
+   "latin": "Vespula spp. m.fl.",
+   "group": "insekt",
+   "pest": true,
+   "features": [
+    "glatt, ikke-behåret bakkropp",
+    "vekselvis svarte og gule ringer",
+    "vingene brettes på langs og ser smale ut i hvile",
+    "arbeidere 11–19 mm",
+    "tydelig «vepsetalje» mellom bryst og bakkropp",
+    "kuleformet bol av papiraktig materiale"
+   ],
+   "confusable": [
+    {
+     "id": "kjempetreveps",
+     "how": "kjempetreveps har sylindrisk kropp uten tydelig talje og er mye større"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Stikkeveps",
+    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/veps-og-bier/stikkeveps/"
+   },
+   "checked": true
+  },
+  {
+   "id": "kjempetreveps",
+   "name": "Kjempetreveps",
+   "latin": "Urocerus gigas",
+   "group": "insekt",
+   "pest": false,
+   "features": [
+    "gul og svart",
+    "sylindrisk kropp uten talje",
+    "hunnen 2,4–4,4 cm",
+    "langt eggleggingsrør hos hunnen",
+    "kan ikke stikke"
+   ],
+   "confusable": [
+    {
+     "id": "veps",
+     "how": "stikkeveps har tydelig talje og er mindre"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Kjempetreveps",
+    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/veps-og-bier/kjempetreveps/"
+   },
+   "checked": true
+  },
+  {
+   "id": "stokkmaur",
+   "name": "Stokkmaur",
+   "latin": "Camponotus spp.",
+   "group": "insekt",
+   "pest": true,
+   "features": [
+    "helt svart hode",
+    "jevnt krummet rygg",
+    "stor maur",
+    "kropp ofte tofarget rødbrun og svart",
+    "sagflisaktig gnag ved reir i treverk"
+   ],
+   "confusable": [
+    {
+     "id": "skogsmaur",
+     "how": "rød skogsmaur har tofarget hode og humpete rygg"
+    },
+    {
+     "id": "jordmaur",
+     "how": "svart jordmaur er mye mindre, 3–5 mm"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrhåndboka: Stokkmaur",
+    "url": "https://fhi.no/sk/skadedyrhandboka/maur/stokkmaur"
+   },
+   "checked": true
+  },
+  {
+   "id": "skogsmaur",
+   "name": "Rød skogsmaur",
+   "latin": "Formica rufa-gruppen",
+   "group": "insekt",
+   "pest": false,
+   "features": [
+    "tofarget hode, rødt og svart",
+    "humpete rygg",
+    "svarte og oransjerøde arbeidere",
+    "4,5–9 mm"
+   ],
+   "confusable": [
+    {
+     "id": "stokkmaur",
+     "how": "stokkmaur har helt svart hode og jevnt krummet rygg"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Rød skogsmaur",
+    "url": "https://www.fhi.no/sk/skadedyrveilederen/maur/rod-skogsmaur/"
+   },
+   "checked": true
+  },
+  {
+   "id": "jordmaur",
+   "name": "Svart jordmaur",
+   "latin": "Lasius niger",
+   "group": "insekt",
+   "pest": true,
+   "features": [
+    "helsvart",
+    "små, 3–5 mm",
+    "travle maurstier mot søt mat",
+    "kommer ofte inn om våren"
+   ],
+   "confusable": [
+    {
+     "id": "stokkmaur",
+     "how": "stokkmaur er mye større"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Svart jordmaur",
+    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/maur/svart-jordmaur/"
+   },
+   "checked": true
+  },
+  {
+   "id": "melmoll",
+   "name": "Melsmalmott (melmøll)",
+   "latin": "Ephestia kuehniella",
+   "group": "insekt",
+   "pest": true,
+   "features": [
+    "lite, gråaktig møll",
+    "larver i mel, gryn og frø",
+    "spinn og klumper i tørrvarer",
+    "pupper kan finnes i sprekker langt fra matkilden"
+   ],
+   "confusable": [],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Melsmalmott",
+    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/moll-og-sommerfugler/melmoll/"
+   },
+   "checked": false
+  },
+  {
+   "id": "kakerlakk",
+   "name": "Tysk kakerlakk",
+   "latin": "Blattella germanica",
+   "group": "insekt",
+   "pest": true,
+   "features": [
+    "lysebrun",
+    "flat, oval kropp",
+    "lange antenner",
+    "to mørke lengdestriper på brystskjoldet",
+    "rask og sky for lys"
+   ],
+   "confusable": [
+    {
+     "id": "markkakerlakk",
+     "how": "markkakerlakk lever ute og er ikke et skadedyr innendørs"
+    }
+   ],
+   "source": {
+    "title": "FHI Skadedyrveilederen: Tysk kakerlakk",
+    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/kakerlakker/tysk-kakerlakk/"
+   },
+   "checked": false
+  },
+  {
+   "id": "flatt",
+   "name": "Skogflått",
+   "latin": "Ixodes ricinus",
+   "group": "midd",
+   "pest": true,
+   "features": [
+    "åtte bein (voksne og nymfer)",
+    "liten, flat og dråpeformet",
+    "mørkebrun til rødbrun",
+    "svulmer opp og blir gråaktig etter blodmåltid"
+   ],
+   "confusable": [],
+   "source": {
+    "title": "FHI: Flått og flåttbårne sykdommer",
+    "url": "https://www.fhi.no/skadedyr"
+   },
+   "checked": false
+  }
+ ]
+}
