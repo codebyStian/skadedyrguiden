@@ -2,7 +2,7 @@
 VOICE: rolig, kunnskapsrik fagperson – et magasin om hjemmet, ikke en skrekkfilm
 IDEA: et skandinavisk hjem- og hagemagasin med et artsleksikon i midten
 PICTURE: store redaksjonelle fotografier (Gemini/Imagen), ett per skadedyr
-COLOUR and TYPE: hvit grunn, dyp furugrønn for mørke flater, signalgul som eneste aksent; Schibsted Grotesk
+COLOUR and TYPE: hvit grunn, dyp furugrønn for mørke flater, signalgul som eneste aksent; Instrument Serif i titler, Schibsted Grotesk i tekst
 LAYOUT: helbilde-hero med søk, leksikonrutenett, magasinoppsett for artikler, mørke bånd for verktøy og podkast
 */
 :root{color-scheme:light dark;
@@ -16,8 +16,10 @@ body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Schibsted Gro
 a{color:inherit}
 img{display:block;max-width:100%}
 h1,h2,h3{font-weight:700;line-height:1.06;text-wrap:balance;margin:0 0 .45em;letter-spacing:-.025em}
-h1{font-size:clamp(36px,5.6vw,68px);font-weight:800;letter-spacing:-.035em}
-h2{font-size:clamp(28px,3.6vw,44px)}
+h1,h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1}
+h1{font-size:clamp(44px,7vw,92px)}
+h2{font-size:clamp(34px,4.4vw,56px)}
+h1 em,h2 em{font-style:italic}
 h3{font-size:21px;line-height:1.2;letter-spacing:-.015em}
 p{margin:0 0 1em}
 .wrap{max-width:1240px;margin:0 auto}

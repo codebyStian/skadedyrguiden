@@ -6,14 +6,14 @@
 <title>Skadedyrguiden – konsept</title>
 <meta name="description" content="Fagartikler, podkast og verktøy om skadedyr i hus, hage og bedrift. Finn ut hva du har, hva du gjør først, og hva du trenger.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <style>
 .hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;color:#fff;background:radial-gradient(90% 120% at 85% 20%,#2b5248 0%,#0f2a24 55%,#08140f 100%);overflow:hidden}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,13,.88) 0%,rgba(6,16,13,.55) 45%,rgba(6,16,13,.05) 80%),linear-gradient(0deg,rgba(6,16,13,.7),transparent 45%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding:0 max(5vw,18px) clamp(40px,6vw,80px)}
-.hero h1{max-width:13ch;margin-bottom:.3em}
+.hero h1{max-width:12ch;margin-bottom:.25em}
 .hero .intro{max-width:46ch;font-size:19px;color:#d6e0dc}
 .search{position:relative;max-width:560px;margin-top:26px}
 .search input{width:100%;height:60px;border-radius:999px;border:0;padding:0 120px 0 26px;font:17px "Schibsted Grotesk",sans-serif;color:#111715;background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.3)}
@@ -32,13 +32,15 @@
 .strip .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:26px max(5vw,18px)}
 .strip b{display:block;font-size:16px}
 .strip span{font-size:14.5px;color:var(--mute)}
-.lex{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 22px}
+.lex{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .sp{all:unset;cursor:pointer;display:block;border-radius:18px}
-.sp .ph{aspect-ratio:4/3;margin-bottom:14px}
-.sp h3{margin:0 0 2px;font-size:20px}
-.sp em{color:var(--mute);font-size:14.5px}
-.sp .season{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.92);color:#111715;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px}
-.sp:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.sp .ph{aspect-ratio:3/4}
+.sp .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,14,11,.82))}
+.sp .cap{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:#fff}
+.sp h3{margin:0 0 2px;font:400 clamp(28px,2.6vw,34px)/1 "Instrument Serif",Georgia,serif;letter-spacing:0}
+.sp em{color:rgba(255,255,255,.75);font-size:13.5px}
+.sp .season{position:absolute;left:14px;top:14px;z-index:1;background:rgba(255,255,255,.92);color:#111715;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px}
+
 .sp:hover .ph img{transform:scale(1.035)}
 .sp:focus-visible{outline:3px solid var(--y);outline-offset:4px}
 .drawer{position:fixed;inset:0;z-index:50;display:none}
@@ -63,7 +65,7 @@
 .signs label:has(input:checked){background:var(--y);border-color:var(--y);color:#111715}
 .signs label:has(input:focus-visible){outline:3px solid var(--y);outline-offset:3px}
 .res{background:var(--pine2);border-radius:22px;padding:30px;min-height:330px}
-.res .top1{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1;margin:6px 0 20px}
+.res .top1{font:400 clamp(44px,5vw,64px)/1 "Instrument Serif",Georgia,serif;margin:4px 0 20px}
 .res .row{display:grid;grid-template-columns:7em minmax(0,1fr) 3.2em;gap:12px;align-items:center;margin:12px 0;font-size:15.5px}
 .res .bar{height:8px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden}
 .res .bar i{display:block;height:100%;background:var(--y);border-radius:4px;transition:width .45s}
@@ -71,7 +73,7 @@
 .mag{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,3vw,44px)}
 .lead-art{text-decoration:none}
 .lead-art .ph{aspect-ratio:16/11;margin-bottom:20px}
-.lead-art h3{font-size:clamp(26px,3vw,36px);letter-spacing:-.03em}
+.lead-art h3{font:400 clamp(32px,3.6vw,46px)/1.02 "Instrument Serif",Georgia,serif;letter-spacing:0}
 .side{display:grid;gap:22px;align-content:start}
 .side a{display:grid;grid-template-columns:minmax(0,1fr) 132px;gap:18px;text-decoration:none;padding-bottom:22px;border-bottom:1px solid var(--line)}
 .side .ph{aspect-ratio:1;border-radius:14px}
@@ -87,6 +89,16 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .ep .play{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--y);display:grid;place-items:center}
 .ep small{color:var(--muteDark)}
 .ep .len{color:var(--muteDark);font-size:14px;white-space:nowrap}
+.feat{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.feat .ph{aspect-ratio:4/5;border-radius:22px}
+.feat.rev{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.feat.rev .ph{aspect-ratio:4/3}
+.checks{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:0;border-top:1px solid var(--line)}
+.checks li{display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.checks li::before{content:"";grid-row:span 2;width:22px;height:22px;border-radius:50%;background:var(--y) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6 11.5l3.2 3L16 8' fill='none' stroke='%23111715' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;margin-top:2px}
+.checks span{color:var(--mute);font-size:15.5px}
+.biz{background:var(--soft)}
+@media(max-width:860px){.feat,.feat.rev{grid-template-columns:1fr}.feat .ph{aspect-ratio:4/3}.feat.rev .ph{order:-1}}
 .cal{overflow-x:auto}
 .cal table{border-collapse:separate;border-spacing:4px;width:100%;min-width:620px}
 .cal th{font-size:13px;font-weight:500;color:var(--mute);padding:0 0 6px}
@@ -126,7 +138,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 .news input::placeholder{color:var(--muteDark)}
 @media(max-width:980px){.lex{grid-template-columns:repeat(2,minmax(0,1fr))}.row3{grid-template-columns:1fr 1fr}.tools{grid-template-columns:1fr 1fr}}
 @media(max-width:860px){.idt,.mag,.pod,.faq,.news{grid-template-columns:1fr}.strip .wrap{grid-template-columns:1fr 1fr}.shopgrid{grid-template-columns:1fr 1fr}.shopgrid a:not(:nth-child(3n)){border-right:0}.shopgrid a:nth-child(odd){border-right:1.5px solid #111715}}
-@media(max-width:600px){.hero{min-height:640px}.search input{padding-right:22px}.search .btn{position:static;margin-top:10px;width:100%;justify-content:center}.hits{top:66px}.row3,.tools,.shopgrid{grid-template-columns:1fr}.lex{gap:24px 14px}.sp h3{font-size:17px}.sp em{font-size:13px}.shopgrid a:nth-child(odd){border-right:0}.side a{grid-template-columns:minmax(0,1fr) 96px}.facts{grid-template-columns:1fr 1fr}.res .row{grid-template-columns:6em minmax(0,1fr) 2.8em}.sheet .in{padding:24px 20px 36px}}
+@media(max-width:600px){.hero{min-height:640px}.search input{padding-right:22px}.search .btn{position:static;margin-top:10px;width:100%;justify-content:center}.hits{top:66px}.row3,.tools,.shopgrid{grid-template-columns:1fr}.lex{gap:24px 14px}.lex{grid-template-columns:1fr 1fr;gap:12px}.sp h3{font-size:24px}.sp em{display:none}.sp .cap{left:14px;bottom:12px}.shopgrid a:nth-child(odd){border-right:0}.side a{grid-template-columns:minmax(0,1fr) 96px}.facts{grid-template-columns:1fr 1fr}.res .row{grid-template-columns:6em minmax(0,1fr) 2.8em}.sheet .in{padding:24px 20px 36px}}
 </style>
 </head>
 <body>
@@ -142,7 +154,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <img src="assets/img/hero.webp" alt="" fetchpriority="high" onerror="this.remove()">
   <div class="wrap">
     <span class="kicker" style="color:#d6e0dc">Høstsesong: musene leter etter vinterkvarter</span>
-    <h1>Kunnskap som holder skadedyrene ute.</h1>
+    <h1>Kunnskap som holder skadedyrene <em>ute.</em></h1>
     <p class="intro">Fagartikler, verktøy og en podkast om skadedyr i hus, hage og bedrift. Finn ut hva du har, hva du gjør først, og når du bør ringe en fagperson.</p>
     <form class="search" id="sf" role="search">
       <input id="q" type="search" placeholder="Hva sliter du med? Prøv «mus» eller «bitt»" autocomplete="off" aria-label="Søk i guiden">
@@ -176,7 +188,22 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <div class="res" id="res" aria-live="polite"></div>
 </div></section>
 
-<section class="band" id="artikler"><div class="wrap">
+<section class="band month"><div class="wrap feat">
+  <div class="ph"><img src="assets/img/hytte.webp" alt="Hytte som stenges for vinteren" loading="lazy" onerror="this.remove()"></div>
+  <div>
+    <span class="kicker">Gjør dette i november</span>
+    <h2>Før du stenger hytta for <em>vinteren</em></h2>
+    <p class="mute">En tom, kald hytte er perfekt vinterkvarter for mus. Tjue minutter med lommelykt nå sparer deg for gnagde madrasser i påsken.</p>
+    <ul class="checks">
+      <li><b>Tett under dører og rundt rør</b><span>Børstelister og stålull med fugemasse, ikke bare skum.</span></li>
+      <li><b>Fjern all mat og alt dyrefôr</b><span>Også i boder og uthus. Tørrvarer i tette bokser.</span></li>
+      <li><b>Sett feller langs veggene</b><span>Der musa går, og sjekk dem neste gang du er der.</span></li>
+    </ul>
+    <a class="btn arrow" href="artikler/mus-om-hosten.html">Les hele guiden </a>
+  </div>
+</div></section>
+
+<section class="band" id="artikler" style="padding-top:0"><div class="wrap">
   <div class="head"><div><span class="kicker">Fagartikler</span><h2>Siste fra redaksjonen</h2></div><a class="btn arrow" href="#artikler">Alle artikler </a></div>
   <div class="mag">
     <a class="lead-art" href="artikler/mus-om-hosten.html">
@@ -201,7 +228,17 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   </div>
 </div></section>
 
-<section class="band" id="kalender"><div class="wrap">
+<section class="band biz"><div class="wrap feat rev">
+  <div>
+    <span class="kicker">For bedrift</span>
+    <h2>Skadedyrsikring du kan <em>dokumentere</em></h2>
+    <p class="mute">For bakerier, restauranter, lager og borettslag: hva internkontrollen bør vise, hvordan du setter opp overvåking, og når du trenger en avtale med en skadedyrtekniker.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn y arrow" href="https://skadedyrbutikken.no/produkter/proff-produkter?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=bedrift">Proffprodukter </a><a class="btn arrow" href="#verktoy">Kurs og maler </a></div>
+  </div>
+  <div class="ph"><img src="assets/img/bedrift.webp" alt="Profesjonelt bakeri med åtestasjon langs veggen" loading="lazy" onerror="this.remove()"></div>
+</div></section>
+
+<section class="band" id="kalender" style="padding-top:0"><div class="wrap">
   <div class="head"><div><span class="kicker">Sesongkalender</span><h2>Forebygg før sesongen starter</h2></div><p class="mute">Når på året du typisk møter de vanligste skadedyrene i Norge. Inneværende måned er markert.</p></div>
   <div class="cal"><table id="cal"></table></div>
   <div class="legend"><span><i style="background:var(--y)"></i>Høysesong</span><span><i style="background:color-mix(in srgb,var(--y) 35%,var(--soft))"></i>Kan forekomme</span></div>
@@ -271,7 +308,7 @@ const P=[
  {k:'melmoll',n:'Melmøll',l:'Ephestia kuehniella',s:'Hele året',where:'Matskap',size:'Vingespenn ca. 2 cm',signs:['Spinn og larver i mel, gryn og frø','Små møll som flyr i skumringen','Klumper i tørrvarer'],first:'Kast angrepne varer, støvsug og vask skapet, og oppbevar tørrvarer i tette bokser.',cat:'insekter',art:'',tags:'melmøll møll mel matskap larver'},
  {k:'fluer',n:'Fluer',l:'Stueflue · Musca domestica',s:'Jun–aug',where:'Kjøkken og avfall',size:'6–7 mm',signs:['Mange fluer rundt avfall og vinduer','Larver i søppeldunk eller kompost','Fluer som kommer igjen hver sommer'],first:'Hold avfallet tett, tøm ofte og sett insektnett i vinduer som står åpne.',cat:'elektrisk-insektfanger',art:'',tags:'fluer flue sommer søppel'}];
 
-document.getElementById('lex').innerHTML=P.map(p=>`<button class="sp" data-k="${p.k}" type="button"><div class="ph">${IMG(p.k)}<span class="season">${p.s}</span></div><h3>${p.n}</h3><em>${p.l}</em></button>`).join('');
+document.getElementById('lex').innerHTML=P.map(p=>`<button class="sp" data-k="${p.k}" type="button"><div class="ph">${IMG(p.k)}<span class="season">${p.s}</span><div class="cap"><h3>${p.n}</h3><em>${p.l}</em></div></div></button>`).join('');
 const dr=document.getElementById('drawer'),db=document.getElementById('dbody');let last=null;
 function open(k){const p=P.find(x=>x.k===k);if(!p)return;last=document.activeElement;
  db.innerHTML=`<div class="ph">${IMG(p.k)}</div><div class="in"><span class="kicker">${p.l}</span><h2 id="dt">${p.n}</h2>
