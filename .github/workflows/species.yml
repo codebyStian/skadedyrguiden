@@ -1,0 +1,36 @@
+name: Leksikon - ekte foto og fagtekst
+
+# Henter fritt lisensierte artsfoto fra Wikimedia Commons og utfyllende kjennetegn fra FHIs skadedyrhåndbok.
+on:
+  workflow_dispatch:
+    inputs:
+      force: { description: "Hent fagtekst på nytt for alle (1/0)", default: "0" }
+  push:
+    branches: [main]
+    paths: ["kb/species.json", "scripts/species_photos.py", "scripts/species_info.py"]
+
+permissions: { contents: write, actions: write }
+concurrency: { group: species, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q pillow
+      - name: Photos (Wikimedia Commons)
+        run: python scripts/species_photos.py
+      - name: Fagtekst (FHI)
+        env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}", FORCE: "${{ inputs.force == '1' && '1' || '' }}" }
+        run: python scripts/species_info.py
+      - name: Commit
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          git config user.name "skadedyrguiden-bot"; git config user.email "actions@users.noreply.github.com"
+          git add site/assets/img/foto-*.webp site/data/photos.json kb/species_info.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -qm "Leksikon: foto og fagtekst"
+          git checkout -- . && git clean -fdq
+          git pull --rebase -q && git push -q
+          gh workflow run pages.yml
