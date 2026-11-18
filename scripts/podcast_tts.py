@@ -50,7 +50,7 @@ def main():
                 p = pathlib.Path(d) / f"{n:02}.pcm"; p.write_bytes(pcm); parts.append(p)
                 print(src.stem, "part", n, model, len(pcm) // 48000, "s")
             raw = pathlib.Path(d) / "all.pcm"
-            gap = b"\x00\x00" * 24000 // 2  # 0.5 s pause between chunks
+            gap = b"\x00\x00" * 12000  # 0.5 s pause between chunks
             raw.write_bytes(gap.join(p.read_bytes() for p in parts))
             subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "s16le", "-ar", "24000", "-ac", "1", "-i", str(raw),
                             "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "44100", "-codec:a", "libmp3lame", "-b:a", "96k", str(mp3)], check=True)
