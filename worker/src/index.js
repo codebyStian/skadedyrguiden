@@ -5,7 +5,7 @@ import KB from "../../kb/species.json";
 
 const VISION = ["@cf/meta/llama-4-scout-17b-16e-instruct", "@cf/mistralai/mistral-small-3.1-24b-instruct"];
 const CHECKER = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
-const GEMINI = ["gemini-2.5-flash", "gemini-2.5-flash-lite"];
+const GEMINI = ["gemini-3.8-flash", "gemini-flash-latest", "gemini-3.5-flash-lite"];
 
 // Google Gemini brukes først (rimelig og god på bilder); Cloudflare Workers AI er reserve.
 async function gemini(env, parts, maxTokens) {
@@ -14,7 +14,7 @@ async function gemini(env, parts, maxTokens) {
   for (const m of GEMINI) {
     const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, {
       method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-      body: JSON.stringify({ contents: [{ role: "user", parts }], generationConfig: { temperature: 0.1, maxOutputTokens: maxTokens, responseMimeType: "application/json", thinkingConfig: { thinkingBudget: 0 } } }),
+      body: JSON.stringify({ contents: [{ role: "user", parts }], generationConfig: { temperature: 0.1, maxOutputTokens: Math.max(maxTokens, 2048), responseMimeType: "application/json" } }),
     });
     if (!r.ok) { last = `${m} ${r.status} ${(await r.text()).slice(0, 200)}`; continue; }
     const j = await r.json(); const t = j.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("") || "";
