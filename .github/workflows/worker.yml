@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: pip install -q pillow
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
       - name: Find account for token
@@ -35,9 +36,23 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ steps.acct.outputs.id }}
         run: set -o pipefail; npx --yes wrangler@4 deploy 2>&1 | tee deploy.log
-      - name: Smoke test
+      - name: Smoke test (health + one real image)
         working-directory: worker
         run: |
           url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
           echo "Worker: $url"
-          curl -s "$url/health"
+          for i in 1 2 3 4 5 6; do curl -sf "$url/health" && break; sleep 10; done
+          python3 - "$url" <<'PY'
+          import base64, io, json, sys, urllib.request
+          from PIL import Image
+          for name in ["veps", "skjeggkre"]:
+              im = Image.open(f"../site/assets/img/{name}.webp").convert("RGB"); im.thumbnail((1024, 1024))
+              b = io.BytesIO(); im.save(b, "JPEG", quality=85)
+              body = json.dumps({"image": "data:image/jpeg;base64," + base64.b64encode(b.getvalue()).decode()}).encode()
+              req = urllib.request.Request(sys.argv[1] + "/identify", data=body, headers={"Content-Type": "application/json", "Origin": "https://codebystian.github.io"})
+              try:
+                  r = json.load(urllib.request.urlopen(req, timeout=120))
+                  print(name, "->", json.dumps({k: r.get(k) for k in ("level", "confidence", "name", "matched", "check", "visible", "model")}, ensure_ascii=False))
+              except urllib.error.HTTPError as e:
+                  print(name, "HTTP", e.code, e.read()[:300])
+          PY
