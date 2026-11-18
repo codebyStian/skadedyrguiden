@@ -36,6 +36,14 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ steps.acct.outputs.id }}
         run: set -o pipefail; npx --yes wrangler@4 deploy 2>&1 | tee deploy.log
+      - name: Set Gemini key on worker
+        working-directory: worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ steps.acct.outputs.id }}
+          G: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "$G" ]; then printf '%s' "$G" | npx --yes wrangler@4 secret put GEMINI_API_KEY; else echo "GEMINI_API_KEY missing - Cloudflare only"; fi
       - name: Smoke test (health + one real image)
         working-directory: worker
         run: |

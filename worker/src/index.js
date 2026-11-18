@@ -5,6 +5,24 @@ import KB from "../../kb/species.json";
 
 const VISION = ["@cf/meta/llama-4-scout-17b-16e-instruct", "@cf/mistralai/mistral-small-3.1-24b-instruct"];
 const CHECKER = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
+const GEMINI = ["gemini-2.5-flash", "gemini-2.5-flash-lite"];
+
+// Google Gemini brukes først (rimelig og god på bilder); Cloudflare Workers AI er reserve.
+async function gemini(env, parts, maxTokens) {
+  if (!env.GEMINI_API_KEY) throw new Error("no gemini key");
+  let last;
+  for (const m of GEMINI) {
+    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, {
+      method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+      body: JSON.stringify({ contents: [{ role: "user", parts }], generationConfig: { temperature: 0.1, maxOutputTokens: maxTokens, responseMimeType: "application/json", thinkingConfig: { thinkingBudget: 0 } } }),
+    });
+    if (!r.ok) { last = `${m} ${r.status} ${(await r.text()).slice(0, 200)}`; continue; }
+    const j = await r.json(); const t = j.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("") || "";
+    const out = parseJSON(t); if (out) return { model: m, out };
+    last = `${m} unparseable`;
+  }
+  throw new Error(last);
+}
 const MAX_BYTES = 2_000_000;
 const SPECIES = KB.species;
 const BY_ID = Object.fromEntries(SPECIES.map((s) => [s.id, s]));
@@ -54,6 +72,11 @@ FAKTAARK:
 ${factSheet()}`;
   const user = [{ type: "text", text: "Hva er dette?" + (hint ? ` Brukeren oppgir: «${String(hint).slice(0, 200)}».` : "") },
     { type: "image_url", image_url: { url: dataUrl } }];
+  try {
+    const [, mime, b64] = dataUrl.match(/^data:(image\/[a-z]+);base64,(.*)$/);
+    const g = await gemini(env, [{ text: system + "\n\n" + user[0].text }, { inline_data: { mime_type: mime, data: b64 } }], 900);
+    if (Array.isArray(g.out.candidates)) return g;
+  } catch (e) { /* faller tilbake til Cloudflare */ }
   let lastErr;
   for (const model of VISION) {
     try {
@@ -74,6 +97,7 @@ Kjennetegn mot: ${JSON.stringify(top.against || [])}.
 Faktaark for ${s.name} (FHI): ${s.features.join("; ")}. Forveksling: ${s.confusable.map((c) => c.how).join("; ") || "ingen oppgitt"}.
 Vurder strengt: Henger beskrivelsen sammen med faktaarket? Er det tegn på at det heller er en forvekslingsart?
 Svar KUN med JSON: {"verdict": "bekreftet|usikker|avvist", "confidence": 0.0-1.0, "reason": "én setning på norsk"}`;
+  try { const g = await gemini(env, [{ text: prompt }], 300); if (g.out?.verdict) return g.out; } catch (e) { /* reserve */ }
   try {
     const r = await env.AI.run(CHECKER, { messages: [{ role: "user", content: prompt }], max_tokens: 200, temperature: 0 });
     return parseJSON(r.response ?? r) || { verdict: "usikker", confidence: 0.3, reason: "Kontrollen kunne ikke tolkes." };
