@@ -1,5 +1,5 @@
 """Felles topp/bunn for undersider. Kjør: python scripts/page.py"""
-import json, pathlib
+import json, pathlib, html as H
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign={}"
