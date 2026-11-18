@@ -1,0 +1,27 @@
+name: Public data (FHI + GBIF)
+
+# Henter skadedyrstatistikk fra FHI og funn fra GBIF/Artsdatabanken, og committer site/data/stats.json.
+on:
+  schedule: [{ cron: "17 4 * * 1" }]
+  workflow_dispatch:
+
+permissions: { contents: write, actions: write }
+concurrency: { group: data, cancel-in-progress: false }
+
+jobs:
+  data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python scripts/fetch_data.py
+      - name: Commit and redeploy preview
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          if [ -n "$(git status --porcelain site/data data/raw)" ]; then
+            git config user.name "skadedyrguiden-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add site/data data/raw && git commit -m "Update public data [skip ci]" && git pull --rebase -q && git push
+            gh workflow run pages.yml --ref main
+          fi
