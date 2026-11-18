@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "site/assets/img"; OUT.mkdir(parents=True, exist_ok=True)
-KEY = os.environ["GEMINI_API_KEY"]
+KEY = os.environ.get("GEMINI_API_KEY") or sys.exit("GEMINI_API_KEY mangler: legg den inn som repository secret")
 API = "https://generativelanguage.googleapis.com/v1beta/models/"
 IMAGEN = ["imagen-4.0-generate-001", "imagen-4.0-ultra-generate-001", "imagen-3.0-generate-002"]
 GEMINI = ["gemini-2.5-flash-image", "gemini-2.5-flash-image-preview"]
