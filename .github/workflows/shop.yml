@@ -1,0 +1,35 @@
+name: Produktkatalog + produkttips
+
+# Henter katalogen fra skadedyrbutikken.no og lar en agent velge de mest relevante produktene for hver side.
+on:
+  schedule: [{ cron: "17 3 * * 1" }]   # hver mandag
+  workflow_dispatch:
+    inputs:
+      crawl: { description: "Hent katalogen på nytt (true/false)", default: "true" }
+
+permissions: { contents: write, actions: write }
+concurrency: { group: shop, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Crawl catalog
+        if: ${{ inputs.crawl != 'false' }}
+        run: python scripts/crawl_shop.py 3000
+      - name: Match products to pages
+        if: ${{ hashFiles('scripts/products_match.py') != '' }}
+        env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
+        run: python scripts/products_match.py
+      - name: Commit
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          git config user.name "skadedyrguiden-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/products.json site/data/recs.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -qm "Produktkatalog og produkttips"
+          git checkout -- . && git clean -fdq
+          git pull --rebase -q && git push -q
+          gh workflow run pages.yml
