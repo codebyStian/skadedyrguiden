@@ -1,0 +1,35 @@
+name: Generate images (Gemini)
+
+# Lager manglende bilder fra scripts/images.json og committer dem.
+# Krever repository secret GEMINI_API_KEY.
+on:
+  push:
+    branches: [main]
+    paths: ["scripts/images.json", "scripts/gen_images.py", ".github/workflows/images.yml"]
+  workflow_dispatch:
+    inputs:
+      names: { description: "Bilder som skal lages på nytt (mellomromsseparert, tomt = bare manglende)", required: false, default: "" }
+
+permissions: { contents: write }
+concurrency: { group: images, cancel-in-progress: false }
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pillow
+      - name: Generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FORCE: ${{ inputs.names != '' && '1' || '' }}
+        run: python scripts/gen_images.py ${{ inputs.names }}
+      - name: Commit
+        run: |
+          if [ -n "$(git status --porcelain site/assets/img)" ]; then
+            git config user.name "skadedyrguiden-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add site/assets/img && git commit -m "Add generated images [skip ci]" && git push
+          fi
