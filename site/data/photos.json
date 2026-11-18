@@ -15,14 +15,6 @@
   "author": "Hans Hillewaert",
   "taxon": "Apodemus sylvaticus"
  },
- "rotte": {
-  "file": "Brown rat (Rattus norvegicus) Drenthe 2.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Brown_rat_(Rattus_norvegicus)_Drenthe_2.jpg",
-  "license": "CC BY-SA 4.0",
-  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "author": "Charles J. Sharp",
-  "taxon": "Rattus norvegicus"
- },
  "veggedyr": {
   "file": "Bed bug, Cimex lectularius.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Bed_bug,_Cimex_lectularius.jpg",
@@ -71,14 +63,6 @@
   "author": "Holger Gröschl",
   "taxon": "Urocerus gigas"
  },
- "stokkmaur": {
-  "file": "Camponotus herculeanus.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Camponotus_herculeanus.jpg",
-  "license": "CC BY-SA 3.0",
-  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "author": "No machine-readable author provided. Denis Barthel assumed (based on copyright c",
-  "taxon": "Camponotus herculeanus"
- },
  "skogsmaur": {
   "file": "A Formica rufa sideview.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:A_Formica_rufa_sideview.jpg",
@@ -86,14 +70,6 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
   "author": "Richard Bartz, Munich Makro Freak",
   "taxon": "Formica rufa"
- },
- "jordmaur": {
-  "file": "Lasius niger.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Lasius_niger.jpg",
-  "license": "CC BY-SA 3.0",
-  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "author": "Marcus33",
-  "taxon": "Lasius niger"
  },
  "melmoll": {
   "file": "Plodia interpunctella dorsal Bytom.jpg",
@@ -103,14 +79,6 @@
   "author": "Adrian Tync",
   "taxon": "Plodia interpunctella"
  },
- "kakerlakk": {
-  "file": "Blattodea. Cascuda. Santiago de Compostela 1.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Blattodea._Cascuda._Santiago_de_Compostela_1.jpg",
-  "license": "CC BY-SA 3.0",
-  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "author": "Lmbuga",
-  "taxon": "Blattella germanica"
- },
  "flatt": {
   "file": "Ixodes ricinus on dry grass.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Ixodes_ricinus_on_dry_grass.jpg",
@@ -118,5 +86,41 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "author": "W.alter",
   "taxon": "Ixodes ricinus"
+ },
+ "rotte": {
+  "file": "iNaturalist foto 112123484",
+  "page": "https://www.inaturalist.org/photos/112123484",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "author": "Mara Christensen",
+  "source": "iNaturalist",
+  "taxon": "Rattus norvegicus"
+ },
+ "stokkmaur": {
+  "file": "iNaturalist foto 179264082",
+  "page": "https://www.inaturalist.org/photos/179264082",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "author": "Aleksandr Novikov",
+  "source": "iNaturalist",
+  "taxon": "Camponotus herculeanus"
+ },
+ "jordmaur": {
+  "file": "iNaturalist foto 71089373",
+  "page": "https://www.inaturalist.org/photos/71089373",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "author": "Gilles San Martin",
+  "source": "iNaturalist",
+  "taxon": "Lasius niger"
+ },
+ "kakerlakk": {
+  "file": "iNaturalist foto 424513172",
+  "page": "https://www.inaturalist.org/photos/424513172",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "author": "no rights reserved",
+  "source": "iNaturalist",
+  "taxon": "Blattella germanica"
  }
 }
