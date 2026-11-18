@@ -45,44 +45,82 @@ def search(taxon):
         yield s["title"].removeprefix("File:")
 
 
-# Arter der Commons-bildet var dårlig: hent fra iNaturalist (forskningsgodkjente observasjoner, lisens som tillater kommersiell bruk).
-INAT = {"stokkmaur", "jordmaur", "kakerlakk", "rotte"}
+LIC = {"cc0": ("CC0", "https://creativecommons.org/publicdomain/zero/1.0/"), "cc-by": ("CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"),
+       "cc-by-sa": ("CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/")}
 
 
-def inat(taxon):
-    t = api("https://api.inaturalist.org/v1/taxa", q=taxon, rank="species", per_page=1)["results"]
-    if not t: return None
+def inat_cands(taxon, n=8):
+    t = api("https://api.inaturalist.org/v1/taxa", q=taxon, per_page=1)["results"]
+    if not t: return []
+    out = []
+    dp = t[0].get("default_photo") or {}
     obs = api("https://api.inaturalist.org/v1/observations", taxon_id=t[0]["id"], quality_grade="research", photo_license="cc0,cc-by,cc-by-sa",
-              order_by="votes", per_page=10, photos="true")["results"]
-    for o in obs:
-        for ph in o.get("photos", []):
-            if (ph.get("license_code") or "") in ("cc0", "cc-by", "cc-by-sa"):
-                code = ph["license_code"]
-                return {"file": f"iNaturalist foto {ph['id']}", "thumb": ph["url"].replace("square", "large"), "page": f"https://www.inaturalist.org/photos/{ph['id']}",
-                        "license": {"cc0": "CC0", "cc-by": "CC BY 4.0", "cc-by-sa": "CC BY-SA 4.0"}[code],
-                        "license_url": {"cc0": "https://creativecommons.org/publicdomain/zero/1.0/", "cc-by": "https://creativecommons.org/licenses/by/4.0/", "cc-by-sa": "https://creativecommons.org/licenses/by-sa/4.0/"}[code],
-                        "author": re.sub(r"^\(c\)\s*|,.*$", "", ph.get("attribution", "")).strip()[:80] or "iNaturalist-bruker", "w": 1000, "source": "iNaturalist"}
-    return None
+              order_by="votes", per_page=30, photos="true")["results"]
+    phs = ([dp] if dp else []) + [ph for o in obs for ph in o.get("photos", [])[:1]]
+    for ph in phs:
+        code = ph.get("license_code") or ""
+        if code not in LIC or not ph.get("url"): continue
+        out.append({"file": f"iNaturalist foto {ph['id']}", "thumb": ph["url"].replace("square", "large"), "small": ph["url"].replace("square", "medium"),
+                    "page": f"https://www.inaturalist.org/photos/{ph['id']}", "license": LIC[code][0], "license_url": LIC[code][1], "source": "iNaturalist",
+                    "author": re.sub(r"^\(c\)\s*|,.*$", "", ph.get("attribution", "")).strip()[:80] or "iNaturalist-bruker", "w": 1000})
+        if len(out) >= n: break
+    return out
 
 
-photos = json.loads(OUT.read_text()) if OUT.exists() else {}
-for sid in INAT:
-    if photos.get(sid, {}).get("source") != "iNaturalist": photos.pop(sid, None)
-for sid, taxon in TAXON.items():
-    if sid in photos and (IMG / f"foto-{sid}.webp").exists(): continue
-    got = inat(taxon) if sid in INAT else None
-    for fn in ([] if got else list(p18(taxon)) + list(search(taxon))):
+def commons_cands(taxon, n=5):
+    out = []
+    for fn in list(p18(taxon)) + list(search(taxon)):
+        try: c = info(fn)
+        except Exception: continue
+        if c and c["w"] >= 800:
+            c["small"] = c["thumb"]; c["source"] = "Wikimedia Commons"; out.append(c)
+        if len(out) >= n: break
+    return out
+
+
+def pick(sid, name, taxon, cands):
+    """Gemini ser på kandidatene og velger det beste identifikasjonsbildet (eller ingen)."""
+    import base64, os
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key or len(cands) < 2: return cands[0] if cands else None
+    parts = [{"text": f"""Du velger bilde til et norsk skadedyrleksikon, oppslaget «{name}» ({taxon}).
+Under følger {len(cands)} kandidatbilder nummerert fra 0. Vurder hvert: viser det tydelig ett eksemplar av nettopp denne arten, skarpt, hele dyret synlig, god størrelse i bildet, nøytral eller naturlig bakgrunn, egnet til å kjenne igjen arten? Trekk ned for: dyret lite eller delvis skjult, uskarpt, glass/beholder/hånd/sko foran, bare egg/larver, døde/knuste dyr, tegninger, flere arter.
+Svar som JSON: {{"best": <nummer eller -1 hvis ingen er gode nok>, "scores": [<0-10 per bilde>], "why": "<kort>"}}"""}]
+    keep = []
+    for i, c in enumerate(cands):
         try:
-            got = info(fn)
+            raw = urllib.request.urlopen(urllib.request.Request(c["small"], headers=UA), timeout=40).read()
+            im = Image.open(io.BytesIO(raw)).convert("RGB"); im.thumbnail((512, 512)); b = io.BytesIO(); im.save(b, "JPEG", quality=80)
+        except Exception: continue
+        parts += [{"text": f"Bilde {len(keep)}:"}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(b.getvalue()).decode()}}]
+        keep.append(c)
+    for m in ["gemini-3.8-flash", "gemini-flash-latest"]:
+        try:
+            r = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent",
+                data=json.dumps({"contents": [{"role": "user", "parts": parts}], "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}).encode(),
+                headers={"Content-Type": "application/json", "x-goog-api-key": key})
+            d = json.loads(json.load(urllib.request.urlopen(r, timeout=180))["candidates"][0]["content"]["parts"][0]["text"])
+            print(f"  {sid}: best={d.get('best')} scores={d.get('scores')} – {d.get('why', '')[:120]}")
+            b = d.get("best", -1)
+            return keep[b] if isinstance(b, int) and 0 <= b < len(keep) else None
         except Exception as e:
-            print("  ", fn, e); continue
-        if got and got["w"] >= 800: break
-        got = None
-    if not got: print(sid, "fant ikke fritt lisensiert bilde"); continue
+            print("   ", m, str(e)[:150])
+    return keep[0] if keep else None
+
+
+import os
+FORCE = set(filter(None, os.environ.get("REPICK", "").split(",")))
+photos = json.loads(OUT.read_text()) if OUT.exists() else {}
+for sid, taxon in TAXON.items():
+    if sid in photos and (IMG / f"foto-{sid}.webp").exists() and sid not in FORCE and "all" not in FORCE: continue
+    name = sid
+    got = pick(sid, name, taxon, commons_cands(taxon) + inat_cands(taxon))
+    if not got: print(sid, "fant ikke godt nok fritt lisensiert bilde"); photos.pop(sid, None); continue
     raw = urllib.request.urlopen(urllib.request.Request(got["thumb"], headers=UA), timeout=60).read()
     im = Image.open(io.BytesIO(raw)).convert("RGB"); im.thumbnail((1400, 1400))
     im.save(IMG / f"foto-{sid}.webp", "WEBP", quality=84)
-    got.pop("thumb"); got.pop("w"); got["taxon"] = taxon
+    for k in ("thumb", "w", "small"): got.pop(k, None)
+    got["taxon"] = taxon
     photos[sid] = got
     print(sid, "->", got["file"], "|", got["license"], "|", got["author"])
 OUT.write_text(json.dumps(photos, ensure_ascii=False, indent=1), encoding="utf-8")

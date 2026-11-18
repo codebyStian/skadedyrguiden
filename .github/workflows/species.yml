@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       force: { description: "Hent fagtekst på nytt for alle (1/0)", default: "0" }
+      repick: { description: "Velg foto på nytt: all eller liste (mus,rotte)", default: "" }
   push:
     branches: [main]
     paths: ["kb/species.json", "scripts/species_photos.py", "scripts/species_info.py"]
@@ -20,7 +21,8 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install -q pillow
-      - name: Photos (Wikimedia Commons)
+      - name: Photos (Wikimedia Commons + iNaturalist, valgt av Gemini)
+        env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}", REPICK: "${{ inputs.repick }}" }
         run: python scripts/species_photos.py
       - name: Fagtekst (FHI)
         env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}", FORCE: "${{ inputs.force == '1' && '1' || '' }}" }
