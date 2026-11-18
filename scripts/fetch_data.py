@@ -26,6 +26,43 @@ def save(name, obj):
     (RAW / name).write_text(obj if isinstance(obj, str) else json.dumps(obj, ensure_ascii=False, indent=1))
 
 
+def jsonstat_rows(d):
+    """Gjør json-stat2 om til en liste av dict med kategorietiketter."""
+    ids = d["id"]; sizes = d["size"]; vals = d["value"]
+    cats = []
+    for k in ids:
+        c = d["dimension"][k]["category"]
+        idx = c["index"]; order = sorted(idx, key=lambda x: idx[x]) if isinstance(idx, dict) else idx
+        cats.append([c["label"][o] for o in order])
+    rows = []
+    for n, v in enumerate(vals if isinstance(vals, list) else []):
+        r, rem = {}, n
+        for k, sz, cl in zip(reversed(ids), reversed(sizes), reversed(cats)):
+            r[k] = cl[rem % sz]; rem //= sz
+        r["v"] = v; rows.append(r)
+    return rows
+
+
+def fhi_parse():
+    """Lager {yearly: {art: {år: n}}, monthly: {art: [12 andeler i %]}} fra råfilene."""
+    out = {"source": "FHI Statistikk – Skadedyrstatistikk (statistikk.fhi.no/skast)", "yearly": {}, "monthly": {}}
+    for f in RAW.glob("fhi_skast_*_data.json"):
+        d = json.loads(f.read_text())
+        rows = jsonstat_rows(d)
+        if "MND" in d["id"]:
+            mnd = d["dimension"]["MND"]["category"]["label"]
+            for r in rows:
+                if r["AAR"] == "Alle år" and r["v"] is not None:
+                    out["monthly"].setdefault(r["ART"].replace(" og ", " eller "), {})[r["MND"]] = r["v"]
+        else:
+            for r in rows:
+                if r["v"] is not None:
+                    out["yearly"].setdefault(r["ART"], {})[r["AAR"]] = r["v"]
+    M = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"]
+    out["monthly"] = {a: [round(m.get(x) or 0, 1) for x in M] for a, m in out["monthly"].items()}
+    return out
+
+
 def fhi():
     sources = get(FHI + "/Common/source"); save("fhi_sources.json", sources)
     src = [s for s in sources if "skadedyr" in json.dumps(s, ensure_ascii=False).lower() or "skast" in json.dumps(s).lower()]
@@ -77,6 +114,10 @@ def main():
         stats["fhi_tables"] = fhi()
     except Exception as e:
         print("FHI failed:", e)
+    try:
+        stats["fhi"] = fhi_parse()
+    except Exception as e:
+        print("FHI parse failed:", e)
     try:
         stats["gbif"] = gbif(geo)
     except Exception as e:

@@ -4,6 +4,7 @@ Projeksjon: sinusoidal rundt 15°Ø – samme formel brukes i nettleseren (x=(lo
 import json, math, pathlib
 from shapely.geometry import shape, Polygon, MultiPolygon, mapping
 from shapely.ops import transform, unary_union
+from shapely.geometry.polygon import orient
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "data/src/fylker-2024.geojson"
@@ -46,13 +47,12 @@ for fid, (name, g) in sorted(geoms.items()):
     pg = transform(proj, g).simplify(0.006, preserve_topology=True)
     ll = g.simplify(0.02, preserve_topology=True)
     polys = [[[round(x, 3), round(y, 3)] for x, y in p.exterior.coords] for p in big_parts(ll, 0.003)]
-    hull = g.convex_hull.simplify(0.05)
-    ring = list(hull.exterior.coords)
-    if Polygon(ring).exterior.is_ccw is False: ring = ring[::-1]
+    w = [orient(Polygon(p.exterior), 1.0) for p in big_parts(g.simplify(0.04, preserve_topology=True), 0.02)]
+    wkt = "MULTIPOLYGON(" + ",".join("((" + ",".join(f"{x:.2f} {y:.2f}" for x, y in p.exterior.coords) + "))" for p in w) + ")"
     c = g.representative_point()
     res["fylker"].append({"id": fid, "name": name, "region": REGION[fid], "d": svg_path(pg),
                           "c": [round(c.x, 3), round(c.y, 3)], "poly": polys,
-                          "wkt": "POLYGON((" + ",".join(f"{x:.2f} {y:.2f}" for x, y in ring) + "))"})
+                          "wkt": wkt})
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(json.dumps(res, ensure_ascii=False, separators=(",", ":")))
 print(OUT, OUT.stat().st_size // 1024, "KB", W, H)
