@@ -36,7 +36,7 @@ def foot(base):
     <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
   </div>
-  <div class="base">Bildene på siden er AI-genererte illustrasjonsfoto.</div>
+  <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="{base}kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>
 <script src="{base}assets/nl.js" defer></script>
 </body>
@@ -179,7 +179,10 @@ def regional_pages():
              "klesmoll-og-pelsbille": "Møll eller pelsbille?", "rotter-i-byen": "Rotte eller mus?", "mus-pa-garden": "Husmus eller skogmus?",
              "smagnagerar": "Hvilken gnager er det?", "fluer-om-hosten": "Hvilket insekt er det?", "flatt-langs-kysten": "Flått eller noe annet?",
              "brunskogsnegl": "Brunskogsnegl eller annen snegl?", "hoggorm": "Hoggorm eller buorm?"}
+    import lexicon
+    BYID = lexicon.load(ROOT.parent)
     for a in RA:
+        cmpb = lexicon.article_compare(a["slug"], BYID)
         q = CHECK.get(a["slug"])
         chk = f'<p style="margin-top:22px"><a class="btn y arrow" href="../index.html#hvadet">{q} Last opp et bilde </a></p>' if q else ""
         box = f'<div class="box"><b>Usikker på hva du har funnet?</b>Last opp et bilde, så får du et forslag til art med kjennetegnene vurderingen bygger på, kontrollert mot Folkehelseinstituttets skadedyrhåndbok. <a href="../index.html#hvadet">Finn ut hvilket dyr det er →</a></div>' if q else ""
@@ -189,7 +192,7 @@ def regional_pages():
 <div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div>{chk}</div>
 <div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a["img"]}.webp" alt="" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
 </div></section>
-<article class="band"><div class="art">{a["body"]}
+<article class="band"><div class="art">{a["body"].replace("</p>", "</p>" + cmpb, 1) if cmpb else a["body"]}
 {box}
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
 <h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
@@ -210,7 +213,7 @@ def regional_pages():
 
 if __name__ == "__main__":
     regional_pages()
-    import extra; extra.build(head, foot, prod, recs); extra.newsletter_pages(head, foot)
+    import extra; extra.build(head, foot, prod, recs); extra.newsletter_pages(head, foot); extra.credits_page(head, foot)
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")

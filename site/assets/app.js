@@ -257,7 +257,7 @@
     const r = mouseRisk(w), n = $("#now");
     if (n) n.innerHTML = w ? `<div class="wx"><b>${Math.round(w.temp)}°</b><span>${here ? "Der du er nå" : "Midt i fylket nå"}<br><small>Laveste neste 3 døgn: ${Math.round(w.min)}°</small></span></div>
       <div class="risk r-${r[0].toLowerCase()}"><small>Musevarsel</small><b>${r[0]}</b><span>${r[1]}</span></div>
-      <p class="src" style="grid-column:1/-1">Vær: ${w.src}. Musevarselet er vår tommelfingerregel ut fra temperatur og årstid – ikke en måling.</p>`
+      <p class="src" style="grid-column:1/-1">Vær: ${w.src === "MET Norge" ? '<a href="https://api.met.no/doc/License" rel="noopener">Data fra MET Norge</a> (CC BY 4.0)' : '<a href="https://open-meteo.com/" rel="noopener">Weather data by Open-Meteo.com</a> (CC BY 4.0)'}. Musevarselet er vår tommelfingerregel ut fra temperatur og årstid – ikke en måling.</p>`
       : `<p class="small mute">Været er ikke tilgjengelig akkurat nå.</p>`;
     if (here) nearby(loc.lat, loc.lon);
   }

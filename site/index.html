@@ -403,7 +403,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
     <div><h3>Verktøy</h3><ul><li><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
   </div>
-  <div class="base">Bildene på siden er AI-genererte illustrasjonsfoto.</div>
+  <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>
 
 <div class="drawer" id="drawer" aria-hidden="true">
@@ -428,7 +428,7 @@ const P=[
 // Navngitte arter vises med ekte, fritt lisensiert foto (site/data/photos.json) – ikke illustrasjon.
 const KBID={mus:'mus',rotte:'rotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'veps',melmoll:'melmoll'};let PH={};
 const SPIMG=k=>PH[KBID[k]]?`<img src="assets/img/foto-${KBID[k]}.webp" alt="" loading="lazy">`:IMG(k);
-const CRED=k=>{const p=PH[KBID[k]];return p?`<span class="cred">Foto: ${p.author} · <a href="${p.license_url||p.page}" rel="license noopener">${p.license}</a> · <a href="${p.page}" rel="noopener">kilde</a></span>`:''};
+const CRED=k=>{const p=PH[KBID[k]];return p?`<span class="cred">Foto: ${/^no rights/i.test(p.author)?'iNaturalist-bruker':p.author}${p.cropped?' (beskåret)':''} · <a href="${p.license_url||p.page}" rel="license noopener">${p.license}</a> · <a href="${p.page}" rel="noopener">kilde</a></span>`:''};
 const drawLex=()=>{document.getElementById('lex').innerHTML=P.map(p=>`<button class="sp" data-k="${p.k}" type="button"><div class="ph">${SPIMG(p.k)}<span class="season">${p.s}</span><div class="cap"><h3>${p.n}</h3><em>${p.l}</em></div></div></button>`).join('')};
 drawLex();fetch('data/photos.json').then(r=>r.ok?r.json():{}).then(d=>{PH=d;drawLex()}).catch(()=>{});
 const dr=document.getElementById('drawer'),db=document.getElementById('dbody');let last=null;

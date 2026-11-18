@@ -49,6 +49,7 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
     import lexicon
     lexicon.RECS = recs
     _p = ROOT / 'data/photos.json'; lexicon.PHOTOS.update(json.loads(_p.read_text()) if _p.exists() else {})
+    _c = REPO / 'kb/compare.json'; lexicon.COMPARE.update(json.loads(_c.read_text()) if _c.exists() else {})
     _i = REPO / 'kb/species_info.json'; lexicon.INFO.update(json.loads(_i.read_text()) if _i.exists() else {})
     stats = json.loads((ROOT / "data/stats.json").read_text())["fhi"]
     artimg = {x["slug"]: x.get("img") for x in ARTICLES + EXTRA}
@@ -89,3 +90,35 @@ def newsletter_pages(head, foot):
                           ("ugyldig", "Lenken virker ikke", "Lenken er utløpt eller ufullstendig. Meld deg på på nytt, så sender vi en ny bekreftelse.")]:
         b = f'<section class="band"><div class="wrap" style="max-width:720px"><span class="kicker">Skadedyrbrevet</span><h1 style="font-size:clamp(40px,5vw,64px)">{h1}</h1><p style="font-size:19px">{txt}</p><p><a class="btn arrow" href="../index.html">Til forsiden </a> <a class="btn arrow" href="index.html">Tidligere brev </a></p>{form if slug == "ugyldig" else ""}</div></section>'
         (N / f"{slug}.html").write_text(head(f"{h1} – Skadedyrbrevet", txt, "../").replace("<title>", "<title>", 1) + css + b + foot("../"), encoding="utf-8")
+
+
+def credits_page(head, foot):
+    """Kilder, foto og lisenser – samlet kreditering for alt innhold som ikke er laget av Skadedyrguiden."""
+    import lexicon
+    byid = lexicon.load(REPO)
+    rows = "".join(f'''<tr><td><img src="assets/img/foto-{i}.webp" alt="" loading="lazy" style="width:96px;height:72px;object-fit:cover;border-radius:8px"></td>
+<td><b>{H.escape(byid[i]["name"])}</b><br><em class="small mute">{H.escape(p.get("taxon", ""))}</em></td><td>{H.escape(lexicon.who(p))}</td>
+<td><a href="{H.escape(p.get("license_url") or p["page"])}" rel="license noopener">{H.escape(p["license"])}</a></td>
+<td><a href="{H.escape(p["page"])}" rel="noopener">{H.escape(p.get("source") or "Wikimedia Commons")}</a></td><td>{"Beskåret" if p.get("cropped") else "Skalert"}</td></tr>'''
+                   for i, p in lexicon.PHOTOS.items() if i in byid)
+    body = f'''<section class="band"><div class="wrap" style="max-width:1000px"><span class="kicker">Om innholdet</span>
+<h1 style="font-size:clamp(40px,5vw,64px)">Kilder, foto og lisenser</h1>
+<p style="font-size:19px;max-width:60ch">Alt vi bruker som andre har laget, er brukt i tråd med lisensen og kreditert her og der det vises.</p>
+<h2>Artsfoto</h2>
+<p>Bildene av navngitte arter er ekte fotografier fra Wikimedia Commons og iNaturalist. Vi bruker bare bilder med lisenser som tillater kommersiell bruk:
+CC0 (ingen rettigheter forbeholdt), CC BY (kreditering) og CC BY-SA (kreditering, del på samme vilkår). Bilder med «ikke-kommersiell» (NC) eller «ingen bearbeidelse» (ND) brukes ikke.
+Bildene er skalert, og noen er beskåret slik at dyret fyller bildet. Beskårne versjoner av CC BY-SA-bilder deles videre under samme lisens som originalen.</p>
+<div style="overflow-x:auto"><table class="small" style="width:100%;border-collapse:collapse"><thead><tr><th></th><th align="left">Art</th><th align="left">Fotograf</th><th align="left">Lisens</th><th align="left">Original</th><th align="left">Endring</th></tr></thead><tbody>{rows}</tbody></table></div>
+<h2>Illustrasjonsbilder</h2>
+<p>Stemningsbilder i artikler, på forsiden og i regionene er generert med kunstig intelligens (Cloudflare Workers AI / FLUX og Google Gemini) og viser ikke virkelige steder eller personer. De brukes aldri for å vise hvordan en bestemt art ser ut.</p>
+<h2>Data og fagkilder</h2>
+<ul>
+<li>Fagstoff: <a href="https://www.fhi.no/sk/skadedyrhandboka/" rel="noopener">Folkehelseinstituttets skadedyrhåndbok</a>. Artikler og faktabokser lenker til kildesiden.</li>
+<li>Skadedyrstatistikk: <a href="https://statistikk.fhi.no/skast/" rel="noopener">FHI Statistikk</a>.</li>
+<li>Artsfunn: <a href="https://www.gbif.org/" rel="noopener">GBIF.org</a>, inkludert data fra Artsdatabanken/Artsobservasjoner. Hvert datasett har egen lisens (CC0, CC BY eller CC BY-NC); vi viser bare antall funn.</li>
+<li>Vær: <a href="https://api.met.no/doc/License" rel="noopener">Data fra MET Norge</a> (CC BY 4.0), reserve: <a href="https://open-meteo.com/" rel="noopener">Open-Meteo.com</a> (CC BY 4.0).</li>
+<li>Kart: fylkesgrenser fra <a href="https://www.kartverket.no/" rel="noopener">Kartverket</a> via <a href="https://github.com/robhop/fylker-og-kommuner" rel="noopener">robhop/fylker-og-kommuner</a> (CC BY 4.0), forenklet.</li>
+<li>Produktbilder og -navn: <a href="https://skadedyrbutikken.no/" rel="noopener">Skadedyrbutikken</a>.</li>
+<li>Skrifter: Instrument Serif og Schibsted Grotesk (SIL Open Font License).</li>
+</ul></div></section>'''
+    (ROOT / "kilder-og-lisenser.html").write_text(head("Kilder, foto og lisenser – Skadedyrguiden", "Kreditering av artsfoto, data og fagkilder brukt på Skadedyrguiden.", "") + body + foot(""), encoding="utf-8")
