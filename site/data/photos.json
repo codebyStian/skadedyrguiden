@@ -6,7 +6,8 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "author": "Dion Art",
   "source": "Wikimedia Commons",
-  "taxon": "Mus musculus"
+  "taxon": "Mus musculus",
+  "cropped": true
  },
  "skogmus": {
   "file": "Apodemus sylvaticus (Sardinia).jpg",
@@ -15,7 +16,8 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "author": "Hans Hillewaert",
   "source": "Wikimedia Commons",
-  "taxon": "Apodemus sylvaticus"
+  "taxon": "Apodemus sylvaticus",
+  "cropped": false
  },
  "veggedyr": {
   "file": "iNaturalist foto 488991126",
@@ -24,7 +26,8 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
   "source": "iNaturalist",
   "author": "Gilles San Martin",
-  "taxon": "Cimex lectularius"
+  "taxon": "Cimex lectularius",
+  "cropped": false
  },
  "svaletege": {
   "file": "iNaturalist foto 417078260",
@@ -33,7 +36,8 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
   "source": "iNaturalist",
   "author": "Gilles San Martin",
-  "taxon": "Oeciacus hirundinis"
+  "taxon": "Oeciacus hirundinis",
+  "cropped": false
  },
  "skjeggkre": {
   "file": "Ctenolepisma longicaudata (long-tailed silverfish), Mook, the Netherlands.JPG",
@@ -42,7 +46,8 @@
   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "author": "Bj.schoenmakers",
   "source": "Wikimedia Commons",
-  "taxon": "Ctenolepisma longicaudatum"
+  "taxon": "Ctenolepisma longicaudatum",
+  "cropped": false
  },
  "solvkre": {
   "file": "LepismaSaccharina.jpg",
@@ -51,7 +56,8 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "author": "Christian Fischer",
   "source": "Wikimedia Commons",
-  "taxon": "Lepisma saccharinum"
+  "taxon": "Lepisma saccharinum",
+  "cropped": false
  },
  "veps": {
   "file": "Common Wasp (Vespula (Paravespula) vulgaris) (8655496146).jpg",
@@ -60,7 +66,8 @@
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "author": "Martin Cooper from Ipswich, UK",
   "source": "Wikimedia Commons",
-  "taxon": "Vespula vulgaris"
+  "taxon": "Vespula vulgaris",
+  "cropped": false
  },
  "kjempetreveps": {
   "file": "Urocerus gigas5.jpg",
@@ -69,7 +76,8 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
   "author": "Holger Gröschl",
   "source": "Wikimedia Commons",
-  "taxon": "Urocerus gigas"
+  "taxon": "Urocerus gigas",
+  "cropped": true
  },
  "skogsmaur": {
   "file": "iNaturalist foto 273573176",
@@ -78,7 +86,8 @@
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
   "source": "iNaturalist",
   "author": "no rights reserved",
-  "taxon": "Formica rufa"
+  "taxon": "Formica rufa",
+  "cropped": false
  },
  "melmoll": {
   "file": "iNaturalist foto 655494534",
@@ -87,7 +96,8 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/",
   "source": "iNaturalist",
   "author": "Rosario Douglas",
-  "taxon": "Plodia interpunctella"
+  "taxon": "Plodia interpunctella",
+  "cropped": false
  },
  "flatt": {
   "file": "Ixodes ricinus on dry grass.jpg",
@@ -96,7 +106,8 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "author": "W.alter",
   "source": "Wikimedia Commons",
-  "taxon": "Ixodes ricinus"
+  "taxon": "Ixodes ricinus",
+  "cropped": true
  },
  "rotte": {
   "file": "A river rat.jpg",
@@ -105,7 +116,8 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "author": "Michael Palmer",
   "source": "Wikimedia Commons",
-  "taxon": "Rattus norvegicus"
+  "taxon": "Rattus norvegicus",
+  "cropped": true
  },
  "stokkmaur": {
   "file": "iNaturalist foto 151248994",
@@ -114,7 +126,8 @@
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
   "source": "iNaturalist",
   "author": "no rights reserved",
-  "taxon": "Camponotus herculeanus"
+  "taxon": "Camponotus herculeanus",
+  "cropped": true
  },
  "jordmaur": {
   "file": "iNaturalist foto 717051832",
@@ -123,7 +136,8 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/",
   "source": "iNaturalist",
   "author": "Joss Carr",
-  "taxon": "Lasius niger"
+  "taxon": "Lasius niger",
+  "cropped": false
  },
  "kakerlakk": {
   "file": "iNaturalist foto 465309827",
@@ -132,6 +146,7 @@
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
   "source": "iNaturalist",
   "author": "no rights reserved",
-  "taxon": "Blattella germanica"
+  "taxon": "Blattella germanica",
+  "cropped": true
  }
 }

@@ -1,0 +1,241 @@
+{
+ "jordmaur|stokkmaur": {
+  "rows": [
+   {
+    "trait": "Størrelse",
+    "a": "Små arbeidere på 3–5 mm",
+    "b": "Norges største maurart; arbeidere 5–14 mm",
+    "key": true
+   },
+   {
+    "trait": "Farge",
+    "a": "Kroppen er svart / helsvart",
+    "b": "Ofte tofarget rødbrun/sort eller ensfarget sort",
+    "key": false
+   },
+   {
+    "trait": "Skade på treverk",
+    "a": "Gnager normalt ikke på uskadet, friskt treverk",
+    "b": "Gjør bygningsskade ved å gnage ut reirrom i treverk",
+    "key": false
+   },
+   {
+    "trait": "Tegn på reir",
+    "a": "Travle maurstier; bevingede maur inne i juli–august",
+    "b": "Sagflishauger, lyder i vegger, vingede maur på forsommeren",
+    "key": false
+   },
+   {
+    "trait": "Sverming",
+    "a": "Sensommeren i juli–august",
+    "b": "Forsommeren",
+    "key": false
+   }
+  ],
+  "test": "Sjekk størrelsen: Svart jordmaur er liten (3–5 mm), mens stokkmaur er vesentlig større (5–14 mm)."
+ },
+ "kjempetreveps|veps": {
+  "rows": [
+   {
+    "trait": "Vepsetalje",
+    "a": "Sylindrisk kropp uten vepsetalje.",
+    "b": "Tydelig vepsetalje mellom bryst og bakkropp.",
+    "key": true
+   },
+   {
+    "trait": "Størrelse",
+    "a": "Hunnen er 2,4–4,4 cm, hannen noe mindre.",
+    "b": "Arbeidere er 11–19 mm, dronningen noe større.",
+    "key": true
+   },
+   {
+    "trait": "Stikkbrodd",
+    "a": "Kan ikke stikke, ufarlig for mennesker.",
+    "b": "Har stikkbrodd og gir smertefulle stikk.",
+    "key": false
+   },
+   {
+    "trait": "Hvor",
+    "a": "I skogområder, tilknyttet døde eller døende bartrær.",
+    "b": "Vanlige i og rundt bolighus, loft og takutspring.",
+    "key": false
+   },
+   {
+    "trait": "Bol og spor",
+    "a": "Lager kryssende larveganger og utflygingshull i treverk.",
+    "b": "Bygger kuleformede bol av papiraktig materiale.",
+    "key": false
+   }
+  ],
+  "test": "Kjempetrevepsen er vesentlig større og mangler vepsetalje, mens stikkevepsen er mindre med en tydelig innsnevret vepsetalje."
+ },
+ "mus|rotte": {
+  "rows": [
+   {
+    "trait": "Kroppsstørrelse",
+    "a": "Liten kropp på 6–10 cm, vekt 12–28 g.",
+    "b": "Mye større kropp på 18–25 cm, vekt 200–500 g.",
+    "key": true
+   },
+   {
+    "trait": "Ekskrementer",
+    "a": "Små (3–6 mm) som riskorn med spisse ender.",
+    "b": "Store (1,2–2,5 cm), rektangulære med butte ender.",
+    "key": true
+   },
+   {
+    "trait": "Snute",
+    "a": "Spiss snute.",
+    "b": "Butt snute.",
+    "key": false
+   },
+   {
+    "trait": "Hale",
+    "a": "Omtrent like lang som kroppen (7–10 cm).",
+    "b": "Kortere enn kroppen (15–21 cm) og tykk.",
+    "key": false
+   },
+   {
+    "trait": "Bakfotavtrykk",
+    "a": "12–14 mm langt avtrykk.",
+    "b": "2,0–2,5 cm langt avtrykk.",
+    "key": false
+   }
+  ],
+  "test": "Sjekk størrelsen: Husmusa er under ti centimeter med riskornlignende ekskrementer, mens brunrotta er betydelig større med butte ekskrementer."
+ },
+ "mus|skogmus": {
+  "rows": [
+   {
+    "trait": "Ører",
+    "a": "Små ører",
+    "b": "Store ører",
+    "key": true
+   },
+   {
+    "trait": "Øyne",
+    "a": "Små øyne",
+    "b": "Store, utstående øyne",
+    "key": true
+   },
+   {
+    "trait": "Pels på ryggen",
+    "a": "Gråbrun eller grålig med nyanser av brunt",
+    "b": "Brunlig rygg",
+    "key": false
+   },
+   {
+    "trait": "Buk / underside",
+    "a": "Lysere underside",
+    "b": "Lys eller hvit buk",
+    "key": false
+   },
+   {
+    "trait": "Hale",
+    "a": "7–10 cm, omtrent like lang som kroppen",
+    "b": "Lang hale",
+    "key": false
+   }
+  ],
+  "test": "Skogmus har store ører og store øyne, mens husmus har små ører og små øyne."
+ },
+ "skjeggkre|solvkre": {
+  "rows": [
+   {
+    "trait": "Haletråder",
+    "a": "Lange, midterste er nesten like lang som kroppen",
+    "b": "Korte, under halve kroppslengden",
+    "key": true
+   },
+   {
+    "trait": "Farge",
+    "a": "Mørkegrå og spraglete, mindre sølvglinsende",
+    "b": "Sølvglinsende gråfarge",
+    "key": true
+   },
+   {
+    "trait": "Størrelse",
+    "a": "Vanligvis 10–14 mm, opptil 18 mm",
+    "b": "7–12 mm",
+    "key": false
+   },
+   {
+    "trait": "Hvor i boligen",
+    "a": "Fuktige rom, men overlever også i tørre rom",
+    "b": "Vanligst i fuktige og varme rom",
+    "key": false
+   }
+  ],
+  "test": "Skjeggkre har lange haletråder og spraglete mørkegrå farge, mens sølvkre er sølvglinsende med korte haletråder."
+ },
+ "skogsmaur|stokkmaur": {
+  "rows": [
+   {
+    "trait": "Hode",
+    "a": "Tofarget hode, rødt og svart",
+    "b": "Helt svart hode",
+    "key": true
+   },
+   {
+    "trait": "Rygg",
+    "a": "Humpete rygg",
+    "b": "Jevnt krummet rygg",
+    "key": true
+   },
+   {
+    "trait": "Størrelse på arbeidere",
+    "a": "Arbeidere er 4,5–9 mm lange",
+    "b": "Arbeidere varierer fra 5 til 14 mm",
+    "key": false
+   },
+   {
+    "trait": "Skade",
+    "a": "Gjør normalt ingen skade på bygninger",
+    "b": "Gnag i treverk og isolasjonsmateriale gir bygningsskade",
+    "key": false
+   },
+   {
+    "trait": "Maursyre",
+    "a": "Kan sprute ubehagelig maursyre ved forstyrrelse",
+    "b": "Spruter ikke maursyre ved forstyrrelse",
+    "key": false
+   }
+  ],
+  "test": "Rød skogsmaur har tofarget hode og humpete rygg, mens stokkmaur har helt svart hode og jevnt krummet rygg."
+ },
+ "svaletege|veggedyr": {
+  "rows": [
+   {
+    "trait": "Størrelse",
+    "a": "3,5–4 mm lang (litt mindre)",
+    "b": "5–6 mm lang (større)",
+    "key": false
+   },
+   {
+    "trait": "Farge",
+    "a": "Lys gulbrun",
+    "b": "Rødbrun",
+    "key": true
+   },
+   {
+    "trait": "Behåring",
+    "a": "Lange, gulbrune hår på kroppen",
+    "b": "Mindre hårete",
+    "key": true
+   },
+   {
+    "trait": "Primært tilholdssted",
+    "a": "Fuglereir, forviller seg inn fra takskjegget",
+    "b": "Innendørs, særlig i og rundt senger",
+    "key": false
+   },
+   {
+    "trait": "Vinger",
+    "a": "Tilbakedannede vinger som kun utgjør korte skjell",
+    "b": "Mangler vinger",
+    "key": false
+   }
+  ],
+  "test": "Svaletegen er mindre, lysere gulbrun og mer hårete, mens veggedyret er større, rødbrunt og mindre hårete."
+ }
+}
