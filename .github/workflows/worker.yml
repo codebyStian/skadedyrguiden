@@ -17,19 +17,23 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
-      - name: Check token
+      - name: Find account for token
+        id: acct
         env:
           T: ${{ secrets.CF_WORKERS_TOKEN }}
           A: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
-          echo "token length: ${#T}"
-          curl -s -H "Authorization: Bearer $T" https://api.cloudflare.com/client/v4/user/tokens/verify | python3 -c "import json,sys;d=json.load(sys.stdin);print('verify:',d.get('success'),d.get('result',{}).get('status'),d.get('errors'))"
-          curl -s -H "Authorization: Bearer $T" "https://api.cloudflare.com/client/v4/accounts/$A/workers/subdomain" | python3 -c "import json,sys;d=json.load(sys.stdin);print('subdomain:',d.get('success'),d.get('result'),d.get('errors'))"
+          ids=$(curl -s -H "Authorization: Bearer $T" "https://api.cloudflare.com/client/v4/accounts?per_page=50" | python3 -c "import json,sys;d=json.load(sys.stdin);print(' '.join(a['id'] for a in d.get('result') or []))")
+          echo "token sees $(echo $ids | wc -w) account(s)"
+          for i in $ids; do echo "  ...${i: -6}"; done
+          echo "CF_ACCOUNT_ID secret ends with ...${A: -6}"
+          first=$(echo $ids | cut -d' ' -f1)
+          echo "id=$first" >> "$GITHUB_OUTPUT"
       - name: Deploy
         working-directory: worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ steps.acct.outputs.id }}
         run: set -o pipefail; npx --yes wrangler@4 deploy 2>&1 | tee deploy.log
       - name: Smoke test
         working-directory: worker
