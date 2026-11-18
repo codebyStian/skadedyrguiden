@@ -36,6 +36,8 @@ jobs:
           python scripts/page.py
           git config user.name "skadedyrguiden-bot"; git config user.email "actions@users.noreply.github.com"
           git add site/nyhetsbrev
-          git diff --cached --quiet || { git commit -m "Skadedyrbrevet: $(cat site/nyhetsbrev/latest.json | python3 -c 'import json,sys;print(json.load(sys.stdin)["slug"])')"; git pull --rebase -q; git push -q; }
+          git diff --cached --quiet || git commit -qm "Skadedyrbrevet: $(python3 -c 'import json;print(json.load(open("site/nyhetsbrev/latest.json"))["slug"])')"
+          git checkout -- . && git clean -fdq
+          git pull --rebase -q && git push -q
           gh workflow run pages.yml
         env: { GH_TOKEN: "${{ github.token }}" }
