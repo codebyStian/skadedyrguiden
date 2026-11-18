@@ -104,6 +104,9 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .checks li{display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
 .checks li::before{content:"";grid-row:span 2;width:22px;height:22px;border-radius:50%;background:var(--y) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6 11.5l3.2 3L16 8' fill='none' stroke='%23111715' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;margin-top:2px}
 .checks span{color:var(--mute);font-size:15.5px}
+.htype{display:inline-flex;gap:4px;background:var(--soft);padding:4px;border-radius:999px;margin:0 0 18px}
+.htype button{min-height:40px;padding:0 16px;border:0;border-radius:999px;background:none;color:var(--ink);font:600 14.5px "Schibsted Grotesk",sans-serif;cursor:pointer}
+.htype button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
 .biz{background:var(--soft)}
 @media(max-width:860px){.feat,.feat.rev{grid-template-columns:1fr}.feat .ph{aspect-ratio:4/3}.feat.rev .ph{order:-1}}
 [hidden]{display:none!important}
@@ -214,12 +217,26 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 @media(max-width:860px){.idt,.mag,.pod,.faq,.news{grid-template-columns:1fr}.strip .wrap{grid-template-columns:1fr 1fr}.shopgrid{grid-template-columns:1fr 1fr}.shopgrid a:not(:nth-child(3n)){border-right:0}.shopgrid a:nth-child(odd){border-right:1.5px solid #111715}}
 @media(max-width:600px){.hero{min-height:640px}.search input{padding-right:22px}.search .btn{position:static;margin-top:10px;width:100%;justify-content:center}.hits{top:66px}.row3,.tools,.shopgrid{grid-template-columns:1fr}.lex{gap:24px 14px}.lex{grid-template-columns:1fr 1fr;gap:12px}.sp h3{font-size:24px}.sp em{display:none}.sp .cap{left:14px;bottom:12px}.shopgrid a:nth-child(odd){border-right:0}.side a{grid-template-columns:minmax(0,1fr) 96px}.facts{grid-template-columns:1fr 1fr}.res .row{grid-template-columns:6em minmax(0,1fr) 2.8em}.sheet .in{padding:24px 20px 36px}}
 </style>
+<!--seo-->
+<link rel="canonical" href="https://codebystian.github.io/skadedyrguiden/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Skadedyrguiden">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:title" content="Skadedyrguiden">
+<meta property="og:description" content="Fagartikler, podkast og verktøy om skadedyr i hus, hage og bedrift. Finn ut hva du har, hva du gjør først, og hva du trenger.">
+<meta property="og:url" content="https://codebystian.github.io/skadedyrguiden/">
+<meta property="og:image" content="https://codebystian.github.io/skadedyrguiden/assets/img/hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f2a24">
+<script type="application/ld+json">{"@type": "Organization", "name": "Skadedyrguiden", "url": "https://codebystian.github.io/skadedyrguiden/", "parentOrganization": {"@type": "Organization", "name": "Skadedyrbutikken", "url": "https://skadedyrbutikken.no/"}, "@context": "https://schema.org"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Skadedyrguiden", "url": "https://codebystian.github.io/skadedyrguiden/", "inLanguage": "nb-NO"}</script>
+<!--/seo-->
 </head>
 <body>
 <div class="note">Konseptskisse – arbeidsnavn «Skadedyrguiden». Tekstene er eksempler og må faktasjekkes før publisering.</div>
 <header class="top"><div class="wrap">
   <a class="logo" href="./">Skadedyrguiden<i></i></a>
-  <nav class="nav" aria-label="Hovedmeny"><a href="#leksikon">Leksikon</a><a href="#artikler">Artikler</a><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a><a href="podkast.html">Podkast</a><a href="#kalender">Sesong</a><a href="#verktoy">Verktøy</a></nav>
+  <nav class="nav" aria-label="Hovedmeny"><a href="leksikon/index.html">Leksikon</a><a href="#artikler">Artikler</a><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a><a href="podkast.html">Podkast</a><a href="#verktoy">Verktøy</a><a href="sporsmal-og-svar.html">Spørsmål og svar</a></nav>
   <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 
@@ -250,7 +267,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></div>
 
 <section class="band" id="leksikon"><div class="wrap">
-  <div class="head"><div><span class="kicker">Skadedyrleksikon</span><h2>Kjenn igjen gjesten</h2></div><p class="mute">De vanligste skadedyrene i norske hjem. Velg et dyr for kjennetegn, første tiltak og riktig utstyr.</p></div>
+  <div class="head"><div><span class="kicker">Skadedyrleksikon</span><h2>Kjenn igjen gjesten</h2></div><div><p class="mute" style="margin-bottom:12px">De vanligste skadedyrene i norske hjem. Velg et dyr for kjennetegn, første tiltak og riktig utstyr.</p><a class="btn arrow" href="leksikon/index.html">Hele leksikonet </a></div></div>
   <div class="lex" id="lex"></div>
 </div></section>
 
@@ -299,7 +316,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
       <li><b>Se etter ferske spor</b><span>Ekskrementer og gnag viser hvor de kommer inn.</span></li>
       <li><b>Ikke la mat bli igjen</b><span>Heller ikke tørrvarer, fuglefrø eller dyrefôr.</span></li>
     </ul>
-    <a class="btn arrow" href="artikler/hytta-for-vinteren.html">Les hele guiden </a></div>
+    <a class="btn arrow" href="artikler/fjellhytta.html">Les hele guiden </a></div>
   </div>
 </div></section>
 
@@ -364,7 +381,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></section>
 
 <section class="band" id="faq"><div class="wrap faq">
-  <div><span class="kicker">Spørsmål og svar</span><h2>Det folk lurer på</h2><p class="mute">Finner du ikke svaret? Skriv til oss, så kan spørsmålet ditt bli neste artikkel.</p></div>
+  <div><span class="kicker">Spørsmål og svar</span><h2>Det folk lurer på</h2><p class="mute">Finner du ikke svaret? Skriv til oss, så kan spørsmålet ditt bli neste artikkel.</p><a class="btn arrow" href="sporsmal-og-svar.html">Se alle spørsmålene </a></div>
   <div>
     <details open><summary>Når bør jeg ringe en skadedyrtekniker?</summary><p>Hvis du ser rotter innendørs, mistenker veggedyr, har veps inne i en vegg, eller problemet kommer tilbake etter at du har tettet og satt feller. Også når du trenger dokumentasjon, for eksempel i en matbedrift.</p></details>
     <details><summary>Kan jeg kjøpe de samme midlene som fagfolk bruker?</summary><p>Ikke alltid. Noen biocider er godkjent bare for profesjonelle brukere. Produktsiden i butikken viser hvem produktet er godkjent for.</p></details>
@@ -414,8 +431,9 @@ function open(k){const p=P.find(x=>x.k===k);if(!p)return;last=document.activeEle
  db.innerHTML=`<div class="ph">${IMG(p.k)}</div><div class="in"><span class="kicker">${p.l}</span><h2 id="dt">${p.n}</h2>
  <div class="facts"><div><small>Sesong</small><b>${p.s}</b></div><div><small>Størrelse</small><b>${p.size}</b></div><div><small>Typisk sted</small><b>${p.where}</b></div></div>
  <h3>Tegn du ser etter</h3><ul>${p.signs.map(s=>`<li>${s}</li>`).join('')}</ul><h3>Gjør dette først</h3><p>${p.first}</p>
- <div class="acts"><a class="btn y arrow" href="${U(p.cat,'leksikon-'+p.k)}">Se utstyr </a>${p.art?`<a class="btn arrow" href="${p.art}">Les artikkelen </a>`:''}</div></div>`;
+ <div class="acts"><a class="btn y arrow" href="${U(p.cat,'leksikon-'+p.k)}">Se utstyr </a>${p.art?`<a class="btn arrow" href="${p.art}">Les artikkelen </a>`:''}${LX[p.k]?`<a class="btn arrow" href="leksikon/${LX[p.k]}.html">I leksikonet </a>`:''}</div></div>`;
  dr.classList.add('on');dr.setAttribute('aria-hidden','false');dr.querySelector('.x').focus();}
+const LX={mus:'husmus',rotte:'brunrotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'stikkeveps',melmoll:'melmoll'};
 window.SG_open=open;
 function close(){dr.classList.remove('on');dr.setAttribute('aria-hidden','true');if(last)last.focus()}
 document.getElementById('lex').addEventListener('click',e=>{const b=e.target.closest('.sp');if(b)open(b.dataset.k)});
@@ -447,7 +465,7 @@ sEl.addEventListener('change',score);rEl.addEventListener('click',e=>{const b=e.
 
 const A=[['Vilt i hagen · 6 min','Grevling på tomta: hva kan du gjøre – og hva har du lov til?','artikler/grevling-pa-tomta.html','grevling'],['Insekter · 5 min','Veggedyr på reise: sjekk hotellrommet på to minutter','artikler/veggedyr-pa-reise.html','veggedyr'],['Veps · 4 min','Vepsebolet: fjern det tidlig i sesongen','artikler/vepsebol.html','veps'],['Insekter · 5 min','Sølvkre og skjeggkre: hva er forskjellen, og hva hjelper?','artikler/fukt-solvkre-skjeggkre.html','skjeggkre']];
 document.getElementById('side').innerHTML=A.map(([c,t,h,i])=>`<a href="${h}"><div><span class="cat">${c}</span><h3>${t}</h3></div><div class="ph" data-label="">${IMG(i)}</div></a>`).join('');
-const B=[['Gnagere','Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?','artikler/rotter-i-byen.html','rotte'],['Maur','Stokkmaur eller skogsmaur? Slik ser du forskjellen','artikler/stokkmaur-eller-skogsmaur.html','maur'],['Hytte','Før du stenger hytta: sikre den mot mus på 20 minutter','artikler/hytta-for-vinteren.html','hytte']];
+const B=[['Gnagere','Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?','artikler/rotter-i-byen.html','rotte'],['Maur','Stokkmaur eller skogsmaur? Slik ser du forskjellen','artikler/stokkmaur-eller-skogsmaur.html','maur'],['Hytte','Fjellhytta: mus gjennom vinteren og besøk i skisesongen','artikler/fjellhytta.html','hytte']];
 document.getElementById('row3').innerHTML=B.map(([c,t,h,i])=>`<a href="${h}"><div class="ph" data-label="${c}">${IMG(i)}</div><span class="cat">${c}</span><h3>${t}</h3></a>`).join('');
 
 document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten','24 min'],['Veggedyr: den uønskede souveniren','27 min'],['Skjeggkre: hvorfor nyere boliger får dem','22 min']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===0?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">${i===0?'Lytt nå':l}</span></a>`).join('');

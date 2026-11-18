@@ -1,0 +1,33 @@
+# Skadedyrguiden
+
+> Norsk fagside om skadedyr i hus, hage og bedrift: fagartikler med kilder (FHI m.fl.), skadedyrleksikon, verktøy og podkast. Kjøp skjer hos skadedyrbutikken.no.
+
+## Artikler
+- [Grevling på tomta: hva kan du gjøre – og hva har du lov til?](https://codebystian.github.io/skadedyrguiden/artikler/grevling-pa-tomta.html)
+- [Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?](https://codebystian.github.io/skadedyrguiden/artikler/rotter-i-byen.html)
+- [Flått langs kysten: sjekk deg selv etter turen](https://codebystian.github.io/skadedyrguiden/artikler/flatt-langs-kysten.html)
+- [Stokkmaur eller skogsmaur? Slik ser du forskjellen](https://codebystian.github.io/skadedyrguiden/artikler/stokkmaur-eller-skogsmaur.html)
+- [Husbukk langs kysten av Telemark og Agder: tegn du ser etter](https://codebystian.github.io/skadedyrguiden/artikler/husbukk.html)
+- [Vepsebolet: fjern det tidlig i sesongen](https://codebystian.github.io/skadedyrguiden/artikler/vepsebol.html)
+- [Sølvkre og skjeggkre: hva er forskjellen, og hva hjelper?](https://codebystian.github.io/skadedyrguiden/artikler/fukt-solvkre-skjeggkre.html)
+- [Små runde hull i treverket? Det kan være stripet borebille](https://codebystian.github.io/skadedyrguiden/artikler/stripet-borebille.html)
+- [Mus på gården: låve, stabbur og fôrlager](https://codebystian.github.io/skadedyrguiden/artikler/mus-pa-garden.html)
+- [Smågnagerår: når det kryr av mus og lemen](https://codebystian.github.io/skadedyrguiden/artikler/smagnagerar.html)
+- [Hytta ved sjøen: steng den riktig for vinteren – og åpne den uten overraskelser](https://codebystian.github.io/skadedyrguiden/artikler/hytta-ved-sjoen.html)
+- [Fjellhytta: mus gjennom vinteren, besøk i skisesongen og åpning for barmark](https://codebystian.github.io/skadedyrguiden/artikler/fjellhytta.html)
+- [Flaggermus på loftet: fredet, nyttig – og slik gjør du det riktig](https://codebystian.github.io/skadedyrguiden/artikler/flaggermus-pa-loftet.html)
+- [Hoggorm i hagen og på hytta: kjennetegn og hva du gjør ved bitt](https://codebystian.github.io/skadedyrguiden/artikler/hoggorm.html)
+- [Plutselig fullt av fluer om høsten? Loftsfluer, gressfluer og fruktfluer](https://codebystian.github.io/skadedyrguiden/artikler/fluer-om-hosten.html)
+- [Hull i ullgenseren? Klesmøll og brun pelsbille](https://codebystian.github.io/skadedyrguiden/artikler/klesmoll-og-pelsbille.html)
+- [Brunsnegl i hagen: når og hvordan du tar dem](https://codebystian.github.io/skadedyrguiden/artikler/brunskogsnegl.html)
+- [Måker på taket: gjør tiltak før hekkingen starter](https://codebystian.github.io/skadedyrguiden/artikler/maker-pa-taket.html)
+- [Humler eller bier i veggen: hva gjør du?](https://codebystian.github.io/skadedyrguiden/artikler/humler-og-bier-i-veggen.html)
+- [Mus i huset om høsten: finn hullet før musa gjør det](https://codebystian.github.io/skadedyrguiden/artikler/mus-om-hosten.html)
+- [Veggedyr på reise: sjekk hotellrommet på to minutter](https://codebystian.github.io/skadedyrguiden/artikler/veggedyr-pa-reise.html)
+
+## Oppslag
+- [Spørsmål og svar](https://codebystian.github.io/skadedyrguiden/sporsmal-og-svar.html)
+- [Skadedyrleksikon](https://codebystian.github.io/skadedyrguiden/leksikon/)
+- [Fellekalkulator](https://codebystian.github.io/skadedyrguiden/verktoy/fellekalkulator.html)
+- [Tett huset-sjekkliste](https://codebystian.github.io/skadedyrguiden/verktoy/tett-huset.html)
+- [Podkast](https://codebystian.github.io/skadedyrguiden/podkast.html)

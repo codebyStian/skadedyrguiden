@@ -260,29 +260,63 @@ ARTICLES = [
              ("Jeger.no / NINA: Mus og lemen kan få topper i Sør-Norge", "https://www.jeger.no/jakt-og-samfunn/viltforvaltning/mus-og-lemen-kan-fa-toppar-i-sor-norge-hvis-vinteren-holder-seg-kald"),
              ("FHI: Rødmus", f"{FHI}/gnagere/rodmus")]},
 {
- "slug": "hytta-for-vinteren", "regions": ["nord", "ost", "midt"], "cat": "Hytte", "min": 4, "img": "hytte",
- "title": "Før du stenger hytta: sikre den mot mus på 20 minutter",
- "lead": "En kald, tom hytte er perfekt vinterkvarter for mus. Gjør disse tingene før du låser døra for sesongen.",
+ "slug": "hytta-ved-sjoen", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [8, 9, 10, 11, 3, 4, 5], "cat": "Hytte", "min": 4, "img": "region-sor",
+ "title": "Hytta ved sjøen: steng den riktig for vinteren – og åpne den uten overraskelser",
+ "lead": "Sommerhuset ved vannet står ofte tomt fra høsten til våren. Da er det et perfekt vinterkvarter for mus. Slik stenger og åpner du hytta.",
  "body": """
-<h2>Tett åpningene</h2>
+<h2>Når du stenger – september og oktober</h2>
 <p>For å sikre et hus mot mus må alle åpninger større enn seks millimeter stenges. Gå rundt hytta med lommelykt og se særlig på overgangen mellom grunnmur og vegg, under kledningen, rundt rør og kabler, under dører og i lufteventiler.</p>
 <ul>
 <li>Musebørster under kledningen og børstelister på dører.</li>
 <li>Metallnetting i lufteventiler.</li>
 <li>Tettemasse eller tetteremser beregnet på gnagere i overgangen mellom grunnmur og vegg.</li>
+<li>Ta med deg all mat, også tørrvarer, fuglefrø og dyrefôr.</li>
+<li>Sett feller langs veggene, gjerne to og to. Fleremusfeller passer i en hytte som står tom lenge.</li>
+<li>Hold gresset nede og legg veden et stykke unna veggen.</li>
 </ul>
-<h2>Fjern alt som kan spises</h2>
-<p>Ta med deg all mat, også tørrvarer, fuglefrø og dyrefôr. Musene trenger mat, vann og bolplass. Fjerner du disse og stenger inngangene, har du tatt bort grunnlaget.</p>
 <div class="box"><b>Ultralyd?</b>Det finnes apparater som skal skremme bort mus med lyd eller vibrasjoner, men ifølge Folkehelseinstituttet er det ikke dokumentert at de virker.</div>
-<h2>Sett feller som står over vinteren</h2>
-<p>Sett feller langs veggene der musene ferdes, gjerne to og to. Fleremusfeller som ikke må tømmes etter hver fangst, passer godt i en hytte som står tom lenge. Sjekk dem neste gang du er der.</p>
-<h2>Rydd rundt hytta</h2>
-<p>Høyt gress og vedstabler inntil veggen gir skjul. Hold gresset nede og legg veden et stykke unna.</p>
+<h2>Når du åpner – april og mai</h2>
+<ul>
+<li>Se etter spor etter mus: ekskrementer, gnag og bol. Bruk hansker når du rydder, og unngå å virvle opp støv.</li>
+<li>Sjekk fellene og noter hvor det har vært aktivitet – der er det trolig en inngang.</li>
+<li>Se etter små vepsebol under takskjegget. Dronningene kommer fram i april, og et bol på størrelse med en valnøtt er lett å fjerne.</li>
+<li>Flått blir aktiv fra april. Hold gresset kort rundt hytta.</li>
+</ul>
 """,
  "prod": ("Hyttepakken", "Fleremusfeller, musebørster og tettemateriell.", "gnagere"),
- "sources": [("FHI: Husmus", "https://www.fhi.no/sk/skadedyrveilederen/gnagere/husmus/"),
+ "sources": [("FHI: Husmus", "https://www.fhi.no/sk/skadedyrveilederen/gnagere/husmus/"), ("FHI: Stikkeveps", f"{FHI}/veps-og-bier/stikkeveps"),
              ("Huseierne: Slik holder du musene unna", "https://www.huseierne.no/nyheter/slik-holder-du-musene-unna/"),
              ("Huseierne: Mus som skadedyr", "https://www.huseierne.no/alt-om-bolig/inneklima-og-miljo/mus-som-skadedyr-forebygge-og-bekjempe/")]},
+{
+ "slug": "fjellhytta", "regions": ["ost", "vest", "midt", "nord", "sor"], "months": list(range(1, 13)), "cat": "Hytte", "min": 4, "img": "hytte",
+ "title": "Fjellhytta: mus gjennom vinteren, besøk i skisesongen og åpning for barmark",
+ "lead": "Fjellhytta brukes ofte mest om vinteren. Mellom besøkene i vinterferien og påsken står den tom og varm-kald – og i et smågnagerår er det mange mus som leter etter ly.",
+ "body": """
+<h2>Fjellet har sine egne mus</h2>
+<p>Smågnagerne svinger kraftig i antall, med topper omtrent hvert tredje–fjerde år. Lemen lever over tregrensa, og klatremus kan påtreffes så høyt som 1400 meter over havet i Sør-Norge. Klatremus kan komme inn i bygninger, og i Nord-Norge gjelder det samme for rødmus. Begge kan være reservoar for musepest.</p>
+<h2>Før skisesongen – oktober og november</h2>
+<ul>
+<li>Tett åpninger større enn seks millimeter: under kledningen, rundt rør og i lufteventiler.</li>
+<li>Ikke la mat bli igjen mellom besøkene, heller ikke i boder og uthus.</li>
+<li>Sett fleremusfeller langs veggene der du har sett spor før.</li>
+</ul>
+<h2>Ved hvert besøk i vinter – vinterferie og påske</h2>
+<ul>
+<li>Sjekk og tøm fellene, og sett dem tilbake på samme sted.</li>
+<li>Se etter ferske spor: ekskrementer og gnag viser hvor musene kommer inn.</li>
+<li>Rydd med hansker og unngå å virvle opp støv.</li>
+</ul>
+<div class="box"><b>Smågnagerår?</b>Følg med på meldingene om smågnagere. I et toppår er det klokt å sette flere feller og være ekstra nøye med tettingen.</div>
+<h2>Når barmarka kommer – juni</h2>
+<ul>
+<li>Rydd grundig etter vinteren og tett der musene har kommet inn.</li>
+<li>Se etter små vepsebol under takskjegget og i boden.</li>
+<li>Bruk hansker og unngå å virvle opp støv når du rydder.</li>
+</ul>
+""",
+ "prod": ("Hyttepakken", "Fleremusfeller, musebørster og tettemateriell.", "gnagere"),
+ "sources": [("Store norske leksikon: Smågnagersvingninger", "https://snl.no/smågnagersvingninger"), ("Store norske leksikon: Lemen", "https://snl.no/lemen"),
+             ("FHI: Klatremus", f"{FHI}/gnagere/klatremus"), ("FHI: Rødmus", f"{FHI}/gnagere/rodmus"), ("FHI: Husmus", "https://www.fhi.no/sk/skadedyrveilederen/gnagere/husmus/")]},
 ]
 
 REGION_ARTICLES = {r: [a for a in ARTICLES if r in a["regions"]][:3] for r in ["ost", "sor", "vest", "midt", "nord"]}
@@ -456,7 +490,7 @@ MONTHS = {
  "grevling-pa-tomta": [3, 4, 5, 6, 7, 8, 9, 10], "rotter-i-byen": [10, 11, 12, 1, 2, 3], "flatt-langs-kysten": [4, 5, 6, 7, 8, 9, 10],
  "stokkmaur-eller-skogsmaur": [4, 5, 6, 7, 8], "husbukk": list(range(1, 13)), "vepsebol": [4, 5, 6, 7, 8, 9],
  "fukt-solvkre-skjeggkre": list(range(1, 13)), "stripet-borebille": list(range(1, 13)), "mus-pa-garden": [9, 10, 11, 12, 1, 2, 3],
- "smagnagerar": [8, 9, 10, 11], "hytta-for-vinteren": [9, 10, 11, 12],
+ "smagnagerar": [8, 9, 10, 11],
 }
 for a in ARTICLES:
     a.setdefault("months", MONTHS.get(a["slug"], list(range(1, 13))))

@@ -20,7 +20,7 @@ def head(title, desc, base):
 <div class="note">Konseptskisse – eksempeltekst som må faktasjekkes før publisering.</div>
 <header class="top"><div class="wrap">
   <a class="logo" href="{base}index.html">Skadedyrguiden<i></i></a>
-  <nav class="nav" aria-label="Hovedmeny"><a href="{base}index.html#leksikon">Leksikon</a><a href="{base}index.html#artikler">Artikler</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}index.html#kalender">Sesong</a></nav>
+  <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Leksikon</a><a href="{base}index.html#artikler">Artikler</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
   <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 <main>
@@ -166,6 +166,7 @@ def regional_pages():
 
 if __name__ == "__main__":
     regional_pages()
+    import extra; extra.build(head, foot, prod)
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")

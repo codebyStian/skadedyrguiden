@@ -345,17 +345,37 @@
   /* ---------- månedens tips (hytte/hjem) ---------- */
   function monthTip() {
     const box = $("#monthTip"); if (!box) return;
-    const T = [
-      [[8, 9], "Gjør dette i " + MONTHS[M], "Før du stenger hytta for <em>vinteren</em>", "En tom, kald hytte er perfekt vinterkvarter for mus. Tjue minutter med lommelykt før du låser, sparer deg for gnagde madrasser i påsken.",
-        [["Tett under dører og rundt rør", "Musebørster, netting og tettemasse for gnagere."], ["Ta med deg all mat", "Også tørrvarer, fuglefrø og dyrefôr."], ["Sett feller langs veggene", "Fleremusfeller kan stå hele vinteren."]], "hytta-for-vinteren", "Les hele guiden"],
-      [[10, 11, 0, 1], "Gjør dette i " + MONTHS[M], "Når hytta står tom i <em>vinter</em>", "Musene har funnet vinterkvarter nå. Det viktigste er å følge med hver gang du er på hytta.",
-        [["Sjekk fellene", "Tøm dem og sett dem tilbake langs veggene."], ["Se etter ferske spor", "Ekskrementer og gnag viser hvor de kommer inn."], ["Ikke la mat bli igjen", "Heller ikke tørrvarer, fuglefrø eller dyrefôr."]], "hytta-for-vinteren", "Les hele guiden"],
-      [[2, 3, 4], "Gjør dette i " + MONTHS[M], "Når du åpner hytta for <em>sesongen</em>", "Etter vinteren ser du hvem som har bodd der. Og nå kommer vepsedronningene fram og leter etter bolplass.",
-        [["Rydd etter mus med hansker", "Unngå å virvle opp støv."], ["Se etter små vepsebol", "Et bol på størrelse med en valnøtt er lett å fjerne nå."], ["Tett der musene kom inn", "Før neste høst er det lett å glemme."]], "vepsebol", "Les om vepsebol"],
-      [[5, 6, 7], "Gjør dette i " + MONTHS[M], "Sommer på hytta: <em>veps og flått</em>", "Vepsebolene vokser, og flåtten er aktiv i høyt gress og kratt.",
-        [["Hold gresset kort", "Rundt hytta og der barna leker."], ["Sjekk deg for flått", "Etter tur i skog og kratt."], ["Hold avstand til store bol", "Bol i vegger bør fagfolk ta."]], "flatt-langs-kysten", "Les om flått"]];
-    const t = T.find((x) => x[0].includes(M)); if (!t) return;
-    box.innerHTML = `<span class="kicker">${t[1]}</span><h2>${t[2]}</h2><p class="mute">${t[3]}</p><ul class="checks">${t[4].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("")}</ul><a class="btn arrow" href="artikler/${t[5]}.html">${t[6]} </a>`;
+    const g = "Gjør dette i " + MONTHS[M];
+    const T = {
+      sjo: [
+        [[7, 8, 9], "Før du stenger sjøhytta for <em>vinteren</em>", "En tom hytte ved vannet er perfekt vinterkvarter for mus. Tjue minutter med lommelykt før du låser, sparer deg for gnagde madrasser til våren.",
+          [["Tett under dører og rundt rør", "Musebørster, netting og tettemasse for gnagere."], ["Ta med deg all mat", "Også tørrvarer, fuglefrø og dyrefôr."], ["Sett feller langs veggene", "Fleremusfeller kan stå hele vinteren."]]],
+        [[10, 11, 0, 1, 2], "Når sjøhytta står tom i <em>vinter</em>", "Hytta er stengt, men musene er ikke det. Tar du en tur innom, er dette det viktigste.",
+          [["Sjekk fellene", "Tøm dem og sett dem tilbake langs veggene."], ["Se etter ferske spor", "Ekskrementer og gnag viser hvor de kommer inn."], ["Ikke la mat bli igjen", "Heller ikke tørrvarer, fuglefrø eller dyrefôr."]]],
+        [[3, 4], "Når du åpner sjøhytta for <em>sesongen</em>", "Nå ser du hvem som har bodd der i vinter. Og vepsedronningene leter etter bolplass.",
+          [["Rydd etter mus med hansker", "Unngå å virvle opp støv."], ["Se etter små vepsebol", "Et bol på størrelse med en valnøtt er lett å fjerne nå."], ["Hold gresset kort", "Flåtten er aktiv fra april."]]],
+        [[5, 6], "Sommer ved sjøen: <em>veps og flått</em>", "Vepsebolene vokser, og flåtten trives i kratt og høyt gress langs kysten.",
+          [["Sjekk deg for flått", "Etter tur i skog, kratt og skjærgård."], ["Hold avstand til store bol", "Bol i vegger bør fagfolk ta."], ["Måker på taket?", "La dem hekke i fred nå – tiltak gjøres før neste vår."]]]],
+      fjell: [
+        [[9, 10], "Gjør fjellhytta klar før <em>skisesongen</em>", "Når høsten kommer, leter musene etter ly. I et smågnagerår er det ekstra mange.",
+          [["Tett åpninger over 6 mm", "Under kledningen, rundt rør og i ventiler."], ["Ingen mat mellom besøkene", "Heller ikke i bod og uthus."], ["Sett fleremusfeller", "Der du har sett spor før."]]],
+        [[11, 0, 1, 2, 3], "Ved hvert besøk i <em>vinter</em>", "Fjellhytta står ofte tom mellom vinterferie og påske. Bruk de første minuttene på dette.",
+          [["Sjekk og tøm fellene", "Sett dem tilbake på samme sted."], ["Se etter ferske spor", "Ekskrementer og gnag viser hvor de kommer inn."], ["Rydd med hansker", "Og unngå å virvle opp støv."]]],
+        [[4, 5], "Når barmarka kommer på <em>fjellet</em>", "Etter en lang vinter er det tid for å rydde og tette før sommeren.",
+          [["Rydd grundig etter musene", "Med hansker, uten å virvle opp støv."], ["Tett der de kom inn", "Følg sporene fra vinteren."], ["Se etter vepsebol", "Under takskjegget og i boden."]]],
+        [[6, 7, 8], "Sommer på <em>fjellet</em>", "Høysesong for turer – og for vepsebol i bod og under takskjegg.",
+          [["Hold avstand til store bol", "Bol i vegger bør fagfolk ta."], ["Hoggorm i lyng og ur", "Bruk støvler, og se deg for i bærlyngen."], ["Planlegg høstens tetting", "Noter hull og sprekker du ser nå."]]]]};
+    const art = { sjo: "hytta-ved-sjoen", fjell: "fjellhytta" };
+    let type = store.get("sg-hytte") || "fjell";
+    const draw = () => {
+      const t = T[type].find((x) => x[0].includes(M));
+      box.innerHTML = `<div class="htype" role="group" aria-label="Type hytte"><button type="button" data-h="fjell" aria-pressed="${type === "fjell"}">Fjellhytte</button><button type="button" data-h="sjo" aria-pressed="${type === "sjo"}">Hytte ved sjøen</button></div>
+        <span class="kicker">${g}</span><h2>${t[1]}</h2><p class="mute">${t[2]}</p><ul class="checks">${t[3].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("")}</ul><a class="btn arrow" href="artikler/${art[type]}.html">Les hele guiden </a>`;
+      const img = document.querySelector("#monthTip")?.closest(".feat")?.querySelector(".ph img");
+      if (img) img.src = `assets/img/${type === "sjo" ? "region-sor" : "hytte"}.webp`;
+    };
+    box.addEventListener("click", (e) => { const b = e.target.closest("[data-h]"); if (b) { type = b.dataset.h; store.set("sg-hytte", type); draw(); } });
+    draw();
   }
 
   /* ---------- oppstart ---------- */

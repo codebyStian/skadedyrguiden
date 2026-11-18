@@ -4,7 +4,7 @@ name: Preview on GitHub Pages
 on:
   push:
     branches: [main]
-    paths: ["site/**", ".github/workflows/pages.yml"]
+    paths: ["site/**", "scripts/**", "kb/**", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions: { contents: read, pages: write, id-token: write }
@@ -16,6 +16,11 @@ jobs:
     environment: { name: github-pages, url: "${{ steps.d.outputs.page_url }}" }
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Build pages + SEO
+        env: { SITE_URL: "${{ vars.SITE_URL }}", PREVIEW: "${{ vars.PREVIEW || '1' }}" }
+        run: python scripts/page.py && SITE_URL="${SITE_URL:-https://codebystian.github.io/skadedyrguiden}" python scripts/seo.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }
