@@ -107,12 +107,16 @@
 
   /* ---------- hero: lokalt bilde + årstids-/væreffekt ---------- */
   const hero = $(".hero"), heroImg = hero && hero.querySelector("img");
-  function setHeroImage(name, label) {
+  function setHeroImage(names, label) {
     if (!heroImg) return;
-    const src = `assets/img/${name}.webp`;
-    const test = new Image();
-    test.onload = () => { heroImg.style.opacity = 0; setTimeout(() => { heroImg.src = src; heroImg.style.opacity = 1; }, 300); };
-    test.src = src;
+    const list = [].concat(names);
+    const tryNext = () => {
+      const name = list.shift(); if (!name) return;
+      const src = `assets/img/${name}.webp`, test = new Image();
+      test.onload = () => { heroImg.style.opacity = 0; setTimeout(() => { heroImg.src = src; heroImg.style.opacity = 1; }, 300); };
+      test.onerror = tryNext; test.src = src;
+    };
+    tryNext();
     const k = $("#heroKicker"); if (k && label) k.textContent = label;
   }
   function season() {
@@ -251,7 +255,7 @@
     if (!f) { alertMsg("Posisjonen ser ut til å være utenfor Norge. Velg et fylke i kartet."); return; }
     loc.fylke = f.id; loc.region = f.region; const c = nearestCity(l.lat, l.lon); loc.city = c ? c.name : null;
     store.set("sg-loc", { lat: +l.lat.toFixed(2), lon: +l.lon.toFixed(2) });
-    setHeroImage(c ? "by-" + c.id : "region-" + f.region, `${c ? c.name : f.name} · ${MONTHS[M]}`);
+    setHeroImage(c ? ["by-" + c.id, "region-" + f.region] : ["region-" + f.region], `${c ? c.name : f.name} · ${MONTHS[M]}`);
     $("#locChip") && ($("#locChip").innerHTML = `Viser ${esc(c ? c.name : f.name)} · <button type="button" data-forget>Glem</button>`);
     if (svg) { select(f.id, false); drawMe(l.lat, l.lon); }
   }
