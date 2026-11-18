@@ -96,3 +96,4 @@ footer .base{border-top:1px solid #1f322d;margin-top:40px;padding-top:20px;font-
 @media(max-width:860px){.top .wrap{gap:6px 14px;padding-block:10px}.nav{order:3;flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:22px;font-size:15px;scrollbar-width:none}.nav a{flex:none;padding:4px 0}.top .btn{margin-left:auto}.ahero{grid-template-columns:1fr}footer .cols{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.prod{grid-template-columns:1fr}footer .cols{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+section[id]{scroll-margin-top:84px}

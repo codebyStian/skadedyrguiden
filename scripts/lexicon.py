@@ -21,8 +21,8 @@ CSS = """<style>
 .feat li i{flex:none;width:30px;height:30px;border-radius:50%;background:#f2c230;display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:700;color:#13201c}
 .bars{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;align-items:end;height:180px;border-bottom:1px solid var(--line);margin-bottom:34px}.bars div{background:#dfe7e3;border-radius:6px 6px 0 0;position:relative}.bars div.top{background:#f2c230}
 .bars div span{position:absolute;bottom:-26px;left:0;right:0;text-align:center;font-size:12px;color:var(--mute)}
-.vs{display:grid;grid-template-columns:1fr auto 1.4fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:12px}.vs>div{padding:20px 22px}.vs .mid{display:grid;place-items:center;background:var(--soft);font-family:"Instrument Serif",serif;font-size:22px;padding:0 16px}
-.vs b{font-size:19px;display:block}.vs em{color:var(--mute);font-size:14px}.vs p{margin:10px 0 0;font-size:15px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:12px}.vs>div{padding:20px 22px}.vs .mid{display:grid;place-items:center;background:var(--soft);font-family:"Instrument Serif",serif;font-size:22px;padding:0 16px}
+.vs b{font-size:19px;display:block}.vs .th{aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:14px}.vs .th img{width:100%;height:100%;object-fit:cover}.vs .th[data-ph]{min-height:0}.vs em{color:var(--mute);font-size:14px}.vs p{margin:10px 0 0;font-size:15px}
 .aside{position:sticky;top:96px;display:grid;gap:14px;align-self:start}.card{border-radius:18px;padding:24px}.card.dk{background:#0f2a24;color:#fff}.card.dk p{color:#b9c6c1}.card.sf{background:var(--soft)}
 .card h3{margin:0 0 6px;font-size:20px}.card p{margin:0 0 16px;font-size:15px}.card .btn{width:100%;justify-content:center;box-sizing:border-box}
 .rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:14px}.rel a{text-decoration:none;border-radius:16px;overflow:hidden;border:1px solid var(--line);display:block}.rel a:hover{background:var(--soft)}.rel .ph{aspect-ratio:16/10;border-radius:0}.rel .ph img{width:100%;height:100%;object-fit:cover}.rel b{display:block;padding:14px 16px 16px;font-size:16px;line-height:1.35}
@@ -31,11 +31,16 @@ CSS = """<style>
 </style>"""
 
 
+def thumb(sid, fallback, name):
+    fb = f"this.onerror=function(){{this.parentNode.dataset.ph=1;this.remove()}};this.src='../assets/img/{fallback}.webp'" if fallback else "this.parentNode.dataset.ph=1;this.remove()"
+    return f'<div class="ph th" data-label="{E(name)}"><img src="../assets/img/art-{sid}.webp" alt="{E(name)}" loading="lazy" onerror="{fb}"></div>'
+
+
 def cap(t):
     return t[:1].upper() + t[1:]
 
 
-def page(s, *, kb, byid, slugs, img, rel, titles, artimg, stats, shop):
+def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop):
     mon = stats["monthly"].get(FHI.get(s["id"], ""))
     yr = stats["yearly"].get(FHI.get(s["id"], ""))
     tiles = []
@@ -58,8 +63,8 @@ def page(s, *, kb, byid, slugs, img, rel, titles, artimg, stats, shop):
         bars = ("<section><h2>Når den er mest aktiv</h2><div class='bars' role='img' aria-label='Andel oppdrag per måned'>" +
                 "".join(f"<div class='{'top' if i == top else ''}' style='height:{max(4, v / mx * 100):.0f}%' title='{MN[i]}: {v} %'><span>{MN[i]}</span></div>" for i, v in enumerate(mon)) +
                 "</div><p class='small mute'>Andel av skadedyrfirmaenes oppdrag per måned. Kilde: FHI Statistikk, skadedyrstatistikken.</p></section>")
-    vs = "".join(f'<div class="vs"><div><b>{E(s["name"])}</b><em>{E(s["latin"])}</em></div><div class="mid">eller</div>'
-                 f'<div><b><a href="{slugs[c["id"]]}.html">{E(byid[c["id"]]["name"])}</a></b><em>{E(byid[c["id"]]["latin"])}</em><p>{E(cap(c["how"]))}.</p></div></div>'
+    vs = "".join(f'<div class="vs"><div>{thumb(s["id"], img, s["name"])}<b>{E(s["name"])}</b><em>{E(s["latin"])}</em></div><div class="mid">eller</div>'
+                 f'<div><a href="{slugs[c["id"]]}.html" style="display:block">{thumb(c["id"], (imgs or {}).get(c["id"]), byid[c["id"]]["name"])}</a><b><a href="{slugs[c["id"]]}.html">{E(byid[c["id"]]["name"])}</a></b><em>{E(byid[c["id"]]["latin"])}</em><p>{E(cap(c["how"]))}.</p></div></div>'
                  for c in s["confusable"] if c["id"] in byid)
     relh = "".join(f'<a href="../artikler/{r}.html"><div class="ph" data-label="Artikkel">' +
                    (f'<img src="../assets/img/{artimg[r]}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">' if artimg.get(r) else "") +

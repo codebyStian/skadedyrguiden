@@ -391,3 +391,12 @@
   }
   init();
 })();
+
+// Lenker utenfra til et anker (f.eks. index.html#hvadet): innhold som lastes inn over ankeret flytter siden,
+// så vi justerer på nytt mens siden bygges – til brukeren selv begynner å scrolle.
+(() => {
+  const id = decodeURIComponent(location.hash.slice(1)); if (!id) return;
+  let user = false; ["wheel", "touchstart", "keydown"].forEach((e) => addEventListener(e, () => (user = true), { once: true, passive: true }));
+  const go = () => { const el = document.getElementById(id); if (el && !user) el.scrollIntoView({ block: "start" }); };
+  [0, 300, 800, 1500, 2500, 4000].forEach((t) => setTimeout(go, t)); addEventListener("load", go);
+})();

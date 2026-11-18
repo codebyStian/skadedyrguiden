@@ -51,7 +51,7 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
     artimg = {x["slug"]: x.get("img") for x in ARTICLES + EXTRA}
     for s in kb:
         slug = SLUG[s["id"]]
-        body = lexicon.page(s, kb=kb, byid=byid, slugs=SLUG, img=IMG.get(s["id"]), rel=[r for r in REL.get(s["id"], []) if r in titles], titles=titles,
+        body = lexicon.page(s, kb=kb, byid=byid, slugs=SLUG, img=IMG.get(s["id"]), imgs=IMG, rel=[r for r in REL.get(s["id"], []) if r in titles], titles=titles,
                             artimg=artimg, stats=stats, shop=SHOP.format(CAT.get(s["group"], "insekter"), "leksikon-" + slug))
         desc = f'{s["name"]} ({s["latin"]}): kjennetegn, forvekslingsarter og hva du gjør. Basert på Folkehelseinstituttets skadedyrhåndbok.'
         (L / f"{slug}.html").write_text(head(f'{s["name"]} – kjennetegn og råd – Skadedyrguiden', desc, "../") + body + foot("../"), encoding="utf-8")
