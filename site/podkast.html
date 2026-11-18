@@ -24,13 +24,34 @@
 <div class="ph"><img src="assets/img/studio.webp" alt="Podkaststudio" onerror="this.remove()"></div>
 </div></section>
 <section class="band"><div class="wrap" style="max-width:900px">
-<h2>Episoder</h2>
+<div class="player" id="pl">
+<span class="kicker">Episode 1 · Nyeste</span>
+<h2 style="font-size:clamp(30px,3.6vw,44px)">Mus: småkrypet som kommer inn med høsten</h2>
+<p class="mute">Marte og Jonas om hvorfor musa kommer inn akkurat nå, hvilke tegn du ser etter, og hvordan du tetter riktig.</p>
+<audio id="au" preload="metadata" src="assets/podcast/01-mus-om-hosten.mp3"></audio>
+<div class="pbar"><button class="pbtn" id="pb" type="button" aria-label="Spill av"><svg viewBox="0 0 24 24" width="22" height="22"><path id="pi" d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></button>
+<div class="ptrack"><input id="ps" type="range" min="0" max="1000" value="0" aria-label="Posisjon"><div class="ptime"><span id="pc">0:00</span><span id="pd">–:––</span></div></div></div>
+<p class="small mute" id="pmsg" style="margin:10px 0 0"></p>
+<details class="trans"><summary>Les hele samtalen</summary><p><b>Marte</b> Hei, og velkommen til Kryp og kunnskap. Jeg heter Marte.</p><p><b>Jonas</b> Og jeg er Jonas. I dag skal vi snakke om den lille gjesten som banker på døra hver eneste høst.</p><p><b>Marte</b> Musa. Jonas, hvorfor er det akkurat nå i oktober og november at folk plutselig hører krafsing i taket?</p><p><b>Jonas</b> Fordi musa er praktisk anlagt. Om sommeren finner den både mat og ly ute. Når nettene blir kalde og maten blir knappere, leter den etter et varmt og tørt sted. Og et hus er perfekt.</p><p><b>Marte</b> Så det handler ikke om at huset er skittent?</p><p><b>Jonas</b> Nei, det er en vanlig misforståelse. Mus kommer like gjerne inn i et nyvasket hus. Det som avgjør, er om de finner en åpning.</p><p><b>Marte</b> Og der kommer det tallet folk ikke tror på.</p><p><b>Jonas</b> Ja. En tommelfingerregel er at kommer en blyant gjennom hullet, kommer en mus også gjennom. De er utrolig smidige.</p><p><b>Marte</b> Hvordan vet jeg at jeg faktisk har mus, og ikke bare et knirkete hus?</p><p><b>Jonas</b> Se etter små, mørke ekskrementer, omtrent på størrelse med riskorn. Ofte langs vegger, i skuffer under vasken eller på loftet. Gnagemerker på matpakker eller isolasjon er også et tydelig tegn.</p><p><b>Marte</b> Okei. Jeg har funnet tegnene. Hva gjør jeg først?</p><p><b>Jonas</b> Ta en lommelykt og gå en runde rundt huset. Se etter åpninger der rør og kabler går inn, under dører, langs grunnmuren og i lufteventiler.</p><p><b>Marte</b> Og så tetter jeg med fugeskum?</p><p><b>Jonas</b> Der er det mange som går feil. Skum alene stopper sjelden en mus, den gnager seg rett gjennom. Bruk stålull sammen med fugemasse, metallnetting eller børstelister på dørene.</p><p><b>Marte</b> Og fellene?</p><p><b>Jonas</b> Plassering betyr mer enn antall. Mus liker å gå langs vegger, så sett fellene inntil veggen der du har sett spor. Og sjekk dem ofte.</p><p><b>Marte</b> Når bør man gi opp og ringe en fagperson?</p><p><b>Jonas</b> Hvis problemet kommer tilbake etter at du har tettet og satt feller, eller hvis du ser tegn på rotter. Ekskrementer på en til to centimeter er et varsko. Da bør du ringe en skadedyrtekniker.</p><p><b>Marte</b> Så oppsummert: lommelykt, tetting med riktig materiale, feller langs veggen, og vit når du skal be om hjelp.</p><p><b>Jonas</b> Helt riktig. Og gjør det før vinteren, ikke etter.</p><p><b>Marte</b> Du finner hele guiden på Skadedyrguiden. Neste gang skal vi snakke om veggedyr, og hvorfor kofferten din er det viktigste stedet å sjekke.</p><p><b>Jonas</b> Takk for at du lyttet. Ha en musefri høst!</p></details>
+</div>
+<script>{
+const a=document.getElementById('au'),b=document.getElementById('pb'),i=document.getElementById('pi'),s=document.getElementById('ps'),c=document.getElementById('pc'),d=document.getElementById('pd');
+const f=t=>isFinite(t)?Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0'):'–:––';
+b.onclick=()=>{if(a.paused){a.play().catch(()=>{document.getElementById('pmsg').textContent='Lyden er ikke klar ennå.'})}else a.pause()};
+a.onplay=()=>{i.setAttribute('d','M7 4.5h3.5v15H7zM13.5 4.5H17v15h-3.5z');b.setAttribute('aria-label','Pause')};
+a.onpause=()=>{i.setAttribute('d','M7 4.5v15l13-7.5z');b.setAttribute('aria-label','Spill av')};
+a.onloadedmetadata=()=>{d.textContent=f(a.duration)};
+a.ontimeupdate=()=>{c.textContent=f(a.currentTime);if(a.duration)s.value=1000*a.currentTime/a.duration};
+s.oninput=()=>{if(a.duration)a.currentTime=s.value/1000*a.duration};
+a.onerror=()=>{document.getElementById('pmsg').textContent='Lyden lages fortsatt. Prøv igjen om litt.'};
+}</script>
+<h2 style="margin-top:64px">Alle episoder</h2>
 <div style="display:grid;gap:14px">
 <div style="display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding:20px 0"><span style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></span><span><span class="small mute">Episode 3</span><br><b>Skjeggkre: hvorfor nye boliger får dem</b><br><span class="small mute">Om fukt, byggematerialer og hvorfor tålmodighet er nøkkelen.</span></span><span class="small mute" style="white-space:nowrap">22 min</span></div>
 <div style="display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding:20px 0"><span style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></span><span><span class="small mute">Episode 2</span><br><b>Veggedyr: den uønskede souveniren</b><br><span class="small mute">Hvordan de sprer seg med bagasje, og hva du gjør når du kommer hjem.</span></span><span class="small mute" style="white-space:nowrap">27 min</span></div>
 <div style="display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding:20px 0"><span style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></span><span><span class="small mute">Episode 1</span><br><b>Mus: småkrypet som kommer inn med høsten</b><br><span class="small mute">Inngangsveier, feller og de vanligste feilene folk gjør.</span></span><span class="small mute" style="white-space:nowrap">24 min</span></div>
 </div>
-<div class="box"><b>Om konseptet:</b> Episodene lages med manus fra fagartiklene, to faste stemmer og ett stillbilde fra studio per episode. Lydavspilling er ikke koblet på i denne skissen.</div>
+<p class="small mute" style="margin-top:18px">Stemmene er laget med kunstig intelligens (Gemini). Manus er skrevet fra fagartiklene. Episode 2 og 3 er plassholdere i konseptet.</p>
 </div></section>
 </main>
 <footer class="band"><div class="wrap">

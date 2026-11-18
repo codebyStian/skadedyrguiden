@@ -89,26 +89,55 @@ ARTICLES = {
 </div></article>'''),
 }
 
-PODCAST = '''<section class="band dark"><div class="wrap ahero">
+PODCAST_T = '''<section class="band dark"><div class="wrap ahero">
 <div><span class="kicker">Podkast</span><h1>Kryp &amp; kunnskap</h1>
 <p class="mute" style="font-size:19px;max-width:44ch">En podkast om skadedyr i hus, hage og bedrift. To programledere, ett skadedyr per episode, og konkrete råd du kan bruke samme dag.</p></div>
 <div class="ph"><img src="assets/img/studio.webp" alt="Podkaststudio" onerror="this.remove()"></div>
 </div></section>
 <section class="band"><div class="wrap" style="max-width:900px">
-<h2>Episoder</h2>
+{PLAYER}
+<h2 style="margin-top:64px">Alle episoder</h2>
 <div style="display:grid;gap:14px">
 ''' + "".join(f'''<div style="display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding:20px 0"><span style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></span><span><span class="small mute">Episode {n}</span><br><b>{t}</b><br><span class="small mute">{d}</span></span><span class="small mute" style="white-space:nowrap">{l}</span></div>
 ''' for n,t,d,l in [
  (3,"Skjeggkre: hvorfor nye boliger får dem","Om fukt, byggematerialer og hvorfor tålmodighet er nøkkelen.","22 min"),
  (2,"Veggedyr: den uønskede souveniren","Hvordan de sprer seg med bagasje, og hva du gjør når du kommer hjem.","27 min"),
  (1,"Mus: småkrypet som kommer inn med høsten","Inngangsveier, feller og de vanligste feilene folk gjør.","24 min")]) + '''</div>
-<div class="box"><b>Om konseptet:</b> Episodene lages med manus fra fagartiklene, to faste stemmer og ett stillbilde fra studio per episode. Lydavspilling er ikke koblet på i denne skissen.</div>
+<p class="small mute" style="margin-top:18px">Stemmene er laget med kunstig intelligens (Gemini). Manus er skrevet fra fagartiklene. Episode 2 og 3 er plassholdere i konseptet.</p>
 </div></section>
 '''
+
+def player():
+    import html
+    src = pathlib.Path(__file__).resolve().parent.parent / "podcast/01-mus-om-hosten.txt"
+    rows = [l.split(":", 1) for l in src.read_text().splitlines() if l.strip() and not l.startswith("#")]
+    tr = "".join(f'<p><b>{html.escape(n)}</b> {html.escape(t.strip())}</p>' for n, t in rows)
+    return f'''<div class="player" id="pl">
+<span class="kicker">Episode 1 · Nyeste</span>
+<h2 style="font-size:clamp(30px,3.6vw,44px)">Mus: småkrypet som kommer inn med høsten</h2>
+<p class="mute">Marte og Jonas om hvorfor musa kommer inn akkurat nå, hvilke tegn du ser etter, og hvordan du tetter riktig.</p>
+<audio id="au" preload="metadata" src="assets/podcast/01-mus-om-hosten.mp3"></audio>
+<div class="pbar"><button class="pbtn" id="pb" type="button" aria-label="Spill av"><svg viewBox="0 0 24 24" width="22" height="22"><path id="pi" d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></button>
+<div class="ptrack"><input id="ps" type="range" min="0" max="1000" value="0" aria-label="Posisjon"><div class="ptime"><span id="pc">0:00</span><span id="pd">–:––</span></div></div></div>
+<p class="small mute" id="pmsg" style="margin:10px 0 0"></p>
+<details class="trans"><summary>Les hele samtalen</summary>{tr}</details>
+</div>
+<script>{{
+const a=document.getElementById('au'),b=document.getElementById('pb'),i=document.getElementById('pi'),s=document.getElementById('ps'),c=document.getElementById('pc'),d=document.getElementById('pd');
+const f=t=>isFinite(t)?Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0'):'–:––';
+b.onclick=()=>{{if(a.paused){{a.play().catch(()=>{{document.getElementById('pmsg').textContent='Lyden er ikke klar ennå.'}})}}else a.pause()}};
+a.onplay=()=>{{i.setAttribute('d','M7 4.5h3.5v15H7zM13.5 4.5H17v15h-3.5z');b.setAttribute('aria-label','Pause')}};
+a.onpause=()=>{{i.setAttribute('d','M7 4.5v15l13-7.5z');b.setAttribute('aria-label','Spill av')}};
+a.onloadedmetadata=()=>{{d.textContent=f(a.duration)}};
+a.ontimeupdate=()=>{{c.textContent=f(a.currentTime);if(a.duration)s.value=1000*a.currentTime/a.duration}};
+s.oninput=()=>{{if(a.duration)a.currentTime=s.value/1000*a.duration}};
+a.onerror=()=>{{document.getElementById('pmsg').textContent='Lyden lages fortsatt. Prøv igjen om litt.'}};
+}}</script>'''
+
 
 if __name__ == "__main__":
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")
-    (ROOT / "podkast.html").write_text(head("Podkast – Skadedyrguiden", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST + foot(""), encoding="utf-8")
+    (ROOT / "podkast.html").write_text(head("Podkast – Skadedyrguiden", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST_T.replace("{PLAYER}", player()) + foot(""), encoding="utf-8")
     print("ok")

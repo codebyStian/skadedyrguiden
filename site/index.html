@@ -87,6 +87,7 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .pod .ph{aspect-ratio:4/3;border-radius:22px}
 .ep{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #2a4840}
 .ep:last-child{border-bottom:1px solid #2a4840}
+.ep:hover b{text-decoration:underline;text-underline-offset:4px}
 .ep .play{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--y);display:grid;place-items:center}
 .ep small{color:var(--muteDark)}
 .ep .len{color:var(--muteDark);font-size:14px;white-space:nowrap}
@@ -350,7 +351,7 @@ document.getElementById('side').innerHTML=A.map(([c,t,h,i])=>`<a href="${h}"><di
 const B=[['Gnagere','Rotte eller mus? Slik ser du forskjellen på sporene','#','rotte'],['Matskap','Melmøll i skapet: slik blir du kvitt dem for godt','#','melmoll'],['Sommer','Fluer på kjøkkenet: insektnett, avfall og feller som virker','#','fluer']];
 document.getElementById('row3').innerHTML=B.map(([c,t,h,i])=>`<a href="${h}"><div class="ph">${IMG(i)}</div><span class="cat">${c}</span><h3>${t}</h3></a>`).join('');
 
-document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten','24 min'],['Veggedyr: den uønskede souveniren','27 min'],['Skjeggkre: hvorfor nyere boliger får dem','22 min']].map(([t,l],i)=>`<div class="ep"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">${l}</span></div>`).join('');
+document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten','24 min'],['Veggedyr: den uønskede souveniren','27 min'],['Skjeggkre: hvorfor nyere boliger får dem','22 min']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===0?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">${i===0?'Lytt nå':l}</span></a>`).join('');
 
 const M=['jan','feb','mar','apr','mai','jun','jul','aug','sep','okt','nov','des'],now=new Date().getMonth();
 const C=[['Mus',[2,2,1,0,0,0,0,1,2,2,2,2]],['Rotte',[2,2,1,1,0,0,0,1,1,2,2,2]],['Maur',[0,0,1,2,2,2,2,1,0,0,0,0]],['Veps',[0,0,0,1,1,1,2,2,2,1,0,0]],['Fluer',[0,0,0,1,1,2,2,2,1,0,0,0]],['Veggedyr',[1,1,1,1,1,1,2,2,2,1,1,1]],['Skjeggkre',[1,1,1,1,1,1,1,1,1,1,1,1]]];

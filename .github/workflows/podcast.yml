@@ -1,0 +1,36 @@
+name: Podcast audio (Gemini TTS)
+
+# Lager mp3 for nye episoder i podcast/ og committer dem. Krever secret GEMINI_API_KEY.
+on:
+  push:
+    branches: [main]
+    paths: ["podcast/**", "scripts/podcast_tts.py", ".github/workflows/podcast.yml"]
+  workflow_dispatch:
+    inputs:
+      force: { description: "Lag alle episoder på nytt (1 = ja)", required: false, default: "" }
+
+permissions: { contents: write, actions: write }
+concurrency: { group: podcast, cancel-in-progress: false }
+
+jobs:
+  audio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg
+      - name: Generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FORCE: ${{ inputs.force }}
+        run: python scripts/podcast_tts.py
+      - name: Commit and redeploy preview
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          if [ -n "$(git status --porcelain site/assets/podcast)" ]; then
+            git config user.name "skadedyrguiden-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add site/assets/podcast && git commit -m "Add podcast audio [skip ci]" && git push
+            gh workflow run pages.yml --ref main
+          fi
