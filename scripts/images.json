@@ -1,15 +1,63 @@
 {
- "_style": "Editorial photograph for a premium Scandinavian home-and-garden magazine. Natural light, calm, clean composition, realistic, high detail, muted natural colours with warm highlights. Not scary, not gross. No text, no logos, no watermarks.",
- "hero":      {"ar": "16:9", "w": 2000, "prompt": "A Norwegian wooden house painted dark green at blue hour in late autumn, warm light glowing from the windows, birch trees with yellow leaves, fallen leaves on the lawn. House placed on the right third of the frame, calm dark sky and lawn on the left for a headline."},
- "mus":       {"ar": "4:3",  "w": 1200, "prompt": "A small grey house mouse sitting next to a white skirting board on a light oak floor, soft side light from a window, shallow depth of field."},
- "rotte":     {"ar": "4:3",  "w": 1200, "prompt": "A tidy concrete basement where copper pipes enter through the foundation wall, a flashlight beam lighting a small gap around one pipe. No animals visible."},
- "veggedyr":  {"ar": "4:3",  "w": 1200, "prompt": "A bright minimalist hotel room, an open suitcase on a luggage rack, a hand lifting the corner of a crisp white sheet to inspect the mattress seam."},
- "maur":      {"ar": "4:3",  "w": 1200, "prompt": "A clean light stone kitchen countertop by a window, a thin line of small black ants walking along the edge, macro, sunlight."},
- "melmoll":   {"ar": "4:3",  "w": 1200, "prompt": "A tidy Scandinavian pantry shelf with flour, rice and oats stored in airtight glass jars, morning light, no labels."},
- "skjeggkre": {"ar": "4:3",  "w": 1200, "prompt": "A modern Scandinavian bathroom floor with large grey tiles and a stainless steel floor drain, one small silverfish insect near the drain, soft light."},
- "veps":      {"ar": "4:3",  "w": 1200, "prompt": "A papery grey wasp nest hanging under the wooden eaves of a Norwegian house, late summer evening light, two wasps flying nearby."},
- "fluer":     {"ar": "4:3",  "w": 1200, "prompt": "An open kitchen window with a fine white insect screen, summer garden visible outside, a single housefly resting on the outside of the screen."},
- "hytte":     {"ar": "4:3",  "w": 1200, "prompt": "A red Norwegian mountain cabin in early winter being closed for the season, a person checking the gap under the wooden door with a flashlight."},
- "bedrift":   {"ar": "4:3",  "w": 1200, "prompt": "A spotless professional bakery kitchen at night, stainless steel counters, a discreet black bait station box placed along the wall by the floor."},
- "studio":    {"ar": "4:3",  "w": 1400, "prompt": "A moody podcast studio, two broadcast microphones on boom arms over a dark walnut table, warm amber desk lamp, deep slate-green acoustic wall, no people."}
+ "_style": "Photorealistic editorial photograph for a premium Scandinavian home and interior magazine, shot on a full-frame camera with a 50mm lens, natural light, subtle film grain, muted earthy colour palette with deep greens and warm highlights, calm and elegant composition, realistic proportions, not scary, not gross, no text, no logos, no watermark.",
+ "hero": {
+  "ar": "16:9",
+  "w": 2000,
+  "prompt": "A Norwegian wooden house painted dark green at blue hour in late autumn, warm light glowing from the windows, birch trees with yellow leaves, fallen leaves on the lawn. House placed on the right third of the frame, calm dark sky and lawn on the left for a headline."
+ },
+ "mus": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A small grey house mouse sitting next to a white skirting board on a light oak floor, soft side light from a window, shallow depth of field."
+ },
+ "rotte": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A tidy concrete basement where copper pipes enter through the foundation wall, a flashlight beam lighting a small gap around one pipe. No animals visible."
+ },
+ "veggedyr": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A bright minimalist hotel room, an open suitcase on a luggage rack, a hand lifting the corner of a crisp white sheet to inspect the mattress seam."
+ },
+ "maur": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A clean light stone kitchen countertop by a window, a thin line of small black ants walking along the edge, macro, sunlight."
+ },
+ "melmoll": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A tidy Scandinavian pantry shelf with flour, rice and oats stored in airtight glass jars, morning light, no labels."
+ },
+ "skjeggkre": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A modern Scandinavian bathroom floor with large grey tiles and a stainless steel floor drain, one small silverfish insect near the drain, soft light."
+ },
+ "veps": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A papery grey wasp nest hanging under the wooden eaves of a Norwegian house, late summer evening light, two wasps flying nearby."
+ },
+ "fluer": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "An open kitchen window with a fine white insect screen, summer garden visible outside, a single housefly resting on the outside of the screen."
+ },
+ "hytte": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A red Norwegian mountain cabin in early winter being closed for the season, a person checking the gap under the wooden door with a flashlight."
+ },
+ "bedrift": {
+  "ar": "4:3",
+  "w": 1200,
+  "prompt": "A spotless professional bakery kitchen at night, stainless steel counters, a discreet black bait station box placed along the wall by the floor."
+ },
+ "studio": {
+  "ar": "4:3",
+  "w": 1400,
+  "prompt": "A moody podcast studio, two broadcast microphones on boom arms over a dark walnut table, warm amber desk lamp, deep slate-green acoustic wall, no people."
+ }
 }
