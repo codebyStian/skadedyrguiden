@@ -5,6 +5,7 @@
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "author": "Dion Art",
+  "source": "Wikimedia Commons",
   "taxon": "Mus musculus"
  },
  "skogmus": {
@@ -13,38 +14,43 @@
   "license": "CC BY-SA 3.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "author": "Hans Hillewaert",
+  "source": "Wikimedia Commons",
   "taxon": "Apodemus sylvaticus"
  },
  "veggedyr": {
-  "file": "Bed bug, Cimex lectularius.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Bed_bug,_Cimex_lectularius.jpg",
-  "license": "Public domain",
-  "license_url": "",
-  "author": "Content Providers(s): CDC/ Harvard University, Dr. Gary Alpert; Dr. Harold Harla",
+  "file": "iNaturalist foto 488991126",
+  "page": "https://www.inaturalist.org/photos/488991126",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source": "iNaturalist",
+  "author": "Gilles San Martin",
   "taxon": "Cimex lectularius"
  },
  "svaletege": {
-  "file": "Oeciacus hirundinis 02.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Oeciacus_hirundinis_02.jpg",
+  "file": "iNaturalist foto 417078260",
+  "page": "https://www.inaturalist.org/photos/417078260",
   "license": "CC BY-SA 4.0",
-  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "author": "Syrio",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source": "iNaturalist",
+  "author": "Gilles San Martin",
   "taxon": "Oeciacus hirundinis"
  },
  "skjeggkre": {
-  "file": "Ctenolepisma_longicaudatum_-_iNaturalist_97661106.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Ctenolepisma_longicaudatum_-_iNaturalist_97661106.jpg",
-  "license": "CC BY 4.0",
-  "license_url": "https://creativecommons.org/licenses/by/4.0",
-  "author": "Helio Lourencini",
+  "file": "Ctenolepisma longicaudata (long-tailed silverfish), Mook, the Netherlands.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Ctenolepisma_longicaudata_(long-tailed_silverfish),_Mook,_the_Netherlands.JPG",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "author": "Bj.schoenmakers",
+  "source": "Wikimedia Commons",
   "taxon": "Ctenolepisma longicaudatum"
  },
  "solvkre": {
-  "file": "Lepisma saccharina 1a.JPG",
-  "page": "https://commons.wikimedia.org/wiki/File:Lepisma_saccharina_1a.JPG",
+  "file": "LepismaSaccharina.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:LepismaSaccharina.jpg",
   "license": "CC BY-SA 3.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "author": "Aiwok",
+  "author": "Christian Fischer",
+  "source": "Wikimedia Commons",
   "taxon": "Lepisma saccharinum"
  },
  "veps": {
@@ -53,6 +59,7 @@
   "license": "CC BY 2.0",
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "author": "Martin Cooper from Ipswich, UK",
+  "source": "Wikimedia Commons",
   "taxon": "Vespula vulgaris"
  },
  "kjempetreveps": {
@@ -61,22 +68,25 @@
   "license": "CC BY-SA 2.0 de",
   "license_url": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
   "author": "Holger Gröschl",
+  "source": "Wikimedia Commons",
   "taxon": "Urocerus gigas"
  },
  "skogsmaur": {
-  "file": "A Formica rufa sideview.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:A_Formica_rufa_sideview.jpg",
-  "license": "CC BY-SA 2.5",
-  "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
-  "author": "Richard Bartz, Munich Makro Freak",
+  "file": "iNaturalist foto 273573176",
+  "page": "https://www.inaturalist.org/photos/273573176",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "iNaturalist",
+  "author": "no rights reserved",
   "taxon": "Formica rufa"
  },
  "melmoll": {
-  "file": "Plodia interpunctella dorsal Bytom.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Plodia_interpunctella_dorsal_Bytom.jpg",
-  "license": "CC BY-SA 4.0",
-  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "author": "Adrian Tync",
+  "file": "iNaturalist foto 655494534",
+  "page": "https://www.inaturalist.org/photos/655494534",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source": "iNaturalist",
+  "author": "Rosario Douglas",
   "taxon": "Plodia interpunctella"
  },
  "flatt": {
@@ -85,42 +95,43 @@
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "author": "W.alter",
+  "source": "Wikimedia Commons",
   "taxon": "Ixodes ricinus"
  },
  "rotte": {
-  "file": "iNaturalist foto 112123484",
-  "page": "https://www.inaturalist.org/photos/112123484",
-  "license": "CC BY 4.0",
-  "license_url": "https://creativecommons.org/licenses/by/4.0/",
-  "author": "Mara Christensen",
-  "source": "iNaturalist",
+  "file": "A river rat.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:A_river_rat.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Michael Palmer",
+  "source": "Wikimedia Commons",
   "taxon": "Rattus norvegicus"
  },
  "stokkmaur": {
-  "file": "iNaturalist foto 179264082",
-  "page": "https://www.inaturalist.org/photos/179264082",
-  "license": "CC BY 4.0",
-  "license_url": "https://creativecommons.org/licenses/by/4.0/",
-  "author": "Aleksandr Novikov",
+  "file": "iNaturalist foto 151248994",
+  "page": "https://www.inaturalist.org/photos/151248994",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
   "source": "iNaturalist",
+  "author": "no rights reserved",
   "taxon": "Camponotus herculeanus"
  },
  "jordmaur": {
-  "file": "iNaturalist foto 71089373",
-  "page": "https://www.inaturalist.org/photos/71089373",
-  "license": "CC BY-SA 4.0",
-  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-  "author": "Gilles San Martin",
+  "file": "iNaturalist foto 717051832",
+  "page": "https://www.inaturalist.org/photos/717051832",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
   "source": "iNaturalist",
+  "author": "Joss Carr",
   "taxon": "Lasius niger"
  },
  "kakerlakk": {
-  "file": "iNaturalist foto 424513172",
-  "page": "https://www.inaturalist.org/photos/424513172",
+  "file": "iNaturalist foto 465309827",
+  "page": "https://www.inaturalist.org/photos/465309827",
   "license": "CC0",
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "author": "no rights reserved",
   "source": "iNaturalist",
+  "author": "no rights reserved",
   "taxon": "Blattella germanica"
  }
 }
