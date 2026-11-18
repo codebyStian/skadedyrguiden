@@ -42,7 +42,7 @@ def credit(sid):
     p = PHOTOS.get(sid)
     if not p: return ""
     lic = f'<a href="{E(p["license_url"])}" rel="license noopener">{E(p["license"])}</a>' if p.get("license_url") else E(p["license"])
-    return f'<figcaption class="cred">Foto: {E(p["author"])} · {lic} · <a href="{E(p["page"])}" rel="noopener">Wikimedia Commons</a></figcaption>'
+    return f'<figcaption class="cred">Foto: {E(p["author"])}{" (beskåret)" if p.get("cropped") else ""} · {lic} · <a href="{E(p["page"])}" rel="noopener">Wikimedia Commons</a></figcaption>'
 
 
 def thumb(sid, fallback, name):

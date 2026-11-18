@@ -125,3 +125,45 @@ for sid, taxon in TAXON.items():
     print(sid, "->", got["file"], "|", got["license"], "|", got["author"])
 OUT.write_text(json.dumps(photos, ensure_ascii=False, indent=1), encoding="utf-8")
 print(len(photos), "foto")
+
+
+# ---------- Beskjæring: dyret skal fylle bildet ----------
+def bbox(path):
+    import base64, os
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key: return None
+    im = Image.open(path).convert("RGB"); sm = im.copy(); sm.thumbnail((768, 768)); b = io.BytesIO(); sm.save(b, "JPEG", quality=85)
+    parts = [{"text": 'Finn hele dyret (inkludert bein, antenner og haletråder) i bildet. Svar som JSON: {"box_2d": [ymin, xmin, ymax, xmax]} med verdier 0–1000.'},
+             {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(b.getvalue()).decode()}}]
+    for m in ["gemini-3.8-flash", "gemini-flash-latest"]:
+        try:
+            r = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent",
+                data=json.dumps({"contents": [{"role": "user", "parts": parts}], "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}).encode(),
+                headers={"Content-Type": "application/json", "x-goog-api-key": key})
+            d = json.loads(json.load(urllib.request.urlopen(r, timeout=120))["candidates"][0]["content"]["parts"][0]["text"])
+            box = d["box_2d"] if isinstance(d, dict) else d[0]["box_2d"]
+            return [v / 1000 for v in box]
+        except Exception as e:
+            print("    bbox", m, str(e)[:120])
+    return None
+
+
+for sid in list(photos):
+    p = photos[sid]; f = IMG / f"foto-{sid}.webp"
+    if p.get("cropped") is not None or not f.exists(): continue
+    bx = bbox(f)
+    if not bx: continue
+    im = Image.open(f).convert("RGB"); W, Hh = im.size
+    y0, x0, y1, x1 = bx[0] * Hh, bx[1] * W, bx[2] * Hh, bx[3] * W
+    bw, bh = x1 - x0, y1 - y0
+    if bw * bh > 0.45 * W * Hh:  # dyret fyller allerede bildet
+        p["cropped"] = False; continue
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    w = max(bw * 1.35, bh * 1.35 * 4 / 3); h = w * 3 / 4          # 4:3 med luft rundt dyret
+    w, h = min(w, W), min(h, Hh)
+    l = min(max(cx - w / 2, 0), W - w); t = min(max(cy - h / 2, 0), Hh - h)
+    crop = im.crop((int(l), int(t), int(l + w), int(t + h)))
+    if crop.width < 500: p["cropped"] = False; continue
+    crop.save(f, "WEBP", quality=86); p["cropped"] = True
+    print(sid, "beskåret til", crop.size)
+OUT.write_text(json.dumps(photos, ensure_ascii=False, indent=1), encoding="utf-8")
