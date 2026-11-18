@@ -37,6 +37,7 @@ def foot(base):
   </div>
   <div class="base">Bildene på siden er AI-genererte illustrasjonsfoto.</div>
 </div></footer>
+<script src="{base}assets/nl.js" defer></script>
 </body>
 </html>
 '''
@@ -166,7 +167,7 @@ def regional_pages():
 
 if __name__ == "__main__":
     regional_pages()
-    import extra; extra.build(head, foot, prod)
+    import extra; extra.build(head, foot, prod); extra.newsletter_pages(head, foot)
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")

@@ -71,3 +71,28 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
 <p class="mute" style="font-size:19px;max-width:56ch">Kjennetegn og forvekslingsarter for {len(kb)} dyr du kan møte i og rundt huset. Basert på Folkehelseinstituttets skadedyrhåndbok.</p>
 <div class="lxg">{"".join(cards)}</div></div></section>'''
     (L / "index.html").write_text(head("Skadedyrleksikon – Skadedyrguiden", "Kjennetegn og forvekslingsarter for vanlige skadedyr i Norge, fra husmus og rotter til skjeggkre, veggedyr og veps.", "../") + idx + foot("../"), encoding="utf-8")
+
+
+def newsletter_pages(head, foot):
+    """Arkiv for Skadedyrbrevet + landingssider for bekreft/avmeld."""
+    N = ROOT / "nyhetsbrev"; N.mkdir(exist_ok=True)
+    form = '''<form class="nlf" data-nl><input type="email" required placeholder="din@epost.no" aria-label="E-postadresse"><input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button class="btn y" type="submit">Meld meg på</button><p class="small mute" data-nlmsg aria-live="polite"></p></form>'''
+    css = "<style>.nlf{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.nlf input[type=email]{flex:1;min-width:220px;min-height:50px;border-radius:999px;border:1.5px solid var(--line);padding:0 20px;font:16px 'Schibsted Grotesk',sans-serif}.nlf p{flex-basis:100%;margin:0}.iss{display:block;padding:20px 0;border-top:1px solid var(--line);text-decoration:none}.iss b{font-size:20px;display:block}</style>"
+    issues = sorted((json.loads(p.read_text()) for p in N.glob("20??-??.json")), key=lambda d: d["slug"], reverse=True)
+    for d in issues:
+        items = "".join(f'<h2>{H.escape(i["title"])}</h2><p>{H.escape(i["text"])}</p><p><a href="{H.escape(i["link"])}">{H.escape(i.get("link_label") or "Les mer")} →</a></p>' for i in d["items"])
+        body = f'''<article class="band"><div class="art"><span class="kicker"><a href="index.html" style="color:inherit">Skadedyrbrevet</a> · {d["month"].capitalize()} {d["year"]}</span>
+<h1 style="font-size:clamp(36px,4.6vw,58px)">{H.escape(d["subject"])}</h1><p style="font-size:19px">{H.escape(d["intro"])}</p>{items}
+<div class="box"><b>Gjør dette i {d["month"]}</b><ul>{"".join(f"<li>{H.escape(c['text'])}</li>" for c in d["checklist"])}</ul></div>
+<h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{H.escape(u)}" rel="noopener">{H.escape(u)}</a></li>' for u in d["sources"])}</ul>
+<div class="box"><b>Få neste brev på e-post</b>Ett kort brev i måneden. Du bekrefter adressen før du får noe.{form}</div></div></article>'''
+        (N / f'{d["slug"]}.html').write_text(head(f'{d["subject"]} – Skadedyrbrevet {d["month"]} {d["year"]}', d["preheader"], "../") + css + body + foot("../"), encoding="utf-8")
+    lst = "".join(f'<a class="iss" href="{d["slug"]}.html"><span class="small mute">{d["month"].capitalize()} {d["year"]}</span><b>{H.escape(d["subject"])}</b><span class="mute">{H.escape(d["preheader"])}</span></a>' for d in issues) or '<p class="mute">Første brev kommer snart.</p>'
+    idx = f'''<section class="band"><div class="wrap" style="max-width:820px"><span class="kicker">Nyhetsbrev</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Skadedyr<em>brevet</em></h1>
+<p class="mute" style="font-size:19px">Ett kort brev i måneden om hva som er i sesong – og hva du bør gjøre før det blir et problem. Basert på aktuelle saker og offentlige kilder, faktasjekket mot kildene før utsending.</p>{form}<div style="margin-top:40px">{lst}</div></div></section>'''
+    (N / "index.html").write_text(head("Skadedyrbrevet – månedlig nyhetsbrev om skadedyr", "Ett kort brev i måneden om hvilke skadedyr som er i sesong og hva du bør gjøre nå.", "../") + css + idx + foot("../"), encoding="utf-8")
+    for slug, h1, txt in [("bekreftet", "Takk – du er påmeldt", "E-postadressen er bekreftet. Månedens Skadedyrbrev er på vei til innboksen din, og du får et nytt brev hver måned."),
+                          ("avmeldt", "Du er meldt av", "Du får ikke flere Skadedyrbrev. Ombestemmer du deg, kan du melde deg på igjen når som helst."),
+                          ("ugyldig", "Lenken virker ikke", "Lenken er utløpt eller ufullstendig. Meld deg på på nytt, så sender vi en ny bekreftelse.")]:
+        b = f'<section class="band"><div class="wrap" style="max-width:720px"><span class="kicker">Skadedyrbrevet</span><h1 style="font-size:clamp(40px,5vw,64px)">{h1}</h1><p style="font-size:19px">{txt}</p><p><a class="btn arrow" href="../index.html">Til forsiden </a> <a class="btn arrow" href="index.html">Tidligere brev </a></p>{form if slug == "ugyldig" else ""}</div></section>'
+        (N / f"{slug}.html").write_text(head(f"{h1} – Skadedyrbrevet", txt, "../").replace("<title>", "<title>", 1) + css + b + foot("../"), encoding="utf-8")

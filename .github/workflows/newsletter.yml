@@ -1,0 +1,41 @@
+name: Skadedyrbrevet (månedlig nyhetsbrev)
+
+# Den 27. lager agenten neste måneds brev (research + egne artikler + faktakontroll), publiserer det
+# i arkivet og sender et UTKAST til NL_ADMIN. Den 1. sendes det samme brevet til alle bekreftede abonnenter.
+# Vil du stoppe et brev: slett site/nyhetsbrev/ÅÅÅÅ-MM.json før den 1., eller kjør på nytt med mode=draft.
+on:
+  schedule:
+    - cron: "13 6 27 * *"   # utkast
+    - cron: "13 7 1 * *"    # utsending
+  workflow_dispatch:
+    inputs:
+      mode: { description: "build | draft | send", default: "draft" }
+      month: { description: "ÅÅÅÅ-MM (tom = automatisk)", default: "" }
+
+permissions: { contents: write, actions: write }
+concurrency: { group: newsletter, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          NL_SENDER: ${{ secrets.NL_SENDER }}
+          NL_ADMIN: ${{ secrets.NL_ADMIN }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '13 7 1 * *' && 'send' || 'draft') }}
+          MONTH: ${{ inputs.month }}
+        run: python scripts/newsletter.py
+      - name: Publish archive
+        run: |
+          python scripts/page.py
+          git config user.name "skadedyrguiden-bot"; git config user.email "actions@users.noreply.github.com"
+          git add site/nyhetsbrev
+          git diff --cached --quiet || { git commit -m "Skadedyrbrevet: $(cat site/nyhetsbrev/latest.json | python3 -c 'import json,sys;print(json.load(sys.stdin)["slug"])')"; git pull --rebase -q; git push -q; }
+          gh workflow run pages.yml
+        env: { GH_TOKEN: "${{ github.token }}" }

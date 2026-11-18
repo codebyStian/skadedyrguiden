@@ -392,7 +392,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 
 <section class="band dark" id="nyhetsbrev"><div class="wrap news">
   <div><span class="kicker">Nyhetsbrev</span><h2>Skadedyrbrevet</h2><p class="mute" style="margin:0">Ett kort brev i måneden om hva som er i sesong – og hva du bør gjøre før det blir et problem.</p></div>
-  <form id="nf"><input type="email" required placeholder="din@epost.no" aria-label="E-postadresse"><button class="btn y" type="submit">Meld meg på</button><p class="small mute" id="nfmsg" style="flex-basis:100%;margin:0" aria-live="polite"></p></form>
+  <form id="nf" data-nl><input type="email" required placeholder="din@epost.no" aria-label="E-postadresse"><input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button class="btn y" type="submit">Meld meg på</button><p class="small mute" data-nlmsg style="flex-basis:100%;margin:0" aria-live="polite">Du får en e-post for å bekrefte adressen. Deretter kommer månedens brev. <a href="nyhetsbrev/index.html" style="color:inherit">Tidligere brev</a></p></form>
 </div></section>
 </main>
 
@@ -475,9 +475,9 @@ document.getElementById('shop').innerHTML=[['Gnagere','gnagere'],['Insekter','in
 
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>{x.setAttribute('aria-selected',x===b);document.getElementById(x.dataset.tab).hidden=x!==b})}));
 document.getElementById('aiOut').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;const m={jordmaur:'maur',stokkmaur:'maur',skogmus:'mus'};const k=m[b.dataset.k]||b.dataset.k;if(P.find(p=>p.k===k))open(k);else location.hash='leksikon'});
-document.getElementById('nf').addEventListener('submit',e=>{e.preventDefault();document.getElementById('nfmsg').textContent='Konsept: påmeldingen kobles til nyhetsbrevverktøyet senere.'});
 }
 </script>
+<script src="assets/nl.js" defer></script>
 <script src="assets/app.js" defer></script>
 </body>
 </html>

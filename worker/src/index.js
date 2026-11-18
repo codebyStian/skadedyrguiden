@@ -1,3 +1,4 @@
+import { newsletter } from "./newsletter.js";
 // Skadedyrguiden – bildeanalyse. Bildet lagres ikke. To trinn:
 // 1) visjonsmodell beskriver hva som faktisk synes og velger blant artene i faktagrunnlaget (kb/species.json, FHI-kilder)
 // 2) en egen kontrollmodell sjekker at begrunnelsen stemmer med faktaarket; i tillegg faste regler i koden.
@@ -121,7 +122,11 @@ async function handle(req, env) {
     const h = cors(req, env);
     if (req.method === "OPTIONS") return new Response(null, { headers: h });
     const url = new URL(req.url);
-    if (url.pathname === "/health") return json({ ok: true, species: SPECIES.length }, 200, h);
+    if (url.pathname === "/health") return json({ ok: true, species: SPECIES.length, newsletter: !!(env.BREVO_API_KEY && env.NL_SENDER) }, 200, h);
+    if (["/subscribe", "/confirm", "/unsubscribe"].includes(url.pathname)) {
+      try { const r = await newsletter(req, env, url, h, json); if (r) return r; }
+      catch (e) { console.log(String(e)); return json({ error: "Påmeldingen feilet. Prøv igjen om litt." }, 502, h); }
+    }
     if (req.method !== "POST" || url.pathname !== "/identify") return json({ error: "not found" }, 404, h);
     if (h["Access-Control-Allow-Origin"] === "null") return json({ error: "origin not allowed" }, 403, h);
     let body;

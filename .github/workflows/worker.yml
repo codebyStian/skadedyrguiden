@@ -5,7 +5,7 @@ name: Deploy AI worker (Cloudflare)
 on:
   push:
     branches: [main]
-    paths: ["worker/**", "kb/**", ".github/workflows/worker.yml"]
+    paths: ["worker/**", "kb/**", "scripts/brevo_list.py", ".github/workflows/worker.yml"]
   workflow_dispatch:
 
 permissions: { contents: read }
@@ -44,6 +44,20 @@ jobs:
           G: ${{ secrets.GEMINI_API_KEY }}
         run: |
           if [ -n "$G" ]; then printf '%s' "$G" | npx --yes wrangler@4 secret put GEMINI_API_KEY; else echo "GEMINI_API_KEY missing - Cloudflare only"; fi
+      - name: Newsletter (Brevo) - list + secrets
+        working-directory: worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ steps.acct.outputs.id }}
+          B: ${{ secrets.BREVO_API_KEY }}
+          S: ${{ secrets.NL_SENDER }}
+        run: |
+          if [ -z "$B" ] || [ -z "$S" ]; then echo "BREVO_API_KEY/NL_SENDER missing - newsletter signup stays off"; exit 0; fi
+          id=$(python3 ../scripts/brevo_list.py)
+          echo "Brevo list id: $id"
+          printf '%s' "$B" | npx --yes wrangler@4 secret put BREVO_API_KEY
+          printf '%s' "$S" | npx --yes wrangler@4 secret put NL_SENDER
+          printf '%s' "$id" | npx --yes wrangler@4 secret put BREVO_LIST_ID
       - name: Smoke test (health + one real image)
         working-directory: worker
         run: |
