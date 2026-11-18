@@ -158,6 +158,20 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .spin{width:28px;height:28px;border-radius:50%;border:3px solid rgba(255,255,255,.2);border-top-color:var(--y);animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
 @media(max-width:860px){.local{grid-template-columns:1fr}.mapbox{position:static}.map{aspect-ratio:auto;height:min(480px,62vh)}.now{grid-template-columns:1fr}}
 @media(max-width:600px){.mrow{grid-template-columns:6.8em minmax(0,1fr) 3em;font-size:14.5px}.tabs{width:100%}.tabs button{flex:1}}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:26px}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px}
+.steps .n{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--y);color:var(--y);display:grid;place-items:center;font:400 24px/1 "Instrument Serif",Georgia,serif}
+.steps b{font-size:18px}.steps p{margin:4px 0 12px}
+.steps select{width:100%;min-height:48px;border-radius:12px;border:1px solid #2d4d45;background:var(--pine2);color:var(--onDark);font:16px "Schibsted Grotesk",sans-serif;padding:0 12px}
+#analyze:disabled{opacity:.45;cursor:not-allowed}
+.steps .drop{margin:0}
+.calg{display:grid;grid-template-columns:8.5em repeat(12,minmax(0,1fr));gap:4px;align-items:center}
+.calg .h{font-size:13px;color:var(--mute);text-align:center;padding-bottom:4px}
+.calg .h.cur{color:var(--ink);font-weight:700}
+.calg .p{font-weight:600;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:8px}
+.calg .c{height:34px;border-radius:7px;background:var(--soft)}
+.calg .c.cur{box-shadow:inset 0 0 0 2px var(--ink)}
+@media(max-width:600px){.calg{grid-template-columns:5.6em repeat(12,minmax(0,1fr));gap:2px}.calg .p{font-size:12.5px;white-space:normal;line-height:1.15}.calg .h{font-size:10.5px}.calg .c{height:24px;border-radius:4px}}
 .cal{overflow-x:auto}
 .cal table{border-collapse:separate;border-spacing:4px;width:100%;min-width:620px;table-layout:fixed}.cal th:first-child{width:8.5em}
 .cal th{font-size:13px;font-weight:500;color:var(--mute);padding:0 0 6px}
@@ -248,20 +262,23 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></section>
 
 <section class="band dark" id="hvadet"><div class="wrap">
-  <div class="head"><div><span class="kicker">Verktøy</span><h2>Hva er det jeg ser?</h2></div>
-    <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-tab="t-tegn">Velg tegn</button><button role="tab" aria-selected="false" data-tab="t-foto">Last opp bilde</button></div></div>
-  <div id="t-tegn" class="idt" role="tabpanel">
-    <div><p class="mute" style="max-width:46ch;margin-bottom:26px">Velg tegnene du har lagt merke til. Vi rangerer hvilke skadedyr som passer best, så du vet hvor du skal begynne.</p><div class="signs" id="signs"></div></div>
-    <div class="res" id="res" aria-live="polite"></div>
+  <div class="head"><div><span class="kicker">Verktøy</span><h2>Finn ut hvilket dyr det er</h2></div>
+    <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-tab="t-foto">Last opp bilde</button><button role="tab" aria-selected="false" data-tab="t-tegn">Velg tegn i stedet</button></div></div>
+  <div id="t-foto" class="idt" role="tabpanel">
+    <ol class="steps">
+      <li><span class="n">1</span><div><b>Ta eller velg et bilde</b><p class="mute small">Skarpt og ovenfra, gjerne med en mynt ved siden av for størrelse.</p>
+        <div class="drop" id="drop" tabindex="0" role="button" aria-label="Last opp bilde"><div id="prev"></div><div class="dz"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><b id="dzText">Slipp bildet her eller trykk for å velge</b><span class="small">JPG, PNG eller WEBP. Bildet lagres ikke.</span></div></div>
+        <input type="file" id="file" accept="image/*" hidden></div></li>
+      <li><span class="n">2</span><div><b>Hvor fant du det?</b><p class="mute small">Valgfritt, men det hjelper analysen.</p>
+        <select id="hint" aria-label="Hvor fant du det?"><option value="">Vet ikke</option><option>Kjøkken</option><option>Bad</option><option>Soverom eller seng</option><option>Loft eller kjeller</option><option>Ute eller på terrassen</option><option>Hytte</option></select></div></li>
+      <li><span class="n">3</span><div><b>Få svar</b><p class="mute small">Bildet sjekkes mot kjennetegnene i FHIs skadedyrhåndbok – først av en bildemodell, så av en egen kvalitetskontroll.</p>
+        <button class="btn y arrow" type="button" id="analyze" disabled>Analyser bildet </button></div></li>
+    </ol>
+    <div class="res" id="aiOut" aria-live="polite"><span class="kicker">Resultat</span><div class="top1">Start med et bilde</div><p class="mute" style="max-width:36ch">Du får forslag til art, hvor sikker vurderingen er, og hvilke kjennetegn den bygger på – med lenke til kilden.</p></div>
   </div>
-  <div id="t-foto" class="idt" role="tabpanel" hidden>
-    <div>
-      <p class="mute" style="max-width:46ch">Ta et skarpt bilde ovenfra, gjerne med en mynt ved siden av. Bildet sjekkes mot kjennetegnene i FHIs skadedyrhåndbok – først av en bildemodell, så av en egen kvalitetskontroll.</p>
-      <div class="drop" id="drop" tabindex="0" role="button" aria-label="Last opp bilde"><div id="prev"></div><div class="dz"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Slipp bildet her eller trykk for å velge</b><span class="small">JPG, PNG eller WEBP. Bildet lagres ikke.</span></div></div>
-      <input type="file" id="file" accept="image/*" capture="environment" hidden>
-      <label class="hintl">Hvor fant du det?<select id="hint"><option value="">Vet ikke</option><option>Kjøkken</option><option>Bad</option><option>Soverom eller seng</option><option>Loft eller kjeller</option><option>Ute eller på terrassen</option><option>Hytte</option></select></label>
-    </div>
-    <div class="res" id="aiOut" aria-live="polite"><span class="kicker">Resultat</span><div class="top1">Last opp et bilde</div><p class="mute" style="max-width:36ch">Du får forslag til art, hvor sikker vurderingen er, og hvilke kjennetegn den bygger på – med lenke til kilden.</p></div>
+  <div id="t-tegn" class="idt" role="tabpanel" hidden>
+    <div><p class="mute" style="max-width:46ch;margin-bottom:26px">Har du ikke bilde? Velg tegnene du har lagt merke til, så rangerer vi hvilke skadedyr som passer best.</p><div class="signs" id="signs"></div></div>
+    <div class="res" id="res" aria-live="polite"></div>
   </div>
 </div></section>
 
@@ -317,7 +334,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 
 <section class="band" id="kalender"><div class="wrap">
   <div class="head"><div><span class="kicker">Sesongkalender</span><h2>Forebygg før sesongen starter</h2></div><p class="mute">Når skadedyrfirmaene i Norge rykker ut, måned for måned. Inneværende måned er markert.</p></div>
-  <div class="cal"><table id="cal"></table></div>
+  <div class="calg" id="cal"></div>
   <p class="src" id="calLegend"><span><i style="background:var(--y)"></i>Høysesong</span> <span><i style="background:color-mix(in srgb,var(--y) 35%,var(--soft))"></i>Kan forekomme</span></p>
 </div></section>
 
@@ -429,9 +446,6 @@ document.getElementById('row3').innerHTML=B.map(([c,t,h,i])=>`<a href="${h}"><di
 
 document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten','24 min'],['Veggedyr: den uønskede souveniren','27 min'],['Skjeggkre: hvorfor nyere boliger får dem','22 min']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===0?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">${i===0?'Lytt nå':l}</span></a>`).join('');
 
-const M=['jan','feb','mar','apr','mai','jun','jul','aug','sep','okt','nov','des'],now=new Date().getMonth();
-const C=[['Mus',[2,2,1,0,0,0,0,1,2,2,2,2]],['Rotte',[2,2,1,1,0,0,0,1,1,2,2,2]],['Maur',[0,0,1,2,2,2,2,1,0,0,0,0]],['Veps',[0,0,0,1,1,1,2,2,2,1,0,0]],['Fluer',[0,0,0,1,1,2,2,2,1,0,0,0]],['Veggedyr',[1,1,1,1,1,1,2,2,2,1,1,1]],['Skjeggkre',[1,1,1,1,1,1,1,1,1,1,1,1]]];
-document.getElementById('cal').innerHTML=`<thead><tr><th></th>${M.map((m,i)=>`<th class="${i===now?'now':''}">${m}</th>`).join('')}</tr></thead><tbody>`+C.map(([p,v])=>`<tr><td class="p">${p}</td>${v.map((x,i)=>`<td class="${x==2?'h':x==1?'l':''}${i===now?' now':''}" title="${p}, ${M[i]}"></td>`).join('')}</tr>`).join('')+'</tbody>';
 
 document.getElementById('shop').innerHTML=[['Gnagere','gnagere'],['Insekter','insekter'],['Fugler','fugler'],['Hus og hage','hus-og-hage'],['Verneutstyr','verktoey-og-verneutstyr'],['Lagersalg','lagersalg']].map(([t,p])=>`<a href="${U(p,'shopgrid')}">${t}<span aria-hidden="true">→</span></a>`).join('');
 

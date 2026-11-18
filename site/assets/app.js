@@ -273,12 +273,14 @@
 
   /* ---------- sesongkalender fra FHI ---------- */
   function calendar() {
-    const t = $("#cal"); if (!t || !stats?.fhi?.monthly) return;
+    const g = $("#cal"); if (!g || !stats?.fhi?.monthly) return;
     const rows = [["Veggedyr", "Veggedyr"], ["Stikkeveps", "Veps"], ["Svart jordmaur", "Svart jordmaur"], ["Stokkmaur", "Stokkmaur"], ["Skjeggkre", "Skjeggkre"], ["Tysk kakerlakk", "Kakerlakk"]];
     const mm = ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des"];
-    t.innerHTML = `<thead><tr><th></th>${mm.map((m, i) => `<th class="${i === M ? "now" : ""}">${m}</th>`).join("")}</tr></thead><tbody>` +
-      rows.filter(([k]) => stats.fhi.monthly[k]).map(([k, n]) => { const a = stats.fhi.monthly[k], lo = Math.min(...a), hi = Math.max(...a); return `<tr><td class="p">${n}</td>${a.map((v, i) =>
-        `<td class="${i === M ? "now" : ""}" style="background:color-mix(in srgb,var(--y) ${Math.round(8 + 92 * (v - lo) / (hi - lo || 1))}%,var(--soft))" title="${n}, ${mm[i]}: ${String(v).replace(".", ",")} % av bekjempelsene"></td>`).join("")}</tr>`; }).join("") + "</tbody>";
+    g.innerHTML = `<span></span>${mm.map((m, i) => `<span class="h${i === M ? " cur" : ""}">${m}</span>`).join("")}` +
+      rows.filter(([k]) => stats.fhi.monthly[k]).map(([k, n]) => {
+        const a = stats.fhi.monthly[k], lo = Math.min(...a), hi = Math.max(...a);
+        return `<span class="p" title="${n}">${n}</span>` + a.map((v, i) => `<span class="c${i === M ? " cur" : ""}" style="background:color-mix(in srgb,var(--y) ${Math.round(8 + 92 * (v - lo) / (hi - lo || 1))}%,var(--soft))" title="${n}, ${mm[i]}: ${String(v).replace(".", ",")} % av bekjempelsene"></span>`).join("");
+      }).join("");
     const lg = $("#calLegend"); if (lg) lg.innerHTML = `Mørkest = måneden med flest bekjempelser for hvert skadedyr. Kilde: <a href="https://statistikk.fhi.no/skast/" rel="noopener">FHI Skadedyrstatistikk</a>, snitt 2007–2025. Mus og rotter er ikke med i FHIs statistikk.`;
   }
 
@@ -290,17 +292,23 @@
     drop.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
     ["dragenter", "dragover"].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.add("over"); }));
     ["dragleave", "drop"].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
-    drop.addEventListener("drop", (e) => { const f = e.dataTransfer.files[0]; if (f) run(f); });
-    file.addEventListener("change", () => file.files[0] && run(file.files[0]));
+    let data = null; const btn = $("#analyze");
+    drop.addEventListener("drop", (e) => { const f = e.dataTransfer.files[0]; if (f) load(f); });
+    file.addEventListener("change", () => file.files[0] && load(file.files[0]));
+    btn?.addEventListener("click", () => data && run());
+    async function load(f) {
+      if (!/^image\//.test(f.type)) { out.innerHTML = `<p>Velg en bildefil (jpg, png eller webp).</p>`; return; }
+      try { data = await shrink(f); } catch { out.innerHTML = "<p>Kunne ikke lese bildet.</p>"; return; }
+      $("#prev").innerHTML = `<img src="${data}" alt="Bildet du lastet opp">`; drop.classList.add("has");
+      $("#dzText").textContent = "Bytt bilde"; if (btn) { btn.disabled = false; btn.focus(); }
+      out.innerHTML = `<span class="kicker">Klar</span><div class="top1">Bildet er lastet opp</div><p class="mute" style="max-width:36ch">Velg gjerne hvor du fant dyret, og trykk «Analyser bildet».</p>`;
+    }
     async function shrink(f) {
       const img = await createImageBitmap(f); const s = Math.min(1, 1024 / Math.max(img.width, img.height));
       const c = document.createElement("canvas"); c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
       c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); return c.toDataURL("image/jpeg", 0.85);
     }
-    async function run(f) {
-      if (!/^image\//.test(f.type)) { out.innerHTML = `<p>Velg en bildefil (jpg, png eller webp).</p>`; return; }
-      let data; try { data = await shrink(f); } catch { out.innerHTML = "<p>Kunne ikke lese bildet.</p>"; return; }
-      $("#prev").innerHTML = `<img src="${data}" alt="Bildet du lastet opp">`; drop.classList.add("has");
+    async function run() {
       if (!AI_URL) { out.innerHTML = `<div class="aicard"><span class="kicker">Ikke koblet på ennå</span><h3>Bildeanalysen er ikke aktivert i denne forhåndsvisningen</h3><p class="mute">Når den er koblet til, sjekkes bildet mot FHIs kjennetegn i to steg før du får svar. Bruk gjerne «Velg tegn» i mellomtiden.</p></div>`; return; }
       out.innerHTML = `<div class="aicard busy"><span class="spin"></span><b>Analyserer bildet …</b><span class="mute small">Steg 1: beskriver det som synes. Steg 2: sjekker mot FHIs kjennetegn.</span></div>`;
       let r = null; try { const res = await fetch(AI_URL + "/identify", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ image: data, hint: $("#hint").value }) }); r = await res.json(); } catch {}
