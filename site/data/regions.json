@@ -1,0 +1,87 @@
+{
+ "ost": [
+  {
+   "slug": "rotter-i-byen",
+   "title": "Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?",
+   "cat": "Gnagere"
+  },
+  {
+   "slug": "flatt-langs-kysten",
+   "title": "Flått langs kysten: sjekk deg selv etter turen",
+   "cat": "Flått"
+  },
+  {
+   "slug": "stokkmaur-eller-skogsmaur",
+   "title": "Stokkmaur eller skogsmaur? Slik ser du forskjellen",
+   "cat": "Maur"
+  }
+ ],
+ "sor": [
+  {
+   "slug": "flatt-langs-kysten",
+   "title": "Flått langs kysten: sjekk deg selv etter turen",
+   "cat": "Flått"
+  },
+  {
+   "slug": "husbukk",
+   "title": "Husbukk langs kysten av Telemark og Agder: tegn du ser etter",
+   "cat": "Treskadedyr"
+  },
+  {
+   "slug": "vepsebol",
+   "title": "Vepsebolet: fjern det tidlig i sesongen",
+   "cat": "Veps"
+  }
+ ],
+ "vest": [
+  {
+   "slug": "rotter-i-byen",
+   "title": "Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?",
+   "cat": "Gnagere"
+  },
+  {
+   "slug": "fukt-solvkre-skjeggkre",
+   "title": "Sølvkre og skjeggkre: hva er forskjellen, og hva hjelper?",
+   "cat": "Fukt"
+  },
+  {
+   "slug": "stripet-borebille",
+   "title": "Små runde hull i treverket? Det kan være stripet borebille",
+   "cat": "Treskadedyr"
+  }
+ ],
+ "midt": [
+  {
+   "slug": "stokkmaur-eller-skogsmaur",
+   "title": "Stokkmaur eller skogsmaur? Slik ser du forskjellen",
+   "cat": "Maur"
+  },
+  {
+   "slug": "vepsebol",
+   "title": "Vepsebolet: fjern det tidlig i sesongen",
+   "cat": "Veps"
+  },
+  {
+   "slug": "mus-pa-garden",
+   "title": "Mus på gården: låve, stabbur og fôrlager",
+   "cat": "Gnagere"
+  }
+ ],
+ "nord": [
+  {
+   "slug": "stripet-borebille",
+   "title": "Små runde hull i treverket? Det kan være stripet borebille",
+   "cat": "Treskadedyr"
+  },
+  {
+   "slug": "smagnagerar",
+   "title": "Smågnagerår: når det kryr av mus og lemen",
+   "cat": "Gnagere"
+  },
+  {
+   "slug": "hytta-for-vinteren",
+   "title": "Før du stenger hytta: sikre den mot mus på 20 minutter",
+   "cat": "Hytte"
+  }
+ ]
+}

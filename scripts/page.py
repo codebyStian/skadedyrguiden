@@ -135,7 +135,35 @@ a.onerror=()=>{{document.getElementById('pmsg').textContent='Lyden lages fortsat
 }}</script>'''
 
 
+def regional_pages():
+    import json, html as H, sys
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    from articles import ARTICLES as RA, REGION_ARTICLES
+    from tools import TOOLS
+    RN = {"ost": "Østlandet", "sor": "Sørlandet", "vest": "Vestlandet", "midt": "Trøndelag", "nord": "Nord-Norge"}
+    for a in RA:
+        regs = ", ".join(RN[r] for r in a["regions"])
+        others = [b for b in RA if b is not a and set(b["regions"]) & set(a["regions"])][:3]
+        body = f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
+<div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div></div>
+<div class="ph"><img src="../assets/img/{a["img"]}.webp" alt="" onerror="this.onerror=null;this.src='../assets/img/hero.webp'"></div>
+</div></section>
+<article class="band"><div class="art">{a["body"]}
+{prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else ""}
+<h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
+<p class="small mute">Artikkelen er skrevet for Skadedyrguiden og bygger på kildene over. Den erstatter ikke råd fra en fagperson.</p>
+{('<h2>Les også</h2><ul>' + "".join(f'<li><a href="{b["slug"]}.html">{H.escape(b["title"])}</a></li>' for b in others) + '</ul>') if others else ""}
+</div></article>'''
+        (ROOT / "artikler" / (a["slug"] + ".html")).write_text(head(a["title"] + " – Skadedyrguiden", a["lead"], "../") + body + foot("../"), encoding="utf-8")
+    reg = {r: [{"slug": a["slug"], "title": a["title"], "cat": a["cat"]} for a in lst] for r, lst in REGION_ARTICLES.items()}
+    (ROOT / "data" / "regions.json").write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding="utf-8")
+    for slug, (title, desc, body) in TOOLS.items():
+        f = ROOT / "verktoy" / (slug + ".html"); f.parent.mkdir(exist_ok=True)
+        f.write_text(head(title + " – Skadedyrguiden", desc, "../") + body + foot("../"), encoding="utf-8")
+
+
 if __name__ == "__main__":
+    regional_pages()
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")

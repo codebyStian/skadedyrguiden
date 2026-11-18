@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fellekalkulator – Skadedyrguiden</title>
+<meta name="description" content="Regn ut hvor mange musefeller du trenger og hvor de skal stå.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="note">Konseptskisse – eksempeltekst som må faktasjekkes før publisering.</div>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../index.html">Skadedyrguiden<i></i></a>
+  <nav class="nav" aria-label="Hovedmeny"><a href="../index.html#leksikon">Leksikon</a><a href="../index.html#artikler">Artikler</a><a href="../index.html#hvadet">Hva er det?</a><a href="../podkast.html">Podkast</a><a href="../index.html#kalender">Sesong</a></nav>
+  <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=header">Butikken </a>
+</div></header>
+<main>
+<style>
+.tool-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end}
+.prog{background:var(--soft);border-radius:20px;padding:22px 24px}
+.prog .big{font:400 64px/1 "Instrument Serif",Georgia,serif}
+.pbar2{height:10px;border-radius:5px;background:var(--bg);overflow:hidden;margin:12px 0 6px}.pbar2 i{display:block;height:100%;background:var(--y);transition:width .4s}
+.grp{margin-top:40px}.grp h2{font-size:clamp(28px,3vw,38px)}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.item b{display:block;font-size:17px}.item span{color:var(--mute);font-size:15px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:600 14.5px "Schibsted Grotesk",sans-serif;cursor:pointer}
+.seg button[aria-pressed=true].ok{background:#2c4a3f;border-color:#2c4a3f;color:#fff}
+.seg button[aria-pressed=true].fix{background:var(--y);border-color:var(--y);color:#111715}
+.side2{position:sticky;top:96px;background:var(--pine);color:var(--onDark);border-radius:22px;padding:26px}
+.side2 h3{font:400 34px/1 "Instrument Serif",Georgia,serif;margin-bottom:10px}
+.side2 ul{padding-left:1.1em;margin:0 0 16px}.side2 li{margin:6px 0}
+.side2 .mute{color:var(--muteDark)}
+.cols2{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.form{display:grid;gap:22px}
+.field label,.field legend{display:block;font-weight:600;margin-bottom:8px}
+.field fieldset{border:0;padding:0;margin:0}
+.chips2{display:flex;gap:8px;flex-wrap:wrap}
+.chips2 label{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);cursor:pointer;font-weight:500}
+.chips2 input{position:absolute;opacity:0;pointer-events:none}
+.chips2 label:has(input:checked){background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips2 label:has(input:focus-visible){outline:3px solid var(--y);outline-offset:3px}
+.result2 .num{font:400 96px/1 "Instrument Serif",Georgia,serif;color:var(--y)}
+.result2 table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}.result2 td{padding:7px 0;border-bottom:1px solid #2a4840}.result2 td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.warn{background:#7a2a1d;border-radius:14px;padding:14px 16px;margin:12px 0}
+@media(max-width:860px){.tool-hero,.cols2{grid-template-columns:1fr}.side2{position:static}}
+@media(max-width:600px){.item{grid-template-columns:1fr}}
+@media print{.top,.note,footer,.seg,.side2 .btn{display:none!important}.side2{position:static;color:#000;background:#fff;border:1px solid #000}}
+</style><section class="band" style="padding-bottom:0"><div class="wrap">
+<span class="kicker">Verktøy · Kalkulator</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Hvor mange <em>feller</em> trenger du?</h1>
+<p class="mute" style="font-size:19px;max-width:56ch">Mus beveger seg ofte bare noen meter fra bolet. Derfor må fellene stå tett, der du faktisk ser spor. Svar på fire spørsmål, så får du et forslag og en plan for plasseringen.</p>
+</div></section>
+<section class="band"><div class="wrap cols2">
+<form class="form" id="f" onsubmit="return false">
+ <div class="field"><fieldset><legend>Hva sliter du med?</legend><div class="chips2">
+  <label><input type="radio" name="pest" value="mus" checked>Mus</label><label><input type="radio" name="pest" value="rotte">Rotter</label></div></fieldset></div>
+ <div class="field"><fieldset><legend>Hvor bor du?</legend><div class="chips2">
+  <label><input type="radio" name="type" value="enebolig" checked>Enebolig</label><label><input type="radio" name="type" value="rekkehus">Rekkehus</label><label><input type="radio" name="type" value="leilighet">Leilighet</label><label><input type="radio" name="type" value="hytte">Hytte</label></div></fieldset></div>
+ <div class="field"><fieldset><legend>Hvor mange etasjer, medregnet kjeller og loft?</legend><div class="chips2">
+  <label><input type="radio" name="floors" value="1">1</label><label><input type="radio" name="floors" value="2" checked>2</label><label><input type="radio" name="floors" value="3">3</label><label><input type="radio" name="floors" value="4">4</label></div></fieldset></div>
+ <div class="field"><fieldset><legend>Hvor har du sett spor (ekskrementer, gnag, lyder)?</legend><div class="chips2">
+  <label><input type="checkbox" name="room" value="Kjøkken" checked>Kjøkken</label><label><input type="checkbox" name="room" value="Under vasken">Under vasken</label><label><input type="checkbox" name="room" value="Loft">Loft</label><label><input type="checkbox" name="room" value="Kjeller / krypkjeller">Kjeller / krypkjeller</label><label><input type="checkbox" name="room" value="Bod / garasje">Bod / garasje</label><label><input type="checkbox" name="room" value="Stue">Stue</label><label><input type="checkbox" name="room" value="Soverom">Soverom</label><label><input type="checkbox" name="room" value="Vaskerom">Vaskerom</label></div></fieldset></div>
+ <div class="field"><fieldset><legend>Hvor mye spor?</legend><div class="chips2">
+  <label><input type="radio" name="amount" value="1">Litt</label><label><input type="radio" name="amount" value="2" checked>En del</label><label><input type="radio" name="amount" value="3">Mye</label></div></fieldset></div>
+</form>
+<aside class="side2 result2" aria-live="polite" id="out"></aside>
+</div></section>
+<section class="band" style="padding-top:0"><div class="wrap" style="max-width:860px">
+<h2>Slik setter du fellene</h2>
+<ul>
+<li>Sett fellene langs veggene der musene ferdes – på gulvet og gjerne oppe ved taket – med utløseren inn mot veggen.</li>
+<li>Sett to feller ved siden av hverandre, omtrent 2–3 cm fra hverandre, eller to og to etter hverandre langs veggen.</li>
+<li>Jo flere feller, jo bedre. Mus har ofte kort aksjonsradius, så fellene må stå tett.</li>
+<li>Bruk åte som lukter godt. Det må konkurrere med all annen mat musene har tilgang på.</li>
+<li>Sjekk fellene daglig, og sett feller i alle etasjer – også bod, kaldtloft og krypkjeller.</li>
+</ul>
+<p class="small mute">Kilder: <a href="https://fhi.no/sk/skadedyrhandboka/gnagere/klatremus">FHI: Klatremus</a>, <a href="https://fhi.no/sk/skadedyrhandboka/gnagere/rodmus">FHI: Rødmus</a>, <a href="https://www.huseierne.no/alt-om-bolig/inneklima-og-miljo/mus-som-skadedyr-forebygge-og-bekjempe/">Huseierne: Mus som skadedyr</a>. Antallet er vår tommelfingerregel ut fra disse rådene, ikke en fast norm.</p>
+</div></section>
+<script>{
+const f=document.getElementById("f"),out=document.getElementById("out");
+const SHOP="https://skadedyrbutikken.no/produkter/gnagere?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=fellekalkulator";
+function calc(){
+ const d=new FormData(f),pest=d.get("pest"),type=d.get("type"),floors=+d.get("floors"),amount=+d.get("amount"),rooms=d.getAll("room");
+ const pairsPer=amount,active=rooms.map(r=>[r,pairsPer*2]);
+ const monitor=Math.max(0,floors-Math.min(floors,new Set(rooms.map(r=>/Loft/.test(r)?"loft":/Kjeller/.test(r)?"kjeller":"hoved")).size))*2;
+ let total=active.reduce((a,[,n])=>a+n,0)+monitor;
+ const multi=type==="hytte";
+ let html=`<span class="small mute">Forslag</span><div class="num">${total}</div><p style="margin:0">${pest==="rotte"?"rottefeller":multi?"feller – gjerne noen fleremusfeller":"musefeller (klappfeller)"}</p>`;
+ if(pest==="rotte")html+=`<div class="warn"><b>Rotter innendørs?</b><br>Rotter er ofte sky for nye gjenstander, og bekjempelsen er vanskeligere enn for mus. Vi anbefaler å kontakte en skadedyrbekjemper.</div>`;
+ html+="<table>"+active.map(([r,n])=>`<tr><td>${r}</td><td>${n} feller</td></tr>`).join("")+(monitor?`<tr><td>Overvåking i øvrige etasjer</td><td>${monitor} feller</td></tr>`:"")+"</table>";
+ if(!rooms.length)html+=`<p class="mute small">Ingen spor ennå? Sett et par feller i hver etasje for å følge med, og <a href="tett-huset.html" style="color:var(--y)">tett huset</a>.</p>`;
+ if(multi)html+=`<p class="mute small">I en hytte som står tom lenge, passer fleremusfeller som ikke må tømmes etter hver fangst.</p>`;
+ html+=`<a class="btn y arrow" href="${SHOP}">Se feller hos Skadedyrbutikken </a><p class="small mute" style="margin:12px 0 0">Tetter du ikke inngangene, kommer nye mus inn. <a href="tett-huset.html" style="color:var(--y)">Bruk sjekklisten</a>.</p>`;
+ out.innerHTML=html;
+}
+f.addEventListener("change",calc);calc();
+}</script></main>
+<footer class="band"><div class="wrap">
+  <div class="cols">
+    <div><a class="logo" href="../index.html">Skadedyrguiden<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Et konsept fra Skadedyrbutikken.</p></div>
+    <div><h3>Les</h3><ul><li><a href="../index.html#leksikon">Leksikon</a></li><li><a href="../index.html#artikler">Artikler</a></li><li><a href="../podkast.html">Podkast</a></li></ul></div>
+    <div><h3>Verktøy</h3><ul><li><a href="../index.html#hvadet">Hva er det?</a></li><li><a href="../index.html#kalender">Sesongkalender</a></li></ul></div>
+    <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/produkter/gnagere?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=footer">Gnagere</a></li><li><a href="https://skadedyrbutikken.no/produkter/insekter?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=footer">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
+  </div>
+  <div class="base">Bildene på siden er AI-genererte illustrasjonsfoto.</div>
+</div></footer>
+</body>
+</html>

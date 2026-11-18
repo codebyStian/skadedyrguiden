@@ -44,7 +44,7 @@
 
   const SP = [["mus", "Husmus"], ["rotte", "Brunrotte"], ["skjeggkre", "Skjeggkre"], ["veps", "Stikkeveps"], ["flatt", "Flått"]];
 
-  let geo = null, stats = null, loc = store.get("sg-loc"), wx = null;
+  let geo = null, stats = null, regions = null, loc = store.get("sg-loc"), wx = null;
 
   /* ---------- geometri ---------- */
   function P(lon, lat) {
@@ -196,8 +196,9 @@
   /* ---------- panel ---------- */
   function maxOf(sp) { return Math.max(...Object.values(stats.gbif.fylker).map((r) => r[sp] || 0), 1); }
   function articles(region) {
-    return `<h3 class="ph3">Aktuelt for ${REGION[region].name}</h3><div class="rarts">${REGION[region].arts.map(([c, t]) =>
-      `<a href="#artikler"><span class="cat">${c}</span><b>${esc(t)}</b><span class="soon">Ikke skrevet ennå</span></a>`).join("")}</div>`;
+    const list = regions?.[region]; if (!list?.length) return "";
+    return `<h3 class="ph3">Aktuelt for ${REGION[region].name}</h3><div class="rarts">${list.map((a) =>
+      `<a href="artikler/${a.slug}.html"><span class="cat">${esc(a.cat)}</span><b>${esc(a.title)}</b><span class="soon">Les</span></a>`).join("")}</div>`;
   }
   function monthNow() {
     if (!stats?.fhi?.monthly) return "";
@@ -317,7 +318,7 @@
   /* ---------- oppstart ---------- */
   async function init() {
     startFX();
-    [geo, stats] = await Promise.all([getJSON("data/norge.json"), getJSON("data/stats.json")]);
+    [geo, stats, regions] = await Promise.all([getJSON("data/norge.json"), getJSON("data/stats.json"), getJSON("data/regions.json")]);
     calendar(); photo();
     if (!geo || !stats) { const p = $("#panel"); if (p) p.innerHTML = `<p class="mute">Kartdata er ikke tilgjengelig her.</p>`; return; }
     renderMap(); panelNational();
