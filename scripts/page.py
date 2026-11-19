@@ -21,7 +21,7 @@ def head(title, desc, base):
 <div class="note">Konseptskisse – eksempeltekst som må faktasjekkes før publisering.</div>
 <header class="top"><div class="wrap">
   <a class="logo" href="{base}index.html">Skadedyrguiden<i></i></a>
-  <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Leksikon</a><a href="{base}index.html#artikler">Artikler</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
+  <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Leksikon</a><a href="{base}artikler/index.html">Artikler</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
   <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 <main>
@@ -32,7 +32,7 @@ def foot(base):
 <footer class="band"><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="{base}index.html">Skadedyrguiden<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Et konsept fra Skadedyrbutikken.</p></div>
-    <div><h3>Les</h3><ul><li><a href="{base}index.html#leksikon">Leksikon</a></li><li><a href="{base}index.html#artikler">Artikler</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
+    <div><h3>Les</h3><ul><li><a href="{base}index.html#leksikon">Leksikon</a></li><li><a href="{base}artikler/index.html">Artikler</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
   </div>
@@ -187,7 +187,8 @@ def regional_pages():
         chk = f'<p style="margin-top:22px"><a class="btn y arrow" href="../index.html#hvadet">{q} Last opp et bilde </a></p>' if q else ""
         box = f'<div class="box"><b>Usikker på hva du har funnet?</b>Last opp et bilde, så får du et forslag til art med kjennetegnene vurderingen bygger på, kontrollert mot Folkehelseinstituttets skadedyrhåndbok. <a href="../index.html#hvadet">Finn ut hvilket dyr det er →</a></div>' if q else ""
         regs = ", ".join(RN[r] for r in a["regions"])
-        others = [b for b in RA if b is not a and set(b["regions"]) & set(a["regions"])][:3]
+        same = [b for b in RA if b is not a and b["cat"] == a["cat"]]
+        others = (same + [b for b in RA if b is not a and b not in same and set(b["regions"]) & set(a["regions"])])[:3]
         body = f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
 <div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div>{chk}</div>
 <div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a["img"]}.webp" alt="" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
@@ -197,7 +198,7 @@ def regional_pages():
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
 <h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
 <p class="small mute">Artikkelen er skrevet for Skadedyrguiden og bygger på kildene over. Den erstatter ikke råd fra en fagperson.</p>
-{('<h2>Les også</h2><ul>' + "".join(f'<li><a href="{b["slug"]}.html">{H.escape(b["title"])}</a></li>' for b in others) + '</ul>') if others else ""}
+{('<h2>Les også</h2><div class="also">' + "".join(f'<a href="{b["slug"]}.html"><div class="ph" data-label="{H.escape(b["cat"])}"><img src="../assets/img/{b["img"]}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()"></div><span class="small mute">{H.escape(b["cat"])}</span><b>{H.escape(b["title"])}</b></a>' for b in others) + '</div>') if others else ""}
 </div></article>'''
         (ROOT / "artikler" / (a["slug"] + ".html")).write_text(head(a["title"] + " – Skadedyrguiden", a["lead"], "../") + body + foot("../"), encoding="utf-8")
     allart = [{k: a[k] for k in ("slug", "title", "cat", "img", "regions", "months")} for a in RA] + EXTRA
@@ -213,7 +214,7 @@ def regional_pages():
 
 if __name__ == "__main__":
     regional_pages()
-    import extra; extra.build(head, foot, prod, recs); extra.newsletter_pages(head, foot); extra.credits_page(head, foot)
+    import extra; extra.build(head, foot, prod, recs); extra.newsletter_pages(head, foot); extra.credits_page(head, foot); extra.articles_index(head, foot)
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")

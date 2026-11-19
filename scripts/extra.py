@@ -122,3 +122,18 @@ Bildene er skalert, og noen er beskåret slik at dyret fyller bildet. Beskårne 
 <li>Skrifter: Instrument Serif og Schibsted Grotesk (SIL Open Font License).</li>
 </ul></div></section>'''
     (ROOT / "kilder-og-lisenser.html").write_text(head("Kilder, foto og lisenser – Skadedyrguiden", "Kreditering av artsfoto, data og fagkilder brukt på Skadedyrguiden.", "") + body + foot(""), encoding="utf-8")
+
+
+def articles_index(head, foot):
+    """Oversikt over alle artikler med bilder og filter per kategori."""
+    from articles import ARTICLES, EXTRA
+    arts = ARTICLES + EXTRA
+    cats = sorted({a["cat"] for a in arts})
+    cards = "".join(f'''<a href="{a["slug"]}.html" data-c="{H.escape(a["cat"])}"><div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a.get("img") or "hero"}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
+<span class="small mute">{H.escape(a["cat"])}</span><b>{H.escape(a["title"])}</b>{f'<span class="mute" style="font-size:15px">{H.escape(a.get("lead", "")[:140])}…</span>' if a.get("lead") else ""}</a>''' for a in arts)
+    body = f'''<section class="band"><div class="wrap"><span class="kicker">Fagartikler</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Alle <em>artikler</em></h1>
+<p class="mute" style="font-size:19px;max-width:56ch">{len(arts)} artikler om skadedyr i hus, hytte og hage – skrevet med Folkehelseinstituttet og andre offentlige kilder i ryggen.</p>
+<div class="afil" id="af"><button type="button" aria-pressed="true" data-c="">Alle</button>{"".join(f'<button type="button" aria-pressed="false" data-c="{H.escape(c)}">{H.escape(c)}</button>' for c in cats)}</div>
+<div class="agrid" id="ag">{cards}</div></div></section>
+<script>document.getElementById("af").onclick=e=>{{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#af button").forEach(x=>x.setAttribute("aria-pressed",x===b));document.querySelectorAll("#ag a").forEach(a=>a.hidden=b.dataset.c&&a.dataset.c!==b.dataset.c)}}</script>'''
+    (ROOT / "artikler" / "index.html").write_text(head("Alle artikler om skadedyr – Skadedyrguiden", "Fagartikler om mus, rotter, maur, skjeggkre, veps, flått, grevling og andre skadedyr i hus, hytte og hage.", "../") + body + foot("../"), encoding="utf-8")
