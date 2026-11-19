@@ -5,11 +5,11 @@ PICTURE: store redaksjonelle fotografier (Gemini/Imagen), ett per skadedyr
 COLOUR and TYPE: hvit grunn, dyp furugrønn for mørke flater, signalgul som eneste aksent; Instrument Serif i titler, Schibsted Grotesk i tekst
 LAYOUT: helbilde-hero med søk, leksikonrutenett, magasinoppsett for artikler, mørke bånd for verktøy og podkast
 */
-:root{color-scheme:light dark;
+:root{color-scheme:light;
 --bg:light-dark(#ffffff,#0c1210);--ink:light-dark(#111715,#ecefed);--mute:light-dark(#5a6561,#9eaaa5);
 --soft:light-dark(#f1f3f2,#151d1a);--line:light-dark(#e1e5e3,#25302c);
 --pine:#0f2a24;--pine2:#163a32;--y:#f2c230;--onDark:#eef3f1;--muteDark:#a8bab3}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+:root,:root[data-theme=dark]{color-scheme:light}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
