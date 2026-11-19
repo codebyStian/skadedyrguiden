@@ -51,7 +51,39 @@ def run_multipart(model, fields):
     return base64.b64decode(j["result"]["image"])
 
 
+REFS = ["hero", "hytte"]  # stilreferanser for Gemini: eksisterende bilder på siden
+
+
+def gen_gemini(prompt, ar):
+    """Gemini-bilde med to eksisterende bilder som stilreferanse, så nye bilder får samme fotostil og fargetone."""
+    import base64
+    parts = [{"text": f"Create a new photograph: {prompt}\nAspect ratio {ar}. Match the photographic style, lens, light, colour grading and calm mood of the two reference photos exactly, but show the new scene described. No text, no logos, no people's faces."}]
+    for r in REFS:
+        f = OUT / f"{r}.webp"
+        if f.exists():
+            im = Image.open(f).convert("RGB"); im.thumbnail((768, 768)); b = io.BytesIO(); im.save(b, "JPEG", quality=85)
+            parts.append({"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(b.getvalue()).decode()}})
+    body = {"contents": [{"role": "user", "parts": parts}], "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": ar}}}
+    errs = []
+    for m in ["gemini-3.1-flash-image", "gemini-3.1-flash-image-preview"]:
+        try:
+            r = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent", data=json.dumps(body).encode(),
+                                       headers={"Content-Type": "application/json", "x-goog-api-key": os.environ["GEMINI_API_KEY"]})
+            d = json.load(urllib.request.urlopen(r, timeout=180))
+            for p in d["candidates"][0]["content"]["parts"]:
+                if "inlineData" in p or "inline_data" in p:
+                    return m, base64.b64decode((p.get("inlineData") or p.get("inline_data"))["data"])
+            errs.append(f"{m}: no image")
+        except urllib.error.HTTPError as e:
+            errs.append(f"{m}: HTTP {e.code} {e.read()[:200].decode(errors='replace')}")
+        except Exception as e:
+            errs.append(f"{m}: {e}")
+    raise RuntimeError(" | ".join(errs))
+
+
 def gen(prompt, ar):
+    if os.environ.get("PROVIDER") == "gemini":
+        return gen_gemini(prompt, ar)
     w, h = size_for(ar)
     errs = []
     for m in MODELS:

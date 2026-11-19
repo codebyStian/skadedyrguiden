@@ -5,12 +5,13 @@ name: Generate images (Cloudflare Workers AI)
 on:
   push:
     branches: [main]
-    paths: ["scripts/images.json", "scripts/gen_images.py", ".github/workflows/images.yml"]
+    paths: ["scripts/images.json"]
   schedule: [{ cron: "30 0 * * *" }, { cron: "50 0 * * *" }]   # etter at gratiskvotene nullstilles (00:00 UTC); 00:50 bruker Workers-kontoen
   workflow_dispatch:
     inputs:
       account: { description: "Cloudflare-konto: images (standard) eller workers", required: false, default: "images" }
       model: { description: "Modell (tomt = beste tilgjengelige)", required: false, default: "" }
+      provider: { description: "cloudflare (gratis) eller gemini (betalt, med stilreferanse)", required: false, default: "cloudflare" }
       names: { description: "Bilder som skal lages på nytt (mellomromsseparert, tomt = bare manglende)", required: false, default: "" }
 
 permissions: { contents: write, actions: write }
@@ -38,6 +39,8 @@ jobs:
           CF_ACCOUNT_ID: ${{ steps.acct.outputs.id || secrets.CF_ACCOUNT_ID }}
           CF_API_TOKEN: ${{ steps.acct.outputs.use == 'workers' && secrets.CF_WORKERS_TOKEN || secrets.CF_API_TOKEN }}
           MODEL: ${{ inputs.model }}
+          PROVIDER: ${{ inputs.provider }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FORCE: ${{ inputs.names != '' && '1' || '' }}
         run: python scripts/gen_images.py ${{ inputs.names }}
       - name: Commit
