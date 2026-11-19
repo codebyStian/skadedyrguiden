@@ -112,3 +112,6 @@ section[id]{scroll-margin-top:84px}
 @media(max-width:640px){.also{grid-template-columns:1fr 1fr}}
 .agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:28px 22px;margin-top:26px}.agrid a{text-decoration:none;display:flex;flex-direction:column;gap:8px}.agrid .ph{aspect-ratio:4/3;border-radius:16px;overflow:hidden}.agrid .ph img{width:100%;height:100%;object-fit:cover}.agrid b{font-size:19px;line-height:1.3}
 .afil{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.afil button{min-height:38px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 14.5px "Schibsted Grotesk",sans-serif;cursor:pointer}.afil button[aria-pressed=true]{background:#0f2a24;color:#fff}
+.twin{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:14px}.twin .tw{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:6px 0;font-size:14px}.twin .tw b{text-align:right}.twin .btn{margin-top:10px}
+.conf.alt i{background:#9fb0aa}
+.twin .conf{margin:0}

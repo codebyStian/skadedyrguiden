@@ -348,12 +348,18 @@
         <p><b>Det vi ser:</b> ${esc(r.visible)}</p>
         ${r.matched?.length ? `<p><b>Kjennetegn som stemmer (FHI):</b></p><ul>${r.matched.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>` : ""}
         <p class="mute small"><b>Kvalitetskontroll:</b> ${esc(r.check)}</p>
-        ${r.confusable?.length ? `<p class="mute small"><b>Kan forveksles med:</b> ${r.confusable.map((c) => `${esc(c.name)} – ${esc(c.how)}`).join("; ")}</p>` : ""}
-        ${r.alternatives?.length ? `<p class="mute small">Andre muligheter: ${r.alternatives.map((a) => `${esc(a.name)} (${a.confidence} %)`).join(", ")}</p>` : ""}
+        ${r.twin ? `<div class="twin"><p class="small"><b>Ligner mye på ${esc(r.twin.name.toLowerCase())}</b> – ${esc(r.twin.how)}.</p>
+          <div class="tw"><span>${esc(r.name)}</span><div class="conf"><i style="width:${r.confidence}%"></i></div><b>${r.confidence} %</b></div>
+          <div class="tw"><span>${esc(r.twin.name)}</span><div class="conf alt"><i style="width:${r.twin.confidence ?? 0}%"></i></div><b>${r.twin.confidence != null ? r.twin.confidence + " %" : "–"}</b></div>
+          ${LXS[r.id] ? `<a class="btn arrow" href="leksikon/${LXS[r.id]}.html#forveksling">Se forskjellen side om side </a>` : ""}</div>` : ""}
+        ${r.alternatives?.filter((a) => a.id !== r.twin?.id).length ? `<p class="mute small">Andre muligheter: ${r.alternatives.filter((a) => a.id !== r.twin?.id).map((a) => `${esc(a.name)} (${a.confidence} %)`).join(", ")}</p>` : ""}
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">${r.pest ? `<button class="btn y arrow" type="button" data-k="${esc(r.id)}">Hva gjør jeg nå? </button>` : `<span class="btn" style="pointer-events:none">Ikke et skadedyr</span>`}<a class="btn arrow" href="${esc(r.source.url)}" rel="noopener">${esc(r.source.title)} </a></div>
         <p class="small mute" style="margin:14px 0 0">Dette er en automatisk vurdering, ikke en fagdiagnose. Usikker? Send bildet til FHI på skadedyr@fhi.no eller kontakt en skadedyrtekniker. Bildet lagres ikke.</p></div>`;
     }
   }
+
+  const LXS = { mus: "husmus", skogmus: "skogmus", rotte: "brunrotte", veggedyr: "veggedyr", svaletege: "svaletege", skjeggkre: "skjeggkre", solvkre: "solvkre",
+    veps: "stikkeveps", kjempetreveps: "kjempetreveps", stokkmaur: "stokkmaur", skogsmaur: "rod-skogsmaur", jordmaur: "svart-jordmaur", melmoll: "melmoll", kakerlakk: "tysk-kakerlakk", flatt: "skogflatt" };
 
   /* ---------- månedens tips (hytte/hjem) ---------- */
   function monthTip() {

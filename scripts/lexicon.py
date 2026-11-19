@@ -144,7 +144,7 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
 <section><h2>Slik kjenner du den igjen</h2><ul class="feat">{feats}</ul></section>
 {infoh}
 {RECS("sp:" + s["id"], "leksikon-" + s["id"], "Utstyr mot " + s["name"].lower()) if s["pest"] and RECS else ""}
-{f"<section><h2>Kan forveksles med</h2>{vs}</section>" if vs else ""}
+{f'<section id="forveksling"><h2>Kan forveksles med</h2>{vs}</section>' if vs else ""}
 {bars}
 {f'<section><h2>Les mer</h2><div class="rel">{relh}</div></section>' if relh else ""}
 <section><h2>Flere i leksikonet</h2><div class="more">{more}</div></section>

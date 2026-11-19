@@ -151,13 +151,22 @@ async function handle(req, env) {
     if (c.verdict === "avvist") conf = Math.min(conf, 0.25);
     if (v.image_quality === "dårlig") conf = Math.min(conf, 0.4);
     if (cands[1] && cands[1].confidence > top.confidence - 0.15) conf = Math.min(conf, 0.55);
+    // Tak: over 80 % bare når kontrollen bekrefter og minst to kjennetegn fra faktaarket synes i bildet
+    if (c.verdict !== "bekreftet" || (top.matched || []).length < 2) conf = Math.min(conf, 0.8);
     const level = conf >= 0.75 && c.verdict === "bekreftet" ? "sannsynlig" : conf >= 0.45 ? "mulig" : "usikker";
     const s = BY_ID[top.id];
+    const scale = top.confidence ? conf / top.confidence : 1;   // alternativene skaleres likt med toppforslaget
+    const alts = cands.slice(1).map((a) => ({ id: a.id, name: BY_ID[a.id].name, confidence: Math.min(Math.round(a.confidence * scale * 100), Math.round(conf * 100) - 1) })).filter((a) => a.confidence > 0);
+    // Forvekslingsart: den nærmeste arten fra faktaarket, med prosent hvis modellen vurderte den
+    const twinId = (s.confusable.find((x) => alts.some((a) => a.id === x.id)) || s.confusable[0] || {}).id;
+    const twin = twinId && BY_ID[twinId] ? { id: twinId, name: BY_ID[twinId].name, latin: BY_ID[twinId].latin, how: s.confusable.find((x) => x.id === twinId)?.how || "",
+      confidence: alts.find((a) => a.id === twinId)?.confidence ?? null } : null;
     return json({
+      twin,
       level, confidence: Math.round(conf * 100), id: s.id, name: s.name, latin: s.latin, pest: s.pest,
       visible: v.visible, quality: v.image_quality, matched: top.matched, check: c.reason,
       checkedFacts: s.checked, source: s.source,
-      alternatives: cands.slice(1).map((a) => ({ id: a.id, name: BY_ID[a.id].name, confidence: Math.round(a.confidence * 100) })),
+      alternatives: alts,
       confusable: s.confusable.map((x) => ({ name: BY_ID[x.id]?.name || x.id, how: x.how })), model,
     }, 200, h);
   }
