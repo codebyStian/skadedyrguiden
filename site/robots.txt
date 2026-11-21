@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://codebystian.github.io/skadedyrguiden/sitemap.xml
+Sitemap: https://kryp.as/sitemap.xml

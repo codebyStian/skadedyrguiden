@@ -6,7 +6,7 @@ from PIL import Image
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 IMG = REPO / "site/assets/img"; OUT = REPO / "site/data/photos.json"
-UA = {"User-Agent": "Skadedyrguiden/1.0 (https://codebystian.github.io/skadedyrguiden; species photos)"}
+UA = {"User-Agent": "Skadedyrguiden/1.0 (https://kryp.as; species photos)"}
 TAXON = {"mus": "Mus musculus", "skogmus": "Apodemus sylvaticus", "rotte": "Rattus norvegicus", "veggedyr": "Cimex lectularius", "svaletege": "Oeciacus hirundinis",
          "skjeggkre": "Ctenolepisma longicaudatum", "solvkre": "Lepisma saccharinum", "veps": "Vespula vulgaris", "kjempetreveps": "Urocerus gigas",
          "stokkmaur": "Camponotus herculeanus", "skogsmaur": "Formica rufa", "jordmaur": "Lasius niger", "melmoll": "Plodia interpunctella",

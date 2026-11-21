@@ -7,5 +7,5 @@ workers_dev = true
 binding = "AI"
 
 [vars]
-SITE_URL = "https://codebystian.github.io/skadedyrguiden"
-ALLOWED_ORIGINS = "https://codebystian.github.io,http://localhost:8000"
+SITE_URL = "https://kryp.as"
+ALLOWED_ORIGINS = "https://kryp.as,https://www.kryp.as,https://codebystian.github.io,http://localhost:8000"

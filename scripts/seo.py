@@ -6,7 +6,7 @@ import datetime, html as H, json, os, pathlib, re, sys
 REPO = pathlib.Path(__file__).resolve().parent.parent
 SITE = REPO / "site"
 sys.path.insert(0, str(REPO / "scripts"))
-BASE = os.environ.get("SITE_URL", "https://codebystian.github.io/skadedyrguiden").rstrip("/")
+BASE = os.environ.get("SITE_URL", "https://kryp.as").rstrip("/")
 PREVIEW = os.environ.get("PREVIEW", "1") == "1"
 TODAY = datetime.date.today().isoformat()
 NAME = "Skadedyrguiden"

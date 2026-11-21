@@ -16,7 +16,7 @@ SITE = REPO / "site"; OUT = SITE / "nyhetsbrev"; OUT.mkdir(exist_ok=True)
 sys.path.insert(0, str(REPO / "scripts"))
 from articles import ARTICLES, EXTRA  # noqa: E402
 
-BASE = os.environ.get("SITE_URL", "https://codebystian.github.io/skadedyrguiden").rstrip("/")
+BASE = os.environ.get("SITE_URL", "https://kryp.as").rstrip("/")
 MODE = os.environ.get("MODE", "build")
 MODELS = ["gemini-3.8-flash", "gemini-flash-latest", "gemini-3.5-flash-lite"]
 MND = ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"]
