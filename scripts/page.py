@@ -2,7 +2,7 @@
 import json, pathlib, html as H
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
-SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign={}"
+SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=kryp.as&utm_medium=referral&utm_campaign={}"
 
 def head(title, desc, base):
     return f'''<!DOCTYPE html>
@@ -22,7 +22,7 @@ def head(title, desc, base):
 <header class="top"><div class="wrap">
   <a class="logo" href="{base}index.html">Kryp.as<i></i></a>
   <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Leksikon</a><a href="{base}artikler/index.html">Artikler</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
-  <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=header">Butikken </a>
+  <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 <main>
 '''
@@ -55,7 +55,7 @@ def recs_for(key):
 
 
 def utm(url, camp):
-    return url + ("&" if "?" in url else "?") + f"utm_source=skadedyrguiden&utm_medium=referral&utm_campaign={camp}"
+    return url + ("&" if "?" in url else "?") + f"utm_source=kryp.as&utm_medium=referral&utm_campaign={camp}"
 
 
 def price(p):
@@ -117,7 +117,7 @@ ARTICLES = {
 <ul><li>Sett bagasjen på badet eller på et bagasjestativ, ikke på sengen eller gulvet.</li><li>Trekk av lakenet i ett hjørne og se langs madrassens sømmer og kanter.</li><li>Se etter små svarte prikker, hudskall eller levende dyr.</li><li>Sjekk bak sengegavlen hvis den lar seg flytte.</li></ul>
 <div class="box"><b>Finner du noe?</b> Si fra i resepsjonen og be om et rom som ikke ligger vegg i vegg med det første.</div>
 <h2>Når du kommer hjem</h2>
-<p>Pakk ut på badet eller i gangen, ikke på soverommet. Skadedyrbutikken har en egen guide til bagasjen og klærne etter reisen: <a href="https://skadedyrbutikken.no/tips-og-raad/insekter/slik-unngaar-du-aa-faa-med-veggedyr-hjem-i-bagasjen?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-veggedyr" rel="noopener">Slik unngår du å få med veggedyr hjem i bagasjen →</a></p>
+<p>Pakk ut på badet eller i gangen, ikke på soverommet. Skadedyrbutikken har en egen guide til bagasjen og klærne etter reisen: <a href="https://skadedyrbutikken.no/tips-og-raad/insekter/slik-unngaar-du-aa-faa-med-veggedyr-hjem-i-bagasjen?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-veggedyr" rel="noopener">Slik unngår du å få med veggedyr hjem i bagasjen →</a></p>
 {recs("art:veggedyr-pa-reise", "art-veggedyr") or prod("Utstyr mot veggedyr", "Feller, overvåking og utstyr til reise og hjem.", "insekter", "art-veggedyr")}
 <h2>Mistenker du veggedyr hjemme?</h2>
 <p>Ikke flytt madrasser og møbler mellom rom, og ikke kast dem uinnpakket. Da sprer du problemet. Veggedyr er vanskelige å bli kvitt på egen hånd, så kontakt en skadedyrtekniker tidlig.</p>
@@ -131,25 +131,40 @@ PODCAST_T = '''<section class="band dark"><div class="wrap ahero">
 </div></section>
 <section class="band"><div class="wrap" style="max-width:900px">
 {PLAYER}
-<h2 style="margin-top:64px">Episoder</h2>
-<div style="display:grid;gap:14px">
-''' + "".join(f'''<div style="display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding:20px 0"><span style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></span><span><span class="small mute">Episode {n}</span><br><b>{t}</b><br><span class="small mute">{d}</span></span><span class="small mute" style="white-space:nowrap">{l}</span></div>
-''' for n,t,d,l in [
- (1,"Mus: småkrypet som kommer inn med høsten","Inngangsveier, feller og de vanligste feilene folk gjør.","24 min")]) + '''</div>
-<p class="small mute" style="margin-top:18px">Stemmene er laget med kunstig intelligens (Gemini). Manus er skrevet fra fagartiklene. Nye episoder kommer.</p>
+<h2 style="margin-top:64px">Alle episoder</h2>
+{EPISODES}
+<p class="small mute" style="margin-top:18px">Stemmene er laget med kunstig intelligens (Gemini). Manus er skrevet fra fagartiklene.</p>
 </div></section>
 '''
 
+def episodes():
+    import html
+    eps = []
+    for f in sorted((pathlib.Path(__file__).resolve().parent.parent / "podcast").glob("*.txt")):
+        lines = f.read_text().splitlines()
+        meta = {l[2:].split(":", 1)[0].strip(): l.split(":", 1)[1].strip() for l in lines if l.startswith("# ") and ":" in l and l[2:].split(":", 1)[0].strip() in ("title", "desc")}
+        rows = [l.split(":", 1) for l in lines if l.strip() and not l.startswith("#")]
+        eps.append({"n": int(f.stem[:2]), "slug": f.stem, "title": meta.get("title", f.stem), "desc": meta.get("desc", ""),
+                    "tr": "".join(f'<p><b>{html.escape(n)}</b> {html.escape(t.strip())}</p>' for n, t in rows)})
+    return eps
+
+
+def episode_list():
+    import html
+    return '<div style="display:grid;gap:14px">' + "".join(f'''<div style="border-bottom:1px solid var(--line);padding:20px 0"><span class="small mute">Episode {e["n"]}</span><br><b>{html.escape(e["title"])}</b><br><span class="small mute">{html.escape(e["desc"])}</span>
+<audio controls preload="none" src="assets/podcast/{e["slug"]}.mp3" style="width:100%;margin-top:10px"></audio>
+<details class="trans"><summary>Les hele samtalen</summary>{e["tr"]}</details></div>''' for e in reversed(episodes())) + '</div>'
+
+
 def player():
     import html
-    src = pathlib.Path(__file__).resolve().parent.parent / "podcast/01-mus-om-hosten.txt"
-    rows = [l.split(":", 1) for l in src.read_text().splitlines() if l.strip() and not l.startswith("#")]
-    tr = "".join(f'<p><b>{html.escape(n)}</b> {html.escape(t.strip())}</p>' for n, t in rows)
+    e = episodes()[-1]
+    tr = e["tr"]
     return f'''<div class="player" id="pl">
-<span class="kicker">Episode 1 · Nyeste</span>
-<h2 style="font-size:clamp(30px,3.6vw,44px)">Mus: småkrypet som kommer inn med høsten</h2>
-<p class="mute">Marte og Jonas om hvorfor musa kommer inn akkurat nå, hvilke tegn du ser etter, og hvordan du tetter riktig.</p>
-<audio id="au" preload="metadata" src="assets/podcast/01-mus-om-hosten.mp3"></audio>
+<span class="kicker">Episode {e["n"]} · Nyeste</span>
+<h2 style="font-size:clamp(30px,3.6vw,44px)">{html.escape(e["title"])}</h2>
+<p class="mute">{html.escape(e["desc"])}</p>
+<audio id="au" preload="metadata" src="assets/podcast/{e["slug"]}.mp3"></audio>
 <div class="pbar"><button class="pbtn" id="pb" type="button" aria-label="Spill av"><svg viewBox="0 0 24 24" width="22" height="22"><path id="pi" d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></button>
 <div class="ptrack"><input id="ps" type="range" min="0" max="1000" value="0" aria-label="Posisjon"><div class="ptime"><span id="pc">0:00</span><span id="pd">–:––</span></div></div></div>
 <p class="small mute" id="pmsg" style="margin:10px 0 0"></p>
@@ -219,5 +234,5 @@ if __name__ == "__main__":
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")
-    (ROOT / "podkast.html").write_text(head("Podkast – Kryp.as", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST_T.replace("{PLAYER}", player()) + foot(""), encoding="utf-8")
+    (ROOT / "podkast.html").write_text(head("Podkast – Kryp.as", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST_T.replace("{PLAYER}", player()).replace("{EPISODES}", episode_list()) + foot(""), encoding="utf-8")
     print("ok")

@@ -1,6 +1,6 @@
 """Interaktive verktøysider: «Tett huset»-sjekkliste og fellekalkulator. Bygges av scripts/page.py."""
 
-SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign={}"
+SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=kryp.as&utm_medium=referral&utm_campaign={}"
 
 STYLE = """<style>
 .tool-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end}
@@ -79,7 +79,7 @@ def _check_body():
 <p class="small mute" style="margin-top:14px">Har du allerede mus? <a href="fellekalkulator.html" style="color:var(--y)">Regn ut hvor mange feller du trenger</a>.</p></aside>
 </div></section>
 <script>{{
-const NEEDS={json.dumps(NEEDS, ensure_ascii=False)},SHOP=(c)=>"https://skadedyrbutikken.no/produkter/"+c+"?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=tett-huset";
+const NEEDS={json.dumps(NEEDS, ensure_ascii=False)},SHOP=(c)=>"https://skadedyrbutikken.no/produkter/"+c+"?utm_source=kryp.as&utm_medium=referral&utm_campaign=tett-huset";
 let st={{}};try{{st=JSON.parse(localStorage.getItem("sg-tett"))||{{}}}}catch(e){{}}
 const items=[...document.querySelectorAll(".item")];
 function save(){{try{{localStorage.setItem("sg-tett",JSON.stringify(st))}}catch(e){{}}}}
@@ -144,7 +144,7 @@ def _calc_body():
 </div></section>
 <script>{{
 const f=document.getElementById("f"),out=document.getElementById("out");
-const SHOP="https://skadedyrbutikken.no/produkter/gnagere?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=fellekalkulator";
+const SHOP="https://skadedyrbutikken.no/produkter/gnagere?utm_source=kryp.as&utm_medium=referral&utm_campaign=fellekalkulator";
 function calc(){{
  const d=new FormData(f),pest=d.get("pest"),type=d.get("type"),floors=+d.get("floors"),amount=+d.get("amount"),rooms=d.getAll("room");
  const pairsPer=amount,active=rooms.map(r=>[r,pairsPer*2]);

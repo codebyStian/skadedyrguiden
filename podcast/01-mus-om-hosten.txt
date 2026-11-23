@@ -1,12 +1,14 @@
-# Kryp & kunnskap, episode 1 (eksempel). Format: Navn: replikk
-Marte: Hei, og velkommen til Kryp og kunnskap. Jeg heter Marte.
+# Kryp & kunnskap, episode 1. Format: Navn: replikk
+# title: Mus: småkrypet som kommer inn med høsten
+# desc: Marte og Jonas om hvorfor musa kommer inn akkurat nå, hvilke tegn du ser etter, og hvordan du tetter riktig.
+Marte: Hei, og velkommen til Kryp og kunnskap, podkasten fra Kryp punktum a-s. Jeg heter Marte.
 Jonas: Og jeg er Jonas. I dag skal vi snakke om den lille gjesten som banker på døra hver eneste høst.
 Marte: Musa. Jonas, hvorfor er det akkurat nå i oktober og november at folk plutselig hører krafsing i taket?
 Jonas: Fordi musa er praktisk anlagt. Om sommeren finner den både mat og ly ute. Når nettene blir kalde og maten blir knappere, leter den etter et varmt og tørt sted. Og et hus er perfekt.
 Marte: Så det handler ikke om at huset er skittent?
 Jonas: Nei, det er en vanlig misforståelse. Mus kommer like gjerne inn i et nyvasket hus. Det som avgjør, er om de finner en åpning.
 Marte: Og der kommer det tallet folk ikke tror på.
-Jonas: Ja. En tommelfingerregel er at kommer en blyant gjennom hullet, kommer en mus også gjennom. De er utrolig smidige.
+Jonas: Ja. Folkehelseinstituttet anbefaler å tette alle åpninger større enn seks millimeter. En tommelfingerregel er at kommer en blyant gjennom hullet, kommer en mus også gjennom.
 Marte: Hvordan vet jeg at jeg faktisk har mus, og ikke bare et knirkete hus?
 Jonas: Se etter små, mørke ekskrementer, omtrent på størrelse med riskorn. Ofte langs vegger, i skuffer under vasken eller på loftet. Gnagemerker på matpakker eller isolasjon er også et tydelig tegn.
 Marte: Okei. Jeg har funnet tegnene. Hva gjør jeg først?
@@ -19,5 +21,5 @@ Marte: Når bør man gi opp og ringe en fagperson?
 Jonas: Hvis problemet kommer tilbake etter at du har tettet og satt feller, eller hvis du ser tegn på rotter. Ekskrementer på en til to centimeter er et varsko. Da bør du ringe en skadedyrtekniker.
 Marte: Så oppsummert: lommelykt, tetting med riktig materiale, feller langs veggen, og vit når du skal be om hjelp.
 Jonas: Helt riktig. Og gjør det før vinteren, ikke etter.
-Marte: Du finner hele guiden på Skadedyrguiden. Neste gang skal vi snakke om veggedyr, og hvorfor kofferten din er det viktigste stedet å sjekke.
+Marte: Du finner mer om mus, og en fellekalkulator, på kryp punktum a-s. Neste gang skal vi snakke om veggedyr, og hvorfor kofferten din er det viktigste stedet å sjekke.
 Jonas: Takk for at du lyttet. Ha en musefri høst!

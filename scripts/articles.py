@@ -126,7 +126,7 @@ ARTICLES = [
 </ul>
 """,
  "prod": ("Mot maur", "Åte og utstyr mot maur innendørs.", "insekter"),
- "guide": ("Slik bekjemper du maur", "https://skadedyrbutikken.no/tips-og-raad/insekter/slik-bekjemper-du-maur?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-stokkmaur-eller-skogsmaur"),
+ "guide": ("Slik bekjemper du maur", "https://skadedyrbutikken.no/tips-og-raad/insekter/slik-bekjemper-du-maur?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-stokkmaur-eller-skogsmaur"),
  "sources": [("FHI: Stokkmaur", f"{FHI}/maur/stokkmaur"), ("FHI: Rød skogsmaur", "https://www.fhi.no/sk/skadedyrveilederen/maur/rod-skogsmaur/"),
              ("FHI: Svart jordmaur", "https://www.fhi.no/nettpub/skadedyrveilederen/maur/svart-jordmaur/"), ("FHI: Statistikk om skadedyr", "https://fhi.no/tema/skadedyr/statistikk")]},
 {
@@ -148,7 +148,7 @@ ARTICLES = [
 <p>Det kan være vanskelig å skille mellom aktive og gamle angrep. Finner du ovale flygehull i konstruksjonen, bør du få en fagperson til å vurdere om angrepet er aktivt. Angrep utvikler seg sakte fordi livssyklusen er lang, så du har tid til å gjøre det riktig.</p>
 """,
  "prod": None,
- "guide": ("Husbukk i huset: guide til bekjempelse", "https://skadedyrbutikken.no/tips-og-raad/insekter/husbukk-i-huset-komplett-guide-til-effektiv-bekjempelse?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-husbukk"),
+ "guide": ("Husbukk i huset: guide til bekjempelse", "https://skadedyrbutikken.no/tips-og-raad/insekter/husbukk-i-huset-komplett-guide-til-effektiv-bekjempelse?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-husbukk"),
  "sources": [("FHI: Husbukk", f"{FHI}/biller/husbukk"), ("FHI: Blåbukk", f"{FHI}/biller/blabukk"), ("FHI: Statistikk om skadedyr", "https://fhi.no/tema/skadedyr/statistikk")]},
 {
  "slug": "vepsebol", "regions": ["sor", "midt"], "cat": "Veps", "min": 4, "img": "veps",
@@ -171,7 +171,7 @@ ARTICLES = [
 <p>Husk at veps også gjør nytte i naturen. Et bol langt unna der folk ferdes, kan ofte bare få være.</p>
 """,
  "prod": ("Mot veps", "Vepsefeller og utstyr til trygg fjerning av små bol.", "insekter"),
- "guide": ("Veps i hagen: slik fjerner du vepsebol", "https://skadedyrbutikken.no/tips-og-raad/insekter/veps-i-hagen-slik-fjerner-du-vepsebol-og-beskytter-deg-mot-stikk-i-sommer?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-vepsebol"),
+ "guide": ("Veps i hagen: slik fjerner du vepsebol", "https://skadedyrbutikken.no/tips-og-raad/insekter/veps-i-hagen-slik-fjerner-du-vepsebol-og-beskytter-deg-mot-stikk-i-sommer?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-vepsebol"),
  "sources": [("FHI: Stikkeveps", "https://www.fhi.no/nettpub/skadedyrveilederen/veps-og-bier/stikkeveps/"), ("FHI Statistikk – Skadedyrstatistikk", "https://statistikk.fhi.no/skast/")]},
 {
  "slug": "fukt-solvkre-skjeggkre", "regions": ["vest"], "cat": "Fukt", "min": 5, "img": "skjeggkre",
@@ -193,7 +193,7 @@ ARTICLES = [
 <p>Skjeggkre kan også haike med vesker, bager og sekker, for eksempel fra arbeidsplassen. Det gjør det vanskelig å forebygge helt.</p>
 """,
  "prod": ("Mot skjeggkre og sølvkre", "Åte og limfeller til overvåking.", "insekter"),
- "guide": ("Skjeggkre: slik holder du bestanden nede", "https://skadedyrbutikken.no/tips-og-raad/insekter/skjeggkre-hvordan-holde-bestanden-nede?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-fukt-solvkre-skjeggkre"),
+ "guide": ("Skjeggkre: slik holder du bestanden nede", "https://skadedyrbutikken.no/tips-og-raad/insekter/skjeggkre-hvordan-holde-bestanden-nede?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-fukt-solvkre-skjeggkre"),
  "sources": [("FHI: Skjeggkre", f"{FHI}/smadyr-andre/skjeggkre"), ("FHI: Sølvkre", "https://www.fhi.no/nettpub/skadedyrveilederen/smadyr-andre/solvkre-/"),
              ("FHI: Byggomfattende bekjempelse", f"{FHI}/forebygging-og-bekjempelse/byggomfattende-bekjempelse")]},
 {
@@ -408,7 +408,7 @@ ARTICLES += [
 </ul>
 """,
  "prod": ("Mot møll og pelsbiller", "Feromonfeller og oppbevaring.", "insekter"),
- "guide": ("Hvordan bli kvitt klesmøll", "https://skadedyrbutikken.no/tips-og-raad/insekter/hvordan-bli-kvitt-klesmoell?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-klesmoll-og-pelsbille"),
+ "guide": ("Hvordan bli kvitt klesmøll", "https://skadedyrbutikken.no/tips-og-raad/insekter/hvordan-bli-kvitt-klesmoell?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-klesmoll-og-pelsbille"),
  "sources": [("FHI: Klesmøll", f"{FHI}/moll-og-sommerfugler/klesmoll"), ("FHI Skadedyrveilederen: Klesmøll", "https://www.fhi.no/sk/skadedyrveilederen/moll-og-sommerfugler/klesmoll-/"),
              ("FHI: Brun pelsbille", f"{FHI}/biller/brun-pelsbille"), ("FHI: Forebygging av skadedyrangrep", f"{FHI}/forebygging-og-bekjempelse/forebygging-av-skadedyrangrep"),
              ("FHI: Bekjempelse av skadedyr", f"{FHI}/forebygging-og-bekjempelse/bekjempelse-av-skadedyr")]},
@@ -532,7 +532,7 @@ ARTICLES += [
 <p>Hvis det lukter vondt fra veggen over tid, eller lyden kommer tilbake etter at du har tettet og fanget i flere uker, finnes det fortsatt en åpen vei inn. Da er det lurt å få en godkjent skadedyrbekjemper til å se på huset.</p>
 """,
  "prod": ("Feller og tettemidler for mus", "Klappfeller, fellebokser og netting til ventiler og gjennomføringer.", "gnagere"),
- "guide": ("Mus i veggen: slik håndterer du dem", "https://skadedyrbutikken.no/tips-og-raad/gnagere/mus-i-veggen-hvordan-haandtere-dette-skadedyret-effektivt?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-mus-i-veggen"),
+ "guide": ("Mus i veggen: slik håndterer du dem", "https://skadedyrbutikken.no/tips-og-raad/gnagere/mus-i-veggen-hvordan-haandtere-dette-skadedyret-effektivt?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-mus-i-veggen"),
  "sources": [("FHI Skadedyrhåndboka: Husmus", f"{FHI}/gnagere/husmus"), ("FHI Skadedyrhåndboka: Småskogmus", f"{FHI}/gnagere/smaskogmus"),
              ("FHI Skadedyrhåndboka: Brunrotte", f"{FHI}/gnagere/brunrotte")]},
 {

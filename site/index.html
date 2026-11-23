@@ -238,7 +238,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 <header class="top"><div class="wrap">
   <a class="logo" href="./">Kryp.as<i></i></a>
   <nav class="nav" aria-label="Hovedmeny"><a href="leksikon/index.html">Leksikon</a><a href="#artikler">Artikler</a><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a><a href="podkast.html">Podkast</a><a href="#verktoy">Verktøy</a><a href="sporsmal-og-svar.html">Spørsmål og svar</a></nav>
-  <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=header">Butikken </a>
+  <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 
 <main>
@@ -342,7 +342,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <div>
     <span class="kicker">Podkast</span>
     <h2>Kryp &amp; kunnskap</h2>
-    <p class="mute" style="max-width:48ch">Ett skadedyr per episode: hvordan det lever, hvorfor det kommer inn, og hva som faktisk virker. Rundt 25 minutter.</p>
+    <p class="mute" style="max-width:48ch">Ett skadedyr per episode: hvordan det lever, hvorfor det kommer inn, og hva som faktisk virker. Korte episoder du kan høre på veien.</p>
     <div id="eps" style="margin:26px 0"></div>
     <a class="btn arrow" href="podkast.html">Til podkasten </a>
   </div>
@@ -353,7 +353,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
     <span class="kicker">For bedrift</span>
     <h2>Skadedyrsikring du kan <em>dokumentere</em></h2>
     <p class="mute">For bakerier, restauranter, lager og borettslag: hva internkontrollen bør vise, hvordan du setter opp overvåking, og når du trenger en avtale med en skadedyrtekniker.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn y arrow" href="https://skadedyrbutikken.no/produkter/proff-produkter?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=bedrift">Proffprodukter </a><a class="btn arrow" href="#verktoy">Kurs og maler </a></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn y arrow" href="https://skadedyrbutikken.no/produkter/proff-produkter?utm_source=kryp.as&utm_medium=referral&utm_campaign=bedrift">Proffprodukter </a><a class="btn arrow" href="#verktoy">Kurs og maler </a></div>
   </div>
   <div class="ph"><img src="assets/img/bedrift.webp" alt="Profesjonelt bakeri med åtestasjon langs veggen" loading="lazy" onerror="this.remove()"></div>
 </div></section>
@@ -402,7 +402,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
     <div><a class="logo" href="./">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
     <div><h3>Les</h3><ul><li><a href="#leksikon">Leksikon</a></li><li><a href="#artikler">Artikler</a></li><li><a href="podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
-    <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
+    <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
   </div>
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>
@@ -414,7 +414,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 
 <script>
 {
-const U=(p,c)=>'https://skadedyrbutikken.no/produkter/'+p+'?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign='+c;
+const U=(p,c)=>'https://skadedyrbutikken.no/produkter/'+p+'?utm_source=kryp.as&utm_medium=referral&utm_campaign='+c;
 const IMG=n=>`<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">`;
 const P=[
  {k:'mus',n:'Mus',l:'Husmus · Mus musculus',s:'Sep–mar',where:'Loft, kjeller, hytte',size:'7–10 cm + hale',signs:['Små mørke ekskrementer på størrelse med riskorn','Gnagemerker på isolasjon og matpakker','Krafsing i tak og vegger om natten'],first:'Finn og tett åpninger rundt rør, under dører og i takfoten. Sett feller langs veggene der musa går.',cat:'gnagere',art:'artikler/mus-om-hosten.html',tags:'mus gnager loft krafsing ekskrementer'},
@@ -488,7 +488,7 @@ fetch('data/articles.json').then(r=>r.json()).then(all=>{
   draw('Alle');
 }).catch(()=>{});
 
-document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten','24 min']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===0?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">${i===0?'Lytt nå':l}</span></a>`).join('');
+document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten'],['Veggedyr: den uønskede souveniren'],['Skjeggkre: hvorfor nye boliger får dem']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===2?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">Lytt nå</span></a>`).join('');
 
 
 document.getElementById('shop').innerHTML=[['Gnagere','gnagere'],['Insekter','insekter'],['Fugler','fugler'],['Hus og hage','hus-og-hage'],['Verneutstyr','verktoey-og-verneutstyr'],['Lagersalg','lagersalg']].map(([t,p])=>`<a href="${U(p,'shopgrid')}">${t}<span aria-hidden="true">→</span></a>`).join('');

@@ -3,7 +3,7 @@ import json, html as H, pathlib
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 ROOT = REPO / "site"
-SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign={}"
+SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=kryp.as&utm_medium=referral&utm_campaign={}"
 
 # Hvilke artikler hører til hvilken art (for intern lenking)
 REL = {"mus": ["mus-om-hosten", "fjellhytta", "hytta-ved-sjoen"], "skogmus": ["mus-pa-garden", "smagnagerar"], "rotte": ["rotter-i-byen"],

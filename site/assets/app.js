@@ -211,7 +211,7 @@
   const price = (p) => { const n = parseFloat(String(p).replace(",", ".")); return isFinite(n) ? Math.round(n).toLocaleString("nb-NO") + " kr" : ""; };
   function recsHTML(key, camp, n = 3, title = "Riktig utstyr") {
     const list = (RECS && RECS[key] || []).slice(0, n); if (!list.length) return "";
-    const u = (x) => x + (x.includes("?") ? "&" : "?") + "utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=" + camp;
+    const u = (x) => x + (x.includes("?") ? "&" : "?") + "utm_source=kryp.as&utm_medium=referral&utm_campaign=" + camp;
     return `<div class="recs cmp"><div class="rch"><h3 class="ph3" style="margin:0">${esc(title)}</h3></div><div class="rcg">${list.map((r) =>
       `<a class="rc" href="${esc(u(r.url))}" rel="sponsored noopener"><div class="rci">${r.image ? `<img src="${esc(r.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</div><div class="rcb"><span class="rcr">${esc(r.role || "")}</span><b>${esc(r.name)}</b><span class="rcw">${esc(r.why || "")}</span><span class="rcp">${price(r.price)}<i>Se produktet →</i></span></div></a>`).join("")}</div></div>`;
   }
