@@ -74,7 +74,8 @@ def main():
             ld += [{"@context": "https://schema.org", **crumbs([home, (title.split(" – ")[0], u)])}]
             otype = "website"
         # E-postversjonen av nyhetsbrevet og bekreftelsessidene skal aldri indekseres (duplikat / tynt innhold).
-        hidden = rel.endswith(".email.html") or rel in ("nyhetsbrev/bekreftet.html", "nyhetsbrev/avmeldt.html", "nyhetsbrev/ugyldig.html")
+        NEWSLETTER = os.environ.get("NEWSLETTER", "0") == "1"   # skjult til Brevo er koblet til
+        hidden = rel.endswith(".email.html") or rel in ("nyhetsbrev/bekreftet.html", "nyhetsbrev/avmeldt.html", "nyhetsbrev/ugyldig.html") or (rel.startswith("nyhetsbrev/") and not NEWSLETTER)
         if rel.endswith(".email.html"):
             u = BASE + "/" + rel.replace(".email.html", ".html")
         robots = "noindex, nofollow, noarchive" if PREVIEW else ("noindex, follow" if hidden else "index, follow, max-image-preview:large")

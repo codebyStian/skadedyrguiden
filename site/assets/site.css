@@ -116,3 +116,5 @@ section[id]{scroll-margin-top:84px}
 .twin{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:14px}.twin .tw{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:6px 0;font-size:14px}.twin .tw b{text-align:right}.twin .btn{margin-top:10px}
 .conf.alt i{background:#9fb0aa}
 .twin .conf{margin:0}
+/* Nyhetsbrevet er skjult til påmeldingen (Brevo) er koblet til. Fjern disse linjene for å vise det igjen. */
+[data-nl],#nyhetsbrev,a.tool[href$="#nyhetsbrev"],li:has(>a[href$="#nyhetsbrev"]),a[href*="nyhetsbrev/"]{display:none!important}
