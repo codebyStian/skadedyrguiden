@@ -19,7 +19,6 @@ def head(title, desc, base):
 <link rel="stylesheet" href="{base}assets/site.css">
 </head>
 <body>
-<div class="note">Konseptskisse – eksempeltekst som må faktasjekkes før publisering.</div>
 <header class="top"><div class="wrap">
   <a class="logo" href="{base}index.html">Skadedyrguiden<i></i></a>
   <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Leksikon</a><a href="{base}artikler/index.html">Artikler</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
@@ -32,7 +31,7 @@ def foot(base):
     return f'''</main>
 <footer class="band"><div class="wrap">
   <div class="cols">
-    <div><a class="logo" href="{base}index.html">Skadedyrguiden<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Et konsept fra Skadedyrbutikken.</p></div>
+    <div><a class="logo" href="{base}index.html">Skadedyrguiden<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
     <div><h3>Les</h3><ul><li><a href="{base}index.html#leksikon">Leksikon</a></li><li><a href="{base}artikler/index.html">Artikler</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
@@ -99,7 +98,6 @@ ARTICLES = {
 {recs("art:mus-om-hosten", "art-mus") or prod("Feller og tettemidler for mus", "Mekaniske feller, åtestasjoner og tettematerialer.", "gnagere", "art-mus")}
 <h2>Når bør du ringe en fagperson?</h2>
 <p>Hvis problemet kommer tilbake etter at du har tettet, hvis du finner tegn på rotter, eller hvis du har en bedrift der du må dokumentere skadedyrkontrollen.</p>
-<p class="small mute">Eksempelartikkel i konseptet. Fakta skal kvalitetssikres mot fagkilder, for eksempel Folkehelseinstituttet, før publisering.</p>
 </div></article>'''),
 "artikler/veggedyr-pa-reise.html": ("Veggedyr på hotellet: sjekk rommet på to minutter – Skadedyrguiden",
  "Slik sjekker du hotellsengen for veggedyr på to minutter, og hva du gjør hvis du finner noe.",
@@ -119,7 +117,6 @@ ARTICLES = {
 {recs("art:veggedyr-pa-reise", "art-veggedyr") or prod("Utstyr mot veggedyr", "Feller, overvåking og utstyr til reise og hjem.", "insekter", "art-veggedyr")}
 <h2>Mistenker du veggedyr hjemme?</h2>
 <p>Ikke flytt madrasser og møbler mellom rom, og ikke kast dem uinnpakket. Da sprer du problemet. Veggedyr er vanskelige å bli kvitt på egen hånd, så kontakt en skadedyrtekniker tidlig.</p>
-<p class="small mute">Eksempelartikkel i konseptet. Fakta skal kvalitetssikres mot fagkilder, for eksempel Folkehelseinstituttet, før publisering.</p>
 </div></article>'''),
 }
 
@@ -130,14 +127,12 @@ PODCAST_T = '''<section class="band dark"><div class="wrap ahero">
 </div></section>
 <section class="band"><div class="wrap" style="max-width:900px">
 {PLAYER}
-<h2 style="margin-top:64px">Alle episoder</h2>
+<h2 style="margin-top:64px">Episoder</h2>
 <div style="display:grid;gap:14px">
 ''' + "".join(f'''<div style="display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding:20px 0"><span style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></span><span><span class="small mute">Episode {n}</span><br><b>{t}</b><br><span class="small mute">{d}</span></span><span class="small mute" style="white-space:nowrap">{l}</span></div>
 ''' for n,t,d,l in [
- (3,"Skjeggkre: hvorfor nye boliger får dem","Om fukt, byggematerialer og hvorfor tålmodighet er nøkkelen.","22 min"),
- (2,"Veggedyr: den uønskede souveniren","Hvordan de sprer seg med bagasje, og hva du gjør når du kommer hjem.","27 min"),
  (1,"Mus: småkrypet som kommer inn med høsten","Inngangsveier, feller og de vanligste feilene folk gjør.","24 min")]) + '''</div>
-<p class="small mute" style="margin-top:18px">Stemmene er laget med kunstig intelligens (Gemini). Manus er skrevet fra fagartiklene. Episode 2 og 3 er plassholdere i konseptet.</p>
+<p class="small mute" style="margin-top:18px">Stemmene er laget med kunstig intelligens (Gemini). Manus er skrevet fra fagartiklene. Nye episoder kommer.</p>
 </div></section>
 '''
 

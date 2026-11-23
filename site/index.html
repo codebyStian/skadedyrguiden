@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Skadedyrguiden – konsept</title>
+<title>Skadedyrguiden – kunnskap om skadedyr i hus, hage og hytte</title>
 <meta name="description" content="Fagartikler, podkast og verktøy om skadedyr i hus, hage og bedrift. Finn ut hva du har, hva du gjør først, og hva du trenger.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -235,7 +235,6 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 <!--/seo-->
 </head>
 <body>
-<div class="note">Konseptskisse – arbeidsnavn «Skadedyrguiden». Tekstene er eksempler og må faktasjekkes før publisering.</div>
 <header class="top"><div class="wrap">
   <a class="logo" href="./">Skadedyrguiden<i></i></a>
   <nav class="nav" aria-label="Hovedmeny"><a href="leksikon/index.html">Leksikon</a><a href="#artikler">Artikler</a><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a><a href="podkast.html">Podkast</a><a href="#verktoy">Verktøy</a><a href="sporsmal-og-svar.html">Spørsmål og svar</a></nav>
@@ -345,7 +344,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
     <h2>Kryp &amp; kunnskap</h2>
     <p class="mute" style="max-width:48ch">Ett skadedyr per episode: hvordan det lever, hvorfor det kommer inn, og hva som faktisk virker. Rundt 25 minutter.</p>
     <div id="eps" style="margin:26px 0"></div>
-    <a class="btn arrow" href="podkast.html">Alle episoder </a>
+    <a class="btn arrow" href="podkast.html">Til podkasten </a>
   </div>
 </div></section>
 
@@ -371,11 +370,9 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
     <a class="tool" href="#hvadet"><span class="tag">Interaktiv</span><b>Hva er det jeg ser?</b><span class="mute">Finn skadedyret ut fra tegnene du har sett.</span><span class="go arrow">Prøv nå </span></a>
     <a class="tool" href="verktoy/tett-huset.html"><span class="tag">Interaktiv</span><b>Tett huset før vinteren</b><span class="mute">Gå runden og få en handleliste.</span><span class="go arrow">Start sjekken </span></a>
     <a class="tool" href="verktoy/fellekalkulator.html"><span class="tag">Kalkulator</span><b>Hvor mange feller?</b><span class="mute">Antall og plassering ut fra boligen og sporene.</span><span class="go arrow">Regn ut </span></a>
-    <a class="tool" href="#"><span class="tag">Kurs</span><b>Skadedyrsikring i matbedrifter</b><span class="mute">Hva internkontrollen bør vise, og hvordan.</span><span class="go arrow">Se kurset </span></a>
     <a class="tool" href="artikler/veggedyr-pa-reise.html"><span class="tag">Guide</span><b>Sjekk hotellrommet</b><span class="mute">Veggedyr-sjekken som tar to minutter.</span><span class="go arrow">Les guiden </span></a>
     <a class="tool" href="#nyhetsbrev"><span class="tag">Månedlig</span><b>Skadedyrbrevet</b><span class="mute">Hva som er i sesong, før det blir et problem.</span><span class="go arrow">Meld deg på </span></a>
   </div>
-  <p class="small mute" style="margin-top:12px">Verktøy uten egen side er plassholdere i konseptet.</p>
 </div></section>
 
 <section class="band shop"><div class="wrap">
@@ -402,7 +399,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 
 <footer class="band"><div class="wrap">
   <div class="cols">
-    <div><a class="logo" href="./">Skadedyrguiden<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Et konsept fra Skadedyrbutikken.</p></div>
+    <div><a class="logo" href="./">Skadedyrguiden<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
     <div><h3>Les</h3><ul><li><a href="#leksikon">Leksikon</a></li><li><a href="#artikler">Artikler</a></li><li><a href="podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
@@ -491,7 +488,7 @@ fetch('data/articles.json').then(r=>r.json()).then(all=>{
   draw('Alle');
 }).catch(()=>{});
 
-document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten','24 min'],['Veggedyr: den uønskede souveniren','27 min'],['Skjeggkre: hvorfor nyere boliger får dem','22 min']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===0?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">${i===0?'Lytt nå':l}</span></a>`).join('');
+document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten','24 min']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===0?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">${i===0?'Lytt nå':l}</span></a>`).join('');
 
 
 document.getElementById('shop').innerHTML=[['Gnagere','gnagere'],['Insekter','insekter'],['Fugler','fugler'],['Hus og hage','hus-og-hage'],['Verneutstyr','verktoey-og-verneutstyr'],['Lagersalg','lagersalg']].map(([t,p])=>`<a href="${U(p,'shopgrid')}">${t}<span aria-hidden="true">→</span></a>`).join('');
