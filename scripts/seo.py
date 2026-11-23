@@ -35,7 +35,7 @@ def main():
     pages = []
     for p in sorted(SITE.rglob("*.html")):
         h = p.read_text(encoding="utf-8")
-        if 'http-equiv="refresh"' in h:
+        if 'http-equiv="refresh"' in h or p.name.startswith("google") or "<title>" not in h:
             continue
         rel = p.relative_to(SITE).as_posix()
         u = url_of(p)
