@@ -73,7 +73,11 @@ def main():
         else:
             ld += [{"@context": "https://schema.org", **crumbs([home, (title.split(" – ")[0], u)])}]
             otype = "website"
-        robots = "noindex, nofollow, noarchive" if PREVIEW else "index, follow, max-image-preview:large"
+        # E-postversjonen av nyhetsbrevet og bekreftelsessidene skal aldri indekseres (duplikat / tynt innhold).
+        hidden = rel.endswith(".email.html") or rel in ("nyhetsbrev/bekreftet.html", "nyhetsbrev/avmeldt.html", "nyhetsbrev/ugyldig.html")
+        if rel.endswith(".email.html"):
+            u = BASE + "/" + rel.replace(".email.html", ".html")
+        robots = "noindex, nofollow, noarchive" if PREVIEW else ("noindex, follow" if hidden else "index, follow, max-image-preview:large")
         block = "\n".join([
             "<!--seo-->",
             f'<link rel="canonical" href="{u}">',
@@ -85,10 +89,13 @@ def main():
             "<!--/seo-->"])
         h = re.sub(r"\n?<!--seo-->.*?<!--/seo-->", "", h, flags=re.S)
         h = re.sub(r'<meta name="robots" content="[^"]*">', f'<meta name="robots" content="{robots}">', h)
+        if 'name="robots"' not in h:
+            block = block.replace("<!--seo-->", f'<!--seo-->\n<meta name="robots" content="{robots}">', 1)
         h = h.replace("</head>", block + "\n</head>", 1)
         p.write_text(h, encoding="utf-8")
         pr = "1.0" if rel == "index.html" else "0.8" if rel.startswith(("artikler/", "sporsmal")) else "0.6"
-        pages.append((u, pr))
+        if not hidden:
+            pages.append((u, pr))
     (SITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority></url>\n" for u, pr in pages) + "</urlset>\n", encoding="utf-8")
     (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")

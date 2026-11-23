@@ -205,5 +205,12 @@ SLUGS = {"mus": "husmus", "skogmus": "skogmus", "rotte": "brunrotte", "veggedyr"
 
 
 def article_compare(slug, byid):
-    blocks = "".join(compare_block(a, b, byid, SLUGS) for a, b in ARTICLE_PAIRS.get(slug, []))
-    return (CMP_CSS + '<h2>Se forskjellen</h2>' + blocks) if blocks else ""
+    """Kort versjon i artikler: bare «raskeste test» + lenke. Hele tabellen står én gang, i leksikonet (unngår duplisert innhold)."""
+    out = []
+    for a, b in ARTICLE_PAIRS.get(slug, []):
+        d = COMPARE.get(f"{a}|{b}") or COMPARE.get(f"{b}|{a}")
+        if not d or not d.get("test"): continue
+        A, B = byid[a], byid[b]
+        out.append(f'<div class="cmpx"><div class="test"><b>Raskeste test</b><span>{E(d["test"])} '
+                   f'<a href="../leksikon/{SLUGS[a]}.html" style="color:#f2c230">Se hele sammenligningen av {E(A["name"].lower())} og {E(B["name"].lower())} i leksikonet →</a></span></div></div>')
+    return (CMP_CSS + '<h2>Se forskjellen</h2>' + "".join(out)) if out else ""
