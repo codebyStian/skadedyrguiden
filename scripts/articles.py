@@ -491,6 +491,120 @@ ARTICLES += [
  "sources": [("FHI: Humler", f"{FHI}/veps-og-bier/humler"), ("FHI: Honningbie", f"{FHI}/veps-og-bier/honningbie"), ("FHI Skadedyrveilederen: Humler", "https://www.fhi.no/sk/skadedyrveilederen/veps-og-bier/humler/")]},
 ]
 
+ARTICLES += [
+{
+ "slug": "mus-i-veggen", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [9, 10, 11, 12, 1, 2, 3], "cat": "Gnagere", "min": 7, "img": "mus",
+ "title": "Lyder i veggen, taket eller på loftet? Slik finner du ut om det er mus – og hvor de kommer inn",
+ "lead": "Krafsing i veggen om kvelden er som regel mus som har funnet veien inn om høsten. Først finner du ut hvilket dyr det er og hvor det holder til, så tetter du inngangen og setter feller der dyret faktisk går.",
+ "body": """
+<p>Hører du krafsing eller tassing i veggen, taket eller etasjeskillet, er det oftest mus. De gnager seg gjennom isolasjon og trevirke og lager reir i hulrom. Det betyr ikke at du må rive veggen. Som regel holder det å finne inngangen, tette den og sette feller langs veggene der musa ferdes.</p>
+<h2>Mus eller rotte?</h2>
+<p>Størrelsen på sporene avgjør. Brunrotta etterlater ekskrementer som er 1,2–2,5 centimeter lange, og hull i bygningsmaterialer på rundt 5 centimeter med ujevne kanter. Museekskrementer er bare 3–7 millimeter. Er du i tvil, kan du strø et tynt lag mel eller talkum langs veggen og se på fotsporene: bakfoten til husmus er 12–14 millimeter, mens brunrottas er 2–2,5 centimeter.</p>
+<h2>Hvor i huset holder de til?</h2>
+<ul>
+<li><b>Vegger og etasjeskiller.</b> Mus gnager hull i vegger, gulv, dører og tak, og skadene finnes ofte i isolasjonen. Lyden høres best om kvelden og natten.</li>
+<li><b>Kjeller og krypkjeller.</b> Småskogmus holder seg gjerne i de nedre delene av huset. Utette lufteventiler i grunnmuren er en vanlig vei inn.</li>
+<li><b>Loft og tak.</b> Mus kan klatre. Åpninger høyt oppe må også tettes, og greiner bør ikke henge inn over taket.</li>
+</ul>
+<h2>Slik finner du inngangen</h2>
+<p>Alle åpninger større enn 6 millimeter slipper inn mus. Gå rundt huset med lommelykt og sjekk særlig:</p>
+<ul>
+<li>rør- og kabelgjennomføringer, også for varmepumpe og utelys</li>
+<li>lufteventiler i grunnmur og krypkjeller</li>
+<li>overgangen mellom grunnmur og kledning, og under nederste kledningsbord</li>
+<li>dører og kjellervinduer som ikke slutter tett</li>
+<li>takfot og mønepiper</li>
+</ul>
+<p>Ventiler sikres med kraftig metallnetting. Gjennomføringer tettes med betong, tettepasta eller galvaniserte plater.</p>
+<div class="box"><b>Tett i riktig rekkefølge</b>Har du aktivitet i veggen nå, sett feller først og tett de siste hullene når det har vært stille noen dager. Ellers kan du stenge musene inne, og et dyr som dør i veggen kan gi luktproblemer.</div>
+<h2>Feller: der musa går, ikke der du ser henne</h2>
+<p>En mus beveger seg ofte bare noen få meter fra reiret. Derfor må fellene stå tett:</p>
+<ul>
+<li>Sett klappfeller langs veggene, både på gulvet og oppe ved taket, med utløseren vendt mot veggen.</li>
+<li>Sett to feller 2–3 centimeter fra hverandre. Flere feller gir bedre resultat.</li>
+<li>Hører du dem i etasjeskillet, kan du sette feller i kjeller, på loft og i bod – der hulrommene munner ut.</li>
+<li>Bruk åte som peanøttsmør, sjokolade, rosiner, nøtter eller leverpostei. Er du usikker, prøv 3–4 typer og fortsett med den som blir tatt.</li>
+<li>Sjekk fellene så ofte du kan.</li>
+</ul>
+<p>Limfeller og drukningsfeller er ikke lov. Private kan bare kjøpe ferdigfylte, låsbare åtestasjoner med gift, og bare bruke dem innendørs. FHI anbefaler ikke gift i eller rundt boliger.</p>
+<p>Lurer du på antallet? <a href="../verktoy/fellekalkulator.html">Fellekalkulatoren</a> regner ut hvor mange feller du trenger og hvor de bør stå.</p>
+<h2>Når bør du åpne veggen eller ringe en fagperson?</h2>
+<p>Hvis det lukter vondt fra veggen over tid, eller lyden kommer tilbake etter at du har tettet og fanget i flere uker, finnes det fortsatt en åpen vei inn. Da er det lurt å få en godkjent skadedyrbekjemper til å se på huset.</p>
+""",
+ "prod": ("Feller og tettemidler for mus", "Klappfeller, fellebokser og netting til ventiler og gjennomføringer.", "gnagere"),
+ "guide": ("Mus i veggen: slik håndterer du dem", "https://skadedyrbutikken.no/tips-og-raad/gnagere/mus-i-veggen-hvordan-haandtere-dette-skadedyret-effektivt?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-mus-i-veggen"),
+ "sources": [("FHI Skadedyrhåndboka: Husmus", f"{FHI}/gnagere/husmus"), ("FHI Skadedyrhåndboka: Småskogmus", f"{FHI}/gnagere/smaskogmus"),
+             ("FHI Skadedyrhåndboka: Brunrotte", f"{FHI}/gnagere/brunrotte")]},
+{
+ "slug": "musebaesj", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": list(range(1, 13)), "cat": "Gnagere", "min": 4, "img": "mus",
+ "title": "Musebæsj, rottelort eller flaggermus? Slik skiller du dem",
+ "lead": "Små, mørke korn i skapet eller på loftet forteller mye: hvilket dyr det er, hvor mange og hvor lenge de har vært der. Størrelsen og formen avgjør.",
+ "body": """
+<p>Museekskrementer er 3–7 millimeter lange. Rotteekskrementer er 1,2–2,5 centimeter, altså flere ganger større. Flaggermuslort ligner på museekskrementer, men smuldrer opp når du klemmer forsiktig på den, fordi den bare består av insektrester.</p>
+<h2>Kjennetegn</h2>
+<table class="tbl"><thead><tr><th>Dyr</th><th>Lengde</th><th>Form</th></tr></thead><tbody>
+<tr><td>Husmus</td><td>3–6 mm</td><td>Sylinderformet med spisse ender. Blir hard etter rundt 3 timer.</td></tr>
+<tr><td>Småskogmus</td><td>3–6 mm</td><td>Kortere og tykkere enn husmusas, med spisse ender.</td></tr>
+<tr><td>Klatremus</td><td>6–7 mm</td><td>2–3 mm tykk, sylinderformet med avrundede ender.</td></tr>
+<tr><td>Brunrotte</td><td>1,2–2,5 cm</td><td>Avlang, ofte butt i den ene enden og blank svart. Holder seg myk i opptil et døgn.</td></tr>
+<tr><td>Flaggermus</td><td>Som mus</td><td>Smuldrer lett, inneholder bare insektrester.</td></tr>
+</tbody></table>
+<h2>Hva sier mengden og plasseringen?</h2>
+<ul>
+<li><b>Mange samlet på ett sted</b> kan bety rotter. En rotte legger 40–50 ekskrementer i døgnet og samler dem ofte på faste «rottedoer».</li>
+<li><b>Spredt langs vegger og lister</b> er typisk for mus, som går langs faste ruter.</li>
+<li><b>Ekskrementer som smuldrer</b> mellom fingrene peker mot flaggermus. Alle flaggermus i Norge er fredet, se <a href="flaggermus-pa-loftet.html">Flaggermus på loftet</a>.</li>
+<li><b>Myke, blanke ekskrementer</b> er ferske. Harde og matte kan være gamle.</li>
+</ul>
+<h2>Andre spor som avgjør</h2>
+<p>Strø et tynt lag mel eller talkum langs veggen over natten. Bakfoten til husmus gir et avtrykk på 12–14 millimeter, småskogmus 20–21 millimeter og brunrotte 2–2,5 centimeter. Rotter lager også gnagemerker på rundt 4 millimeter fra fortennene.</p>
+<p>Usikker? <a href="../index.html#hvadet">Last opp et bilde</a>, så får du et forslag til art med kjennetegnene vurderingen bygger på.</p>
+<h2>Fjern det uten å virvle opp støv</h2>
+<p>Ekskrementer og urin fra gnagere kan overføre sykdom. Ikke kost eller støvsug. Bruk våt klut, og gjerne hansker og munnbind. Les mer i <a href="rengjoring-etter-mus.html">Rengjøring etter mus</a>.</p>
+""",
+ "prod": ("Feller og overvåking", "Klappfeller og fellebokser for å bekrefte og fange.", "gnagere"),
+ "sources": [("FHI Skadedyrhåndboka: Husmus", f"{FHI}/gnagere/husmus"), ("FHI Skadedyrhåndboka: Småskogmus", f"{FHI}/gnagere/smaskogmus"),
+             ("FHI Skadedyrhåndboka: Klatremus", f"{FHI}/gnagere/klatremus"), ("FHI Skadedyrhåndboka: Brunrotte", f"{FHI}/gnagere/brunrotte")]},
+{
+ "slug": "rengjoring-etter-mus", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [3, 4, 5, 6, 9, 10, 11], "cat": "Gnagere", "min": 4, "img": "mus",
+ "title": "Rengjøring etter mus: slik gjør du det uten å virvle opp smitte",
+ "lead": "Museekskrementer og urin kan overføre sykdom, også musepest. Det viktigste rådet er enkelt: våt klut, ikke kost eller støvsuger.",
+ "body": """
+<p>Vask over områder der det har vært mus med en våt klut. Ikke kost eller støvsug, fordi det kan virvle opp støv fra ekskrementer og urin. Bruk gjerne gummihansker og munnbind der det er mye museavføring, for eksempel når du åpner hytta om våren.</p>
+<h2>Hva kan du bli smittet av?</h2>
+<p>Gnagere kan overføre virus, bakterier og parasitter gjennom avføring og urin. Den mest kjente sykdommen i Norge er musepest (nephropathia epidemica), som skyldes puumalavirus.</p>
+<ul>
+<li><b>Smittekilden er klatremus</b>, og i Nord-Norge rødmus. Husmus overfører ikke musepest.</li>
+<li><b>Smitten skjer trolig ved at du puster inn støv</b> fra inntørkede ekskrementer. Den kan også komme fra forurenset drikkevann fra brønn eller bekk.</li>
+<li><b>Sykdommen smitter ikke mellom mennesker.</b></li>
+<li><b>Det meldes normalt 20–40 tilfeller i året</b> i Norge. Flest kommer fra Innlandet (tidligere Oppland og Hedmark).</li>
+</ul>
+<p>Musepest gir feber og kan i noen tilfeller gi blødninger og forbigående nyresvikt. De fleste blir helt friske. Får du feber etter å ha ryddet der det var mye museavføring, nevn det for legen.</p>
+<h2>Slik gjør du rent</h2>
+<ol>
+<li><b>Luft ut</b> før du begynner, særlig i hytter og boder som har stått stengt.</li>
+<li><b>Ta på gummihansker,</b> og munnbind hvis det er mye ekskrementer.</li>
+<li><b>Fukt ekskrementene</b> og tørk opp med våt klut eller tørkepapir. Ikke kost, ikke støvsug.</li>
+<li><b>Legg avfallet i en tett pose</b> og kast den med restavfallet.</li>
+<li><b>Vask over flatene</b> med vann og vanlig rengjøringsmiddel, og vask hendene godt etterpå.</li>
+<li><b>Døde mus</b> tar du opp med hansker eller en pose over hånden.</li>
+</ol>
+<div class="box"><b>Vedstabelen også</b>FHI anbefaler hansker og munnbind også når du stabler ved eller gjør annet arbeid der støv fra gnagerekskrementer kan virvles opp.</div>
+<h2>Hindre at det skjer igjen</h2>
+<ul>
+<li>Oppbevar mat i tette bokser, også på hytta.</li>
+<li>Tett åpninger større enn 6 millimeter. Se <a href="hytta-ved-sjoen.html">Hytta ved sjøen</a> og <a href="fjellhytta.html">Fjellhytta</a> for hvordan du stenger hytta for vinteren.</li>
+<li>Finn ut hvilket dyr du har med <a href="musebaesj.html">Musebæsj, rottelort eller flaggermus?</a></li>
+</ul>
+""",
+ "prod": ("Hansker, desinfisering og tetting", "Utstyr til trygg rengjøring etter gnagere.", "gnagere"),
+ "sources": [("FHI Skadedyrhåndboka: Klatremus", f"{FHI}/gnagere/klatremus"), ("FHI Skadedyrhåndboka: Husmus", f"{FHI}/gnagere/husmus"),
+             ("FHI Smittevernhåndboka: Nephropathia epidemica (musepest)", "https://fhi.no/sm/smittevernhandboka/sykdommer-a-a/nephropathia-epidemica"),
+             ("FHI: FHI følger utbruddet av andesvirus på cruiseskip (2026)", "https://www.fhi.no/nyheter/2026/fhi-folger-utbruddet-av-andesvirus-pa-cruiseskip/"),
+             ("NHI: Epidemisk nefropati, musepest", "https://nhi.no/sykdommer/nyrerurinveier/andre-nyresykdommer/nephropathia-epidemica")]},
+]
+
+
 MONTHS = {
  "grevling-pa-tomta": [3, 4, 5, 6, 7, 8, 9, 10], "rotter-i-byen": [10, 11, 12, 1, 2, 3], "flatt-langs-kysten": [4, 5, 6, 7, 8, 9, 10],
  "stokkmaur-eller-skogsmaur": [4, 5, 6, 7, 8], "husbukk": list(range(1, 13)), "vepsebol": [4, 5, 6, 7, 8, 9],

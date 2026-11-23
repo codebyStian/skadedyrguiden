@@ -1,6 +1,6 @@
-name: Preview on GitHub Pages
+name: Publish to GitHub Pages (kryp.as)
 
-# Forhåndsvisning for deling. Alle sider har <meta name="robots" content="noindex">.
+# Publiserer kryp.as. Sett repo-variabelen PREVIEW=1 for å skru av indeksering igjen.
 on:
   push:
     branches: [main]
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: Build pages + SEO
-        env: { SITE_URL: "${{ vars.SITE_URL }}", PREVIEW: "${{ vars.PREVIEW || '1' }}" }
+        env: { SITE_URL: "${{ vars.SITE_URL }}", PREVIEW: "${{ vars.PREVIEW || '0' }}" }
         run: python scripts/page.py && SITE_URL="${SITE_URL:-https://kryp.as}" python scripts/seo.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

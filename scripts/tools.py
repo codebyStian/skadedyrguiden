@@ -131,7 +131,16 @@ def _calc_body():
 <li>Bruk åte som lukter godt. Det må konkurrere med all annen mat musene har tilgang på.</li>
 <li>Sjekk fellene daglig, og sett feller i alle etasjer – også bod, kaldtloft og krypkjeller.</li>
 </ul>
-<p class="small mute">Kilder: <a href="https://fhi.no/sk/skadedyrhandboka/gnagere/klatremus">FHI: Klatremus</a>, <a href="https://fhi.no/sk/skadedyrhandboka/gnagere/rodmus">FHI: Rødmus</a>, <a href="https://www.huseierne.no/alt-om-bolig/inneklima-og-miljo/mus-som-skadedyr-forebygge-og-bekjempe/">Huseierne: Mus som skadedyr</a>. Antallet er vår tommelfingerregel ut fra disse rådene, ikke en fast norm.</p>
+<h2>Vanlige spørsmål om musefeller</h2>
+<h3>Hvorfor går ikke musa i fella?</h3>
+<p>Som regel står fella feil eller er for få. Mus holder seg ofte innenfor noen få meter fra reiret og går langs veggene, så en felle midt på gulvet blir ofte gått forbi. Flytt fellene inn mot veggen der du ser spor, og sett flere. Rotter er i tillegg forsiktige med nye ting: sett ut fellene uspente med åte i noen dager først, så de venner seg til dem.</p>
+<h3>Hva er det beste åtet?</h3>
+<p>FHI nevner peanøttsmør, bacon, sjokolade, rosiner, nøtter, frukt og leverpostei. Reirmateriale som bomull eller papir kan også lokke. Vet du ikke hva musene spiser, prøv 3–4 typer og fortsett med den som blir tatt.</p>
+<h3>Hvor ofte skal jeg sjekke fellene?</h3>
+<p>Så ofte du kan, helst daglig. Får du fangst i flere uker, kommer det fortsatt inn mus et sted. Se <a href="../artikler/mus-i-veggen.html">slik finner du inngangen</a>.</p>
+<h3>Er limfeller lov?</h3>
+<p>Nei. Limfeller og drukningsfeller er ikke tillatt. Elektriske feller må gi umiddelbart og varig bevissthetstap.</p>
+<p class="small mute">Kilder: <a href="https://fhi.no/sk/skadedyrhandboka/gnagere/husmus">FHI: Husmus</a>, <a href="https://fhi.no/sk/skadedyrhandboka/gnagere/brunrotte">FHI: Brunrotte</a>, <a href="https://fhi.no/sk/skadedyrhandboka/gnagere/klatremus">FHI: Klatremus</a>, <a href="https://fhi.no/sk/skadedyrhandboka/gnagere/rodmus">FHI: Rødmus</a>, <a href="https://www.huseierne.no/alt-om-bolig/inneklima-og-miljo/mus-som-skadedyr-forebygge-og-bekjempe/">Huseierne: Mus som skadedyr</a>. Antallet er vår tommelfingerregel ut fra disse rådene, ikke en fast norm.</p>
 </div></section>
 <script>{{
 const f=document.getElementById("f"),out=document.getElementById("out");
@@ -156,5 +165,5 @@ f.addEventListener("change",calc);calc();
 
 TOOLS = {
  "tett-huset": ("Tett huset før vinteren", "Interaktiv sjekkliste: gå runden og få en handleliste for å stenge mus ute.", _check_body()),
- "fellekalkulator": ("Fellekalkulator", "Regn ut hvor mange musefeller du trenger og hvor de skal stå.", _calc_body()),
+ "fellekalkulator": ("Hvor mange musefeller trenger du? Fellekalkulator", "Regn ut hvor mange musefeller du trenger, hvor de skal stå, hvilket åte som virker og hvorfor musa noen ganger ikke går i fella.", _calc_body()),
 }

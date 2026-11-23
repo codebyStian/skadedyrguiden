@@ -91,11 +91,15 @@ ARTICLES = {
 <h2>Se etter disse tegnene</h2>
 <ul><li>Små, mørke ekskrementer, omtrent på størrelse med riskorn.</li><li>Gnagemerker på matpakker, isolasjon eller kartonger.</li><li>Krafsing og tassing i tak eller vegger, særlig om kvelden og natten.</li><li>Mørke smussmerker langs lister der musa går fast.</li></ul>
 <div class="box"><b>Tommelfingerregel:</b> Kommer en blyant gjennom hullet, kommer en mus også gjennom. Mus kan presse seg gjennom åpninger som virker altfor små.</div>
+<h2>Hvor små hull kommer en mus gjennom?</h2>
+<p>Folkehelseinstituttet anbefaler å tette alle åpninger større enn 6 millimeter for å holde husmus ute. For rotter er grensen 12 millimeter.</p>
 <h2>Slik tetter du</h2>
 <p>Gå rundt huset med lommelykt. Sjekk særlig der rør og kabler går inn, under dører, langs grunnmuren, i lufteventiler og i takfoten. Bruk materialer musa ikke gnager gjennom, som stålull kombinert med fugemasse, metallnetting eller børstelister på dører. Skum alene stopper sjelden en mus.</p>
 <h2>Feller: plassering betyr mer enn antall</h2>
-<p>Mus går helst langs vegger. Sett fellene vinkelrett mot veggen der du har sett spor, og bruk flere feller i stedet for én. Sjekk dem ofte. Hvis du får fangst i flere uker, er det fortsatt en åpen inngang et sted.</p>
+<p>Mus går helst langs vegger. Se også <a href="mus-i-veggen.html">Lyder i veggen eller taket?</a> og <a href="../verktoy/fellekalkulator.html">fellekalkulatoren</a>. Sett fellene vinkelrett mot veggen der du har sett spor, og bruk flere feller i stedet for én. Sjekk dem ofte. Hvis du får fangst i flere uker, er det fortsatt en åpen inngang et sted.</p>
 {recs("art:mus-om-hosten", "art-mus") or prod("Feller og tettemidler for mus", "Mekaniske feller, åtestasjoner og tettematerialer.", "gnagere", "art-mus")}
+<h2>Lukter det dødt fra veggen?</h2>
+<p>Mus og rotter som dør inne i vegger eller under gulv kan gi luktproblemer. Det er en av grunnene til at du bør sette feller før du tetter de siste hullene. Finner du kadaveret, fjern det med hansker. Les <a href="rengjoring-etter-mus.html">Rengjøring etter mus</a>.</p>
 <h2>Når bør du ringe en fagperson?</h2>
 <p>Hvis problemet kommer tilbake etter at du har tettet, hvis du finner tegn på rotter, eller hvis du har en bedrift der du må dokumentere skadedyrkontrollen.</p>
 </div></article>'''),
@@ -174,7 +178,7 @@ def regional_pages():
              "humler-og-bier-i-veggen": "Humle, bie eller veps?", "husbukk": "Husbukk eller borebille?", "stripet-borebille": "Borebille eller husbukk?",
              "klesmoll-og-pelsbille": "Møll eller pelsbille?", "rotter-i-byen": "Rotte eller mus?", "mus-pa-garden": "Husmus eller skogmus?",
              "smagnagerar": "Hvilken gnager er det?", "fluer-om-hosten": "Hvilket insekt er det?", "flatt-langs-kysten": "Flått eller noe annet?",
-             "brunskogsnegl": "Brunskogsnegl eller annen snegl?", "hoggorm": "Hoggorm eller buorm?"}
+             "brunskogsnegl": "Brunskogsnegl eller annen snegl?", "hoggorm": "Hoggorm eller buorm?", "mus-i-veggen": "Mus eller rotte?", "musebaesj": "Mus, rotte eller flaggermus?", "rengjoring-etter-mus": "Hvilken gnager har du?"}
     import lexicon
     BYID = lexicon.load(ROOT.parent)
     for a in RA:
