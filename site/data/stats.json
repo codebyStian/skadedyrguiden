@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-23",
  "fhi_tables": {
   "786": "Månedvis fordeling alle arter_120126",
   "773": "Antall bekjempelser pr år_120126"
@@ -19,11 +19,11 @@
   "fylker": {
    "03": {
     "mus": 24,
-    "rotte": 311,
+    "rotte": 312,
     "skjeggkre": 10,
     "solvkre": 8,
     "veggedyr": 2,
-    "veps": 85,
+    "veps": 84,
     "stokkmaur": 9,
     "flatt": 10
    },
@@ -59,12 +59,12 @@
    },
    "31": {
     "mus": 53,
-    "rotte": 54,
+    "rotte": null,
     "skjeggkre": 8,
     "solvkre": 10,
-    "veggedyr": 0,
-    "veps": 206,
-    "stokkmaur": 34,
+    "veggedyr": null,
+    "veps": 200,
+    "stokkmaur": 33,
     "flatt": 78
    },
    "32": {
@@ -73,7 +73,7 @@
     "skjeggkre": 51,
     "solvkre": 23,
     "veggedyr": 1,
-    "veps": 319,
+    "veps": 316,
     "stokkmaur": 33,
     "flatt": 87
    },
@@ -83,7 +83,7 @@
     "skjeggkre": 1,
     "solvkre": 9,
     "veggedyr": 0,
-    "veps": 83,
+    "veps": 105,
     "stokkmaur": 23,
     "flatt": 34
    },
@@ -94,7 +94,7 @@
     "solvkre": 0,
     "veggedyr": 0,
     "veps": 279,
-    "stokkmaur": 65,
+    "stokkmaur": 66,
     "flatt": 23
    },
    "39": {
@@ -103,8 +103,8 @@
     "skjeggkre": 3,
     "solvkre": 11,
     "veggedyr": 0,
-    "veps": 190,
-    "stokkmaur": 14,
+    "veps": 180,
+    "stokkmaur": 13,
     "flatt": 46
    },
    "40": {
@@ -113,16 +113,16 @@
     "skjeggkre": 0,
     "solvkre": 1,
     "veggedyr": 0,
-    "veps": 83,
+    "veps": 84,
     "stokkmaur": 21,
     "flatt": 45
    },
    "42": {
     "mus": 24,
-    "rotte": 121,
+    "rotte": null,
     "skjeggkre": 5,
     "solvkre": 17,
-    "veggedyr": 0,
+    "veggedyr": null,
     "veps": 153,
     "stokkmaur": 39,
     "flatt": 248
