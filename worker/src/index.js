@@ -1,5 +1,5 @@
 import { newsletter } from "./newsletter.js";
-// Skadedyrguiden – bildeanalyse. Bildet lagres ikke. To trinn:
+// Kryp.as – bildeanalyse. Bildet lagres ikke. To trinn:
 // 1) visjonsmodell beskriver hva som faktisk synes og velger blant artene i faktagrunnlaget (kb/species.json, FHI-kilder)
 // 2) en egen kontrollmodell sjekker at begrunnelsen stemmer med faktaarket; i tillegg faste regler i koden.
 import KB from "../../kb/species.json";

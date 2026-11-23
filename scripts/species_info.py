@@ -12,7 +12,7 @@ FIELDS = {"storrelse": "Størrelse", "utseende": "Utseende", "hvor": "Hvor du fi
 
 
 def page_text(url):
-    h = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Skadedyrguiden)"}), timeout=40).read().decode("utf-8", "replace")
+    h = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Kryp.as)"}), timeout=40).read().decode("utf-8", "replace")
     m = re.search(r"<main.*?</main>", h, re.S) or re.search(r"<article.*?</article>", h, re.S)
     h = m.group(0) if m else h
     h = re.sub(r"<(script|style|nav|footer|header)[^>]*>.*?</\1>", " ", h, flags=re.S)

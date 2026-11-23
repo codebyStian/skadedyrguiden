@@ -4,7 +4,7 @@ import collections, html as H, json, pathlib, re, sys, time, urllib.parse, urlli
 
 BASE = "https://skadedyrbutikken.no"
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data/products.json"
-UA = {"User-Agent": "Mozilla/5.0 (Skadedyrguiden produktkatalog)", "Accept-Language": "nb-NO"}
+UA = {"User-Agent": "Mozilla/5.0 (Kryp.as produktkatalog)", "Accept-Language": "nb-NO"}
 MAX = int(sys.argv[1]) if len(sys.argv) > 1 else 2500
 
 

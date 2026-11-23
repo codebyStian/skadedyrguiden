@@ -6,7 +6,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "site/assets/podcast"; OUT.mkdir(parents=True, exist_ok=True)
 KEY = os.environ.get("GEMINI_API_KEY") or sys.exit("GEMINI_API_KEY mangler: legg den inn som repository secret")
 MODELS = ["gemini-3.8-flash-tts", "gemini-2.5-pro-preview-tts", "gemini-2.5-flash-preview-tts"]
-# Faste stemmer for Skadedyrguiden (egne folk, ikke Trustcom-vertene).
+# Faste stemmer for Kryp.as (egne folk, ikke Trustcom-vertene).
 VOICES = {"Marte": "Despina", "Jonas": "Rasalgethi"}
 STYLE = ("Les denne samtalen på norsk bokmål med østnorsk uttale, som en rolig og vennlig podkast mellom to "
          "kolleger som liker temaet. Naturlig tempo, små pauser mellom replikkene, aldri overdrevet.")

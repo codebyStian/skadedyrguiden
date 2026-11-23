@@ -9,5 +9,5 @@ for l in api("/contacts/lists?limit=50").get("lists", []):
     if l["name"] == "Skadedyrbrevet":
         print(l["id"]); raise SystemExit
 folders = api("/contacts/folders?limit=10").get("folders", [])
-fid = folders[0]["id"] if folders else api("/contacts/folders", {"name": "Skadedyrguiden"})["id"]
+fid = folders[0]["id"] if folders else api("/contacts/folders", {"name": "Kryp.as"})["id"]
 print(api("/contacts/lists", {"name": "Skadedyrbrevet", "folderId": fid})["id"])

@@ -1,4 +1,4 @@
-"""Produktagenten: velger 3–5 presise produkter fra skadedyrbutikken.no for hver side på Skadedyrguiden.
+"""Produktagenten: velger 3–5 presise produkter fra skadedyrbutikken.no for hver side på Kryp.as.
 
 1. Forhåndsfilter: tekstlikhet mellom siden og produktene (navn, kategori, beskrivelse) gir ~60 kandidater.
 2. Gemini velger og begrunner (rolle + hvorfor) – bare blant kandidatene, med regler om riktig art og trygg bruk.
@@ -85,7 +85,7 @@ for key, (title, text) in pages.items():
     if not cand: print(key, "ingen kandidater"); continue
     listing = [{"id": n, "name": CAT[i]["name"], "kategori": "/".join(CAT[i]["category"]), "pris": CAT[i]["price"], "beskrivelse": CAT[i]["description"][:260]}
                for n, i in enumerate(cand)]
-    prompt = f"""Du er produktansvarlig for Skadedyrguiden og velger utstyr fra Skadedyrbutikken til denne siden.
+    prompt = f"""Du er produktansvarlig for Kryp.as og velger utstyr fra Skadedyrbutikken til denne siden.
 SIDE: {title}
 INNHOLD: {text[:3000]}
 

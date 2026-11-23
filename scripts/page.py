@@ -20,7 +20,7 @@ def head(title, desc, base):
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="logo" href="{base}index.html">Skadedyrguiden<i></i></a>
+  <a class="logo" href="{base}index.html">Kryp.as<i></i></a>
   <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Leksikon</a><a href="{base}artikler/index.html">Artikler</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
   <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
@@ -31,7 +31,7 @@ def foot(base):
     return f'''</main>
 <footer class="band"><div class="wrap">
   <div class="cols">
-    <div><a class="logo" href="{base}index.html">Skadedyrguiden<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
+    <div><a class="logo" href="{base}index.html">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
     <div><h3>Les</h3><ul><li><a href="{base}index.html#leksikon">Leksikon</a></li><li><a href="{base}artikler/index.html">Artikler</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
@@ -78,7 +78,7 @@ def prod(title, text, cat, camp):
     return f'''<div class="prod"><div><b>{title}</b><span>{text}</span></div><a class="btn y arrow" href="{SHOP.format(cat,camp)}">Se utvalget </a></div>'''
 
 ARTICLES = {
-"artikler/mus-om-hosten.html": ("Mus i huset om høsten – Skadedyrguiden",
+"artikler/mus-om-hosten.html": ("Mus i huset om høsten – Kryp.as",
  "Slik finner du inngangene mus bruker om høsten, hva du tetter med, og hvor fellene gjør mest nytte.",
  f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
 <div><span class="kicker">Gnagere · 6 min</span><h1 style="font-size:clamp(34px,4.6vw,56px)">Mus i huset om høsten: finn hullet før musa gjør det</h1><p class="mute" style="font-size:19px;max-width:44ch">Om høsten flytter mange mus inn der det er varmt. Det viktigste verktøyet er en lommelykt, ikke gift.</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div><p style="margin-top:22px"><a class="btn y arrow" href="../index.html#hvadet">Mus eller rotte? Last opp et bilde </a></p></div>
@@ -103,7 +103,7 @@ ARTICLES = {
 <h2>Når bør du ringe en fagperson?</h2>
 <p>Hvis problemet kommer tilbake etter at du har tettet, hvis du finner tegn på rotter, eller hvis du har en bedrift der du må dokumentere skadedyrkontrollen.</p>
 </div></article>'''),
-"artikler/veggedyr-pa-reise.html": ("Veggedyr på hotellet: sjekk rommet på to minutter – Skadedyrguiden",
+"artikler/veggedyr-pa-reise.html": ("Veggedyr på hotellet: sjekk rommet på to minutter – Kryp.as",
  "Slik sjekker du hotellsengen for veggedyr på to minutter, og hva du gjør hvis du finner noe.",
  f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
 <div><span class="kicker">Insekter · 5 min</span><h1 style="font-size:clamp(34px,4.6vw,56px)">Veggedyr på hotellet: sjekk rommet på to minutter</h1><p class="mute" style="font-size:19px;max-width:44ch">Det du ser etter i sengen, og hva du gjør hvis du finner noe.</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div></div>
@@ -198,10 +198,10 @@ def regional_pages():
 {(f'<div class="box"><b>Skal du bekjempe dem?</b>Denne artikkelen handler om å forstå og forebygge. Skadedyrbutikken har en egen trinn-for-trinn-guide til bekjempelse: <a href="{H.escape(a["guide"][1])}" rel="noopener">{H.escape(a["guide"][0])} →</a></div>') if a.get("guide") else ""}
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
 <h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
-<p class="small mute">Artikkelen er skrevet for Skadedyrguiden og bygger på kildene over. Den erstatter ikke råd fra en fagperson.</p>
+<p class="small mute">Artikkelen er skrevet for Kryp.as og bygger på kildene over. Den erstatter ikke råd fra en fagperson.</p>
 {('<h2>Les også</h2><div class="also">' + "".join(f'<a href="{b["slug"]}.html"><div class="ph" data-label="{H.escape(b["cat"])}"><img src="../assets/img/{b["img"]}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()"></div><span class="small mute">{H.escape(b["cat"])}</span><b>{H.escape(b["title"])}</b></a>' for b in others) + '</div>') if others else ""}
 </div></article>'''
-        (ROOT / "artikler" / (a["slug"] + ".html")).write_text(head(a["title"] + " – Skadedyrguiden", a["lead"], "../") + body + foot("../"), encoding="utf-8")
+        (ROOT / "artikler" / (a["slug"] + ".html")).write_text(head(a["title"] + " – Kryp.as", a["lead"], "../") + body + foot("../"), encoding="utf-8")
     allart = [{k: a[k] for k in ("slug", "title", "cat", "img", "regions", "months")} for a in RA] + EXTRA
     (ROOT / "data" / "articles.json").write_text(json.dumps(allart, ensure_ascii=False, indent=1), encoding="utf-8")
     old = ROOT / "data" / "regions.json"
@@ -210,7 +210,7 @@ def regional_pages():
         f = ROOT / "verktoy" / (slug + ".html"); f.parent.mkdir(exist_ok=True)
         r = recs("tool:" + slug, slug, "Utstyret du trenger")
         r = f'<section class="band" style="padding-top:0"><div class="wrap">{r}</div></section>' if r else ""
-        f.write_text(head(title + " – Skadedyrguiden", desc, "../") + body + r + foot("../"), encoding="utf-8")
+        f.write_text(head(title + " – Kryp.as", desc, "../") + body + r + foot("../"), encoding="utf-8")
 
 
 if __name__ == "__main__":
@@ -219,5 +219,5 @@ if __name__ == "__main__":
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")
-    (ROOT / "podkast.html").write_text(head("Podkast – Skadedyrguiden", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST_T.replace("{PLAYER}", player()) + foot(""), encoding="utf-8")
+    (ROOT / "podkast.html").write_text(head("Podkast – Kryp.as", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST_T.replace("{PLAYER}", player()) + foot(""), encoding="utf-8")
     print("ok")

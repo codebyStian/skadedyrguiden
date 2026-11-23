@@ -40,7 +40,7 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
 <section class="band" style="padding-top:10px"><div class="wrap" style="max-width:900px">{groups}
 <p class="small mute" style="margin-top:30px">Finner du ikke svaret? Folkehelseinstituttet har skadedyrtelefon på 21 07 77 00 hverdager kl. 13–14.</p></div></section>
 <script>{{const q=document.getElementById("qs");q.addEventListener("input",()=>{{const v=q.value.trim().toLowerCase();document.querySelectorAll("details").forEach(d=>{{const hit=!v||d.textContent.toLowerCase().includes(v);d.hidden=!hit;if(v&&hit)d.open=true}});document.querySelectorAll(".faqg").forEach(g=>g.hidden=![...g.querySelectorAll("details")].some(d=>!d.hidden))}})}}</script>'''
-    (ROOT / "sporsmal-og-svar.html").write_text(head("Spørsmål og svar om skadedyr – Skadedyrguiden",
+    (ROOT / "sporsmal-og-svar.html").write_text(head("Spørsmål og svar om skadedyr – Kryp.as",
         "Korte svar om mus, rotter, veggedyr, skjeggkre, veps, grevling, flått og andre skadedyr, med lenker til fagartikler.", "") + body + foot(""), encoding="utf-8")
 
     # --- Leksikon ---
@@ -58,13 +58,13 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
         body = lexicon.page(s, kb=kb, byid=byid, slugs=SLUG, img=IMG.get(s["id"]), imgs=IMG, rel=[r for r in REL.get(s["id"], []) if r in titles], titles=titles,
                             artimg=artimg, stats=stats, shop=SHOP.format(CAT.get(s["group"], "insekter"), "leksikon-" + slug))
         desc = f'{s["name"]} ({s["latin"]}): kjennetegn, forvekslingsarter og hva du gjør. Basert på Folkehelseinstituttets skadedyrhåndbok.'
-        (L / f"{slug}.html").write_text(head(f'{s["name"]} – kjennetegn og råd – Skadedyrguiden', desc, "../") + body + foot("../"), encoding="utf-8")
+        (L / f"{slug}.html").write_text(head(f'{s["name"]} – kjennetegn og råd – Kryp.as', desc, "../") + body + foot("../"), encoding="utf-8")
         cards.append(f'<a class="lx" href="{slug}.html"><b>{H.escape(s["name"])}</b><em>{H.escape(s["latin"])}</em><span>{"Skadedyr" if s["pest"] else "Ufarlig"}</span></a>')
     idx = f'''<style>.lxg{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px;margin-top:30px}}.lx{{display:grid;gap:2px;padding:20px 22px;border:1px solid var(--line);border-radius:16px;text-decoration:none}}.lx:hover{{background:var(--soft)}}.lx b{{font-size:19px}}.lx em{{color:var(--mute)}}.lx span{{font-size:13px;color:var(--mute);margin-top:6px}}</style>
 <section class="band"><div class="wrap"><span class="kicker">Skadedyrleksikon</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Kjenn igjen <em>dyret</em></h1>
 <p class="mute" style="font-size:19px;max-width:56ch">Kjennetegn og forvekslingsarter for {len(kb)} dyr du kan møte i og rundt huset. Basert på Folkehelseinstituttets skadedyrhåndbok.</p>
 <div class="lxg">{"".join(cards)}</div></div></section>'''
-    (L / "index.html").write_text(head("Skadedyrleksikon – Skadedyrguiden", "Kjennetegn og forvekslingsarter for vanlige skadedyr i Norge, fra husmus og rotter til skjeggkre, veggedyr og veps.", "../") + idx + foot("../"), encoding="utf-8")
+    (L / "index.html").write_text(head("Skadedyrleksikon – Kryp.as", "Kjennetegn og forvekslingsarter for vanlige skadedyr i Norge, fra husmus og rotter til skjeggkre, veggedyr og veps.", "../") + idx + foot("../"), encoding="utf-8")
 
 
 def newsletter_pages(head, foot):
@@ -93,7 +93,7 @@ def newsletter_pages(head, foot):
 
 
 def credits_page(head, foot):
-    """Kilder, foto og lisenser – samlet kreditering for alt innhold som ikke er laget av Skadedyrguiden."""
+    """Kilder, foto og lisenser – samlet kreditering for alt innhold som ikke er laget av Kryp.as."""
     import lexicon
     byid = lexicon.load(REPO)
     rows = "".join(f'''<tr><td><img src="assets/img/foto-{i}.webp" alt="" loading="lazy" style="width:96px;height:72px;object-fit:cover;border-radius:8px"></td>
@@ -121,7 +121,7 @@ Bildene er skalert, og noen er beskåret slik at dyret fyller bildet. Beskårne 
 <li>Produktbilder og -navn: <a href="https://skadedyrbutikken.no/" rel="noopener">Skadedyrbutikken</a>.</li>
 <li>Skrifter: Instrument Serif og Schibsted Grotesk (SIL Open Font License).</li>
 </ul></div></section>'''
-    (ROOT / "kilder-og-lisenser.html").write_text(head("Kilder, foto og lisenser – Skadedyrguiden", "Kreditering av artsfoto, data og fagkilder brukt på Skadedyrguiden.", "") + body + foot(""), encoding="utf-8")
+    (ROOT / "kilder-og-lisenser.html").write_text(head("Kilder, foto og lisenser – Kryp.as", "Kreditering av artsfoto, data og fagkilder brukt på Kryp.as.", "") + body + foot(""), encoding="utf-8")
 
 
 def articles_index(head, foot):
@@ -136,4 +136,4 @@ def articles_index(head, foot):
 <div class="afil" id="af"><button type="button" aria-pressed="true" data-c="">Alle</button>{"".join(f'<button type="button" aria-pressed="false" data-c="{H.escape(c)}">{H.escape(c)}</button>' for c in cats)}</div>
 <div class="agrid" id="ag">{cards}</div></div></section>
 <script>document.getElementById("af").onclick=e=>{{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#af button").forEach(x=>x.setAttribute("aria-pressed",x===b));document.querySelectorAll("#ag a").forEach(a=>a.hidden=b.dataset.c&&a.dataset.c!==b.dataset.c)}}</script>'''
-    (ROOT / "artikler" / "index.html").write_text(head("Alle artikler om skadedyr – Skadedyrguiden", "Fagartikler om mus, rotter, maur, skjeggkre, veps, flått, grevling og andre skadedyr i hus, hytte og hage.", "../") + body + foot("../"), encoding="utf-8")
+    (ROOT / "artikler" / "index.html").write_text(head("Alle artikler om skadedyr – Kryp.as", "Fagartikler om mus, rotter, maur, skjeggkre, veps, flått, grevling og andre skadedyr i hus, hytte og hage.", "../") + body + foot("../"), encoding="utf-8")

@@ -20,12 +20,12 @@ async function brevo(env, path, body, method = "POST") {
   if (!r.ok && r.status !== 204) throw new Error(`brevo ${path} ${r.status} ${(await r.text()).slice(0, 200)}`);
   return r.status === 204 ? {} : r.json().catch(() => ({}));
 }
-const send = (env, to, subject, html) => brevo(env, "/smtp/email", { sender: { name: "Skadedyrguiden", email: env.NL_SENDER }, to: [{ email: to }], subject, htmlContent: html });
+const send = (env, to, subject, html) => brevo(env, "/smtp/email", { sender: { name: "Kryp.as", email: env.NL_SENDER }, to: [{ email: to }], subject, htmlContent: html });
 
 const shell = (inner) => `<!doctype html><html lang="no"><body style="margin:0;background:#f4f1ea;font-family:Arial,Helvetica,sans-serif;color:#13201c">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:28px 12px">
 <table role="presentation" width="100%" style="max-width:560px;background:#fff;border-radius:14px" cellpadding="0" cellspacing="0"><tr><td style="padding:30px 30px 26px">
-<p style="margin:0 0 18px;font-weight:bold;font-size:18px">Skadedyrguiden<span style="color:#f2c230">●</span></p>${inner}</td></tr></table></td></tr></table></body></html>`;
+<p style="margin:0 0 18px;font-weight:bold;font-size:18px">Kryp.as<span style="color:#f2c230">●</span></p>${inner}</td></tr></table></td></tr></table></body></html>`;
 const page = (env, path) => Response.redirect(`${env.SITE_URL}/nyhetsbrev/${path}`, 302);
 
 export async function newsletter(req, env, url, h, json) {

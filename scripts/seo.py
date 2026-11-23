@@ -9,7 +9,7 @@ sys.path.insert(0, str(REPO / "scripts"))
 BASE = os.environ.get("SITE_URL", "https://kryp.as").rstrip("/")
 PREVIEW = os.environ.get("PREVIEW", "1") == "1"
 TODAY = datetime.date.today().isoformat()
-NAME = "Skadedyrguiden"
+NAME = "Kryp.as"
 ORG = {"@type": "Organization", "name": NAME, "url": BASE + "/",
        "parentOrganization": {"@type": "Organization", "name": "Skadedyrbutikken", "url": "https://skadedyrbutikken.no/"}}
 

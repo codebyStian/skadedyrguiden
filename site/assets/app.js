@@ -1,4 +1,4 @@
-/* Skadedyrguiden – interaktive deler: lokal hero med årstid/vær, Norgeskart med posisjon,
+/* Kryp.as – interaktive deler: lokal hero med årstid/vær, Norgeskart med posisjon,
    offentlige data (FHI, GBIF, MET), sesongkalender og bildeanalyse. Ingen sporing; posisjonen
    brukes bare i nettleseren og lagres lokalt hvis du ber om det. */
 (() => {

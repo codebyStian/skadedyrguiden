@@ -1,8 +1,8 @@
 """Skadedyrbrevet – redaksjonsagenten.
 
 1. Research: Gemini med Google-søk finner aktuelle saker i norske medier/offentlige kilder siste 6 uker.
-2. Egne kilder: artiklene på Skadedyrguiden som er i sesong neste måned, med tekst og kildelister.
-3. Skriving: ett kort brev (3–4 saker + månedens sjekkliste) i Skadedyrguidens stemme.
+2. Egne kilder: artiklene på Kryp.as som er i sesong neste måned, med tekst og kildelister.
+3. Skriving: ett kort brev (3–4 saker + månedens sjekkliste) i Kryp.as sin stemme.
 4. Faktakontroll: et eget kall sjekker hver påstand mot kildene; saker uten dekning strykes.
 5. Utgivelse: arkivside (nyhetsbrev/ÅÅÅÅ-MM.html), e-postversjon, latest.json.
 6. Utsending: MODE=draft sender et prøveeksemplar til NL_ADMIN; MODE=send lager og sender Brevo-kampanje til lista.
@@ -71,7 +71,7 @@ def brevo(path, body=None, method="POST"):
 
 def dispatch(issue, email_html):
   if MODE in ("draft", "send") and os.environ.get("BREVO_API_KEY") and os.environ.get("NL_SENDER"):
-      sender = {"name": "Skadedyrguiden", "email": os.environ["NL_SENDER"]}
+      sender = {"name": "Kryp.as", "email": os.environ["NL_SENDER"]}
       if MODE == "draft" and os.environ.get("NL_ADMIN"):
           for adr in os.environ["NL_ADMIN"].split(","):
               brevo("/smtp/email", {"sender": sender, "to": [{"email": adr.strip()}], "subject": "[UTKAST] " + issue["subject"],
@@ -104,7 +104,7 @@ for a in ARTICLES + EXTRA:
 print(len(own), "egne artikler i sesong")
 
 # ---------- 2. Research: aktuelle saker ----------
-research_prompt = f"""Du er research-redaktør for Skadedyrguiden, en norsk fagside om skadedyr i hus, hytte og hage.
+research_prompt = f"""Du er research-redaktør for Kryp.as, en norsk fagside om skadedyr i hus, hytte og hage.
 Finn 5–8 aktuelle saker fra de siste 6 ukene (før {today.isoformat()}) som er relevante for norske huseiere og hytteeiere i {MONTH} {y}:
 nyheter i norske medier, råd eller tall fra Folkehelseinstituttet, Mattilsynet, Miljødirektoratet, kommuner, forsikringsselskaper, Meteorologisk institutt (f.eks. smågnagerår, mus/rotter, veggedyr, skjeggkre, flått, veps, nye arter, regelendringer, værforhold som påvirker skadedyr).
 Bare saker du faktisk finner i søket. For hver sak: kort, nøkternt sammendrag med egne ord (2–3 setninger), hvem som står bak, dato og nøyaktig URL.
@@ -122,7 +122,7 @@ print(len(news), "aktuelle saker via", model, "| grounding-lenker:", len(known))
 
 # ---------- 3. Skriving ----------
 sources = {"nyheter": news, "artikler": [{k: a[k] for k in ("slug", "title", "url", "text")} for a in own]}
-write_prompt = f"""Du skriver Skadedyrbrevet for {MONTH} {y}: ett kort, nyttig månedsbrev fra Skadedyrguiden til norske hus- og hytteeiere.
+write_prompt = f"""Du skriver Skadedyrbrevet for {MONTH} {y}: ett kort, nyttig månedsbrev fra Kryp.as til norske hus- og hytteeiere.
 Stemme: rolig, konkret, faglig og vennlig. Ingen skremsler, ingen utropstegn, ingen klisjeer som «i en verden der». Norsk bokmål.
 Bruk BARE fakta som står i kildene under. Ikke finn på tall, datoer eller råd.
 Innhold:
@@ -181,7 +181,7 @@ email_html = f'''<!doctype html><html lang="no"><head><meta charset="utf-8"><met
 <div style="display:none;max-height:0;overflow:hidden">{e(issue["preheader"])}</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:28px 12px">
 <table role="presentation" width="100%" style="max-width:600px;background:#fff;border-radius:14px" cellpadding="0" cellspacing="0"><tr><td style="padding:30px">
-<p style="margin:0;font-weight:bold;font-size:18px">Skadedyrguiden<span style="color:#f2c230">●</span></p>
+<p style="margin:0;font-weight:bold;font-size:18px">Kryp.as<span style="color:#f2c230">●</span></p>
 <p style="margin:4px 0 22px;color:#5d6b66;font-size:13px">Skadedyrbrevet · {MONTH.capitalize()} {y}</p>
 <h1 style="font-family:Georgia,serif;font-weight:normal;font-size:32px;line-height:1.15;margin:0 0 14px">{e(issue["subject"])}</h1>
 <p style="font-size:17px;line-height:1.55;margin:0 0 8px">{e(issue["intro"])}</p>
