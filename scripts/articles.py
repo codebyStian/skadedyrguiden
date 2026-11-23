@@ -126,6 +126,7 @@ ARTICLES = [
 </ul>
 """,
  "prod": ("Mot maur", "Åte og utstyr mot maur innendørs.", "insekter"),
+ "guide": ("Slik bekjemper du maur", "https://skadedyrbutikken.no/tips-og-raad/insekter/slik-bekjemper-du-maur?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-stokkmaur-eller-skogsmaur"),
  "sources": [("FHI: Stokkmaur", f"{FHI}/maur/stokkmaur"), ("FHI: Rød skogsmaur", "https://www.fhi.no/sk/skadedyrveilederen/maur/rod-skogsmaur/"),
              ("FHI: Svart jordmaur", "https://www.fhi.no/nettpub/skadedyrveilederen/maur/svart-jordmaur/"), ("FHI: Statistikk om skadedyr", "https://fhi.no/tema/skadedyr/statistikk")]},
 {
@@ -147,11 +148,12 @@ ARTICLES = [
 <p>Det kan være vanskelig å skille mellom aktive og gamle angrep. Finner du ovale flygehull i konstruksjonen, bør du få en fagperson til å vurdere om angrepet er aktivt. Angrep utvikler seg sakte fordi livssyklusen er lang, så du har tid til å gjøre det riktig.</p>
 """,
  "prod": None,
+ "guide": ("Husbukk i huset: guide til bekjempelse", "https://skadedyrbutikken.no/tips-og-raad/insekter/husbukk-i-huset-komplett-guide-til-effektiv-bekjempelse?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-husbukk"),
  "sources": [("FHI: Husbukk", f"{FHI}/biller/husbukk"), ("FHI: Blåbukk", f"{FHI}/biller/blabukk"), ("FHI: Statistikk om skadedyr", "https://fhi.no/tema/skadedyr/statistikk")]},
 {
  "slug": "vepsebol", "regions": ["sor", "midt"], "cat": "Veps", "min": 4, "img": "veps",
- "title": "Vepsebolet: fjern det tidlig i sesongen",
- "lead": "Et lite bol i mai er en helt annen jobb enn et fullt bol i august. Slik fungerer vepsesesongen – og slik tar du det trygt.",
+ "title": "Vepsesesongen: derfor er bolet lite i mai og stort i august",
+ "lead": "Hvert vepsebol lever bare ett år. Når du vet hvordan sesongen går, skjønner du hvorfor det lønner seg å oppdage bolet tidlig – og når det kan få være i fred.",
  "body": """
 <h2>Ett år, ett bol</h2>
 <p>På våre breddegrader er alle stikkevepskolonier ettårige. Bare unge dronninger overvintrer, og de kommer fram fra vinterdvalen i april. Hver dronning finner et sted og begynner å bygge et nytt bol av papiraktig materiale laget av tygde trefibre. Gamle bol brukes aldri på nytt.</p>
@@ -169,18 +171,19 @@ ARTICLES = [
 <p>Husk at veps også gjør nytte i naturen. Et bol langt unna der folk ferdes, kan ofte bare få være.</p>
 """,
  "prod": ("Mot veps", "Vepsefeller og utstyr til trygg fjerning av små bol.", "insekter"),
+ "guide": ("Veps i hagen: slik fjerner du vepsebol", "https://skadedyrbutikken.no/tips-og-raad/insekter/veps-i-hagen-slik-fjerner-du-vepsebol-og-beskytter-deg-mot-stikk-i-sommer?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-vepsebol"),
  "sources": [("FHI: Stikkeveps", "https://www.fhi.no/nettpub/skadedyrveilederen/veps-og-bier/stikkeveps/"), ("FHI Statistikk – Skadedyrstatistikk", "https://statistikk.fhi.no/skast/")]},
 {
  "slug": "fukt-solvkre-skjeggkre", "regions": ["vest"], "cat": "Fukt", "min": 5, "img": "skjeggkre",
- "title": "Sølvkre og skjeggkre: hva er forskjellen, og hva hjelper?",
- "lead": "Sølvkre er en harmløs badegjest. Skjeggkre har spredt seg kraftig de siste årene og kan bli mange. Slik skiller du dem – og slik blir du kvitt dem.",
+ "title": "Sølvkre og skjeggkre: hva fukten betyr – og hvorfor skjeggkre er vanskeligere",
+ "lead": "Sølvkre er en harmløs badegjest. Skjeggkre har spredt seg kraftig de siste årene og kan bli mange. Her er hva fukt har å si for hver av dem, og hvorfor tørking ikke er nok mot skjeggkre.",
  "body": """
 <h2>To arter som ligner</h2>
 <p>Sølvkre er en vanlig gjest på baderom. Den gjør liten skade og regnes som harmløs. Skjeggkre ligner, men de voksne er større og mørkere, har lengre haletråder – den lengste er omtrent like lang som kroppen – og tydeligere behåring. Skjeggkre er mørkegrå og litt spraglete og mindre sølvglinsende enn sølvkre.</p>
 <h2>Skjeggkre trives også der det er tørt</h2>
 <p>Skjeggkre er nattaktive og oppdages ofte når du slår på lyset om natten. De trives best ved høy fuktighet, men klarer seg også i tørrere rom, i motsetning til sølvkre. De finnes oftest i nyere bygninger, og antallet bekjempelser økte kraftig etter 2016 før det flatet ut.</p>
 <div class="box"><b>Fukt er ikke hele forklaringen</b>Mindre fukt hjelper mot sølvkre. Mot skjeggkre er det åte som virker best – tørking alene er ikke nok.</div>
-<h2>Slik blir du kvitt dem</h2>
+<h2>Hva som virker – kort fortalt</h2>
 <ul>
 <li>Sølvkre: reduser fuktigheten og tett sprekker. Det finnes effektive åteprodukter, så sprøytemidler er unødvendig.</li>
 <li>Skjeggkre: bruk forgiftet åte som små dråper mange steder langs veggene i alle rom. Det øker sjansen for at dyrene finner åten.</li>
@@ -190,6 +193,7 @@ ARTICLES = [
 <p>Skjeggkre kan også haike med vesker, bager og sekker, for eksempel fra arbeidsplassen. Det gjør det vanskelig å forebygge helt.</p>
 """,
  "prod": ("Mot skjeggkre og sølvkre", "Åte og limfeller til overvåking.", "insekter"),
+ "guide": ("Skjeggkre: slik holder du bestanden nede", "https://skadedyrbutikken.no/tips-og-raad/insekter/skjeggkre-hvordan-holde-bestanden-nede?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-fukt-solvkre-skjeggkre"),
  "sources": [("FHI: Skjeggkre", f"{FHI}/smadyr-andre/skjeggkre"), ("FHI: Sølvkre", "https://www.fhi.no/nettpub/skadedyrveilederen/smadyr-andre/solvkre-/"),
              ("FHI: Byggomfattende bekjempelse", f"{FHI}/forebygging-og-bekjempelse/byggomfattende-bekjempelse")]},
 {
@@ -404,6 +408,7 @@ ARTICLES += [
 </ul>
 """,
  "prod": ("Mot møll og pelsbiller", "Feromonfeller og oppbevaring.", "insekter"),
+ "guide": ("Hvordan bli kvitt klesmøll", "https://skadedyrbutikken.no/tips-og-raad/insekter/hvordan-bli-kvitt-klesmoell?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-klesmoll-og-pelsbille"),
  "sources": [("FHI: Klesmøll", f"{FHI}/moll-og-sommerfugler/klesmoll"), ("FHI Skadedyrveilederen: Klesmøll", "https://www.fhi.no/sk/skadedyrveilederen/moll-og-sommerfugler/klesmoll-/"),
              ("FHI: Brun pelsbille", f"{FHI}/biller/brun-pelsbille"), ("FHI: Forebygging av skadedyrangrep", f"{FHI}/forebygging-og-bekjempelse/forebygging-av-skadedyrangrep"),
              ("FHI: Bekjempelse av skadedyr", f"{FHI}/forebygging-og-bekjempelse/bekjempelse-av-skadedyr")]},
@@ -499,6 +504,6 @@ ARTICLES[[a["slug"] for a in ARTICLES].index("flatt-langs-kysten")]["regions"] =
 # Eldre artikler som ligger i page.py, men skal med i oversikten
 EXTRA = [
  {"slug": "mus-om-hosten", "title": "Mus i huset om høsten: finn hullet før musa gjør det", "cat": "Gnagere", "img": "mus", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [9, 10, 11, 12, 1, 2]},
- {"slug": "veggedyr-pa-reise", "title": "Veggedyr på reise: sjekk hotellrommet på to minutter", "cat": "Insekter", "img": "veggedyr", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [6, 7, 8, 9, 10]},
+ {"slug": "veggedyr-pa-reise", "title": "Veggedyr på hotellet: sjekk rommet på to minutter", "cat": "Insekter", "img": "veggedyr", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [6, 7, 8, 9, 10]},
 ]
 REGION_ARTICLES = {r: [a for a in ARTICLES if r in a["regions"]] for r in ["ost", "sor", "vest", "midt", "nord"]}

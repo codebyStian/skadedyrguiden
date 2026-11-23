@@ -63,7 +63,7 @@ pages = {}
 for a in ARTICLES:
     pages[f"art:{a['slug']}"] = (a["title"], f"{a['title']}. {a['lead']} {strip(a['body'])[:2500]}")
 for slug, q in {"mus-om-hosten": "Mus i huset om høsten. Tette hull, musefeller, klappfeller, slagfeller, tetningsnett, stålull, overvåking.",
-                "veggedyr-pa-reise": "Veggedyr på reise. Unngå å ta med veggedyr hjem fra hotell: sjekk seng, koffert, varmebehandling, frysing, vask på 60 grader, feller og monitor for veggedyr."}.items():
+                "veggedyr-pa-reise": "Veggedyr på hotellet: sjekk sengen og rommet på to minutter, feller og monitor for veggedyr."}.items():
     pages[f"art:{slug}"] = (slug, q)
 for s in KB:
     pages[f"sp:{s['id']}"] = (s["name"], f"{s['name']} ({s['latin']}). {SYN.get(s['id'], '')}. Kjennetegn: {'; '.join(s['features'])}. Skadedyr: {'ja' if s['pest'] else 'nei, skal ikke bekjempes'}.")

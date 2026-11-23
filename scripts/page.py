@@ -101,21 +101,21 @@ ARTICLES = {
 <p>Hvis problemet kommer tilbake etter at du har tettet, hvis du finner tegn på rotter, eller hvis du har en bedrift der du må dokumentere skadedyrkontrollen.</p>
 <p class="small mute">Eksempelartikkel i konseptet. Fakta skal kvalitetssikres mot fagkilder, for eksempel Folkehelseinstituttet, før publisering.</p>
 </div></article>'''),
-"artikler/veggedyr-pa-reise.html": ("Veggedyr på reise – Skadedyrguiden",
- "Slik sjekker du hotellrommet for veggedyr og unngår å ta dem med hjem.",
+"artikler/veggedyr-pa-reise.html": ("Veggedyr på hotellet: sjekk rommet på to minutter – Skadedyrguiden",
+ "Slik sjekker du hotellsengen for veggedyr på to minutter, og hva du gjør hvis du finner noe.",
  f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
-<div><span class="kicker">Insekter · 5 min</span><h1 style="font-size:clamp(34px,4.6vw,56px)">Veggedyr på reise: sjekk hotellrommet på to minutter</h1><p class="mute" style="font-size:19px;max-width:44ch">En rask sjekk når du kommer frem, og noen enkle vaner når du kommer hjem.</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div></div>
+<div><span class="kicker">Insekter · 5 min</span><h1 style="font-size:clamp(34px,4.6vw,56px)">Veggedyr på hotellet: sjekk rommet på to minutter</h1><p class="mute" style="font-size:19px;max-width:44ch">Det du ser etter i sengen, og hva du gjør hvis du finner noe.</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div></div>
 <div class="ph"><img src="../assets/img/veggedyr.webp" alt="Hotellrom med koffert på bagasjestativ" onerror="this.remove()"></div>
 </div></section>
 <article class="band"><div class="art">
-<p class="lead">Veggedyr kommer sjelden inn av seg selv. De blir båret inn, oftest i bagasjen. Med en rask sjekk når du kommer frem og noen enkle vaner når du kommer hjem, reduserer du risikoen mye.</p>
+<p class="lead">Veggedyr kommer sjelden inn av seg selv. De blir båret inn, oftest i bagasjen. Hotellrommet er stedet der du oftest kan oppdage dem før de blir med deg – og det tar bare to minutter.</p>
 <h2>Slik ser veggedyr ut</h2>
 <p>Voksne veggedyr er flate, rødbrune og omtrent på størrelse med et eplefrø. Ungene er mindre og lysere. De gjemmer seg i sprekker nær der folk sover, og kommer fram om natten.</p>
 <h2>To-minutters-sjekken</h2>
 <ul><li>Sett bagasjen på badet eller på et bagasjestativ, ikke på sengen eller gulvet.</li><li>Trekk av lakenet i ett hjørne og se langs madrassens sømmer og kanter.</li><li>Se etter små svarte prikker, hudskall eller levende dyr.</li><li>Sjekk bak sengegavlen hvis den lar seg flytte.</li></ul>
 <div class="box"><b>Finner du noe?</b> Si fra i resepsjonen og be om et rom som ikke ligger vegg i vegg med det første.</div>
 <h2>Når du kommer hjem</h2>
-<p>Pakk ut i gangen eller på badet, ikke på soverommet. Vask klær du har brukt på høyeste temperatur tøyet tåler, og tørk dem i tørketrommel. Ting som ikke tåler vask kan legges i fryseren i flere døgn. Støvsug kofferten og ta posen ut med en gang.</p>
+<p>Pakk ut på badet eller i gangen, ikke på soverommet. Skadedyrbutikken har en egen guide til bagasjen og klærne etter reisen: <a href="https://skadedyrbutikken.no/tips-og-raad/insekter/slik-unngaar-du-aa-faa-med-veggedyr-hjem-i-bagasjen?utm_source=skadedyrguiden&utm_medium=referral&utm_campaign=art-veggedyr" rel="noopener">Slik unngår du å få med veggedyr hjem i bagasjen →</a></p>
 {recs("art:veggedyr-pa-reise", "art-veggedyr") or prod("Utstyr mot veggedyr", "Feller, overvåking og utstyr til reise og hjem.", "insekter", "art-veggedyr")}
 <h2>Mistenker du veggedyr hjemme?</h2>
 <p>Ikke flytt madrasser og møbler mellom rom, og ikke kast dem uinnpakket. Da sprer du problemet. Veggedyr er vanskelige å bli kvitt på egen hånd, så kontakt en skadedyrtekniker tidlig.</p>
@@ -196,6 +196,7 @@ def regional_pages():
 </div></section>
 <article class="band"><div class="art">{a["body"].replace("</p>", "</p>" + cmpb, 1) if cmpb else a["body"]}
 {box}
+{(f'<div class="box"><b>Skal du bekjempe dem?</b>Denne artikkelen handler om å forstå og forebygge. Skadedyrbutikken har en egen trinn-for-trinn-guide til bekjempelse: <a href="{H.escape(a["guide"][1])}" rel="noopener">{H.escape(a["guide"][0])} →</a></div>') if a.get("guide") else ""}
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
 <h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
 <p class="small mute">Artikkelen er skrevet for Skadedyrguiden og bygger på kildene over. Den erstatter ikke råd fra en fagperson.</p>
