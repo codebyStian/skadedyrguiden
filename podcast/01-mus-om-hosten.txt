@@ -1,6 +1,7 @@
 # Kryp & kunnskap, episode 1. Format: Navn: replikk
 # title: Mus: småkrypet som kommer inn med høsten
 # desc: Marte og Jonas om hvorfor musa kommer inn akkurat nå, hvilke tegn du ser etter, og hvordan du tetter riktig.
+# article: mus-om-hosten, mus-i-veggen
 Marte: Hei, og velkommen til Kryp og kunnskap, podkasten fra Kryp punktum a-s. Jeg heter Marte.
 Jonas: Og jeg er Jonas. I dag skal vi snakke om den lille gjesten som banker på døra hver eneste høst.
 Marte: Musa. Jonas, hvorfor er det akkurat nå i oktober og november at folk plutselig hører krafsing i taket?

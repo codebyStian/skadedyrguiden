@@ -134,3 +134,10 @@ section[id]{scroll-margin-top:84px}
 .kort{background:var(--soft);border-left:4px solid var(--y);border-radius:12px;padding:18px 22px;margin:0 0 1.6em}
 .kort b{display:block;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
 .kort ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.podbox{border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:0 0 1.8em;display:grid;gap:10px}
+.podbox .pbh{display:flex;gap:14px;align-items:center}
+.podbox .pbi{font-size:28px;line-height:1}
+.podbox .kicker{display:block;margin-bottom:2px}
+.podbox b{font-size:19px}
+.podbox p{margin:0}
+.podbox audio{width:100%}

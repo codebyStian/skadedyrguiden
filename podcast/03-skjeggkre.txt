@@ -1,6 +1,7 @@
 # Kryp & kunnskap, episode 3. Format: Navn: replikk
 # title: Skjeggkre: hvorfor nye boliger får dem
 # desc: Marte og Jonas om forskjellen på skjeggkre og sølvkre, hvorfor tørking ikke er nok, og hvorfor tålmodighet er nøkkelen.
+# article: fukt-solvkre-skjeggkre
 Marte: Hei, og velkommen til Kryp og kunnskap, podkasten fra Kryp punktum a-s. Jeg heter Marte.
 Jonas: Og jeg er Jonas. I dag tar vi insektet som får folk til å skrike når de slår på lyset på badet midt på natta.
 Marte: Skjeggkre. Men vent, er ikke det bare sølvkre?

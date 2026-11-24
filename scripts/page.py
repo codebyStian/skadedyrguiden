@@ -119,23 +119,29 @@ def episodes():
     eps = []
     for f in sorted((pathlib.Path(__file__).resolve().parent.parent / "podcast").glob("*.txt")):
         lines = f.read_text().splitlines()
-        meta = {l[2:].split(":", 1)[0].strip(): l.split(":", 1)[1].strip() for l in lines if l.startswith("# ") and ":" in l and l[2:].split(":", 1)[0].strip() in ("title", "desc")}
+        meta = {l[2:].split(":", 1)[0].strip(): l.split(":", 1)[1].strip() for l in lines if l.startswith("# ") and ":" in l and l[2:].split(":", 1)[0].strip() in ("title", "desc", "article")}
         rows = [l.split(":", 1) for l in lines if l.strip() and not l.startswith("#")]
         eps.append({"n": int(f.stem[:2]), "slug": f.stem, "title": meta.get("title", f.stem), "desc": meta.get("desc", ""),
+                    "articles": [x.strip() for x in meta.get("article", "").split(",") if x.strip()],
+                    "audio": (ROOT / "assets/podcast" / (f.stem + ".mp3")).exists(),
                     "tr": "".join(f'<p><b>{html.escape(n)}</b> {html.escape(t.strip())}</p>' for n, t in rows)})
     return eps
 
 
 def episode_list():
     import html
-    return '<div style="display:grid;gap:14px">' + "".join(f'''<div style="border-bottom:1px solid var(--line);padding:20px 0"><span class="small mute">Episode {e["n"]}</span><br><b>{html.escape(e["title"])}</b><br><span class="small mute">{html.escape(e["desc"])}</span>
+    import sys; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    from articles import ARTICLES as _A
+    T = {a["slug"]: a["title"] for a in _A}
+    rel = lambda e: "".join(f'<a class="small" href="artikler/{s}.html">Les artikkelen: {html.escape(T[s])} →</a><br>' for s in e["articles"] if s in T)
+    return '<div style="display:grid;gap:14px">' + "".join(f'''<div id="ep-{e["n"]}" style="border-bottom:1px solid var(--line);padding:20px 0;scroll-margin-top:90px"><span class="small mute">Episode {e["n"]}</span><br><b>{html.escape(e["title"])}</b><br><span class="small mute">{html.escape(e["desc"])}</span><br>{rel(e)}
 <audio controls preload="none" src="assets/podcast/{e["slug"]}.mp3" style="width:100%;margin-top:10px"></audio>
-<details class="trans"><summary>Les hele samtalen</summary>{e["tr"]}</details></div>''' for e in reversed(episodes())) + '</div>'
+<details class="trans"><summary>Les hele samtalen</summary>{e["tr"]}</details></div>''' for e in reversed(episodes()) if e["audio"]) + '</div>'
 
 
 def player():
     import html
-    e = episodes()[-1]
+    e = [x for x in episodes() if x["audio"]][-1]
     tr = e["tr"]
     return f'''<div class="player" id="pl">
 <span class="kicker">Episode {e["n"]} · Nyeste</span>
@@ -180,6 +186,7 @@ def regional_pages():
         t = _re.sub(r"<[^>]+>", "", t).lower()
         for x, y in (("æ", "ae"), ("ø", "o"), ("å", "a")): t = t.replace(x, y)
         return _re.sub(r"[^a-z0-9]+", "-", t).strip("-")[:60]
+    EPS = episodes()
     for a in RA:
         cmpb = lexicon.article_compare(a["slug"], BYID)
         q = CHECK.get(a["slug"])
@@ -199,13 +206,18 @@ def regional_pages():
         faq = ('<h2 id="vanlige-sporsmal">Vanlige spørsmål</h2><div class="faqs">' +
                "".join(f'<details><summary>{H.escape(qq)}</summary><p>{aa}</p></details>' for qq, aa in a["faq"]) + '</div>') if a.get("faq") else ""
         kort = ('<aside class="kort" aria-label="Kort fortalt"><b>Kort fortalt</b><ul>' + "".join(f"<li>{H.escape(k)}</li>" for k in a["kort"]) + '</ul></aside>') if a.get("kort") else ""
+        ep = next((e for e in reversed(EPS) if a["slug"] in e["articles"] and e["audio"]), None)
+        a["episode"] = ep
+        pod = (f'''<aside class="podbox" aria-label="Podkast"><div class="pbh"><span class="pbi" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span><div><span class="kicker">Hør episoden · Kryp &amp; kunnskap #{ep["n"]}</span><b>{H.escape(ep["title"])}</b></div></div>
+<p class="small mute">{H.escape(ep["desc"])}</p><audio controls preload="none" src="../assets/podcast/{ep["slug"]}.mp3"></audio>
+<a class="small" href="../podkast.html#ep-{ep["n"]}">Les hele samtalen og hør flere episoder →</a></aside>''') if ep else ""
         upd = a.get("updated", "2026-11-24"); d = _dt.date.fromisoformat(upd)
         alt = H.escape(a.get("alt", ""))
         body = f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
 <div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen i Kryp.as</span><span>Oppdatert <time datetime="{upd}">{d.day}. {MND[d.month - 1]} {d.year}</time></span></div>{chk}</div>
 <div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a["img"]}.webp" alt="{alt}" fetchpriority="high" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
 </div></section>
-<article class="band"><div class="art">{kort}{toc}{body}
+<article class="band"><div class="art">{kort}{pod}{toc}{body}
 {box}
 {(f'<div class="box"><b>Vil du ha en trinn-for-trinn-guide?</b>Skadedyrbutikken har en egen guide til dette: <a href="{H.escape(a["guide"][1])}" rel="noopener">{H.escape(a["guide"][0])} →</a></div>') if a.get("guide") else ""}
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
@@ -235,5 +247,6 @@ if __name__ == "__main__":
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")
     (ROOT / "om-kryp.html").write_text(head("Om Kryp.as – hvem vi er og hvordan vi skriver", "Kryp.as er en norsk fagside om skadedyr, drevet av folkene bak Skadedyrbutikken. Slik velger vi kilder, skriver artikler og velger produkter.", "") + ABOUT + foot(""), encoding="utf-8")
+    (ROOT / "data" / "episodes.json").write_text(json.dumps([{"n": e["n"], "title": e["title"], "articles": e["articles"]} for e in reversed(episodes()) if e["audio"]], ensure_ascii=False, indent=1), encoding="utf-8")
     (ROOT / "podkast.html").write_text(head("Podkast – Kryp.as", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST_T.replace("{PLAYER}", player()).replace("{EPISODES}", episode_list()) + foot(""), encoding="utf-8")
     print("ok")

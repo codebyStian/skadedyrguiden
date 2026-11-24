@@ -1,0 +1,31 @@
+# Kryp & kunnskap, episode 8. Format: Navn: replikk
+# title: Mus på hytta: steng riktig og rydd trygt
+# desc: Marte og Jonas om hvordan du holder mus ute av hytta gjennom vinteren, hva du sjekker om våren, og hvorfor du aldri skal støvsuge musebæsj.
+# article: rengjoring-etter-mus, hytta-ved-sjoen, fjellhytta
+Marte: Hei, og velkommen til Kryp og kunnskap. Jeg heter Marte.
+Jonas: Og jeg er Jonas. I dag skal vi på hytta.
+Marte: Og der er det mus, tipper jeg.
+Jonas: Det er det ofte. En hytte som står tom fra høsten til påske er et nesten perfekt vinterkvarter. Tørt, stille, og ofte litt mat igjen i skapet.
+Marte: Hvilke mus er det som kommer inn?
+Jonas: Oftest skogmus og klatremus. De lever ute om sommeren og trekker inn når det blir kaldt. I Nord-Norge er det ofte rødmus.
+Marte: Hva gjør jeg før jeg stenger hytta?
+Jonas: Tett alle åpninger større enn seks millimeter. Se rundt rør og kabler, i ventiler, under kledningen og under dørene. Bruk metallnetting og ordentlig tettemasse. Vanlig byggskum stopper ikke en mus.
+Marte: Og maten?
+Jonas: Ta den med deg. Også tørrvarer, fuglefrø og dyrefôr. Det som blir igjen, skal i tette bokser. Og legg puter og dyner i tette poser.
+Marte: Feller?
+Jonas: Ja, sett feller langs veggene, gjerne to og to. Flerfangstfeller passer godt når hytta står tom lenge.
+Marte: Hva med ultralydapparater?
+Jonas: Folkehelseinstituttet sier at det ikke er dokumentert at de virker. Pengene gjør mer nytte i netting og feller.
+Marte: Okei. Så kommer jeg til hytta i påsken, og det er musebæsj på kjøkkenbenken. Hva gjør jeg?
+Jonas: Det viktigste rådet i hele episoden: ikke kost og ikke støvsug. Det virvler opp støv fra inntørkede ekskrementer.
+Marte: Hvorfor er det så farlig?
+Jonas: Fordi klatremus og rødmus kan bære viruset som gir musepest. Man smittes trolig ved å puste inn støvet. Husmus overfører derimot ikke musepest.
+Marte: Hvor mange får musepest?
+Jonas: Det varierer med antallet klatremus. Fra tjuetjueen til tjuetjuefem ble det meldt mellom femten og trettiåtte tilfeller i året. Flest i Innlandet og Telemark.
+Marte: Så hvordan gjør jeg rent?
+Jonas: Luft ut først. Ta på gummihansker, og munnbind hvis det er mye. Fukt ekskrementene og tørk opp med våt klut. Legg alt i en tett pose, vask over, og vask hendene godt etterpå.
+Marte: Og vedstabelen?
+Jonas: Samme regel. Folkehelseinstituttet anbefaler hansker og munnbind også når du stabler ved der det har vært mus.
+Marte: Så oppsummert: tett hull, ta med maten, sett feller, og aldri støvsug musebæsj.
+Jonas: Akkurat. Og får du feber etter å ha ryddet der det var mye mus, si det til legen.
+Marte: Takk for at du lyttet til Kryp og kunnskap. God tur på hytta!
