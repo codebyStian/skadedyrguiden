@@ -118,3 +118,16 @@ section[id]{scroll-margin-top:84px}
 .twin .conf{margin:0}
 /* Nyhetsbrevet er skjult til påmeldingen (Brevo) er koblet til. Fjern disse linjene for å vise det igjen. */
 [data-nl],#nyhetsbrev,a.tool[href$="#nyhetsbrev"],li:has(>a[href$="#nyhetsbrev"]),a[href*="nyhetsbrev/"]{display:none!important}
+/* Artikler: innholdsliste og vanlige spørsmål */
+.toc{border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:0 0 2em}
+.toc b{display:block;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.toc ol{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.toc a{text-decoration:none}.toc a:hover{text-decoration:underline}
+.art h2[id]{scroll-margin-top:90px}
+.faqs p{margin:10px 0 0}
+.faqs details{border-bottom:1px solid var(--line);padding:16px 0}
+.faqs details:first-child{border-top:1px solid var(--line)}
+.faqs summary{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"+";font-weight:400;color:var(--mute);flex:none}
+.faqs details[open] summary::after{content:"–"}

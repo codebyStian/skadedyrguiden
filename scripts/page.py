@@ -77,52 +77,7 @@ def recs(key, camp, title="Riktig utstyr", compact=False):
 def prod(title, text, cat, camp):
     return f'''<div class="prod"><div><b>{title}</b><span>{text}</span></div><a class="btn y arrow" href="{SHOP.format(cat,camp)}">Se utvalget </a></div>'''
 
-ARTICLES = {
-"artikler/mus-om-hosten.html": ("Mus i huset om høsten – Kryp.as",
- "Slik finner du inngangene mus bruker om høsten, hva du tetter med, og hvor fellene gjør mest nytte.",
- f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
-<div><span class="kicker">Gnagere · 6 min</span><h1 style="font-size:clamp(34px,4.6vw,56px)">Mus i huset om høsten: finn hullet før musa gjør det</h1><p class="mute" style="font-size:19px;max-width:44ch">Om høsten flytter mange mus inn der det er varmt. Det viktigste verktøyet er en lommelykt, ikke gift.</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div><p style="margin-top:22px"><a class="btn y arrow" href="../index.html#hvadet">Mus eller rotte? Last opp et bilde </a></p></div>
-<div class="ph"><img src="../assets/img/mus.webp" alt="Husmus ved gulvlist" onerror="this.remove()"></div>
-</div></section>
-<article class="band"><div class="art">
-<p class="lead">Når nettene blir kalde, flytter mange mus inn der det er varmt og tørt. Det beste du kan gjøre er å stenge døra før de finner den, og det handler mer om en lommelykt enn om gift.</p>
-<h2>Hvorfor kommer musa akkurat nå?</h2>
-<p>Om sommeren finner musa mat og ly ute. Når temperaturen faller og maten blir knappere, søker den mot bygninger. Kjellere, loft, garasjer og hytter som står tomme er de første stedene den prøver.</p>
-<h2>Se etter disse tegnene</h2>
-<ul><li>Små, mørke ekskrementer, omtrent på størrelse med riskorn.</li><li>Gnagemerker på matpakker, isolasjon eller kartonger.</li><li>Krafsing og tassing i tak eller vegger, særlig om kvelden og natten.</li><li>Mørke smussmerker langs lister der musa går fast.</li></ul>
-<div class="box"><b>Tommelfingerregel:</b> Kommer en blyant gjennom hullet, kommer en mus også gjennom. Mus kan presse seg gjennom åpninger som virker altfor små.</div>
-<h2>Hvor små hull kommer en mus gjennom?</h2>
-<p>Folkehelseinstituttet anbefaler å tette alle åpninger større enn 6 millimeter for å holde husmus ute. For rotter er grensen 12 millimeter.</p>
-<h2>Slik tetter du</h2>
-<p>Gå rundt huset med lommelykt. Sjekk særlig der rør og kabler går inn, under dører, langs grunnmuren, i lufteventiler og i takfoten. Bruk materialer musa ikke gnager gjennom, som stålull kombinert med fugemasse, metallnetting eller børstelister på dører. Skum alene stopper sjelden en mus.</p>
-<h2>Feller: plassering betyr mer enn antall</h2>
-<p>Mus går helst langs vegger. Se også <a href="mus-i-veggen.html">Lyder i veggen eller taket?</a> og <a href="../verktoy/fellekalkulator.html">fellekalkulatoren</a>. Sett fellene vinkelrett mot veggen der du har sett spor, og bruk flere feller i stedet for én. Sjekk dem ofte. Hvis du får fangst i flere uker, er det fortsatt en åpen inngang et sted.</p>
-{recs("art:mus-om-hosten", "art-mus") or prod("Feller og tettemidler for mus", "Mekaniske feller, åtestasjoner og tettematerialer.", "gnagere", "art-mus")}
-<h2>Lukter det dødt fra veggen?</h2>
-<p>Mus og rotter som dør inne i vegger eller under gulv kan gi luktproblemer. Det er en av grunnene til at du bør sette feller før du tetter de siste hullene. Finner du kadaveret, fjern det med hansker. Les <a href="rengjoring-etter-mus.html">Rengjøring etter mus</a>.</p>
-<h2>Når bør du ringe en fagperson?</h2>
-<p>Hvis problemet kommer tilbake etter at du har tettet, hvis du finner tegn på rotter, eller hvis du har en bedrift der du må dokumentere skadedyrkontrollen.</p>
-</div></article>'''),
-"artikler/veggedyr-pa-reise.html": ("Veggedyr på hotellet: sjekk rommet på to minutter – Kryp.as",
- "Slik sjekker du hotellsengen for veggedyr på to minutter, og hva du gjør hvis du finner noe.",
- f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
-<div><span class="kicker">Insekter · 5 min</span><h1 style="font-size:clamp(34px,4.6vw,56px)">Veggedyr på hotellet: sjekk rommet på to minutter</h1><p class="mute" style="font-size:19px;max-width:44ch">Det du ser etter i sengen, og hva du gjør hvis du finner noe.</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div></div>
-<div class="ph"><img src="../assets/img/veggedyr.webp" alt="Hotellrom med koffert på bagasjestativ" onerror="this.remove()"></div>
-</div></section>
-<article class="band"><div class="art">
-<p class="lead">Veggedyr kommer sjelden inn av seg selv. De blir båret inn, oftest i bagasjen. Hotellrommet er stedet der du oftest kan oppdage dem før de blir med deg – og det tar bare to minutter.</p>
-<h2>Slik ser veggedyr ut</h2>
-<p>Voksne veggedyr er flate, rødbrune og omtrent på størrelse med et eplefrø. Ungene er mindre og lysere. De gjemmer seg i sprekker nær der folk sover, og kommer fram om natten.</p>
-<h2>To-minutters-sjekken</h2>
-<ul><li>Sett bagasjen på badet eller på et bagasjestativ, ikke på sengen eller gulvet.</li><li>Trekk av lakenet i ett hjørne og se langs madrassens sømmer og kanter.</li><li>Se etter små svarte prikker, hudskall eller levende dyr.</li><li>Sjekk bak sengegavlen hvis den lar seg flytte.</li></ul>
-<div class="box"><b>Finner du noe?</b> Si fra i resepsjonen og be om et rom som ikke ligger vegg i vegg med det første.</div>
-<h2>Når du kommer hjem</h2>
-<p>Pakk ut på badet eller i gangen, ikke på soverommet. Skadedyrbutikken har en egen guide til bagasjen og klærne etter reisen: <a href="https://skadedyrbutikken.no/tips-og-raad/insekter/slik-unngaar-du-aa-faa-med-veggedyr-hjem-i-bagasjen?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-veggedyr" rel="noopener">Slik unngår du å få med veggedyr hjem i bagasjen →</a></p>
-{recs("art:veggedyr-pa-reise", "art-veggedyr") or prod("Utstyr mot veggedyr", "Feller, overvåking og utstyr til reise og hjem.", "insekter", "art-veggedyr")}
-<h2>Mistenker du veggedyr hjemme?</h2>
-<p>Ikke flytt madrasser og møbler mellom rom, og ikke kast dem uinnpakket. Da sprer du problemet. Veggedyr er vanskelige å bli kvitt på egen hånd, så kontakt en skadedyrtekniker tidlig.</p>
-</div></article>'''),
-}
+ARTICLES = {}  # alle artikler bygges nå fra scripts/articles.py + content/artikler/
 
 PODCAST_T = '''<section class="band dark"><div class="wrap ahero">
 <div><span class="kicker">Podkast</span><h1>Kryp &amp; kunnskap</h1>
@@ -193,9 +148,16 @@ def regional_pages():
              "humler-og-bier-i-veggen": "Humle, bie eller veps?", "husbukk": "Husbukk eller borebille?", "stripet-borebille": "Borebille eller husbukk?",
              "klesmoll-og-pelsbille": "Møll eller pelsbille?", "rotter-i-byen": "Rotte eller mus?", "mus-pa-garden": "Husmus eller skogmus?",
              "smagnagerar": "Hvilken gnager er det?", "fluer-om-hosten": "Hvilket insekt er det?", "flatt-langs-kysten": "Flått eller noe annet?",
-             "brunskogsnegl": "Brunskogsnegl eller annen snegl?", "hoggorm": "Hoggorm eller buorm?", "mus-i-veggen": "Mus eller rotte?", "musebaesj": "Mus, rotte eller flaggermus?", "rengjoring-etter-mus": "Hvilken gnager har du?"}
+             "brunskogsnegl": "Brunskogsnegl eller annen snegl?", "hoggorm": "Hoggorm eller buorm?", "mus-i-veggen": "Mus eller rotte?", "musebaesj": "Mus, rotte eller flaggermus?", "rengjoring-etter-mus": "Hvilken gnager har du?",
+             "mus-om-hosten": "Mus eller rotte?", "veggedyr-pa-reise": "Veggedyr eller noe annet?"}
     import lexicon
     BYID = lexicon.load(ROOT.parent)
+    import re as _re, datetime as _dt
+    MND = ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"]
+    def _slug(t):
+        t = _re.sub(r"<[^>]+>", "", t).lower()
+        for x, y in (("æ", "ae"), ("ø", "o"), ("å", "a")): t = t.replace(x, y)
+        return _re.sub(r"[^a-z0-9]+", "-", t).strip("-")[:60]
     for a in RA:
         cmpb = lexicon.article_compare(a["slug"], BYID)
         q = CHECK.get(a["slug"])
@@ -204,20 +166,35 @@ def regional_pages():
         regs = ", ".join(RN[r] for r in a["regions"])
         same = [b for b in RA if b is not a and b["cat"] == a["cat"]]
         others = (same + [b for b in RA if b is not a and b not in same and set(b["regions"]) & set(a["regions"])])[:3]
+        # Overskrifter får id-er, og lange artikler får en innholdsliste.
+        heads = []
+        def _h2(m):
+            txt = m.group(1); i = _slug(txt); heads.append((i, _re.sub(r"<[^>]+>", "", txt))); return f'<h2 id="{i}">{txt}</h2>'
+        body = _re.sub(r"<h2>(.*?)</h2>", _h2, a["body"])
+        if cmpb: body = body.replace("</p>", "</p>" + cmpb, 1)
+        toc = ('<nav class="toc" aria-label="Innhold"><b>I denne artikkelen</b><ol>' + "".join(f'<li><a href="#{i}">{H.escape(t)}</a></li>' for i, t in heads) +
+               ('<li><a href="#vanlige-sporsmal">Vanlige spørsmål</a></li>' if a.get("faq") else "") + '</ol></nav>') if len(heads) >= 4 else ""
+        faq = ('<h2 id="vanlige-sporsmal">Vanlige spørsmål</h2><div class="faqs">' +
+               "".join(f'<details><summary>{H.escape(qq)}</summary><p>{aa}</p></details>' for qq, aa in a["faq"]) + '</div>') if a.get("faq") else ""
+        upd = a.get("updated", "2026-11-24"); d = _dt.date.fromisoformat(upd)
+        alt = H.escape(a.get("alt", ""))
         body = f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
-<div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen</span><span>Oppdatert november 2026</span></div>{chk}</div>
-<div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a["img"]}.webp" alt="" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
+<div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen i Kryp.as</span><span>Oppdatert <time datetime="{upd}">{d.day}. {MND[d.month - 1]} {d.year}</time></span></div>{chk}</div>
+<div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a["img"]}.webp" alt="{alt}" fetchpriority="high" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
 </div></section>
-<article class="band"><div class="art">{a["body"].replace("</p>", "</p>" + cmpb, 1) if cmpb else a["body"]}
+<article class="band"><div class="art">{toc}{body}
 {box}
-{(f'<div class="box"><b>Skal du bekjempe dem?</b>Denne artikkelen handler om å forstå og forebygge. Skadedyrbutikken har en egen trinn-for-trinn-guide til bekjempelse: <a href="{H.escape(a["guide"][1])}" rel="noopener">{H.escape(a["guide"][0])} →</a></div>') if a.get("guide") else ""}
+{(f'<div class="box"><b>Vil du ha en trinn-for-trinn-guide?</b>Skadedyrbutikken har en egen guide til dette: <a href="{H.escape(a["guide"][1])}" rel="noopener">{H.escape(a["guide"][0])} →</a></div>') if a.get("guide") else ""}
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
-<h2>Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
-<p class="small mute">Artikkelen er skrevet for Kryp.as og bygger på kildene over. Den erstatter ikke råd fra en fagperson.</p>
+{faq}
+<h2 id="kilder">Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
+<p class="small mute">Artikkelen er skrevet av redaksjonen i Kryp.as og bygger på kildene over. Den erstatter ikke råd fra lege, veterinær eller fagperson.</p>
 {('<h2>Les også</h2><div class="also">' + "".join(f'<a href="{b["slug"]}.html"><div class="ph" data-label="{H.escape(b["cat"])}"><img src="../assets/img/{b["img"]}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()"></div><span class="small mute">{H.escape(b["cat"])}</span><b>{H.escape(b["title"])}</b></a>' for b in others) + '</div>') if others else ""}
 </div></article>'''
-        (ROOT / "artikler" / (a["slug"] + ".html")).write_text(head(a["title"] + " – Kryp.as", a["lead"], "../") + body + foot("../"), encoding="utf-8")
-    allart = [{k: a[k] for k in ("slug", "title", "cat", "img", "regions", "months")} for a in RA] + EXTRA
+        st = a.get("seo_title") or a["title"]
+        title_tag = st + " – Kryp.as" if len(st) <= 50 else st
+        (ROOT / "artikler" / (a["slug"] + ".html")).write_text(head(H.escape(title_tag), H.escape(a.get("desc") or a["lead"]), "../") + body + foot("../"), encoding="utf-8")
+    allart = [{k: a[k] for k in ("slug", "title", "cat", "img", "regions", "months")} for a in RA]
     (ROOT / "data" / "articles.json").write_text(json.dumps(allart, ensure_ascii=False, indent=1), encoding="utf-8")
     old = ROOT / "data" / "regions.json"
     if old.exists(): old.unlink()
