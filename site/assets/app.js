@@ -42,7 +42,9 @@
       ["Hytte", "Hytta i nord: sikre mot mus før mørketida"],
       ["Treskadedyr", "Stripet borebille finnes langs kysten helt nord til Troms"]] }};
 
-  const SP = [["mus", "Husmus"], ["rotte", "Brunrotte"], ["skjeggkre", "Skjeggkre"], ["veps", "Stikkeveps"], ["flatt", "Flått"]];
+  // FHIs skadedyrstatistikk: 11 utvalgte skadeinsekter, hele landet, publiseres årlig i etterkant. Mus og rotter er ikke med.
+  const SP = [["Skjeggkre", "Skjeggkre"], ["Svart jordmaur", "Svart jordmaur"], ["Veggedyr", "Veggedyr"], ["Stikkeveps", "Stikkeveps"], ["Stokkmaur", "Stokkmaur"]];
+  const FHI_NOTE = "FHIs statistikk gjelder 11 utvalgte skadeinsekter og bygger på oppdrag hos skadedyrfirmaer. Mus og rotter er ikke med.";
 
   let geo = null, stats = null, arts = null, loc = store.get("sg-loc"), wx = null;
 
@@ -198,7 +200,6 @@
   }
 
   /* ---------- panel ---------- */
-  function maxOf(sp) { return Math.max(...Object.values(stats.gbif.fylker).map((r) => r[sp] || 0), 1); }
   const inSeason = (a) => a.months.includes(M + 1);
   function pickArts(region, n) {
     if (!arts) return [];
@@ -235,22 +236,23 @@
     if (!stats?.fhi?.monthly) return "";
     const pick = { "Veggedyr": "Veggedyr", "Stikkeveps": "Stikkeveps", "Svart jordmaur": "Svart jordmaur", "Stokkmaur": "Stokkmaur", "Skjeggkre": "Skjeggkre" };
     const rows = Object.keys(pick).filter((k) => stats.fhi.monthly[k]).map((k) => [k, stats.fhi.monthly[k][M]]).sort((a, b) => b[1] - a[1]);
-    return `<h3 class="ph3">I ${MONTHS[M]} i hele Norge</h3><p class="small mute" style="margin:0 0 10px">Andel av årets bekjempelser som skjer denne måneden. Snitt per måned er 8,3 %.</p>
+    return `<h3 class="ph3">I ${MONTHS[M]} i hele Norge</h3><p class="small mute" style="margin:0 0 10px">Andel av årets bekjempelser som skjer denne måneden. Snitt per måned er 8,3 %. ${FHI_NOTE}</p>
       ${rows.map(([k, v]) => `<div class="mrow"><span>${k}</span><span class="mbar"><i style="width:${Math.min(100, v * 4)}%"></i><em style="left:${8.33 * 4}%"></em></span><b>${String(v).replace(".", ",")} %</b></div>`).join("")}
-      <p class="src">Kilde: <a href="https://statistikk.fhi.no/skast/" rel="noopener">FHI Statistikk – Skadedyrstatistikk</a>, snitt 2007–2025.</p>`;
+      <p class="src">Kilde: <a href="https://statistikk.fhi.no/skast/" rel="noopener">FHI Statistikk – Skadedyrstatistikk</a>, snitt ${stats.fhi.years || "siste to år"}.</p>`;
   }
   async function panel(f) {
     const p = $("#panel"); if (!p || !stats) return;
     const here = loc && loc.fylke === f.id;
     const city = here && loc.city ? ` · nær ${loc.city}` : "";
-    const g = stats.gbif.fylker[f.id] || {};
+    const yr = stats?.fhi?.yearly || {}, ys = (stats?.fhi?.years || "").split("–");
+    const [y1, y2] = ys.length === 2 ? ys : ["2024", "2025"];
+    const mx = Math.max(...SP.map(([k]) => Math.max(yr[k]?.[y1] || 0, yr[k]?.[y2] || 0)), 1);
     p.innerHTML = `<span class="kicker">${REGION[f.region].name}${city}</span><h2 style="margin-bottom:.3em">${esc(f.name)}</h2>
       <div class="now" id="now"><span class="mute small">Henter vær …</span></div>
-      <h3 class="ph3">Meldte funn i ${esc(f.name)}</h3>
-      <p class="small mute" style="margin:0 0 10px">Funn meldt inn til Artsdatabanken og GBIF ${stats.gbif.years}. Sier mest om hvor folk melder fra – ikke hvor mange dyr det er.</p>
-      ${SP.map(([k, n]) => `<div class="mrow"><span>${n}</span><span class="mbar"><i style="width:${Math.round(100 * (g[k] || 0) / maxOf(k))}%"></i></span><b>${fmt(g[k] || 0)}</b></div>`).join("")}
-      <div id="near"></div>
-      <p class="src">Kilde: <a href="https://www.gbif.org/occurrence/search?country=NO" rel="noopener">GBIF.org</a> (inkl. Artsobservasjoner), oppdateres ukentlig.</p>
+      <h3 class="ph3">Bekjempelser i hele Norge, ${y1} og ${y2}</h3>
+      <p class="small mute" style="margin:0 0 10px">Antall oppdrag hos skadedyrfirmaer. FHI har ikke tall per fylke. ${FHI_NOTE}</p>
+      ${SP.filter(([k]) => yr[k]).map(([k, n]) => `<div class="mrow"><span>${n}</span><span class="mbar"><i style="width:${Math.round(100 * (yr[k][y2] || 0) / mx)}%"></i></span><b>${fmt(yr[k][y1] || 0)} → ${fmt(yr[k][y2] || 0)}</b></div>`).join("")}
+      <p class="src">Kilde: <a href="https://www.fhi.no/sk/skadedyrbekjempelse/statistikk-om-skadedyr/" rel="noopener">FHI – Statistikk om skadedyr</a>. Publiseres årlig, i etterkant.</p>
       ${monthNow()}${articles(f.region)}${recsHTML("reg:" + f.region, "region-" + f.region, 3, "Utstyr folk i " + REGION[f.region].name + " trenger nå")}`;
     const [lat, lon] = here ? [loc.lat, loc.lon] : [f.c[1], f.c[0]];
     const w = await weather(lat, lon); wx = w; if (here) fxFromWeather(w);
@@ -259,19 +261,11 @@
       <div class="risk r-${r[0].toLowerCase()}"><small>Musevarsel</small><b>${r[0]}</b><span>${r[1]}</span></div>
       <p class="src" style="grid-column:1/-1">Vær: ${w.src === "MET Norge" ? '<a href="https://api.met.no/doc/License" rel="noopener">Data fra MET Norge</a> (CC BY 4.0)' : '<a href="https://open-meteo.com/" rel="noopener">Weather data by Open-Meteo.com</a> (CC BY 4.0)'}. Musevarselet er vår tommelfingerregel ut fra temperatur og årstid – ikke en måling.</p>`
       : `<p class="small mute">Været er ikke tilgjengelig akkurat nå.</p>`;
-    if (here) nearby(loc.lat, loc.lon);
-  }
-  async function nearby(lat, lon) {
-    const box = $("#near"); if (!box || !stats?.gbif?.keys) return;
-    const y = now.getFullYear(), keys = stats.gbif.keys;
-    const res = await Promise.all(SP.map(([k]) => getJSON(`https://api.gbif.org/v1/occurrence/search?taxonKey=${keys[k]}&geoDistance=${lat.toFixed(3)},${lon.toFixed(3)},15km&year=${y - 9},${y}&limit=0`)));
-    if (res.every((r) => !r)) return;
-    box.innerHTML = `<p class="near">Innen 15 km fra deg: ${SP.map(([k, n], i) => `<span><b>${res[i] ? fmt(res[i].count) : "–"}</b> ${n.toLowerCase()}</span>`).join("")}</p>`;
   }
   function panelNational() {
     const p = $("#panel"); if (!p) return;
     p.innerHTML = `<span class="kicker">Hele landet</span><h2>Velg et fylke – eller la oss finne deg</h2>
-      <p class="mute">Kartet viser meldte funn, vær og musevarsel der du bor, og artiklene som er mest relevante i din landsdel.</p>
+      <p class="mute">Kartet viser vær og musevarsel der du bor, skadedyrstatistikk fra FHI, og artiklene som er mest relevante i din landsdel.</p>
       <button class="btn y arrow" type="button" data-locate>Bruk posisjonen min </button>
       <p class="small mute" style="margin-top:10px">Posisjonen brukes bare i nettleseren din og sendes ikke til oss.</p>${monthNow()}`;
   }
@@ -309,7 +303,7 @@
         const a = stats.fhi.monthly[k], lo = Math.min(...a), hi = Math.max(...a);
         return `<span class="p" title="${n}">${n}</span>` + a.map((v, i) => `<span class="c${i === M ? " cur" : ""}" style="background:color-mix(in srgb,var(--y) ${Math.round(8 + 92 * (v - lo) / (hi - lo || 1))}%,var(--soft))" title="${n}, ${mm[i]}: ${String(v).replace(".", ",")} % av bekjempelsene"></span>`).join("");
       }).join("");
-    const lg = $("#calLegend"); if (lg) lg.innerHTML = `Mørkest = måneden med flest bekjempelser for hvert skadedyr. Kilde: <a href="https://statistikk.fhi.no/skast/" rel="noopener">FHI Skadedyrstatistikk</a>, snitt 2007–2025. Mus og rotter er ikke med i FHIs statistikk.`;
+    const lg = $("#calLegend"); if (lg) lg.innerHTML = `Mørkest = måneden med flest bekjempelser for hvert skadedyr. Kilde: <a href="https://statistikk.fhi.no/skast/" rel="noopener">FHI Skadedyrstatistikk</a>, snitt ${stats.fhi.years || "siste to år"}. Statistikken gjelder 11 utvalgte skadeinsekter – mus og rotter er ikke med.`;
   }
 
   /* ---------- bildeanalyse ---------- */

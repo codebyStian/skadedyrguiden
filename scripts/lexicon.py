@@ -97,7 +97,7 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
         mx = max(mon); top = max(range(12), key=lambda i: mon[i])
         bars = ("<section><h2>Når den er mest aktiv</h2><div class='bars' role='img' aria-label='Andel oppdrag per måned'>" +
                 "".join(f"<div class='{'top' if i == top else ''}' style='height:{max(4, v / mx * 100):.0f}%' title='{MN[i]}: {v} %'><span>{MN[i]}</span></div>" for i, v in enumerate(mon)) +
-                "</div><p class='small mute'>Andel av skadedyrfirmaenes oppdrag per måned. Kilde: FHI Statistikk, skadedyrstatistikken.</p></section>")
+                f"</div><p class='small mute'>Andel av skadedyrfirmaenes oppdrag per måned, snitt {stats.get('years', 'siste to år')}. Kilde: FHI Statistikk, skadedyrstatistikken.</p></section>")
     cmp = "".join(compare_block(s["id"], c["id"], byid, slugs) for c in s["confusable"] if c["id"] in byid)
     vs = cmp or "".join(f'<div class="vs"><div>{thumb(s["id"], img, s["name"])}<b>{E(s["name"])}</b><em>{E(s["latin"])}</em></div><div class="mid">eller</div>'
                  f'<div><a href="{slugs[c["id"]]}.html" style="display:block">{thumb(c["id"], (imgs or {}).get(c["id"]), byid[c["id"]]["name"])}</a><b><a href="{slugs[c["id"]]}.html">{E(byid[c["id"]]["name"])}</a></b><em>{E(byid[c["id"]]["latin"])}</em><p>{E(cap(c["how"]))}.</p></div></div>'

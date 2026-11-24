@@ -89,7 +89,7 @@ for key, (title, text) in pages.items():
 SIDE: {title}
 INNHOLD: {text[:3000]}
 
-Velg 3–5 produkter fra KANDIDATENE som passer nøyaktig til problemet på siden – riktig dyr, riktig sted (inne/ute/hytte) og det siden faktisk anbefaler.
+Velg 4–6 produkter fra KANDIDATENE (minst 3 hvis det finnes så mange som passer) som passer nøyaktig til problemet på siden – riktig dyr, riktig sted (inne/ute/hytte) og det siden faktisk anbefaler.
 Regler:
 - Bare produkter som virker mot akkurat dette dyret. Aldri et produkt for et annet dyr (f.eks. ikke musefelle på en flåttside, ikke åte mot maur på en skjeggkreside).
 - Følg rådene på siden: anbefaler den mekaniske feller og tetting framfor gift, velg det.
@@ -113,8 +113,8 @@ KANDIDATER:
         if not prod.get("available", True) or re.search(r"proff|profesjonell|sertifi", "/".join(prod["category"]) + prod["name"], re.I): continue
         used.add(i)
         chosen.append({"url": prod["url"], "name": prod["name"], "price": prod["price"], "image": prod["image"], "role": p.get("role", ""), "why": p.get("why", "")})
-    recs[key] = chosen[:5]
-    print(f"{key}: " + " | ".join(f"{c['role']}: {c['name']}" for c in chosen[:5]))
+    recs[key] = chosen[:6]
+    print(f"{key}: " + " | ".join(f"{c['role']}: {c['name']}" for c in chosen[:6]))
 
 OUT.write_text(json.dumps(recs, ensure_ascii=False, indent=1), encoding="utf-8")
 print("skrev", len(recs), "sider")
