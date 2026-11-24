@@ -10,8 +10,8 @@ FHI = {"skjeggkre": "Skjeggkre", "veggedyr": "Veggedyr", "veps": "Stikkeveps", "
 CSS = """<style>
 .sx{background:#0f2a24;color:#fff;padding:64px 0 90px}.sx .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
 .sx h1{font-size:clamp(48px,6.4vw,92px);margin:.15em 0 .05em;color:#fff}.sx .lat{font-style:italic;color:#b9c6c1;font-size:20px;margin:0 0 22px}
-.sx .crumb{font-size:14px;color:#b9c6c1;margin:0}.sx .crumb a{color:#fff}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
-.badge{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px;font-size:14px}.badge.y{background:#f2c230;color:#13201c;border-color:#f2c230;font-weight:600}
+.sx .crumb{font-size:14px;color:#b9c6c1;margin:0}.sx .crumb a{color:#fff}.badges{display:flex;flex-wrap:wrap;align-items:center;gap:6px 0;margin:0 0 26px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.badge{display:inline-flex;align-items:center;gap:7px}.badge+.badge::before{content:"·";margin:0 10px;color:rgba(255,255,255,.4)}.badge.y{color:#fff;font-weight:700}.badge.y::after{content:"";order:-1;width:8px;height:8px;border-radius:50%;background:#f2c230}.badge.ok{color:rgba(255,255,255,.72)}
 .sx .ph{aspect-ratio:4/3;border-radius:22px;overflow:hidden}.sx .ph img{width:100%;height:100%;object-fit:cover}.sx .ctas{display:flex;flex-wrap:wrap;gap:10px}
 .sx .btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:-46px 0 0;position:relative;box-shadow:0 18px 40px -24px rgba(0,0,0,.35)}
@@ -137,8 +137,8 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
     return f'''{CSS}{CMP_CSS}<section class="sx"><div class="wrap"><div>
 <p class="crumb"><a href="index.html">Kjenn igjen</a> / {E(GROUP.get(s["group"], ""))}</p>
 <h1>{E(s["name"])}</h1><p class="lat">{E(s["latin"])}</p>
-<div class="badges"><span class="badge {"y" if s["pest"] else ""}">{"Skadedyr" if s["pest"] else "Ikke et skadedyr"}</span><span class="badge">{E(GROUP.get(s["group"], ""))}</span>{'<span class="badge">Kontrollert mot FHI</span>' if s.get("checked") else ""}</div>
-<div class="ctas">{f'<a class="btn y arrow" href="../artikler/{rel[0]}.html">Hva gjør jeg nå? </a><a class="btn ghost arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a>' if rel else '<a class="btn y arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a>'}{f'<a class="btn ghost arrow" href="{shop}">Se utstyr </a>' if s["pest"] else ""}</div></div>
+<div class="badges"><span class="badge {"y" if s["pest"] else ""}">{"Skadedyr" if s["pest"] else "Ikke et skadedyr"}</span><span class="badge">{E(GROUP.get(s["group"], ""))}</span>{'<span class="badge ok">✓ Kontrollert mot FHI</span>' if s.get("checked") else ""}</div>
+<div class="ctas">{f'<a class="btn y arrow" href="../artikler/{rel[0]}.html">Hva gjør jeg nå? </a><a class="btn ghost arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a>' if rel else '<a class="btn y arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a>'}</div>{f'<p class="small" style="margin:14px 0 0"><a href="{shop}" style="color:inherit;font-weight:600">Se utstyret i butikken →</a></p>' if s["pest"] else ""}</div>
 <figure style="margin:0"><div class="ph" data-label="{E(s["name"])}">{image}</div>{credit(s["id"]).replace('class="cred"', 'class="cred dk"')}</figure></div></section>
 <div class="wrap">{tiles_h}<div class="lxb"><div>
 <section><h2>Slik kjenner du den igjen</h2><ul class="feat">{feats}</ul></section>
