@@ -1,0 +1,27 @@
+# Kryp & kunnskap, episode 6. Format: Navn: replikk
+# title: Flått: sjekk deg selv etter turen
+# desc: Marte og Jonas om hvor flåtten finnes, hvordan du fjerner den riktig, når du bør gå til lege, og hva du kan gjøre i hagen.
+# article: flatt-langs-kysten
+Marte: Hei, og velkommen til Kryp og kunnskap. Jeg heter Marte.
+Jonas: Og jeg er Jonas. I dag snakker vi om et lite dyr som mange er redde for.
+Marte: Flått. Hvor i landet finnes den egentlig?
+Jonas: Skogflåtten er vanlig langs kysten fra svenskegrensen i Østfold og nord til Brønnøysund. Den nordligste bestanden er på Dønna. Men fugler og dyr kan bære med seg flått langt inn i landet.
+Marte: Og når er den aktiv?
+Jonas: Når det er over null grader, bakken er frostfri og snøen har gått. Det er ofte flest om våren.
+Marte: Hvorfor er flått farlig?
+Jonas: Den kan overføre sykdommer, først og fremst borreliose og skogflåttencefalitt, som ofte kalles T-B-E. Langs kysten fra Flekkefjord til svenskegrensen er T-B-E påvist.
+Marte: Jeg har hørt at det er de små flåttene man skal passe seg for.
+Jonas: Det stemmer. Nymfen er bare rundt halvannen millimeter, og den regnes som den viktigste smittekilden fordi den er så lett å overse.
+Marte: Okei. Jeg finner en flått. Hva gjør jeg?
+Jonas: Bruk pinsett eller flåttfjerner. Ta tak så nær huden som mulig, og trekk rett ut. Gjør det så raskt som mulig, helst innen ett døgn. Da er risikoen for borreliose lav.
+Marte: Og hvis hodet blir sittende igjen?
+Jonas: Det betyr lite for smitten. Smør gjerne på litt desinfiserende salve.
+Marte: Når bør jeg gå til lege?
+Jonas: Hvis du får et rødt utslett som vokser seg større enn fem centimeter. Det kan komme fra tre til tretti dager etter bittet. Og gå til lege ved feber, hodepine, ansiktslammelse eller hvis du føler deg uvanlig slapp.
+Marte: Finnes det vaksine?
+Jonas: Mot T-B-E, ja. Bor du eller har hytte der det er påvist T-B-E, og blir ofte bitt, så snakk med fastlegen. Mot borreliose finnes det ikke vaksine, men den kan behandles med antibiotika.
+Marte: Hva med hagen? Kan jeg sprøyte?
+Jonas: Folkehelseinstituttet anbefaler ikke kjemisk bekjempelse av flått, fordi det kan gi store skader på miljøet. Klipp gresset kort, rydd kratt der barn leker, og ikke mat hjort og rådyr.
+Marte: Så oppsummert: lange bukser i sokkene, sjekk kroppen etter turen, fjern flåtten raskt, og følg med på utslett.
+Jonas: Akkurat. Og husk hunden og katten også. Hele artikkelen finner du på kryp punktum a-s.
+Marte: Takk for at du lyttet. God tur!

@@ -492,7 +492,7 @@ fetch('data/articles.json').then(r=>r.json()).then(all=>{
   draw('Alle');
 }).catch(()=>{});
 
-document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten'],['Veggedyr: den uønskede souveniren'],['Skjeggkre: hvorfor nye boliger får dem']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===2?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">Lytt nå</span></a>`).join('');
+fetch('data/episodes.json').then(r=>r.ok?r.json():[]).then(E=>{document.getElementById('eps').innerHTML=E.slice(0,3).map(e=>`<a class="ep" href="podkast.html#ep-${e.n}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${e.n}</small><br><b>${e.title}</b></span><span class="len">Lytt nå</span></a>`).join('')}).catch(()=>{});
 
 
 

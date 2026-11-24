@@ -1,6 +1,7 @@
 # Kryp & kunnskap, episode 2. Format: Navn: replikk
 # title: Veggedyr: den uønskede souveniren
 # desc: Marte og Jonas om hvordan veggedyr blir med hjem i bagasjen, to-minutters-sjekken på hotellet, og hva du gjør hvis du har tatt dem med deg.
+# article: veggedyr-pa-reise
 Marte: Hei, og velkommen til Kryp og kunnskap, podkasten fra Kryp punktum a-s. Jeg heter Marte.
 Jonas: Og jeg er Jonas. I dag snakker vi om et insekt som ikke kommer inn gjennom et hull i veggen, men i kofferten din.
 Marte: Veggedyr. Jonas, hva er det egentlig vi ser etter?

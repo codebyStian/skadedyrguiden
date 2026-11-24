@@ -34,6 +34,11 @@ def main():
     from articles import ARTICLES, EXTRA
     from faq import FAQ
     arts = {a["slug"]: a for a in ARTICLES + EXTRA}
+    import page as _page
+    EPS = [e for e in _page.episodes() if e["audio"]]
+    EP_BY_ART = {}
+    for e in EPS:
+        for s_ in e["articles"]: EP_BY_ART[s_] = e
     pages = []
     lastmod = {}
     for p in sorted(SITE.rglob("*.html")):
@@ -63,6 +68,10 @@ def main():
                    "citation": [x[1] for x in a.get("sources", [])]}
             if a.get("words"): art["wordCount"] = a["words"]
             if a.get("kort"): art["abstract"] = " ".join(a["kort"])
+            if slug in EP_BY_ART:
+                e = EP_BY_ART[slug]
+                art["audio"] = {"@type": "AudioObject", "name": f"Kryp & kunnskap #{e['n']}: {e['title']}", "description": e["desc"],
+                                "contentUrl": f"{BASE}/assets/podcast/{e['slug']}.mp3", "encodingFormat": "audio/mpeg", "inLanguage": "nb-NO"}
             if a.get("about"): art["about"] = [{"@type": "Thing", "name": n} for n in a["about"]]
             ld += [art, {"@context": "https://schema.org", **crumbs([home, ("Råd og løsninger", BASE + "/artikler/"), (a.get("title", title), u)])}]
             if a.get("faq"):
@@ -90,7 +99,11 @@ def main():
                    {"@context": "https://schema.org", **crumbs([home, ("Om Kryp.as", u)])}]
             otype = "website"
         elif rel == "podkast.html":
-            ld += [{"@context": "https://schema.org", "@type": "PodcastSeries", "name": "Kryp & kunnskap", "url": u, "inLanguage": "nb-NO", "publisher": ORG},
+            ld += [{"@context": "https://schema.org", "@type": "PodcastSeries", "name": "Kryp & kunnskap", "url": u, "inLanguage": "nb-NO", "publisher": ORG,
+                    "description": "Podkast om skadedyr i hus, hage og hytte. Marte og Jonas tar ett skadedyr per episode, med råd fra fagartiklene på Kryp.as.",
+                    "episode": [{"@type": "PodcastEpisode", "episodeNumber": e["n"], "name": e["title"], "description": e["desc"], "url": f"{u}#ep-{e['n']}",
+                                 "associatedMedia": {"@type": "MediaObject", "contentUrl": f"{BASE}/assets/podcast/{e['slug']}.mp3"},
+                                 **({"about": {"@type": "Article", "url": f"{BASE}/artikler/{e['articles'][0]}.html"}} if e["articles"] else {})} for e in EPS]},
                    {"@context": "https://schema.org", **crumbs([home, ("Podkast", u)])}]
             img = BASE + "/assets/img/studio.webp"; otype = "website"
         else:
