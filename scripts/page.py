@@ -21,7 +21,7 @@ def head(title, desc, base):
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="{base}index.html">Kryp.as<i></i></a>
-  <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Leksikon</a><a href="{base}artikler/index.html">Artikler</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
+  <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Kjenn igjen</a><a href="{base}artikler/index.html">Råd og løsninger</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
   <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 <main>
@@ -32,7 +32,7 @@ def foot(base):
 <footer class="band"><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="{base}index.html">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
-    <div><h3>Les</h3><ul><li><a href="{base}index.html#leksikon">Leksikon</a></li><li><a href="{base}artikler/index.html">Artikler</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
+    <div><h3>Les</h3><ul><li><a href="{base}leksikon/index.html">Kjenn igjen (leksikon)</a></li><li><a href="{base}artikler/index.html">Råd og løsninger</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li><li><a href="{base}om-kryp.html">Om Kryp.as</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
   </div>
@@ -83,8 +83,8 @@ ABOUT = '''<section class="band"><div class="wrap art">
 <span class="kicker">Om oss</span><h1>Om Kryp.as</h1>
 <p class="lead">Kryp.as er en norsk fagside om skadedyr i hus, hage, hytte og bedrift. Siden drives av folkene bak Skadedyrbutikken, nettbutikken for skadedyrkontroll.</p>
 <h2 id="hva">Hva du finner her</h2>
-<ul><li><b>Artikler</b> om konkrete problemer – mus i veggen, veggedyr på reise, stokkmaur, vepsebol, flått og mye mer.</li>
-<li><b>Skadedyrleksikon</b> med kjennetegn og forvekslingsarter.</li>
+<ul><li><b>Råd og løsninger:</b> artikler om konkrete problemer – hva du gjør, hvordan du forebygger og når du bør få hjelp. For eksempel – mus i veggen, veggedyr på reise, stokkmaur, vepsebol, flått og mye mer.</li>
+<li><b>Kjenn igjen:</b> skadedyrleksikonet med kjennetegn, bilder og forvekslingsarter – én side per dyr.</li>
 <li><b>Verktøy</b>: bildeanalyse som foreslår art, fellekalkulator og sjekklisten «Tett huset».</li>
 <li><b>Podkasten</b> «Kryp &amp; kunnskap».</li></ul>
 <h2 id="kilder">Slik skriver vi</h2>

@@ -64,7 +64,7 @@ def main():
             if a.get("words"): art["wordCount"] = a["words"]
             if a.get("kort"): art["abstract"] = " ".join(a["kort"])
             if a.get("about"): art["about"] = [{"@type": "Thing", "name": n} for n in a["about"]]
-            ld += [art, {"@context": "https://schema.org", **crumbs([home, ("Artikler", BASE + "/artikler/"), (a.get("title", title), u)])}]
+            ld += [art, {"@context": "https://schema.org", **crumbs([home, ("Råd og løsninger", BASE + "/artikler/"), (a.get("title", title), u)])}]
             if a.get("faq"):
                 ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                     {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": plain(ans)}} for q, ans in a["faq"]]})
