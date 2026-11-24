@@ -34,7 +34,7 @@ def foot(base):
     <div><a class="logo" href="{base}index.html">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
     <div><h3>Les</h3><ul><li><a href="{base}index.html#leksikon">Leksikon</a></li><li><a href="{base}artikler/index.html">Artikler</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li></ul></div>
-    <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
+    <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
   </div>
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="{base}kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>

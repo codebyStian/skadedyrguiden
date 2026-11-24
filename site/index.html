@@ -359,7 +359,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></section>
 
 <section class="band" id="kalender"><div class="wrap">
-  <div class="head"><div><span class="kicker">Sesongkalender</span><h2>Forebygg før sesongen starter</h2></div><p class="mute">Når skadedyrfirmaene i Norge rykker ut, måned for måned. Inneværende måned er markert.</p></div>
+  <div class="head"><div><span class="kicker">Sesongkalender</span><h2>Forebygg før sesongen starter</h2></div><p class="mute">Hva du kan møte i hus, hage og hytte, måned for måned – og når det lønner seg å forebygge. Inneværende måned er markert.</p></div>
   <div class="calg" id="cal"></div>
   <p class="src" id="calLegend"><span><i style="background:var(--y)"></i>Høysesong</span> <span><i style="background:color-mix(in srgb,var(--y) 35%,var(--soft))"></i>Kan forekomme</span></p>
 </div></section>
@@ -377,7 +377,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 
 <section class="band shop"><div class="wrap">
   <div class="head"><h2 style="margin:0">Når du vet hva du trenger</h2><p>All handel skjer hos Skadedyrbutikken – nettbutikken for skadedyrkontroll.</p></div>
-  <div class="shopgrid" id="shop"></div>
+  <div class="shopgrid" id="shop"><a href="https://skadedyrbutikken.no/produkter/gnagere?utm_source=kryp.as&utm_medium=referral&utm_campaign=shopgrid">Gnagere<span aria-hidden="true">→</span></a><a href="https://skadedyrbutikken.no/produkter/insekter?utm_source=kryp.as&utm_medium=referral&utm_campaign=shopgrid">Insekter<span aria-hidden="true">→</span></a><a href="https://skadedyrbutikken.no/produkter/fugler?utm_source=kryp.as&utm_medium=referral&utm_campaign=shopgrid">Fugler<span aria-hidden="true">→</span></a><a href="https://skadedyrbutikken.no/produkter/hus-og-hage?utm_source=kryp.as&utm_medium=referral&utm_campaign=shopgrid">Hus og hage<span aria-hidden="true">→</span></a><a href="https://skadedyrbutikken.no/produkter/verktoey-og-verneutstyr?utm_source=kryp.as&utm_medium=referral&utm_campaign=shopgrid">Verneutstyr<span aria-hidden="true">→</span></a><a href="https://skadedyrbutikken.no/produkter/lagersalg?utm_source=kryp.as&utm_medium=referral&utm_campaign=shopgrid">Lagersalg<span aria-hidden="true">→</span></a></div>
   <div class="perks"><span>✓ Samme-dags forsendelse</span><span>✓ Fri frakt over 1 499 kr</span><span>✓ Faktura for bedrift</span></div>
 </div></section>
 
@@ -402,7 +402,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
     <div><a class="logo" href="./">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
     <div><h3>Les</h3><ul><li><a href="#leksikon">Leksikon</a></li><li><a href="#artikler">Artikler</a></li><li><a href="podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
-    <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering">Frakt og levering</a></li></ul></div>
+    <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
   </div>
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>
@@ -491,7 +491,7 @@ fetch('data/articles.json').then(r=>r.json()).then(all=>{
 document.getElementById('eps').innerHTML=[['Mus: småkrypet som kommer inn med høsten'],['Veggedyr: den uønskede souveniren'],['Skjeggkre: hvorfor nye boliger får dem']].map(([t,l],i)=>`<a class="ep" href="podkast.html${i===2?'#pl':''}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${i+1}</small><br><b>${t}</b></span><span class="len">Lytt nå</span></a>`).join('');
 
 
-document.getElementById('shop').innerHTML=[['Gnagere','gnagere'],['Insekter','insekter'],['Fugler','fugler'],['Hus og hage','hus-og-hage'],['Verneutstyr','verktoey-og-verneutstyr'],['Lagersalg','lagersalg']].map(([t,p])=>`<a href="${U(p,'shopgrid')}">${t}<span aria-hidden="true">→</span></a>`).join('');
+
 
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>{x.setAttribute('aria-selected',x===b);document.getElementById(x.dataset.tab).hidden=x!==b})}));
 document.getElementById('aiOut').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;const m={jordmaur:'maur',stokkmaur:'maur',skogmus:'mus'};const k=m[b.dataset.k]||b.dataset.k;if(P.find(p=>p.k===k))open(k);else location.hash='leksikon'});
