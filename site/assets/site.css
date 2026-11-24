@@ -131,3 +131,6 @@ section[id]{scroll-margin-top:84px}
 .faqs summary::-webkit-details-marker{display:none}
 .faqs summary::after{content:"+";font-weight:400;color:var(--mute);flex:none}
 .faqs details[open] summary::after{content:"–"}
+.kort{background:var(--soft);border-left:4px solid var(--y);border-radius:12px;padding:18px 22px;margin:0 0 1.6em}
+.kort b{display:block;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.kort ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
