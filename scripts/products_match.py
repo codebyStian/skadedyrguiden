@@ -62,9 +62,6 @@ def strip(h):
 pages = {}
 for a in ARTICLES:
     pages[f"art:{a['slug']}"] = (a["title"], f"{a['title']}. {a['lead']} {strip(a['body'])[:2500]}")
-for slug, q in {"mus-om-hosten": "Mus i huset om høsten. Tette hull, musefeller, klappfeller, slagfeller, tetningsnett, stålull, overvåking.",
-                "veggedyr-pa-reise": "Veggedyr på hotellet: sjekk sengen og rommet på to minutter, feller og monitor for veggedyr."}.items():
-    pages[f"art:{slug}"] = (slug, q)
 for s in KB:
     pages[f"sp:{s['id']}"] = (s["name"], f"{s['name']} ({s['latin']}). {SYN.get(s['id'], '')}. Kjennetegn: {'; '.join(s['features'])}. Skadedyr: {'ja' if s['pest'] else 'nei, skal ikke bekjempes'}.")
 REG = {"ost": "Østlandet: mus i hus og hytte, rotter i byene, stokkmaur, skjeggkre i leiligheter, flått, veps", "sor": "Sørlandet: flått langs kysten, mus i sjøhytter, veps, maur, brunsnegl",
@@ -89,11 +86,12 @@ for key, (title, text) in pages.items():
 SIDE: {title}
 INNHOLD: {text[:3000]}
 
-Velg 3–5 produkter fra KANDIDATENE som passer nøyaktig til problemet på siden – riktig dyr, riktig sted (inne/ute/hytte) og det siden faktisk anbefaler.
+Velg 4–6 produkter fra KANDIDATENE (minst 3 hvis det finnes så mange som passer) som passer nøyaktig til problemet på siden – riktig dyr, riktig sted (inne/ute/hytte) og det siden faktisk anbefaler.
 Regler:
 - Bare produkter som virker mot akkurat dette dyret. Aldri et produkt for et annet dyr (f.eks. ikke musefelle på en flåttside, ikke åte mot maur på en skjeggkreside).
 - Følg rådene på siden: anbefaler den mekaniske feller og tetting framfor gift, velg det.
 - Ikke produkter som krever godkjenning/sertifikat eller er «kun for profesjonelle».
+- Ikke gift mot gnagere (musegift/rottegift/åte med rodenticid): salg til privatpersoner er forbudt fra juni 2026.
 - Ikke ultralydskremmere mot gnagere eller insekter (FHI: dårlig dokumentert effekt).
 - Levende fangst av vilt (f.eks. grevling) krever tillatelse – velg heller skremsel/avvisning og tetting, og nevn aldri at fellen kan brukes fritt.
 - Siden handler om en art som ikke er et skadedyr eller er fredet/vernet (f.eks. grevling, flaggermus, humler, hoggorm): velg bare forebygging, skremsel, tetting eller verneutstyr – aldri noe som dreper dyret. Finnes ikke noe passende: returner tom liste.
@@ -113,8 +111,8 @@ KANDIDATER:
         if not prod.get("available", True) or re.search(r"proff|profesjonell|sertifi", "/".join(prod["category"]) + prod["name"], re.I): continue
         used.add(i)
         chosen.append({"url": prod["url"], "name": prod["name"], "price": prod["price"], "image": prod["image"], "role": p.get("role", ""), "why": p.get("why", "")})
-    recs[key] = chosen[:5]
-    print(f"{key}: " + " | ".join(f"{c['role']}: {c['name']}" for c in chosen[:5]))
+    recs[key] = chosen[:6]
+    print(f"{key}: " + " | ".join(f"{c['role']}: {c['name']}" for c in chosen[:6]))
 
 OUT.write_text(json.dumps(recs, ensure_ascii=False, indent=1), encoding="utf-8")
 print("skrev", len(recs), "sider")

@@ -77,7 +77,7 @@ ARTICLES = [
 <h2>Når bør du ringe en fagperson?</h2>
 <p>Ser du rotter innendørs, finner du ekskrementer på én til to centimeter, eller kommer problemet tilbake etter at du har tettet og ryddet, bør du kontakte en skadedyrbekjemper. For å drive ervervsmessig skadedyrbekjempelse kreves det godkjenning i Norge.</p>
 """,
- "prod": ("Feller og tetting mot rotter", "Rottefeller, åtestasjoner til proffbruk og tettematerialer.", "gnagere"),
+ "prod": ("Feller og tetting mot rotter", "Rottefeller, fellekasser og tettematerialer.", "gnagere"),
  "sources": [("FHI: Brunrotte", f"{FHI}/gnagere/brunrotte"), ("Asker kommune: Spørsmål om skadedyr", "https://www.asker.kommune.no/helse-og-omsorg/miljorettet-helsevern/sporsmal-om-skadedyr/"),
              ("FHI: Skadedyr – håndbok for helsepersonell", "https://fhi.no/sm/smittevernhandboka/temakapitler/skadedyr")]},
 {
@@ -615,9 +615,46 @@ for a in ARTICLES:
     a.setdefault("months", MONTHS.get(a["slug"], list(range(1, 13))))
 ARTICLES[[a["slug"] for a in ARTICLES].index("flatt-langs-kysten")]["regions"] = ["ost", "sor", "vest", "midt", "nord"]
 
-# Eldre artikler som ligger i page.py, men skal med i oversikten
-EXTRA = [
- {"slug": "mus-om-hosten", "title": "Mus i huset om høsten: finn hullet før musa gjør det", "cat": "Gnagere", "img": "mus", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [9, 10, 11, 12, 1, 2]},
- {"slug": "veggedyr-pa-reise", "title": "Veggedyr på hotellet: sjekk rommet på to minutter", "cat": "Insekter", "img": "veggedyr", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [6, 7, 8, 9, 10]},
+# Tidligere håndskrevne artikler i page.py – nå i samme mal som resten.
+ARTICLES += [
+{
+ "slug": "mus-om-hosten", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [9, 10, 11, 12, 1, 2], "cat": "Gnagere", "min": 6, "img": "mus",
+ "title": "Mus i huset om høsten: finn hullet før musa gjør det", "lead": "", "body": "",
+ "prod": ("Feller og tettemidler for mus", "Klappfeller, flerfangstfeller og tettematerialer.", "gnagere"),
+ "sources": [("FHI Skadedyrhåndboka: Husmus", f"{FHI}/gnagere/husmus"), ("FHI Skadedyrhåndboka: Brunrotte", f"{FHI}/gnagere/brunrotte")]},
+{
+ "slug": "veggedyr-pa-reise", "regions": ["ost", "sor", "vest", "midt", "nord"], "months": [6, 7, 8, 9, 10], "cat": "Insekter", "min": 5, "img": "veggedyr",
+ "title": "Veggedyr på hotellet: sjekk rommet på to minutter", "lead": "", "body": "",
+ "prod": ("Utstyr mot veggedyr", "Feller, overvåking og utstyr til reise og hjem.", "insekter"),
+ "guide": ("Slik unngår du å få med veggedyr hjem i bagasjen", "https://skadedyrbutikken.no/tips-og-raad/insekter/slik-unngaar-du-aa-faa-med-veggedyr-hjem-i-bagasjen?utm_source=kryp.as&utm_medium=referral&utm_campaign=art-veggedyr-pa-reise"),
+ "sources": [("FHI Skadedyrhåndboka: Veggedyr", "https://fhi.no/sk/skadedyrhandboka/teger/veggedyr")]},
 ]
+EXTRA = []
+
+# --- Innhold fra content/artikler/<slug>.html ---------------------------------------------
+# Hver fil starter med en <!--meta {json} -->-blokk (seo_title, desc, lead, alt, faq, sources, updated …),
+# etterfulgt av brødteksten i HTML. Det som står i fila, overstyrer feltene over.
+import json as _json, pathlib as _pl, re as _re
+CONTENT = _pl.Path(__file__).resolve().parent.parent / "content" / "artikler"
+
+
+def _load(a):
+    f = CONTENT / f"{a['slug']}.html"
+    if not f.exists():
+        return
+    t = f.read_text(encoding="utf-8")
+    m = _re.match(r"\s*<!--meta\s*(\{.*?\})\s*-->\s*", t, _re.S)
+    meta = _json.loads(m.group(1)) if m else {}
+    if "sources" in meta:
+        meta["sources"] = [tuple(x) for x in meta["sources"]]
+    a.update(meta)
+    a["body"] = t[m.end():] if m else t
+    words = len(_re.sub(r"<[^>]+>", " ", a["body"]).split())
+    a["words"] = words
+    a["min"] = max(3, round(words / 200))
+
+
+for _a in ARTICLES:
+    _load(_a)
+
 REGION_ARTICLES = {r: [a for a in ARTICLES if r in a["regions"]] for r in ["ost", "sor", "vest", "midt", "nord"]}

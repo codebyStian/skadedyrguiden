@@ -33,6 +33,7 @@ def main():
     from faq import FAQ
     arts = {a["slug"]: a for a in ARTICLES + EXTRA}
     pages = []
+    lastmod = {}
     for p in sorted(SITE.rglob("*.html")):
         h = p.read_text(encoding="utf-8")
         if 'http-equiv="refresh"' in h or p.name.startswith("google") or "<title>" not in h:
@@ -43,6 +44,7 @@ def main():
         desc = meta(h, "description")
         img = BASE + "/assets/img/hero.webp"
         ld = []
+        extra_meta = []
         home = (NAME, BASE + "/")
         if rel == "index.html":
             ld += [{**ORG, "@context": "https://schema.org"}, {"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "url": BASE + "/", "inLanguage": "nb-NO"}]
@@ -51,9 +53,23 @@ def main():
             slug = rel[9:-5]; a = arts.get(slug, {})
             if a.get("img") and (SITE / f"assets/img/{a['img']}.webp").exists():
                 img = f"{BASE}/assets/img/{a['img']}.webp"
-            ld += [{"@context": "https://schema.org", "@type": "Article", "headline": a.get("title", title), "description": desc, "image": img,
-                    "datePublished": "2026-11-18", "dateModified": TODAY, "inLanguage": "nb-NO", "author": ORG, "publisher": ORG, "mainEntityOfPage": u},
-                   {"@context": "https://schema.org", **crumbs([home, ("Artikler", BASE + "/#artikler"), (a.get("title", title), u)])}]
+            plain = lambda x: re.sub(r"<[^>]+>", "", x)
+            art = {"@context": "https://schema.org", "@type": "Article", "headline": a.get("title", title)[:110], "description": desc,
+                   "image": {"@type": "ImageObject", "url": img, "caption": a.get("alt", "")} if a.get("alt") else img,
+                   "datePublished": a.get("published", "2026-11-18"), "dateModified": a.get("updated", TODAY), "inLanguage": "nb-NO",
+                   "articleSection": a.get("cat", ""), "author": ORG, "publisher": ORG, "mainEntityOfPage": u,
+                   "citation": [x[1] for x in a.get("sources", [])]}
+            if a.get("words"): art["wordCount"] = a["words"]
+            if a.get("about"): art["about"] = [{"@type": "Thing", "name": n} for n in a["about"]]
+            ld += [art, {"@context": "https://schema.org", **crumbs([home, ("Artikler", BASE + "/artikler/"), (a.get("title", title), u)])}]
+            if a.get("faq"):
+                ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+                    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": plain(ans)}} for q, ans in a["faq"]]})
+            extra_meta = [f'<meta property="article:published_time" content="{a.get("published", "2026-11-18")}">',
+                          f'<meta property="article:modified_time" content="{a.get("updated", TODAY)}">',
+                          f'<meta property="article:section" content="{H.escape(a.get("cat", ""))}">']
+            if a.get("alt"): extra_meta.append(f'<meta property="og:image:alt" content="{H.escape(a["alt"])}">')
+            lastmod[u] = a.get("updated", TODAY)
             otype = "article"
         elif rel == "sporsmal-og-svar.html":
             ld += [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -85,7 +101,7 @@ def main():
             f'<meta property="og:type" content="{otype}">', f'<meta property="og:site_name" content="{NAME}">', '<meta property="og:locale" content="nb_NO">',
             f'<meta property="og:title" content="{H.escape(title.split(" – ")[0])}">', f'<meta property="og:description" content="{H.escape(desc)}">',
             f'<meta property="og:url" content="{u}">', f'<meta property="og:image" content="{img}">',
-            '<meta name="twitter:card" content="summary_large_image">', '<meta name="theme-color" content="#0f2a24">',
+            *extra_meta, '<meta name="twitter:card" content="summary_large_image">', '<meta name="theme-color" content="#0f2a24">',
             *[f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld],
             "<!--/seo-->"])
         h = re.sub(r"\n?<!--seo-->.*?<!--/seo-->", "", h, flags=re.S)
@@ -98,7 +114,7 @@ def main():
         if not hidden:
             pages.append((u, pr))
     (SITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-        "".join(f"  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority></url>\n" for u, pr in pages) + "</urlset>\n", encoding="utf-8")
+        "".join(f"  <url><loc>{u}</loc><lastmod>{lastmod.get(u, TODAY)}</lastmod><priority>{pr}</priority></url>\n" for u, pr in pages) + "</urlset>\n", encoding="utf-8")
     (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
     lines = [f"# {NAME}", "", "> Norsk fagside om skadedyr i hus, hage og bedrift: fagartikler med kilder (FHI m.fl.), skadedyrleksikon, verktøy og podkast. Kjøp skjer hos skadedyrbutikken.no.", "",
              "## Artikler"] + [f"- [{a['title']}]({BASE}/artikler/{a['slug']}.html)" for a in ARTICLES + EXTRA] + ["", "## Oppslag",

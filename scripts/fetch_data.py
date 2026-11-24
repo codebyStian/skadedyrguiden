@@ -1,6 +1,8 @@
 """Henter offentlige data til siden (kjøres i GitHub Actions, ukentlig):
-- FHI Statistikk Open API: skadedyrstatistikken (antall bekjempelser per år og måned)
-- GBIF (inkl. Artsdatabanken/Artsobservasjoner): registrerte funn per fylke siste 10 år
+- FHI Statistikk Open API: skadedyrstatistikken (antall bekjempelser per år og måned).
+  FHI publiserer statistikken årlig, i etterkant. Vi bruker de to siste hele årene (MONTH_YEARS),
+  ikke snittet fra 2007, fordi bildet har endret seg de siste årene.
+  Statistikken gjelder 11 utvalgte skadeinsekter – mus og rotter er ikke med.
 Skriver data/raw/*.json (råsvar) og site/data/stats.json (det siden bruker)."""
 import json, pathlib, time, datetime, urllib.request, urllib.parse
 
@@ -44,22 +46,31 @@ def jsonstat_rows(d):
 
 
 def fhi_parse():
-    """Lager {yearly: {art: {år: n}}, monthly: {art: [12 andeler i %]}} fra råfilene."""
-    out = {"source": "FHI Statistikk – Skadedyrstatistikk (statistikk.fhi.no/skast)", "yearly": {}, "monthly": {}}
+    """Lager {yearly: {art: {år: n}}, monthly: {art: [12 andeler i %]}, years: "2024–2025"} fra råfilene.
+    Månedsfordelingen er snittet av de to siste årene, vektet med antall bekjempelser hvert år."""
+    out = {"source": "FHI Statistikk – Skadedyrstatistikk (statistikk.fhi.no/skast)", "scope": "11 utvalgte skadeinsekter. Mus og rotter er ikke med.",
+           "yearly": {}, "monthly": {}}
+    per_year = {}
     for f in RAW.glob("fhi_skast_*_data.json"):
         d = json.loads(f.read_text())
         rows = jsonstat_rows(d)
         if "MND" in d["id"]:
-            mnd = d["dimension"]["MND"]["category"]["label"]
             for r in rows:
-                if r["AAR"] == "Alle år" and r["v"] is not None:
-                    out["monthly"].setdefault(r["ART"].replace(" og ", " eller "), {})[r["MND"]] = r["v"]
+                if r["AAR"].isdigit() and r["v"] is not None:
+                    per_year.setdefault(r["ART"].replace(" og ", " eller "), {}).setdefault(r["AAR"], {})[r["MND"]] = r["v"]
         else:
             for r in rows:
-                if r["v"] is not None:
+                if r["v"] is not None and r["AAR"].isdigit():
                     out["yearly"].setdefault(r["ART"], {})[r["AAR"]] = r["v"]
     M = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"]
-    out["monthly"] = {a: [round(m.get(x) or 0, 1) for x in M] for a, m in out["monthly"].items()}
+    last = max(int(y) for a in out["yearly"].values() for y in a)
+    years = [str(last - 1), str(last)]
+    out["years"] = f"{years[0]}–{years[1]}"
+    for art, by in per_year.items():
+        w = {y: (out["yearly"].get(art, {}).get(y) or 0) for y in years if y in by}
+        tot = sum(w.values())
+        if not w: continue
+        out["monthly"][art] = [round(sum((by[y].get(m) or 0) * (w[y] if tot else 1) for y in w) / (tot or len(w)), 1) for m in M]
     return out
 
 
@@ -81,34 +92,7 @@ def fhi():
     return out
 
 
-SPECIES = {"mus": "Mus musculus", "rotte": "Rattus norvegicus", "skjeggkre": "Ctenolepisma longicaudatum",
-           "solvkre": "Lepisma saccharinum", "veggedyr": "Cimex lectularius", "veps": "Vespula vulgaris",
-           "stokkmaur": "Camponotus herculeanus", "flatt": "Ixodes ricinus"}
-
-
-def gbif(geo):
-    y = datetime.date.today().year
-    keys = {}
-    for k, name in SPECIES.items():
-        m = get("https://api.gbif.org/v1/species/match?" + urllib.parse.urlencode({"name": name}))
-        keys[k] = m.get("usageKey")
-    res = {"years": f"{y-9}-{y}", "keys": keys, "fylker": {}}
-    for f in geo["fylker"]:
-        row = {}
-        for k, key in keys.items():
-            qs = urllib.parse.urlencode({"taxonKey": key, "country": "NO", "geometry": f["wkt"], "year": f"{y-9},{y}", "limit": 0})
-            try:
-                row[k] = get("https://api.gbif.org/v1/occurrence/search?" + qs)["count"]
-            except Exception as e:
-                row[k] = None; print("gbif", f["id"], k, e)
-            time.sleep(0.2)
-        res["fylker"][f["id"]] = row
-        print("gbif", f["name"], row)
-    return res
-
-
 def main():
-    geo = json.loads((ROOT / "site/data/norge.json").read_text())
     stats = {"updated": datetime.date.today().isoformat()}
     try:
         stats["fhi_tables"] = fhi()
@@ -118,13 +102,10 @@ def main():
         stats["fhi"] = fhi_parse()
     except Exception as e:
         print("FHI parse failed:", e)
-    try:
-        stats["gbif"] = gbif(geo)
-    except Exception as e:
-        print("GBIF failed:", e)
     f = ROOT / "site/data/stats.json"
     prev = json.loads(f.read_text()) if f.exists() else {}
     prev.update(stats)
+    prev.pop("gbif", None)
     f.write_text(json.dumps(prev, ensure_ascii=False, indent=1))
 
 
