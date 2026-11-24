@@ -61,8 +61,8 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
         (L / f"{slug}.html").write_text(head(f'{s["name"]} – kjennetegn og råd – Kryp.as', desc, "../") + body + foot("../"), encoding="utf-8")
         cards.append(f'<a class="lx" href="{slug}.html"><b>{H.escape(s["name"])}</b><em>{H.escape(s["latin"])}</em><span>{"Skadedyr" if s["pest"] else "Ufarlig"}</span></a>')
     idx = f'''<style>.lxg{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px;margin-top:30px}}.lx{{display:grid;gap:2px;padding:20px 22px;border:1px solid var(--line);border-radius:16px;text-decoration:none}}.lx:hover{{background:var(--soft)}}.lx b{{font-size:19px}}.lx em{{color:var(--mute)}}.lx span{{font-size:13px;color:var(--mute);margin-top:6px}}</style>
-<section class="band"><div class="wrap"><span class="kicker">Skadedyrleksikon</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Kjenn igjen <em>dyret</em></h1>
-<p class="mute" style="font-size:19px;max-width:56ch">Kjennetegn og forvekslingsarter for {len(kb)} dyr du kan møte i og rundt huset. Basert på Folkehelseinstituttets skadedyrhåndbok.</p>
+<section class="band"><div class="wrap"><span class="kicker">Kjenn igjen · leksikon</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Kjenn igjen <em>dyret</em></h1>
+<p class="mute" style="font-size:19px;max-width:56ch">Kjennetegn og forvekslingsarter for {len(kb)} dyr du kan møte i og rundt huset. Basert på Folkehelseinstituttets skadedyrhåndbok. Vet du hva det er og lurer på hva du skal gjøre? Se <a href="../artikler/index.html">Råd og løsninger</a>.</p>
 <div class="lxg">{"".join(cards)}</div></div></section>'''
     (L / "index.html").write_text(head("Skadedyrleksikon – Kryp.as", "Kjennetegn og forvekslingsarter for vanlige skadedyr i Norge, fra husmus og rotter til skjeggkre, veggedyr og veps.", "../") + idx + foot("../"), encoding="utf-8")
 
@@ -130,8 +130,8 @@ def articles_index(head, foot):
     cats = sorted({a["cat"] for a in arts})
     cards = "".join(f'''<a href="{a["slug"]}.html" data-c="{H.escape(a["cat"])}"><div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a.get("img") or "hero"}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
 <span class="small mute">{H.escape(a["cat"])}</span><b>{H.escape(a["title"])}</b>{f'<span class="mute" style="font-size:15px">{H.escape(a.get("lead", "")[:140])}…</span>' if a.get("lead") else ""}</a>''' for a in arts)
-    body = f'''<section class="band"><div class="wrap"><span class="kicker">Fagartikler</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Alle <em>artikler</em></h1>
-<p class="mute" style="font-size:19px;max-width:56ch">{len(arts)} artikler om skadedyr i hus, hytte og hage – skrevet med Folkehelseinstituttet og andre offentlige kilder i ryggen.</p>
+    body = f'''<section class="band"><div class="wrap"><span class="kicker">Råd og løsninger</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Hva gjør <em>jeg</em>?</h1>
+<p class="mute" style="font-size:19px;max-width:56ch">{len(arts)} artikler om hva du gjør når skadedyrene er der: slik blir du kvitt dem, slik forebygger du, og når du bør få hjelp. Basert på Folkehelseinstituttet og andre offentlige kilder. Vil du først finne ut hvilket dyr det er? Se <a href="../leksikon/index.html">Kjenn igjen</a>.</p>
 <div class="afil" id="af"><button type="button" aria-pressed="true" data-c="">Alle</button>{"".join(f'<button type="button" aria-pressed="false" data-c="{H.escape(c)}">{H.escape(c)}</button>' for c in cats)}</div>
 <div class="agrid" id="ag">{cards}</div></div></section>
 <script>document.getElementById("af").onclick=e=>{{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#af button").forEach(x=>x.setAttribute("aria-pressed",x===b));document.querySelectorAll("#ag a").forEach(a=>a.hidden=b.dataset.c&&a.dataset.c!==b.dataset.c)}}</script>'''

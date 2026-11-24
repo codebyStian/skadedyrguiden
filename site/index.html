@@ -58,7 +58,7 @@
 .sheet .in{padding:28px 32px 40px}
 .sheet .x{position:absolute;right:16px;top:16px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#111715;font-size:22px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.2)}
 .sheet ul{padding-left:1.2em;margin:0 0 1.2em}
-.sheet .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.sheet .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.sheet .acts2{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0 0}.sheet .acts2 a{font-weight:600}
 .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 22px}
 .facts div{background:var(--soft);border-radius:12px;padding:12px 14px}
 .facts small{display:block;color:var(--mute);font-size:13px}
@@ -237,7 +237,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="./">Kryp.as<i></i></a>
-  <nav class="nav" aria-label="Hovedmeny"><a href="leksikon/index.html">Leksikon</a><a href="#artikler">Artikler</a><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a><a href="podkast.html">Podkast</a><a href="#verktoy">Verktøy</a><a href="sporsmal-og-svar.html">Spørsmål og svar</a></nav>
+  <nav class="nav" aria-label="Hovedmeny"><a href="leksikon/index.html">Kjenn igjen</a><a href="artikler/index.html">Råd og løsninger</a><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a><a href="podkast.html">Podkast</a><a href="#verktoy">Verktøy</a><a href="sporsmal-og-svar.html">Spørsmål og svar</a></nav>
   <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 
@@ -268,7 +268,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></div>
 
 <section class="band" id="leksikon"><div class="wrap">
-  <div class="head"><div><span class="kicker">Skadedyrleksikon</span><h2>Kjenn igjen gjesten</h2></div><div><p class="mute" style="margin-bottom:12px">De vanligste skadedyrene i norske hjem. Velg et dyr for kjennetegn, første tiltak og riktig utstyr.</p><a class="btn arrow" href="leksikon/index.html">Hele leksikonet </a></div></div>
+  <div class="head"><div><span class="kicker">Kjenn igjen · leksikon</span><h2>Kjenn igjen gjesten</h2></div><div><p class="mute" style="margin-bottom:12px">De vanligste skadedyrene i norske hjem. Velg et dyr for kjennetegn, første tiltak og riktig utstyr.</p><a class="btn arrow" href="leksikon/index.html">Hele leksikonet </a></div></div>
   <div class="lex" id="lex"></div><p class="small mute" style="margin-top:12px">Artsfoto fra Wikimedia Commons og iNaturalist med fri lisens. Fotograf og lisens står i hvert oppslag.</p>
 </div></section>
 
@@ -322,7 +322,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></section>
 
 <section class="band" id="artikler" style="padding-top:0"><div class="wrap">
-  <div class="head"><div><span class="kicker">Fagartikler</span><h2>Siste fra redaksjonen</h2></div><a class="btn arrow" href="artikler/index.html">Alle artikler </a></div>
+  <div class="head"><div><span class="kicker">Råd og løsninger</span><h2>Siste fra redaksjonen</h2></div><a class="btn arrow" href="artikler/index.html">Alle råd og løsninger </a></div>
   <div class="mag">
     <a class="lead-art" href="artikler/mus-om-hosten.html">
       <div class="ph"><img src="assets/img/mus.webp" alt="Husmus ved gulvlist" loading="lazy" onerror="this.remove()"></div>
@@ -400,7 +400,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 <footer class="band"><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="./">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
-    <div><h3>Les</h3><ul><li><a href="#leksikon">Leksikon</a></li><li><a href="#artikler">Artikler</a></li><li><a href="podkast.html">Podkast</a></li></ul></div>
+    <div><h3>Les</h3><ul><li><a href="leksikon/index.html">Kjenn igjen (leksikon)</a></li><li><a href="artikler/index.html">Råd og løsninger</a></li><li><a href="podkast.html">Podkast</a></li></ul></div>
     <div><h3>Verktøy</h3><ul><li><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
   </div>
@@ -430,29 +430,33 @@ const P=[
 const KBID={mus:'mus',rotte:'rotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'veps',melmoll:'melmoll'};let PH={};
 const SPIMG=k=>PH[KBID[k]]?`<img src="assets/img/foto-${KBID[k]}.webp" alt="" loading="lazy">`:IMG(k);
 const CRED=k=>{const p=PH[KBID[k]];return p?`<span class="cred">Foto: ${/^no rights/i.test(p.author)?'iNaturalist-bruker':p.author}${p.cropped?' (beskåret)':''} · <a href="${p.license_url||p.page}" rel="license noopener">${p.license}</a> · <a href="${p.page}" rel="noopener">kilde</a></span>`:''};
-const drawLex=()=>{document.getElementById('lex').innerHTML=P.map(p=>`<button class="sp" data-k="${p.k}" type="button"><div class="ph">${SPIMG(p.k)}<span class="season">${p.s}</span><div class="cap"><h3>${p.n}</h3><em>${p.l}</em></div></div></button>`).join('')};
+const LX={mus:'husmus',rotte:'brunrotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'stikkeveps',melmoll:'melmoll'};
+const drawLex=()=>{document.getElementById('lex').innerHTML=P.map(p=>`<a class="sp" data-k="${p.k}" href="${DEST(p.k)}"><div class="ph">${SPIMG(p.k)}<span class="season">${p.s}</span><div class="cap"><h3>${p.n}</h3><em>${p.l}</em></div></div></a>`).join('')};
 drawLex();fetch('data/photos.json').then(r=>r.ok?r.json():{}).then(d=>{PH=d;drawLex()}).catch(()=>{});
 const dr=document.getElementById('drawer'),db=document.getElementById('dbody');let last=null;
-function open(k){const p=P.find(x=>x.k===k);if(!p)return;last=document.activeElement;
+// Kort og treff går rett til en egen side (leksikon, ellers artikkel) – ingen skuff fra høyre.
+function DEST(k){const p=P.find(x=>x.k===k)||{};return LX[k]?'leksikon/'+LX[k]+'.html':({fluer:'artikler/fluer-om-hosten.html'}[k]||p.art||'leksikon/index.html')}
+function open(k){location.href=DEST(k)}
+function openSheet(k){const p=P.find(x=>x.k===k);if(!p)return;last=document.activeElement;
  db.innerHTML=`<div class="ph">${SPIMG(p.k)}</div>${CRED(p.k)}<div class="in"><span class="kicker">${p.l}</span><h2 id="dt">${p.n}</h2>
  <div class="facts"><div><small>Sesong</small><b>${p.s}</b></div><div><small>Størrelse</small><b>${p.size}</b></div><div><small>Typisk sted</small><b>${p.where}</b></div></div>
  <h3>Tegn du ser etter</h3><ul>${p.signs.map(s=>`<li>${s}</li>`).join('')}</ul><h3>Gjør dette først</h3><p>${p.first}</p>
- ${window.SG_recs?SG_recs('sp:'+({maur:'stokkmaur',fluer:''}[p.k]??p.k),'leksikon-'+p.k,4,'Riktig utstyr mot '+p.n.toLowerCase()):''}<div class="acts"><a class="btn y arrow" href="${U(p.cat,'leksikon-'+p.k)}">Alt utstyr </a>${p.art?`<a class="btn arrow" href="${p.art}">Les artikkelen </a>`:''}${LX[p.k]?`<a class="btn arrow" href="leksikon/${LX[p.k]}.html">I leksikonet </a>`:''}</div></div>`;
+ ${window.SG_recs?SG_recs('sp:'+({maur:'stokkmaur',fluer:''}[p.k]??p.k),'leksikon-'+p.k,4,'Riktig utstyr mot '+p.n.toLowerCase()):''}<div class="acts">${p.art?`<a class="btn y arrow" href="${p.art}">Hva gjør jeg nå? </a>`:(LX[p.k]?`<a class="btn y arrow" href="leksikon/${LX[p.k]}.html">Kjennetegn og bilder </a>`:'')}</div><p class="small acts2">${p.art&&LX[p.k]?`<a href="leksikon/${LX[p.k]}.html">Kjennetegn og bilder →</a>`:''}<a href="${U(p.cat,'leksikon-'+p.k)}">Se utstyret →</a></p><div></div></div>`;
  dr.classList.add('on');dr.setAttribute('aria-hidden','false');dr.querySelector('.x').focus();}
-const LX={mus:'husmus',rotte:'brunrotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'stikkeveps',melmoll:'melmoll'};
+
 window.SG_open=open;
 function close(){dr.classList.remove('on');dr.setAttribute('aria-hidden','true');if(last)last.focus()}
-document.getElementById('lex').addEventListener('click',e=>{const b=e.target.closest('.sp');if(b)open(b.dataset.k)});
+
 dr.addEventListener('click',e=>{if(e.target.closest('[data-close]'))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dr.classList.contains('on'))close()});
 
 const q=document.getElementById('q'),hits=document.getElementById('hits');
 function find(v){v=v.trim().toLowerCase();if(!v){hits.classList.remove('on');return}
  const r=P.filter(p=>(p.n+' '+p.tags+' '+p.signs.join(' ')).toLowerCase().includes(v));
- hits.innerHTML=r.length?r.map(p=>`<a href="#leksikon" data-k="${p.k}"><b>${p.n}</b><span>${p.where}</span></a>`).join(''):'<p>Ingen treff ennå. Prøv «mus», «bitt» eller «veps».</p>';hits.classList.add('on')}
+ hits.innerHTML=r.length?r.map(p=>`<a href="${DEST(p.k)}" data-k="${p.k}"><b>${p.n}</b><span>${p.where}</span></a>`).join(''):'<p>Ingen treff ennå. Prøv «mus», «bitt» eller «veps».</p>';hits.classList.add('on')}
 q.addEventListener('input',()=>find(q.value));
 document.getElementById('sf').addEventListener('submit',e=>{e.preventDefault();find(q.value);const a=hits.querySelector('a');if(a){hits.classList.remove('on');open(a.dataset.k)}});
-hits.addEventListener('click',e=>{const a=e.target.closest('a');if(a){e.preventDefault();hits.classList.remove('on');open(a.dataset.k)}});
+
 document.addEventListener('click',e=>{if(!e.target.closest('.search'))hits.classList.remove('on')});
 const chips=document.getElementById('chips');
 chips.innerHTML=['Mus','Veggedyr','Skjeggkre','Veps'].map(c=>`<button type="button">${c}</button>`).join('');

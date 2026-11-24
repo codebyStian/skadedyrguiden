@@ -135,10 +135,10 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
     pest_card = (f'<div class="card sf"><h3>Utstyr mot {E(s["name"].lower())}</h3><p>Feller, åter og forebygging hos Skadedyrbutikken.</p><a class="btn arrow" href="{shop}">Se utvalget </a></div>'
                  if s["pest"] else '<div class="card sf"><h3>Ikke et skadedyr</h3><p>Denne arten gjør normalt ingen skade og trenger ikke bekjempes.</p></div>')
     return f'''{CSS}{CMP_CSS}<section class="sx"><div class="wrap"><div>
-<p class="crumb"><a href="index.html">Skadedyrleksikon</a> / {E(GROUP.get(s["group"], ""))}</p>
+<p class="crumb"><a href="index.html">Kjenn igjen</a> / {E(GROUP.get(s["group"], ""))}</p>
 <h1>{E(s["name"])}</h1><p class="lat">{E(s["latin"])}</p>
 <div class="badges"><span class="badge {"y" if s["pest"] else ""}">{"Skadedyr" if s["pest"] else "Ikke et skadedyr"}</span><span class="badge">{E(GROUP.get(s["group"], ""))}</span>{'<span class="badge">Kontrollert mot FHI</span>' if s.get("checked") else ""}</div>
-<div class="ctas"><a class="btn y arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a>{f'<a class="btn ghost arrow" href="{shop}">Se utstyr </a>' if s["pest"] else ""}</div></div>
+<div class="ctas">{f'<a class="btn y arrow" href="../artikler/{rel[0]}.html">Hva gjør jeg nå? </a><a class="btn ghost arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a>' if rel else '<a class="btn y arrow" href="../index.html#hvadet">Usikker? Last opp et bilde </a>'}{f'<a class="btn ghost arrow" href="{shop}">Se utstyr </a>' if s["pest"] else ""}</div></div>
 <figure style="margin:0"><div class="ph" data-label="{E(s["name"])}">{image}</div>{credit(s["id"]).replace('class="cred"', 'class="cred dk"')}</figure></div></section>
 <div class="wrap">{tiles_h}<div class="lxb"><div>
 <section><h2>Slik kjenner du den igjen</h2><ul class="feat">{feats}</ul></section>
@@ -146,7 +146,7 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
 {RECS("sp:" + s["id"], "leksikon-" + s["id"], "Utstyr mot " + s["name"].lower()) if s["pest"] and RECS else ""}
 {f'<section id="forveksling"><h2>Kan forveksles med</h2>{vs}</section>' if vs else ""}
 {bars}
-{f'<section><h2>Les mer</h2><div class="rel">{relh}</div></section>' if relh else ""}
+{f'<section><h2>Hva gjør jeg?</h2><div class="rel">{relh}</div></section>' if relh else ""}
 <section><h2>Flere i leksikonet</h2><div class="more">{more}</div></section>
 </div><aside class="aside">
 <div class="card dk"><h3>Er du usikker?</h3><p>Last opp et bilde. Du får et forslag til art og kjennetegnene vurderingen bygger på, kontrollert mot FHIs skadedyrhåndbok.</p><a class="btn y arrow" href="../index.html#hvadet">Finn ut hvilket dyr det er </a></div>
