@@ -59,6 +59,10 @@ def strip(h):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h or ""))
 
 
+# Produkter artiklene sier ikke virker, eller som ikke kan selges til private (giftforbud fra juni 2026).
+BLOCK = re.compile(r"ultralyd|vibrasjon|lavfrekvent|elektronisk skremm|avvisende spray|repellent|møllkul|huggormfri|hoggorm.{0,20}skremm|jordrotteskremm", re.I)
+RODENTICIDE = re.compile(r"\båte\b|gift|rodenticid|bromadiolon|difenakum|brodifakum", re.I)
+
 pages = {}
 for a in ARTICLES:
     pages[f"art:{a['slug']}"] = (a["title"], f"{a['title']}. {a['lead']} {strip(a['body'])[:2500]}")
@@ -92,6 +96,7 @@ Regler:
 - Følg rådene på siden: anbefaler den mekaniske feller og tetting framfor gift, velg det.
 - Ikke produkter som krever godkjenning/sertifikat eller er «kun for profesjonelle».
 - Ikke gift mot gnagere (musegift/rottegift/åte med rodenticid): salg til privatpersoner er forbudt fra juni 2026.
+- Ikke produkter siden sier har usikker eller ingen dokumentert effekt (f.eks. møllkuler av sedertre, skremmere med lyd/vibrasjon, avvisende spray).
 - Ikke ultralydskremmere mot gnagere eller insekter (FHI: dårlig dokumentert effekt).
 - Levende fangst av vilt (f.eks. grevling) krever tillatelse – velg heller skremsel/avvisning og tetting, og nevn aldri at fellen kan brukes fritt.
 - Siden handler om en art som ikke er et skadedyr eller er fredet/vernet (f.eks. grevling, flaggermus, humler, hoggorm): velg bare forebygging, skremsel, tetting eller verneutstyr – aldri noe som dreper dyret. Finnes ikke noe passende: returner tom liste.
@@ -102,13 +107,17 @@ Svar som JSON: {{"picks":[{{"id":0,"role":"","why":""}}]}}
 
 KANDIDATER:
 {json.dumps(listing, ensure_ascii=False)}"""
-    out = gemini(prompt).get("picks", [])
+    res = gemini(prompt)
+    out = res.get("picks", []) if isinstance(res, dict) else res if isinstance(res, list) else []
     chosen, used = [], set()
     for p in out:
+        if not isinstance(p, dict): continue
         i = p.get("id")
         if not isinstance(i, int) or i >= len(cand) or i in used: continue
         prod = CAT[cand[i]]
         if not prod.get("available", True) or re.search(r"proff|profesjonell|sertifi", "/".join(prod["category"]) + prod["name"], re.I): continue
+        if BLOCK.search(prod["name"]): continue
+        if re.search(r"gnager|mus|rotte", "/".join(prod["category"]), re.I) and RODENTICIDE.search(prod["name"]): continue
         used.add(i)
         chosen.append({"url": prod["url"], "name": prod["name"], "price": prod["price"], "image": prod["image"], "role": p.get("role", ""), "why": p.get("why", "")})
     recs[key] = chosen[:6]
