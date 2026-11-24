@@ -1,32 +1,38 @@
 # Kryp.as
 
-> Norsk fagside om skadedyr i hus, hage og bedrift: fagartikler med kilder (FHI m.fl.), skadedyrleksikon, verktøy og podkast. Kjøp skjer hos skadedyrbutikken.no.
+> Norsk fagside om skadedyr i hus, hage, hytte og bedrift. Fagartikler med kilder (Folkehelseinstituttet, Miljødirektoratet, Mattilsynet, kommuner, NIBIO, NINA), skadedyrleksikon, verktøy og podkast. Drevet av folkene bak Skadedyrbutikken; all handel skjer på skadedyrbutikken.no.
+
+Viktig å vite når du siterer oss:
+- FHIs skadedyrstatistikk gjelder 11 utvalgte skadeinsekter. Mus og rotter er ikke med.
+- Fra juni 2026 er det forbudt å selge musegift til privatpersoner i Norge (FHI).
+- Redaksjonelle prinsipper: https://kryp.as/om-kryp.html
+- Fulltekst av alle artikler: https://kryp.as/llms-full.txt
 
 ## Artikler
-- [Grevling på tomta: hva kan du gjøre – og hva har du lov til?](https://kryp.as/artikler/grevling-pa-tomta.html)
-- [Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?](https://kryp.as/artikler/rotter-i-byen.html)
-- [Flått langs kysten: sjekk deg selv etter turen](https://kryp.as/artikler/flatt-langs-kysten.html)
-- [Stokkmaur eller skogsmaur? Slik ser du forskjellen](https://kryp.as/artikler/stokkmaur-eller-skogsmaur.html)
-- [Husbukk langs kysten av Telemark og Agder: tegn du ser etter](https://kryp.as/artikler/husbukk.html)
-- [Vepsesesongen: derfor er bolet lite i mai og stort i august](https://kryp.as/artikler/vepsebol.html)
-- [Sølvkre og skjeggkre: hva fukten betyr – og hvorfor skjeggkre er vanskeligere](https://kryp.as/artikler/fukt-solvkre-skjeggkre.html)
-- [Små runde hull i treverket? Det kan være stripet borebille](https://kryp.as/artikler/stripet-borebille.html)
-- [Mus på gården: låve, stabbur og fôrlager](https://kryp.as/artikler/mus-pa-garden.html)
-- [Smågnagerår: når det kryr av mus og lemen](https://kryp.as/artikler/smagnagerar.html)
-- [Hytta ved sjøen: steng den riktig for vinteren – og åpne den uten overraskelser](https://kryp.as/artikler/hytta-ved-sjoen.html)
-- [Fjellhytta: mus gjennom vinteren, besøk i skisesongen og åpning for barmark](https://kryp.as/artikler/fjellhytta.html)
-- [Flaggermus på loftet: fredet, nyttig – og slik gjør du det riktig](https://kryp.as/artikler/flaggermus-pa-loftet.html)
-- [Hoggorm i hagen og på hytta: kjennetegn og hva du gjør ved bitt](https://kryp.as/artikler/hoggorm.html)
-- [Plutselig fullt av fluer om høsten? Loftsfluer, gressfluer og fruktfluer](https://kryp.as/artikler/fluer-om-hosten.html)
-- [Hull i ullgenseren? Klesmøll og brun pelsbille](https://kryp.as/artikler/klesmoll-og-pelsbille.html)
-- [Brunsnegl i hagen: når og hvordan du tar dem](https://kryp.as/artikler/brunskogsnegl.html)
-- [Måker på taket: gjør tiltak før hekkingen starter](https://kryp.as/artikler/maker-pa-taket.html)
-- [Humler eller bier i veggen: hva gjør du?](https://kryp.as/artikler/humler-og-bier-i-veggen.html)
-- [Lyder i veggen, taket eller på loftet? Slik finner du ut om det er mus – og hvor de kommer inn](https://kryp.as/artikler/mus-i-veggen.html)
-- [Musebæsj, rottelort eller flaggermus? Slik skiller du dem](https://kryp.as/artikler/musebaesj.html)
-- [Rengjøring etter mus: slik gjør du det uten å virvle opp smitte](https://kryp.as/artikler/rengjoring-etter-mus.html)
-- [Mus i huset om høsten: finn hullet før musa gjør det](https://kryp.as/artikler/mus-om-hosten.html)
-- [Veggedyr på hotellet: sjekk rommet på to minutter](https://kryp.as/artikler/veggedyr-pa-reise.html)
+- [Grevling på tomta: hva kan du gjøre – og hva har du lov til?](https://kryp.as/artikler/grevling-pa-tomta.html): Grevling som graver i plenen eller har hi under terrassen? Slik kjenner du igjen sporene, får den til å flytte og hva regelverket sier om tetting og felling.
+- [Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?](https://kryp.as/artikler/rotter-i-byen.html): Så du en rotte i hagen eller bakgården? Slik kjenner du igjen sporene, hvem som har ansvaret, hva du kan gjøre selv og når du bør få hjelp.
+- [Flått langs kysten: sjekk deg selv etter turen](https://kryp.as/artikler/flatt-langs-kysten.html): Hvor finnes flått i Norge, når er den aktiv, og hvordan holder du hagen og kroppen fri for flått? Slik fjerner du flåtten og vet når du bør gå til lege.
+- [Stokkmaur eller skogsmaur? Slik ser du forskjellen](https://kryp.as/artikler/stokkmaur-eller-skogsmaur.html): Maur i huset? Slik skiller du stokkmaur, rød skogsmaur og svart jordmaur (sukkermaur), hvilke tegn som betyr reir i veggen, og hva du gjør med hver av dem.
+- [Husbukk langs kysten av Telemark og Agder: tegn du ser etter](https://kryp.as/artikler/husbukk.html): Ovale flygehull, gult boremel eller knirking i takbjelkene? Slik kjenner du igjen husbukk, ser om angrepet er aktivt og velger riktig tiltak. Basert på FHI.
+- [Vepsesesongen: derfor er bolet lite i mai og stort i august](https://kryp.as/artikler/vepsebol.html): Vepsebol under takskjegget, i veggen eller på loftet? Slik fjerner du små bol trygt, når du bør få hjelp, og hvorfor bolet forsvinner av seg selv om høsten.
+- [Sølvkre og skjeggkre: hva fukten betyr – og hvorfor skjeggkre er vanskeligere](https://kryp.as/artikler/fukt-solvkre-skjeggkre.html): Slik skiller du skjeggkre fra sølvkre, hvorfor tørking hjelper mot sølvkre men ikke mot skjeggkre, og hvordan du bruker åte og limfeller riktig.
+- [Små runde hull i treverket? Det kan være stripet borebille](https://kryp.as/artikler/stripet-borebille.html): Små runde hull på 1–2 mm i møbler eller kjellertreverk? Slik kjenner du igjen stripet borebille, ser om angrepet er aktivt og stopper det – ofte med tørking.
+- [Mus på gården: låve, stabbur og fôrlager](https://kryp.as/artikler/mus-pa-garden.html): Mus i låve, stabbur og fôrlager: hvilke arter det er, hvorfor fellene må stå tett, hvordan du sikrer fôret og hva du gjør med musepest-risikoen.
+- [Smågnagerår: når det kryr av mus og lemen](https://kryp.as/artikler/smagnagerar.html): Hva er et smågnagerår, hvor ofte kommer det, og hva betyr det for hus og hytte? Om syklusene, bølgen nordover, musepest og hvordan du forbereder deg.
+- [Hytta ved sjøen: steng den riktig for vinteren – og åpne den uten overraskelser](https://kryp.as/artikler/hytta-ved-sjoen.html): Slik holder du mus ute av hytta ved sjøen: hva du tetter før vinteren, hvilke feller som passer når hytta står tom, og hva du sjekker når du åpner om våren.
+- [Fjellhytta: mus gjennom vinteren, besøk i skisesongen og åpning for barmark](https://kryp.as/artikler/fjellhytta.html): Slik holder du mus ute av fjellhytta: hva du gjør før skisesongen, ved hvert besøk i vinterferien og påsken, og når barmarka kommer. Råd basert på FHI.
+- [Flaggermus på loftet: fredet, nyttig – og slik gjør du det riktig](https://kryp.as/artikler/flaggermus-pa-loftet.html): Flaggermus på loftet eller i veggen? Alle arter er fredet. Slik kjenner du dem igjen, hva du kan gjøre nå, og hvorfor du bare kan tette i september.
+- [Hoggorm i hagen og på hytta: kjennetegn og hva du gjør ved bitt](https://kryp.as/artikler/hoggorm.html): Slik kjenner du igjen hoggorm og skiller den fra buorm og slettsnok, gjør hagen mindre slangevennlig, og hva du gjør hvis et menneske eller en hund blir bitt.
+- [Plutselig fullt av fluer om høsten? Loftsfluer, gressfluer og fruktfluer](https://kryp.as/artikler/fluer-om-hosten.html): Mange fluer i vinduene på loftet, små gule fluer på veggen eller fruktfluer på kjøkkenet? Slik finner du ut hvilken flue det er og blir kvitt den.
+- [Hull i ullgenseren? Klesmøll og brun pelsbille](https://kryp.as/artikler/klesmoll-og-pelsbille.html): Hull i ullgenseren? Slik ser du om det er klesmøll eller brun pelsbille, og hvordan du blir kvitt dem med frysing, varme, støvsuging og feromonfeller.
+- [Brunsnegl i hagen: når og hvordan du tar dem](https://kryp.as/artikler/brunskogsnegl.html): Brunsnegler i hagen? Slik kjenner du igjen brunskogsneglen og eggene, når på året tiltakene virker best, og hvilke metoder som faktisk reduserer bestanden.
+- [Måker på taket: gjør tiltak før hekkingen starter](https://kryp.as/artikler/maker-pa-taket.html): Måker som bråker, griser og stuper mot folk? Slik sikrer du taket før hekkesesongen, hva loven sier om reir og felling, og hvilke tiltak som faktisk virker.
+- [Humler eller bier i veggen: hva gjør du?](https://kryp.as/artikler/humler-og-bier-i-veggen.html): Humlebol i veggen eller bier som flyr inn og ut av kledningen? Slik skiller du humler, bier og veps, og hvorfor det ofte er best å vente til høsten.
+- [Lyder i veggen, taket eller på loftet? Slik finner du ut om det er mus – og hvor de kommer inn](https://kryp.as/artikler/mus-i-veggen.html): Krafsing i veggen eller på loftet? Slik finner du ut om det er mus eller rotte, hvor de kommer inn, og hvor fellene skal stå. Råd fra FHI.
+- [Musebæsj, rottelort eller flaggermus? Slik skiller du dem](https://kryp.as/artikler/musebaesj.html): Små mørke korn i skapet eller på loftet? Størrelse og form viser om det er mus, rotte eller flaggermus – og hvor ferskt det er. Tabell og råd fra FHI.
+- [Rengjøring etter mus: slik gjør du det uten å virvle opp smitte](https://kryp.as/artikler/rengjoring-etter-mus.html): Slik vasker du trygt etter mus i hus og hytte: våt klut, ikke kost eller støvsuger. Hva musepest er, hvem som smitter og hvordan du beskytter deg.
+- [Mus i huset om høsten: finn hullet før musa gjør det](https://kryp.as/artikler/mus-om-hosten.html): Mus i huset om høsten: tegnene du ser etter, hvor de kommer inn, hva du tetter med og hvor fellene skal stå. Råd basert på FHI.
+- [Veggedyr på hotellet: sjekk rommet på to minutter](https://kryp.as/artikler/veggedyr-pa-reise.html): Slik sjekker du hotellsengen for veggedyr på to minutter, hvordan bitt kan se ut, og hva du gjør med bagasjen og klærne når du kommer hjem.
 
 ## Oppslag
 - [Spørsmål og svar](https://kryp.as/sporsmal-og-svar.html)
@@ -34,3 +40,4 @@
 - [Fellekalkulator](https://kryp.as/verktoy/fellekalkulator.html)
 - [Tett huset-sjekkliste](https://kryp.as/verktoy/tett-huset.html)
 - [Podkast](https://kryp.as/podkast.html)
+- [Om Kryp.as](https://kryp.as/om-kryp.html)

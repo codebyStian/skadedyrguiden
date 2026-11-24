@@ -33,7 +33,7 @@ def foot(base):
   <div class="cols">
     <div><a class="logo" href="{base}index.html">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
     <div><h3>Les</h3><ul><li><a href="{base}index.html#leksikon">Leksikon</a></li><li><a href="{base}artikler/index.html">Artikler</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
-    <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li></ul></div>
+    <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li><li><a href="{base}om-kryp.html">Om Kryp.as</a></li></ul></div>
     <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
   </div>
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="{base}kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
@@ -78,6 +78,28 @@ def prod(title, text, cat, camp):
     return f'''<div class="prod"><div><b>{title}</b><span>{text}</span></div><a class="btn y arrow" href="{SHOP.format(cat,camp)}">Se utvalget </a></div>'''
 
 ARTICLES = {}  # alle artikler bygges nå fra scripts/articles.py + content/artikler/
+
+ABOUT = '''<section class="band"><div class="wrap art">
+<span class="kicker">Om oss</span><h1>Om Kryp.as</h1>
+<p class="lead">Kryp.as er en norsk fagside om skadedyr i hus, hage, hytte og bedrift. Siden drives av folkene bak Skadedyrbutikken, nettbutikken for skadedyrkontroll.</p>
+<h2 id="hva">Hva du finner her</h2>
+<ul><li><b>Artikler</b> om konkrete problemer – mus i veggen, veggedyr på reise, stokkmaur, vepsebol, flått og mye mer.</li>
+<li><b>Skadedyrleksikon</b> med kjennetegn og forvekslingsarter.</li>
+<li><b>Verktøy</b>: bildeanalyse som foreslår art, fellekalkulator og sjekklisten «Tett huset».</li>
+<li><b>Podkasten</b> «Kryp &amp; kunnskap».</li></ul>
+<h2 id="kilder">Slik skriver vi</h2>
+<ul><li><b>Primærkilder først.</b> Fakta om biologi, helse og bekjempelse bygger på Folkehelseinstituttets skadedyrhåndbok og smittevernhåndbok, Miljødirektoratet, Mattilsynet, kommunene, NIBIO og NINA. Hver artikkel lister kildene den bygger på.</li>
+<li><b>Tall fra FHI.</b> Skadedyrstatistikken er FHIs tall for antall bekjempelser hos skadedyrfirmaer. Den gjelder 11 utvalgte skadeinsekter – mus og rotter er ikke med. Vi bruker de to siste hele årene FHI har publisert.</li>
+<li><b>Hjelp deg selv først.</b> Vi forklarer hva du kan gjøre selv, og sier tydelig fra når det er lurt å få hjelp av lege, veterinær eller godkjent skadedyrbekjemper.</li>
+<li><b>Datert og oppdatert.</b> Hver artikkel viser når den sist ble oppdatert.</li>
+<li><b>KI som verktøy.</b> Vi bruker KI-verktøy i skrivearbeidet og til illustrasjonsbildene. Fakta skal kunne spores til kildene som er lenket i artikkelen, og illustrasjonene er merket som KI-genererte.</li></ul>
+<h2 id="produkter">Produkter og lenker</h2>
+<p>All handel skjer hos Skadedyrbutikken. Produktene som vises i artiklene, er valgt fordi de passer til problemet artikkelen handler om, og er merket «kjøp hos Skadedyrbutikken». Vi anbefaler ikke ultralydapparater mot gnagere, og vi viser ikke musegift, som etter juni 2026 ikke kan selges til privatpersoner.</p>
+<h2 id="feil">Har du funnet en feil?</h2>
+<p>Si fra til oss via <a href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=om">Skadedyrbutikken</a>, så retter vi det.</p>
+<p class="small mute"><a href="kilder-og-lisenser.html">Kilder, foto og lisenser</a></p>
+</div></section>
+'''
 
 PODCAST_T = '''<section class="band dark"><div class="wrap ahero">
 <div><span class="kicker">Podkast</span><h1>Kryp &amp; kunnskap</h1>
@@ -176,13 +198,14 @@ def regional_pages():
                ('<li><a href="#vanlige-sporsmal">Vanlige spørsmål</a></li>' if a.get("faq") else "") + '</ol></nav>') if len(heads) >= 4 else ""
         faq = ('<h2 id="vanlige-sporsmal">Vanlige spørsmål</h2><div class="faqs">' +
                "".join(f'<details><summary>{H.escape(qq)}</summary><p>{aa}</p></details>' for qq, aa in a["faq"]) + '</div>') if a.get("faq") else ""
+        kort = ('<aside class="kort" aria-label="Kort fortalt"><b>Kort fortalt</b><ul>' + "".join(f"<li>{H.escape(k)}</li>" for k in a["kort"]) + '</ul></aside>') if a.get("kort") else ""
         upd = a.get("updated", "2026-11-24"); d = _dt.date.fromisoformat(upd)
         alt = H.escape(a.get("alt", ""))
         body = f'''<section class="band" style="padding-bottom:0"><div class="wrap ahero">
 <div><span class="kicker">{a["cat"]} · {a["min"]} min · {regs}</span><h1 style="font-size:clamp(34px,4.6vw,56px)">{H.escape(a["title"])}</h1><p class="mute" style="font-size:19px;max-width:46ch">{H.escape(a["lead"])}</p><div class="meta"><span>Av redaksjonen i Kryp.as</span><span>Oppdatert <time datetime="{upd}">{d.day}. {MND[d.month - 1]} {d.year}</time></span></div>{chk}</div>
 <div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a["img"]}.webp" alt="{alt}" fetchpriority="high" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
 </div></section>
-<article class="band"><div class="art">{toc}{body}
+<article class="band"><div class="art">{kort}{toc}{body}
 {box}
 {(f'<div class="box"><b>Vil du ha en trinn-for-trinn-guide?</b>Skadedyrbutikken har en egen guide til dette: <a href="{H.escape(a["guide"][1])}" rel="noopener">{H.escape(a["guide"][0])} →</a></div>') if a.get("guide") else ""}
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
@@ -211,5 +234,6 @@ if __name__ == "__main__":
     for path, (title, desc, body) in ARTICLES.items():
         f = ROOT / path; f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")
+    (ROOT / "om-kryp.html").write_text(head("Om Kryp.as – hvem vi er og hvordan vi skriver", "Kryp.as er en norsk fagside om skadedyr, drevet av folkene bak Skadedyrbutikken. Slik velger vi kilder, skriver artikler og velger produkter.", "") + ABOUT + foot(""), encoding="utf-8")
     (ROOT / "podkast.html").write_text(head("Podkast – Kryp.as", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST_T.replace("{PLAYER}", player()).replace("{EPISODES}", episode_list()) + foot(""), encoding="utf-8")
     print("ok")

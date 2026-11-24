@@ -11,6 +11,8 @@ PREVIEW = os.environ.get("PREVIEW", "1") == "1"
 TODAY = datetime.date.today().isoformat()
 NAME = "Kryp.as"
 ORG = {"@type": "Organization", "name": NAME, "url": BASE + "/",
+       "description": "Norsk fagside om skadedyr i hus, hage, hytte og bedrift, drevet av folkene bak Skadedyrbutikken.",
+       "publishingPrinciples": BASE + "/om-kryp.html", "knowsAbout": ["Skadedyr", "Skadedyrkontroll", "Mus og rotter", "Skadeinsekter", "Forebygging av skadedyr"],
        "parentOrganization": {"@type": "Organization", "name": "Skadedyrbutikken", "url": "https://skadedyrbutikken.no/"}}
 
 
@@ -60,6 +62,7 @@ def main():
                    "articleSection": a.get("cat", ""), "author": ORG, "publisher": ORG, "mainEntityOfPage": u,
                    "citation": [x[1] for x in a.get("sources", [])]}
             if a.get("words"): art["wordCount"] = a["words"]
+            if a.get("kort"): art["abstract"] = " ".join(a["kort"])
             if a.get("about"): art["about"] = [{"@type": "Thing", "name": n} for n in a["about"]]
             ld += [art, {"@context": "https://schema.org", **crumbs([home, ("Artikler", BASE + "/artikler/"), (a.get("title", title), u)])}]
             if a.get("faq"):
@@ -81,6 +84,10 @@ def main():
             name = re.sub("<[^>]+>", "", name)
             items = [home, ("Skadedyrleksikon", BASE + "/leksikon/")] + ([] if rel.endswith("index.html") else [(name, u)])
             ld += [{"@context": "https://schema.org", **crumbs(items)}]
+            otype = "website"
+        elif rel == "om-kryp.html":
+            ld += [{"@context": "https://schema.org", "@type": "AboutPage", "name": title, "url": u, "inLanguage": "nb-NO", "about": ORG},
+                   {"@context": "https://schema.org", **crumbs([home, ("Om Kryp.as", u)])}]
             otype = "website"
         elif rel == "podkast.html":
             ld += [{"@context": "https://schema.org", "@type": "PodcastSeries", "name": "Kryp & kunnskap", "url": u, "inLanguage": "nb-NO", "publisher": ORG},
@@ -115,12 +122,36 @@ def main():
             pages.append((u, pr))
     (SITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{u}</loc><lastmod>{lastmod.get(u, TODAY)}</lastmod><priority>{pr}</priority></url>\n" for u, pr in pages) + "</urlset>\n", encoding="utf-8")
-    (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
-    lines = [f"# {NAME}", "", "> Norsk fagside om skadedyr i hus, hage og bedrift: fagartikler med kilder (FHI m.fl.), skadedyrleksikon, verktøy og podkast. Kjøp skjer hos skadedyrbutikken.no.", "",
-             "## Artikler"] + [f"- [{a['title']}]({BASE}/artikler/{a['slug']}.html)" for a in ARTICLES + EXTRA] + ["", "## Oppslag",
+    # AI-søk (GEO): søkemotorer og KI-assistenter skal få lese og sitere alt offentlig innhold.
+    bots = ["Googlebot", "Bingbot", "Google-Extended", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot",
+            "Claude-User", "PerplexityBot", "Perplexity-User", "Applebot", "Applebot-Extended", "CCBot", "meta-externalagent", "DuckAssistBot"]
+    (SITE / "robots.txt").write_text("".join(f"User-agent: {b}\n" for b in bots) + "Allow: /\n\nUser-agent: *\nAllow: /\n\n"
+                                     f"Sitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
+    plain = lambda x: re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", x))).strip()
+    allart = ARTICLES + EXTRA
+    lines = [f"# {NAME}", "", "> Norsk fagside om skadedyr i hus, hage, hytte og bedrift. Fagartikler med kilder (Folkehelseinstituttet, Miljødirektoratet, Mattilsynet, kommuner, NIBIO, NINA), skadedyrleksikon, verktøy og podkast. Drevet av folkene bak Skadedyrbutikken; all handel skjer på skadedyrbutikken.no.", "",
+             "Viktig å vite når du siterer oss:",
+             "- FHIs skadedyrstatistikk gjelder 11 utvalgte skadeinsekter. Mus og rotter er ikke med.",
+             "- Fra juni 2026 er det forbudt å selge musegift til privatpersoner i Norge (FHI).",
+             f"- Redaksjonelle prinsipper: {BASE}/om-kryp.html",
+             f"- Fulltekst av alle artikler: {BASE}/llms-full.txt", "",
+             "## Artikler"] + [f"- [{a['title']}]({BASE}/artikler/{a['slug']}.html): {a.get('desc') or a.get('lead', '')}" for a in allart] + ["", "## Oppslag",
              f"- [Spørsmål og svar]({BASE}/sporsmal-og-svar.html)", f"- [Skadedyrleksikon]({BASE}/leksikon/)", f"- [Fellekalkulator]({BASE}/verktoy/fellekalkulator.html)",
-             f"- [Tett huset-sjekkliste]({BASE}/verktoy/tett-huset.html)", f"- [Podkast]({BASE}/podkast.html)"]
+             f"- [Tett huset-sjekkliste]({BASE}/verktoy/tett-huset.html)", f"- [Podkast]({BASE}/podkast.html)", f"- [Om Kryp.as]({BASE}/om-kryp.html)"]
     (SITE / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    full = [f"# {NAME} – fulltekst", "", f"Kilde: {BASE}/  ·  Lisens: sitér gjerne med lenke til artikkelen.", ""]
+    for a in allart:
+        if not a.get("body"): continue
+        body = re.sub(r"<h2[^>]*>(.*?)</h2>", lambda m: "\n\n## " + plain(m.group(1)) + "\n", a["body"])
+        body = re.sub(r"<li>", "\n- ", body); body = re.sub(r"</p>|</tr>", "\n", body)
+        body = "\n".join(re.sub(r"[ \t]+", " ", H.unescape(re.sub(r"<[^>]+>", " ", ln))).strip() for ln in body.split("\n"))
+        body = re.sub(r"\n{3,}", "\n\n", body).strip()
+        full += [f"# {a['title']}", f"URL: {BASE}/artikler/{a['slug']}.html", f"Oppdatert: {a.get('updated', TODAY)}", "", a.get("lead", ""), ""]
+        if a.get("kort"): full += ["Kort fortalt:"] + [f"- {k}" for k in a["kort"]] + [""]
+        full += [body, ""]
+        if a.get("faq"): full += ["## Vanlige spørsmål"] + [f"\n**{q}**\n{plain(ans)}" for q, ans in a["faq"]] + [""]
+        full += ["Kilder:"] + [f"- {t}: {u}" for t, u in a.get("sources", [])] + ["", "---", ""]
+    (SITE / "llms-full.txt").write_text("\n".join(full) + "\n", encoding="utf-8")
     print("seo:", len(pages), "pages", "PREVIEW" if PREVIEW else "LIVE", BASE)
 
 
