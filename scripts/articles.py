@@ -526,7 +526,7 @@ ARTICLES += [
 <li>Bruk åte som peanøttsmør, sjokolade, rosiner, nøtter eller leverpostei. Er du usikker, prøv 3–4 typer og fortsett med den som blir tatt.</li>
 <li>Sjekk fellene så ofte du kan.</li>
 </ul>
-<p>Limfeller og drukningsfeller er ikke lov. Private kan bare kjøpe ferdigfylte, låsbare åtestasjoner med gift, og bare bruke dem innendørs. FHI anbefaler ikke gift i eller rundt boliger.</p>
+<p>Limfeller og drukningsfeller er ikke lov. Fra juni 2026 er det forbudt å selge musegift til privatpersoner, og bare skadedyrbekjempere og bønder med autorisasjon kan bekjempe gnagere med gift.</p>
 <p>Lurer du på antallet? <a href="../verktoy/fellekalkulator.html">Fellekalkulatoren</a> regner ut hvor mange feller du trenger og hvor de bør stå.</p>
 <h2>Når bør du åpne veggen eller ringe en fagperson?</h2>
 <p>Hvis det lukter vondt fra veggen over tid, eller lyden kommer tilbake etter at du har tettet og fanget i flere uker, finnes det fortsatt en åpen vei inn. Da er det lurt å få en godkjent skadedyrbekjemper til å se på huset.</p>

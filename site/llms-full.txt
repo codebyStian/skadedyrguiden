@@ -67,7 +67,7 @@ Har grevlingen gravd seg inn under terrassen, boden eller garasjen, er målet å
 
 ## Hva sier regelverket?
 
-Kommunen flytter normalt ikke grevlinger, og det er ikke lov å fange grevling levende for å flytte den et annet sted.
+Kommunen flytter normalt ikke grevlinger, og flytting frarådes av hensyn til dyrevelferden: en grevling som settes ut et annet sted, havner i andre grevlingers revir og klarer seg dårlig.
 
 Etter viltforskriften kan den som får skade, felle grevling uten særskilt tillatelse hele året når det er nødvendig for å stanse eller avverge skade. Men det gjelder bare når alle vilkårene er oppfylt:
 
@@ -97,7 +97,7 @@ Fjern det som lokker – søppel, kompost og nedfallsfrukt – og gjør stedet u
 Nei. Grevlingen er fredelig, angriper ikke mennesker og flykter når den blir forstyrret. Presses den opp i et hjørne, kan den vise tenner. Myten om at grevlingen biter og ikke slipper, er ifølge FHI ubegrunnet.
 
 **Kan jeg fange grevlingen og flytte den?**
-Nei. Det er ikke lov å fange grevling levende for å flytte den, og kommunen flytter normalt ikke grevlinger. Fanget grevling skal avlives.
+Det frarådes. Kommunen flytter normalt ikke grevlinger, og en grevling som settes ut i et annet område, havner i andre grevlingers revir og klarer seg dårlig. Fangst i bås må meldes til kommunen senest ti dager før fangsten starter. Fanget grevling skal avlives.
 
 **Kan jeg skyte grevling som graver i plenen?**
 Nei. Hull i plenen, rot i bed, kompost eller søppel regnes ikke som skade av vesentlig økonomisk betydning. Et hi som skader eller truer grunnmuren kan gi grunnlag for skadefelling, men i tettbygd strøk krever våpenbruk tillatelse fra politiet. Snakk med kommunen først.
@@ -951,7 +951,7 @@ Følg med lokalt Toppene treffer ikke hele landet samtidig. Ser du mye mus i sko
 
 ## Musepest følger musene
 
-Antallet tilfeller av musepest henger sammen med bestanden av klatremus. Fra 2021 til 2025 ble det meldt mellom 15 og 38 tilfeller i året, og 34 i 2025. Det høyeste som er registrert, er 215 tilfeller i 1998. Smitten skjer trolig ved at man puster inn støv fra inntørkede ekskrementer, typisk når man rydder i hytter eller stabler ved. Les Rengjøring etter mus før du åpner hytta.
+Antallet tilfeller av musepest henger sammen med bestanden av klatremus. Fra 2021 til 2025 ble det meldt mellom 15 og 38 tilfeller i året, og 34 i 2025. Det høyeste som er registrert, er over 200 tilfeller i 1998. Smitten skjer trolig ved at man puster inn støv fra inntørkede ekskrementer, typisk når man rydder i hytter eller stabler ved. Les Rengjøring etter mus før du åpner hytta.
 
 ## Slik forbereder du deg
 
@@ -1485,7 +1485,7 @@ Små, uregelmessige hull i ullgenseren, et naket felt i et pelsplagg eller nuppe
 
 ## Klesmøll
 
-Klesmøll finnes innendørs over hele landet, men overlever ikke ute fordi vinteren er for kald. Voksne klesmøll er 5–8 millimeter lange, med gylne til blekt gulbrune forvinger og rødgule hår på hodet. Ser du en klesmøll som flyr, er det mest sannsynlig en hann – hunnene holder seg helst i ro.
+Klesmøll finnes innendørs over hele landet, men overlever ikke ute fordi vinteren er for kald. Voksne klesmøll er 6–8 millimeter lange, med gylne til blekt gulbrune forvinger og rødgule hår på hodet. Ser du en klesmøll som flyr, er det mest sannsynlig en hann – hunnene holder seg helst i ro.
 
 Det er larvene som gjør skaden. De er hvite med lysebrunt hode og blir opptil 10 millimeter lange. De spinner ofte et silkerør som de spiser fra, og som er festet til stoffet.
 
@@ -1524,7 +1524,7 @@ Kulde virker Gjenstander kan fryses, men de må bli gjennomkalde. En bylt med kl
 
 - Rist og børst plaggene ute. Egg og larver løsner ofte lett.
 
-- Frys det som er angrepet: 2 uker ved minus 18 grader, 7 dager ved minus 25 eller 3 dager ved minus 30. Pelsbillelarver dør etter ett døgn ved minus 18 grader. Pakk lufttett og la plaggene få romtemperatur før du åpner posen.
+- Frys det som er angrepet: 2 uker ved minus 18 grader, 7 dager ved minus 25 eller 3 dager ved minus 30. Pakk lufttett og la plaggene få romtemperatur før du åpner posen.
 
 - Eller varm opp: 3–4 timer ved 60 grader dreper alle stadier av klesmøll. Sjekk at plagget tåler det.
 
@@ -2070,7 +2070,7 @@ Gnagere kan overføre virus, bakterier og parasitter gjennom avføring, urin og 
 
 - Sykdommen smitter ikke mellom mennesker.
 
-- Antallet varierer fra år til år med hvor mange klatremus det er. Fra 2021 til 2025 ble det meldt mellom 15 og 38 tilfeller i året. I 2025 var det 34. Det høyeste tallet som er registrert, er 215 tilfeller i 1998.
+- Antallet varierer fra år til år med hvor mange klatremus det er. Fra 2021 til 2025 ble det meldt mellom 15 og 38 tilfeller i året. I 2025 var det 34. Det høyeste tallet som er registrert, er over 200 tilfeller i 1998.
 
 - Flest smittes i Sørøst-Norge, særlig i Innlandet og Telemark, og de fleste tilfellene kommer fra september til mai.
 
