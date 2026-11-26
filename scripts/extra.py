@@ -60,7 +60,9 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
         desc = f'{s["name"]} ({s["latin"]}): kjennetegn, forvekslingsarter og hva du gjør. Basert på Folkehelseinstituttets skadedyrhåndbok.'
         (L / f"{slug}.html").write_text(head(f'{s["name"]} – kjennetegn og råd – Kryp.as', desc, "../") + body + foot("../"), encoding="utf-8")
         ph = lexicon.PHOTOS.get(s["id"])
-        pic = (f'<div class="lxi"><img src="../assets/img/foto-{s["id"]}.webp" alt="{H.escape(s["name"])} ({H.escape(s["latin"])})" loading="lazy" onerror="this.remove()"></div>'
+        # Første bilde er det største elementet på mobil: last det først. Resten lazy-loades.
+        load = 'fetchpriority="high"' if not cards else 'loading="lazy"'
+        pic = (f'<div class="lxi"><img src="../assets/img/foto-{s["id"]}.webp" alt="{H.escape(s["name"])} ({H.escape(s["latin"])})" {load} onerror="this.remove()"></div>'
                f'<small class="lxc">Foto: {H.escape(lexicon.who(ph))} · {H.escape(ph.get("license", ""))}</small>') if ph else '<div class="lxi"></div>'
         cards.append(f'<a class="lx" href="{slug}.html">{pic}<div class="lxt"><b>{H.escape(s["name"])}</b><em>{H.escape(s["latin"])}</em><span>{"Skadedyr" if s["pest"] else "Ufarlig"}</span></div></a>')
     idx = f'''<style>.lxg{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px;margin-top:30px}}.lx{{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none}}.lxi{{aspect-ratio:4/3;background:var(--soft);overflow:hidden}}.lxi img{{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}}.lx:hover .lxi img{{transform:scale(1.04)}}.lxc{{font-size:11px;color:var(--mute);padding:6px 22px 0}}.lxt{{display:grid;gap:2px;padding:12px 22px 20px}}.lx:hover{{background:var(--soft)}}.lx b{{font-size:19px}}.lx em{{color:var(--mute)}}.lx span{{font-size:13px;color:var(--mute);margin-top:6px}}</style>
@@ -131,8 +133,10 @@ def articles_index(head, foot):
     from articles import ARTICLES, EXTRA
     arts = ARTICLES + EXTRA
     cats = sorted({a["cat"] for a in arts})
-    cards = "".join(f'''<a href="{a["slug"]}.html" data-c="{H.escape(a["cat"])}"><div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a.get("img") or "hero"}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
-<span class="small mute">{H.escape(a["cat"])}</span><b>{H.escape(a["title"])}</b>{f'<span class="mute" style="font-size:15px">{H.escape(a.get("lead", "")[:140])}…</span>' if a.get("lead") else ""}</a>''' for a in arts)
+    # Første bilde er det største elementet på mobil: last det først. Resten lazy-loades.
+    load = lambda i: 'fetchpriority="high"' if i == 0 else 'loading="lazy"'
+    cards = "".join(f'''<a href="{a["slug"]}.html" data-c="{H.escape(a["cat"])}"><div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a.get("img") or "hero"}.webp" alt="" {load(i)} onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
+<span class="small mute">{H.escape(a["cat"])}</span><b>{H.escape(a["title"])}</b>{f'<span class="mute" style="font-size:15px">{H.escape(a.get("lead", "")[:140])}…</span>' if a.get("lead") else ""}</a>''' for i, a in enumerate(arts))
     body = f'''<section class="band"><div class="wrap"><span class="kicker">Råd og løsninger</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Hva gjør <em>jeg</em>?</h1>
 <p class="mute" style="font-size:19px;max-width:56ch">{len(arts)} artikler om hva du gjør når skadedyrene er der: slik blir du kvitt dem, slik forebygger du, og når du bør få hjelp. Basert på Folkehelseinstituttet og andre offentlige kilder. Vil du først finne ut hvilket dyr det er? Se <a href="../leksikon/index.html">Kjenn igjen</a>.</p>
 <div class="afil" id="af"><button type="button" aria-pressed="true" data-c="">Alle</button>{"".join(f'<button type="button" aria-pressed="false" data-c="{H.escape(c)}">{H.escape(c)}</button>' for c in cats)}</div>

@@ -7,12 +7,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kryp.as – kunnskap om skadedyr i hus, hage og hytte</title>
 <meta name="description" content="Fagartikler, podkast og verktøy om skadedyr i hus, hage og bedrift. Finn ut hva du har, hva du gjør først, og hva du trenger.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+
+<!--perf-->
+<link rel="preload" href="assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>@font-face{font-family:"Schibsted Grotesk";font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2011,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2039-203A,U+20AC,U+2122,U+2212,U+2009,U+202F,U+2192}@font-face{font-family:"Schibsted Grotesk";font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-serif.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2011,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2039-203A,U+20AC,U+2122,U+2212,U+2009,U+202F,U+2192}@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-serif-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-serif-italic.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2011,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2039-203A,U+20AC,U+2122,U+2212,U+2009,U+202F,U+2192}@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-serif-italic-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}:root{color-scheme:light;--bg:light-dark(#ffffff,#0c1210);--ink:light-dark(#111715,#ecefed);--mute:light-dark(#5a6561,#9eaaa5);--soft:light-dark(#f1f3f2,#151d1a);--line:light-dark(#e1e5e3,#25302c);--pine:#0f2a24;--pine2:#163a32;--y:#f2c230;--onDark:#eef3f1;--muteDark:#a8bab3}:root,:root[data-theme=dark]{color-scheme:light}*{box-sizing:border-box;min-width:0}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}a{color:inherit}img{display:block;max-width:100%}h1,h2,h3{font-weight:700;line-height:1.06;text-wrap:balance;margin:0 0 .45em;letter-spacing:-.025em}h1,h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1}h1{font-size:clamp(44px,7vw,92px)}h2{font-size:clamp(34px,4.4vw,56px)}h1 em,h2 em{font-style:italic}h3{font-size:21px;line-height:1.2;letter-spacing:-.015em}p{margin:0 0 1em}.wrap{max-width:1240px;margin:0 auto}.band{padding:clamp(48px,7vw,104px) max(5vw,18px)}.dark{background:var(--pine);color:var(--onDark)}.dark .mute{color:var(--muteDark)}.mute{color:var(--mute)}.small{font-size:14px}.kicker{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--mute);margin-bottom:12px}.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--y)}.dark .kicker{color:var(--muteDark)}.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}.head p{max-width:52ch;margin:0}.btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:0 22px;border-radius:999px;font:600 16px "Schibsted Grotesk",sans-serif;text-decoration:none;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .2s,color .2s}.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}.btn.y{background:var(--y);border-color:var(--y);color:#111715}.btn.y:hover{background:#fff;border-color:#fff;color:#111715}.dark .btn:hover{background:var(--onDark);color:var(--pine);border-color:var(--onDark)}.arrow::after{content:"→";transition:transform .2s}.arrow:hover::after{transform:translateX(3px)}:focus-visible{outline:3px solid var(--y);outline-offset:3px}.ph{position:relative;overflow:hidden;border-radius:18px;background:radial-gradient(120% 90% at 80% 10%,#2b5248 0%,#0f2a24 60%,#0a1d19 100%)}.ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}a:hover .ph img{transform:scale(1.035)}.ph[data-ph]{background:radial-gradient(90% 120% at 100% 0%,#2b5248 0%,#163a32 45%,#0f2a24 100%)}.ph[data-ph]::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(242,194,48,.18) 1.2px,transparent 1.3px);background-size:18px 18px;-webkit-mask:linear-gradient(135deg,#000,transparent 70%);mask:linear-gradient(135deg,#000,transparent 70%)}.ph[data-ph]::after{content:attr(data-label);position:absolute;left:22px;bottom:16px;right:22px;font:400 clamp(30px,3.4vw,44px)/1 "Instrument Serif",Georgia,serif;color:var(--y);letter-spacing:-.01em}a:nth-child(3n+2) .ph[data-ph]{background:radial-gradient(90% 120% at 0% 100%,#3a4f2a 0%,#24361c 50%,#18261a 100%)}a:nth-child(3n) .ph[data-ph]{background:radial-gradient(90% 120% at 100% 100%,#4a3524 0%,#2e2118 55%,#1d1612 100%)}.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}.top .wrap{display:flex;align-items:center;gap:28px;padding:12px max(5vw,18px);flex-wrap:wrap}.logo{display:flex;align-items:baseline;gap:2px;font-weight:800;font-size:21px;letter-spacing:-.03em;text-decoration:none}.logo i{width:9px;height:9px;border-radius:50%;background:var(--y);display:inline-block;margin-left:2px}.nav{display:flex;gap:4px 24px;flex-wrap:wrap;flex:1;font-size:15.5px;font-weight:500}.nav a{text-decoration:none;padding:8px 0;color:var(--mute)}.nav a:hover{color:var(--ink)}.top .btn{min-height:40px;padding:0 18px;font-size:15px}footer{background:#0a1714;color:#b9c6c1;font-size:15px}footer .cols{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:32px}footer a{color:#eef3f1;text-decoration:none}footer a:hover{text-decoration:underline}footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}footer h3{color:#fff;font-size:15px;letter-spacing:0;margin-bottom:12px}footer .logo{color:#fff;margin-bottom:12px}footer .base{border-top:1px solid #1f322d;margin-top:40px;padding-top:20px;font-size:13.5px}.art{max-width:700px;margin:0 auto}.art .lead{font-size:21px;line-height:1.5}.art h2{font-size:28px;margin-top:1.7em}.art li{margin-bottom:.45em}.art ul{padding-left:1.2em}.box{background:var(--soft);border-radius:16px;padding:22px 24px;margin:1.8em 0}.box b{display:block;margin-bottom:4px}.meta{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--mute)}@media(max-width:860px){.top .wrap{gap:6px 14px;padding-block:10px}.nav{order:3;flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:22px;font-size:15px;scrollbar-width:none}.nav a{flex:none;padding:4px 0}.top .btn{margin-left:auto}footer .cols{grid-template-columns:1fr 1fr}}@media(max-width:600px){footer .cols{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}section[id]{scroll-margin-top:84px}.recs{margin:2.4em 0}.rch{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin-bottom:14px}.rch h2{margin:0}.rcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:12px}.rc{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;transition:transform .15s,box-shadow .15s}.rc:hover{transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(0,0,0,.4)}.rci{aspect-ratio:1/1;background:#f6f5f1;display:grid;place-items:center;padding:14px}.rci img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}.rcb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}.rcr{align-self:flex-start;font-size:12px;font-weight:600;background:#f2c230;color:#13201c;border-radius:999px;padding:3px 10px}.rcb b{font-size:15.5px;line-height:1.3}.rcw{font-size:14px;color:var(--mute);line-height:1.4}.rcp{margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;font-weight:700;font-size:15px}.rcp i{font-style:normal;font-weight:600;font-size:13px}.art .recs .rcg{grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr))}.recs.cmp .rcg{grid-template-columns:1fr}.recs.cmp .rc{flex-direction:row}.recs.cmp .rci{width:96px;flex:none;aspect-ratio:auto}.twin{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:14px}.twin .tw{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:6px 0;font-size:14px}.twin .tw b{text-align:right}.twin .btn{margin-top:10px}.conf.alt i{background:#9fb0aa}.twin .conf{margin:0}[data-nl],#nyhetsbrev,a.tool[href$="#nyhetsbrev"],li:has(>a[href$="#nyhetsbrev"]),a[href*="nyhetsbrev/"]{display:none!important}.art h2[id]{scroll-margin-top:90px}.kort{background:var(--soft);border-left:4px solid var(--y);border-radius:12px;padding:18px 22px;margin:0 0 1.6em}.kort b{display:block;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}.kort ul{margin:0;padding-left:1.2em;display:grid;gap:4px}footer,.art>.recs,.art>.faqs,.art>.also{content-visibility:auto;contain-intrinsic-size:auto 600px}</style>
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.mp3"}},{"not":{"href_matches":"/*.json"}},{"not":{"selector_matches":"[download],[rel~=nofollow]"}}]},"eagerness":"moderate"}]}</script>
+<!--/perf-->
 <style>
 .hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;color:#fff;background:radial-gradient(90% 120% at 85% 20%,#2b5248 0%,#0f2a24 55%,#08140f 100%);overflow:hidden}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
+.hero>picture{display:contents}
+/* Seksjonene under hero tegnes først når de nærmer seg skjermen – førstevisningen trenger bare å regne ut toppen av siden. */
+main>section.band,footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.hero>picture>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
 #fx{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:screen}
 .locrow{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap;margin-top:18px;color:#d6e0dc}
 .loc{display:inline-flex;gap:8px;align-items:center;min-height:40px;padding:0 4px;border:0;background:none;color:#fff;font:600 15px "Schibsted Grotesk",sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--y)}
@@ -49,20 +55,6 @@
 
 .sp:hover .ph img{transform:scale(1.035)}
 .sp:focus-visible{outline:3px solid var(--y);outline-offset:4px}
-.drawer{position:fixed;inset:0;z-index:50;display:none}
-.drawer.on{display:block}
-.drawer .scrim{position:absolute;inset:0;background:rgba(5,12,10,.55);backdrop-filter:blur(3px)}
-.drawer .sheet{position:absolute;right:0;top:0;bottom:0;width:min(560px,100%);background:var(--bg);overflow-y:auto;box-shadow:-30px 0 80px rgba(0,0,0,.3);animation:slide .35s ease}
-@keyframes slide{from{transform:translateX(40px);opacity:0}}
-.sheet .ph{border-radius:0;aspect-ratio:16/10}
-.sheet .in{padding:28px 32px 40px}
-.sheet .x{position:absolute;right:16px;top:16px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#111715;font-size:22px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.2)}
-.sheet ul{padding-left:1.2em;margin:0 0 1.2em}
-.sheet .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.sheet .acts2{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0 0}.sheet .acts2 a{font-weight:600}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 22px}
-.facts div{background:var(--soft);border-radius:12px;padding:12px 14px}
-.facts small{display:block;color:var(--mute);font-size:13px}
-.facts b{font-size:15.5px}
 .idt{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
 .signs{display:flex;flex-wrap:wrap;gap:10px}
 .signs label{position:relative;display:inline-flex;align-items:center;min-height:46px;padding:0 18px;border-radius:999px;border:1px solid #2d4d45;cursor:pointer;font-size:15.5px;transition:background .2s,border-color .2s}
@@ -243,7 +235,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 
 <main>
 <section class="hero">
-  <img src="assets/img/hero.webp" alt="" fetchpriority="high" onerror="this.remove()">
+  <picture><source media="(max-width: 440px)" srcset="assets/img/r/hero-m.webp" width="588" height="864"><img src="assets/img/hero.webp" srcset="assets/img/r/hero-800.webp 800w, assets/img/r/hero-1200.webp 1200w, assets/img/hero.webp 1536w" sizes="100vw" width="1536" height="864" alt="" fetchpriority="high" onerror="this.remove()"></picture>
   <canvas id="fx" aria-hidden="true"></canvas>
   <div class="wrap">
     <span class="kicker" style="color:#d6e0dc" id="heroKicker">Høstsesong: musene leter etter vinterkvarter</span>
@@ -254,7 +246,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
       <button class="btn y" type="submit">Søk</button>
       <div class="hits" id="hits"></div>
     </form>
-    <div class="chips" id="chips"></div>
+    <div class="chips" id="chips"><button type="button">Mus</button><button type="button">Veggedyr</button><button type="button">Skjeggkre</button><button type="button">Veps</button></div>
     <div class="locrow"><button class="loc" type="button" data-locate><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>Vis det som gjelder der jeg bor</button><span id="locChip" class="chip"></span><span id="locMsg" class="small" aria-live="polite"></span></div>
   </div>
   <span class="credit">Illustrasjonsfoto: AI-generert</span>
@@ -269,7 +261,16 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 
 <section class="band" id="leksikon"><div class="wrap">
   <div class="head"><div><span class="kicker">Kjenn igjen · leksikon</span><h2>Kjenn igjen gjesten</h2></div><div><p class="mute" style="margin-bottom:12px">De vanligste skadedyrene i norske hjem. Velg et dyr for kjennetegn, første tiltak og riktig utstyr.</p><a class="btn arrow" href="leksikon/index.html">Hele leksikonet </a></div></div>
-  <div class="lex" id="lex"></div><p class="small mute" style="margin-top:12px">Artsfoto fra Wikimedia Commons og iNaturalist med fri lisens. Fotograf og lisens står i hvert oppslag.</p>
+  <div class="lex" id="lex">
+<a class="sp" data-k="mus" href="leksikon/husmus.html"><div class="ph"><img src="assets/img/foto-mus.webp" alt="" loading="lazy" srcset="assets/img/r/foto-mus-480.webp 480w, assets/img/foto-mus.webp 832w" sizes="(max-width: 600px) 80vw, (max-width: 980px) 80vw, 533px" width="832" height="624" decoding="async"><span class="season">Sep–mar</span><div class="cap"><h3>Mus</h3><em>Husmus · Mus musculus</em></div></div></a>
+<a class="sp" data-k="rotte" href="leksikon/brunrotte.html"><div class="ph"><img src="assets/img/foto-rotte.webp" alt="" loading="lazy" srcset="assets/img/r/foto-rotte-480.webp 480w, assets/img/r/foto-rotte-800.webp 800w, assets/img/foto-rotte.webp 1175w" sizes="(max-width: 600px) 80vw, (max-width: 980px) 80vw, 533px" width="1175" height="882" decoding="async"><span class="season">Okt–mar</span><div class="cap"><h3>Rotte</h3><em>Brunrotte · Rattus norvegicus</em></div></div></a>
+<a class="sp" data-k="veggedyr" href="leksikon/veggedyr.html"><div class="ph"><img src="assets/img/foto-veggedyr.webp" alt="" loading="lazy" srcset="assets/img/r/foto-veggedyr-480.webp 480w, assets/img/foto-veggedyr.webp 739w" sizes="(max-width: 600px) 45vw, (max-width: 980px) 45vw, 300px" width="739" height="1024" decoding="async"><span class="season">Hele året</span><div class="cap"><h3>Veggedyr</h3><em>Cimex lectularius</em></div></div></a>
+<a class="sp" data-k="maur" href="leksikon/stokkmaur.html"><div class="ph"><img src="assets/img/foto-stokkmaur.webp" alt="" loading="lazy" srcset="assets/img/r/foto-stokkmaur-480.webp 480w, assets/img/foto-stokkmaur.webp 832w" sizes="(max-width: 600px) 80vw, (max-width: 980px) 80vw, 533px" width="832" height="624" decoding="async"><span class="season">Apr–aug</span><div class="cap"><h3>Maur</h3><em>Flere arter</em></div></div></a>
+<a class="sp" data-k="skjeggkre" href="leksikon/skjeggkre.html"><div class="ph"><img src="assets/img/foto-skjeggkre.webp" alt="" loading="lazy" srcset="assets/img/r/foto-skjeggkre-480.webp 480w, assets/img/r/foto-skjeggkre-800.webp 800w, assets/img/foto-skjeggkre.webp 1303w" sizes="(max-width: 600px) 80vw, (max-width: 980px) 80vw, 534px" width="1303" height="976" decoding="async"><span class="season">Hele året</span><div class="cap"><h3>Skjeggkre</h3><em>Ctenolepisma longicaudatum</em></div></div></a>
+<a class="sp" data-k="veps" href="leksikon/stikkeveps.html"><div class="ph"><img src="assets/img/foto-veps.webp" alt="" loading="lazy" srcset="assets/img/r/foto-veps-480.webp 480w, assets/img/r/foto-veps-800.webp 800w, assets/img/r/foto-veps-1200.webp 1200w, assets/img/foto-veps.webp 1400w" sizes="(max-width: 600px) 80vw, (max-width: 980px) 80vw, 533px" width="1400" height="1050" decoding="async"><span class="season">Jul–sep</span><div class="cap"><h3>Veps</h3><em>Vespula-arter</em></div></div></a>
+<a class="sp" data-k="melmoll" href="leksikon/melmoll.html"><div class="ph"><img src="assets/img/foto-melmoll.webp" alt="" loading="lazy" srcset="assets/img/r/foto-melmoll-480.webp 480w, assets/img/foto-melmoll.webp 799w" sizes="(max-width: 600px) 47vw, (max-width: 980px) 47vw, 312px" width="799" height="1024" decoding="async"><span class="season">Hele året</span><div class="cap"><h3>Melmøll</h3><em>Ephestia kuehniella</em></div></div></a>
+<a class="sp" data-k="fluer" href="artikler/fluer-om-hosten.html"><div class="ph"><img src="assets/img/fluer.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()" srcset="assets/img/r/fluer-480.webp 480w, assets/img/r/fluer-800.webp 800w, assets/img/fluer.webp 1200w" sizes="(max-width: 600px) 80vw, (max-width: 980px) 80vw, 533px" width="1200" height="900" decoding="async"><span class="season">Jun–aug</span><div class="cap"><h3>Fluer</h3><em>Stueflue · Musca domestica</em></div></div></a>
+</div><p class="small mute" style="margin-top:12px">Artsfoto fra Wikimedia Commons og iNaturalist med fri lisens. Fotograf og lisens står i hvert oppslag.</p>
 </div></section>
 
 <section class="band" id="aktuelt" style="padding-top:0"><div class="wrap">
@@ -307,7 +308,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></section>
 
 <section class="band month"><div class="wrap feat">
-  <div class="ph"><img src="assets/img/hytte.webp" alt="Hytte som stenges for vinteren" loading="lazy" onerror="this.remove()"></div>
+  <div class="ph"><img src="assets/img/hytte.webp" alt="Hytte som stenges for vinteren" loading="lazy" onerror="this.remove()" data-n="hytte" srcset="assets/img/r/hytte-480.webp 480w, assets/img/r/hytte-800.webp 800w, assets/img/hytte.webp 1200w" sizes="(max-width: 860px) 92vw, 933px" width="1200" height="900" decoding="async"></div>
   <div>
     <div id="monthTip"><span class="kicker">Gjør dette nå</span>
     <h2>Når hytta står tom i <em>vinter</em></h2>
@@ -325,7 +326,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <div class="head"><div><span class="kicker">Råd og løsninger</span><h2>Siste fra redaksjonen</h2></div><a class="btn arrow" href="artikler/index.html">Alle råd og løsninger </a></div>
   <div class="mag">
     <a class="lead-art" href="artikler/mus-om-hosten.html">
-      <div class="ph"><img src="assets/img/mus.webp" alt="Husmus ved gulvlist" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph"><img src="assets/img/mus.webp" alt="Husmus ved gulvlist" loading="lazy" onerror="this.remove()" srcset="assets/img/r/mus-480.webp 480w, assets/img/r/mus-800.webp 800w, assets/img/mus.webp 1200w" sizes="(max-width: 860px) 92vw, 720px" width="1200" height="900" decoding="async"></div>
       <span class="cat">Gnagere · 6 min</span>
       <h3>Mus i huset om høsten: finn hullet før musa gjør det</h3>
       <p class="mute" style="max-width:56ch">Når nettene blir kalde, leter mus etter varme. Slik finner du inngangene, hva du tetter med, og hvor fellene gjør mest nytte.</p>
@@ -338,7 +339,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 </div></section>
 
 <section class="band dark" id="podkast"><div class="wrap pod">
-  <div class="ph"><img src="assets/img/studio.webp" alt="Podkaststudio med to mikrofoner" loading="lazy" onerror="this.remove()"></div>
+  <div class="ph"><img src="assets/img/studio.webp" alt="Podkaststudio med to mikrofoner" loading="lazy" onerror="this.remove()" srcset="assets/img/r/studio-480.webp 480w, assets/img/r/studio-800.webp 800w, assets/img/r/studio-1200.webp 1200w, assets/img/studio.webp 1400w" sizes="(max-width: 860px) 92vw, 600px" width="1400" height="1050" decoding="async"></div>
   <div>
     <span class="kicker">Podkast</span>
     <h2>Kryp &amp; kunnskap</h2>
@@ -355,7 +356,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
     <p class="mute">For bakerier, restauranter, lager og borettslag: hva internkontrollen bør vise, hvordan du setter opp overvåking, og når du trenger en avtale med en skadedyrtekniker.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn y arrow" href="https://skadedyrbutikken.no/produkter/proff-produkter?utm_source=kryp.as&utm_medium=referral&utm_campaign=bedrift">Proffprodukter </a><a class="btn arrow" href="#verktoy">Kurs og maler </a></div>
   </div>
-  <div class="ph"><img src="assets/img/bedrift.webp" alt="Profesjonelt bakeri med åtestasjon langs veggen" loading="lazy" onerror="this.remove()"></div>
+  <div class="ph"><img src="assets/img/bedrift.webp" alt="Profesjonelt bakeri med åtestasjon langs veggen" loading="lazy" onerror="this.remove()" srcset="assets/img/r/bedrift-480.webp 480w, assets/img/r/bedrift-800.webp 800w, assets/img/bedrift.webp 1200w" sizes="(max-width: 860px) 92vw, 933px" width="1200" height="900" decoding="async"></div>
 </div></section>
 
 <section class="band" id="kalender"><div class="wrap">
@@ -407,100 +408,8 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>
 
-<div class="drawer" id="drawer" aria-hidden="true">
-  <div class="scrim" data-close></div>
-  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="dt"><button class="x" data-close aria-label="Lukk">×</button><div id="dbody"></div></div>
-</div>
 
-<script>
-{
-const U=(p,c)=>'https://skadedyrbutikken.no/produkter/'+p+'?utm_source=kryp.as&utm_medium=referral&utm_campaign='+c;
-const IMG=n=>`<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">`;
-const P=[
- {k:'mus',n:'Mus',l:'Husmus · Mus musculus',s:'Sep–mar',where:'Loft, kjeller, hytte',size:'7–10 cm + hale',signs:['Små mørke ekskrementer på størrelse med riskorn','Gnagemerker på isolasjon og matpakker','Krafsing i tak og vegger om natten'],first:'Finn og tett åpninger rundt rør, under dører og i takfoten. Sett feller langs veggene der musa går.',cat:'gnagere',art:'artikler/mus-om-hosten.html',tags:'mus gnager loft krafsing ekskrementer'},
- {k:'rotte',n:'Rotte',l:'Brunrotte · Rattus norvegicus',s:'Okt–mar',where:'Kjeller, avløp, uthus',size:'20–27 cm + hale',signs:['Ekskrementer på 1–2 cm','Mørke fettstriper langs vegger','Gnag på rør, ledninger og dører'],first:'Kontakt en skadedyrtekniker. Rotter innendørs er sjelden et gjør-det-selv-prosjekt.',cat:'gnagere',art:'artikler/rotter-i-byen.html',tags:'rotte rotter kjeller avløp'},
- {k:'veggedyr',n:'Veggedyr',l:'Cimex lectularius',s:'Hele året',where:'Seng og soverom',size:'Rundt 5 mm',signs:['Små mørke prikker og blodflekker på lakenet','Kløende bitt, ofte flere på rad','Hudskall langs madrassens sømmer'],first:'Ikke flytt madrasser eller møbler mellom rom. Vask tekstiler varmt og kontakt fagfolk tidlig.',cat:'insekter',art:'artikler/veggedyr-pa-reise.html',tags:'veggedyr bitt seng hotell reise'},
- {k:'maur',n:'Maur',l:'Flere arter',s:'Apr–aug',where:'Kjøkken og terrasse',size:'2–12 mm',signs:['Maurstier langs benk og lister','Små hauger med sagflis kan bety stokkmaur','Bevingede maur innendørs om våren'],first:'Følg stien til inngangen, tett den og fjern søl. Bruk åte slik at maurene tar det med til tuet.',cat:'insekter',art:'artikler/stokkmaur-eller-skogsmaur.html',tags:'maur stokkmaur kjøkken sti'},
- {k:'skjeggkre',n:'Skjeggkre',l:'Ctenolepisma longicaudatum',s:'Hele året',where:'Hele boligen',size:'Opptil 2 cm',signs:['Grå insekter med lange haletråder','Sees ofte om natten når lyset slås på','Finnes også i tørre rom, ikke bare på badet'],first:'Tett sprekker langs lister og bruk åtestasjoner over tid. Det krever tålmodighet, ofte flere måneder.',cat:'insekter',art:'artikler/fukt-solvkre-skjeggkre.html',tags:'skjeggkre sølvkre bad sluk'},
- {k:'veps',n:'Veps',l:'Vespula-arter',s:'Jul–sep',where:'Takskjegg, hekk, bakken',size:'12–18 mm',signs:['Mange veps flyr inn og ut på samme sted','Bol under takskjegg, i hekk eller i bakken','Summing inne i en vegg'],first:'Hold avstand fra bolet. Små bol tidlig i sesongen er lettest å fjerne; bol i vegg bør fagfolk ta.',cat:'insekter',art:'artikler/vepsebol.html',tags:'veps vepsebol stikk tak'},
- {k:'melmoll',n:'Melmøll',l:'Ephestia kuehniella',s:'Hele året',where:'Matskap',size:'Vingespenn ca. 2 cm',signs:['Spinn og larver i mel, gryn og frø','Små møll som flyr i skumringen','Klumper i tørrvarer'],first:'Kast angrepne varer, støvsug og vask skapet, og oppbevar tørrvarer i tette bokser.',cat:'insekter',art:'',tags:'melmøll møll mel matskap larver'},
- {k:'fluer',n:'Fluer',l:'Stueflue · Musca domestica',s:'Jun–aug',where:'Kjøkken og avfall',size:'6–7 mm',signs:['Mange fluer rundt avfall og vinduer','Larver i søppeldunk eller kompost','Fluer som kommer igjen hver sommer'],first:'Hold avfallet tett, tøm ofte og sett insektnett i vinduer som står åpne.',cat:'elektrisk-insektfanger',art:'',tags:'fluer flue sommer søppel'}];
-
-// Navngitte arter vises med ekte, fritt lisensiert foto (site/data/photos.json) – ikke illustrasjon.
-const KBID={mus:'mus',rotte:'rotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'veps',melmoll:'melmoll'};let PH={};
-const SPIMG=k=>PH[KBID[k]]?`<img src="assets/img/foto-${KBID[k]}.webp" alt="" loading="lazy">`:IMG(k);
-const CRED=k=>{const p=PH[KBID[k]];return p?`<span class="cred">Foto: ${/^no rights/i.test(p.author)?'iNaturalist-bruker':p.author}${p.cropped?' (beskåret)':''} · <a href="${p.license_url||p.page}" rel="license noopener">${p.license}</a> · <a href="${p.page}" rel="noopener">kilde</a></span>`:''};
-const LX={mus:'husmus',rotte:'brunrotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'stikkeveps',melmoll:'melmoll'};
-const drawLex=()=>{document.getElementById('lex').innerHTML=P.map(p=>`<a class="sp" data-k="${p.k}" href="${DEST(p.k)}"><div class="ph">${SPIMG(p.k)}<span class="season">${p.s}</span><div class="cap"><h3>${p.n}</h3><em>${p.l}</em></div></div></a>`).join('')};
-drawLex();fetch('data/photos.json').then(r=>r.ok?r.json():{}).then(d=>{PH=d;drawLex()}).catch(()=>{});
-const dr=document.getElementById('drawer'),db=document.getElementById('dbody');let last=null;
-// Kort og treff går rett til en egen side (leksikon, ellers artikkel) – ingen skuff fra høyre.
-function DEST(k){const p=P.find(x=>x.k===k)||{};return LX[k]?'leksikon/'+LX[k]+'.html':({fluer:'artikler/fluer-om-hosten.html'}[k]||p.art||'leksikon/index.html')}
-function open(k){location.href=DEST(k)}
-function openSheet(k){const p=P.find(x=>x.k===k);if(!p)return;last=document.activeElement;
- db.innerHTML=`<div class="ph">${SPIMG(p.k)}</div>${CRED(p.k)}<div class="in"><span class="kicker">${p.l}</span><h2 id="dt">${p.n}</h2>
- <div class="facts"><div><small>Sesong</small><b>${p.s}</b></div><div><small>Størrelse</small><b>${p.size}</b></div><div><small>Typisk sted</small><b>${p.where}</b></div></div>
- <h3>Tegn du ser etter</h3><ul>${p.signs.map(s=>`<li>${s}</li>`).join('')}</ul><h3>Gjør dette først</h3><p>${p.first}</p>
- ${window.SG_recs?SG_recs('sp:'+({maur:'stokkmaur',fluer:''}[p.k]??p.k),'leksikon-'+p.k,4,'Riktig utstyr mot '+p.n.toLowerCase()):''}<div class="acts">${p.art?`<a class="btn y arrow" href="${p.art}">Hva gjør jeg nå? </a>`:(LX[p.k]?`<a class="btn y arrow" href="leksikon/${LX[p.k]}.html">Kjennetegn og bilder </a>`:'')}</div><p class="small acts2">${p.art&&LX[p.k]?`<a href="leksikon/${LX[p.k]}.html">Kjennetegn og bilder →</a>`:''}<a href="${U(p.cat,'leksikon-'+p.k)}">Se utstyret →</a></p><div></div></div>`;
- dr.classList.add('on');dr.setAttribute('aria-hidden','false');dr.querySelector('.x').focus();}
-
-window.SG_open=open;
-function close(){dr.classList.remove('on');dr.setAttribute('aria-hidden','true');if(last)last.focus()}
-
-dr.addEventListener('click',e=>{if(e.target.closest('[data-close]'))close()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dr.classList.contains('on'))close()});
-
-const q=document.getElementById('q'),hits=document.getElementById('hits');
-function find(v){v=v.trim().toLowerCase();if(!v){hits.classList.remove('on');return}
- const r=P.filter(p=>(p.n+' '+p.tags+' '+p.signs.join(' ')).toLowerCase().includes(v));
- hits.innerHTML=r.length?r.map(p=>`<a href="${DEST(p.k)}" data-k="${p.k}"><b>${p.n}</b><span>${p.where}</span></a>`).join(''):'<p>Ingen treff ennå. Prøv «mus», «bitt» eller «veps».</p>';hits.classList.add('on')}
-q.addEventListener('input',()=>find(q.value));
-document.getElementById('sf').addEventListener('submit',e=>{e.preventDefault();find(q.value);const a=hits.querySelector('a');if(a){hits.classList.remove('on');open(a.dataset.k)}});
-
-document.addEventListener('click',e=>{if(!e.target.closest('.search'))hits.classList.remove('on')});
-const chips=document.getElementById('chips');
-chips.innerHTML=['Mus','Veggedyr','Skjeggkre','Veps'].map(c=>`<button type="button">${c}</button>`).join('');
-chips.addEventListener('click',e=>{const b=e.target.closest('button');if(b)open(P.find(p=>p.n===b.textContent).k)});
-
-const S=[['ekskr','Små mørke ekskrementer'],['store','Store ekskrementer'],['gnag','Gnagemerker'],['natt','Lyder om natten'],['bitt','Bitt om morgenen'],['laken','Prikker på lakenet'],['sti','Maurstier'],['mat','Spinn i matvarer'],['gra','Grå insekter om natten'],['summ','Mange veps ute'],['avfall','Fluer ved avfall']];
-const W={Mus:{ekskr:3,gnag:2,natt:3},Rotte:{store:4,gnag:3,natt:2},Veggedyr:{bitt:3,laken:4},Maur:{sti:4},Melmøll:{mat:4},Skjeggkre:{gra:4},Veps:{summ:4,natt:1},Fluer:{avfall:4}};
-const sEl=document.getElementById('signs'),rEl=document.getElementById('res');
-sEl.innerHTML=S.map(([k,t])=>`<label><input type="checkbox" value="${k}">${t}</label>`).join('');
-function score(){const on=[...sEl.querySelectorAll('input:checked')].map(i=>i.value);
- if(!on.length){rEl.innerHTML='<span class="kicker">Resultat</span><div class="top1">Velg et tegn</div><p class="mute" style="max-width:36ch">Resultatet oppdateres mens du velger. Jo flere tegn, jo sikrere svar.</p>';return}
- const rows=Object.entries(W).map(([p,w])=>{const m=Object.values(w).reduce((a,b)=>a+b,0);return[p,Math.round(100*on.reduce((a,k)=>a+(w[k]||0),0)/m)]}).filter(r=>r[1]>0).sort((a,b)=>b[1]-a[1]);
- const best=P.find(p=>p.n===rows[0][0]);
- rEl.innerHTML=`<span class="kicker">Mest sannsynlig</span><div class="top1">${best.n}</div>${rows.slice(0,5).map(([p,v])=>`<div class="row"><span>${p}</span><span class="bar"><i style="width:${v}%"></i></span><span class="pct">${v} %</span></div>`).join('')}<div style="margin-top:22px"><button class="btn y arrow" type="button" data-k="${best.k}">Les om ${best.n.toLowerCase()} </button></div><p class="small mute" style="margin:16px 0 0">Prosenten viser hvor mange av kjennetegnene du har valgt. Usikker? Ta bilde og spør en fagperson.</p>`}
-sEl.addEventListener('change',score);rEl.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b)open(b.dataset.k)});score();
-
-const A=[['Vilt i hagen · 6 min','Grevling på tomta: hva kan du gjøre – og hva har du lov til?','artikler/grevling-pa-tomta.html','grevling'],['Insekter · 5 min','Veggedyr på hotellet: sjekk rommet på to minutter','artikler/veggedyr-pa-reise.html','veggedyr'],['Veps · 4 min','Vepsebolet: fjern det tidlig i sesongen','artikler/vepsebol.html','veps'],['Insekter · 5 min','Sølvkre og skjeggkre: hva er forskjellen, og hva hjelper?','artikler/fukt-solvkre-skjeggkre.html','skjeggkre']];
-document.getElementById('side').innerHTML=A.map(([c,t,h,i])=>`<a href="${h}"><div><span class="cat">${c}</span><h3>${t}</h3></div><div class="ph" data-label="">${IMG(i)}</div></a>`).join('');
-const B=[['Gnagere','Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?','artikler/rotter-i-byen.html','rotte'],['Maur','Stokkmaur eller skogsmaur? Slik ser du forskjellen','artikler/stokkmaur-eller-skogsmaur.html','maur'],['Hytte','Fjellhytta: mus gjennom vinteren og besøk i skisesongen','artikler/fjellhytta.html','hytte']];
-document.getElementById('row3').innerHTML=B.map(([c,t,h,i])=>`<a href="${h}"><div class="ph" data-label="${c}">${IMG(i)}</div><span class="cat">${c}</span><h3>${t}</h3></a>`).join('');
-// Artikkellistene bygges fra data/articles.json: aktuelle denne måneden først, så resten med filter per kategori.
-fetch('data/articles.json').then(r=>r.json()).then(all=>{
-  const m=new Date().getMonth()+1, lead='mus-om-hosten';
-  const list=all.filter(a=>a.slug!==lead).sort((a,b)=>((b.months||[]).includes(m))-((a.months||[]).includes(m)));
-  const card=a=>`<a href="artikler/${a.slug}.html"><div class="ph" data-label="${a.cat}">${IMG(a.img)}</div><span class="cat">${a.cat}${(a.months||[]).includes(m)?' · aktuelt nå':''}</span><h3>${a.title}</h3></a>`;
-  document.getElementById('side').innerHTML=list.slice(0,4).map(a=>`<a href="artikler/${a.slug}.html"><div><span class="cat">${a.cat}</span><h3>${a.title}</h3></div><div class="ph" data-label="">${IMG(a.img)}</div></a>`).join('');
-  document.getElementById('row3').innerHTML=list.slice(4,7).map(card).join('');
-  const rest=list.slice(7), cats=['Alle',...new Set(rest.map(a=>a.cat))];
-  const draw=c=>{document.getElementById('allArts').innerHTML=rest.filter(a=>c==='Alle'||a.cat===c).map(card).join('');
-    document.querySelectorAll('#artChips button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===c))};
-  document.getElementById('artChips').innerHTML=cats.map(c=>`<button type="button" class="chip" data-c="${c}">${c}</button>`).join('');
-  document.getElementById('artChips').onclick=e=>{const b=e.target.closest('button');if(b)draw(b.dataset.c)};
-  draw('Alle');
-}).catch(()=>{});
-
-fetch('data/episodes.json').then(r=>r.ok?r.json():[]).then(E=>{document.getElementById('eps').innerHTML=E.slice(0,3).map(e=>`<a class="ep" href="podkast.html#ep-${e.n}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${e.n}</small><br><b>${e.title}</b></span><span class="len">Lytt nå</span></a>`).join('')}).catch(()=>{});
-
-
-
-
-document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>{x.setAttribute('aria-selected',x===b);document.getElementById(x.dataset.tab).hidden=x!==b})}));
-document.getElementById('aiOut').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;const m={jordmaur:'maur',stokkmaur:'maur',skogmus:'mus'};const k=m[b.dataset.k]||b.dataset.k;if(P.find(p=>p.k===k))open(k);else location.hash='leksikon'});
-}
-</script>
+<script src="assets/home.js" defer></script>
 <script src="assets/nl.js" defer></script>
 <script src="assets/app.js" defer></script>
 </body>
