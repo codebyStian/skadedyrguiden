@@ -33,7 +33,7 @@ jobs:
         run: python scripts/newsletter.py
       - name: Publish archive
         run: |
-          python scripts/page.py
+          python scripts/page.py && python scripts/perf.py
           git config user.name "skadedyrguiden-bot"; git config user.email "actions@users.noreply.github.com"
           git add site/nyhetsbrev
           git diff --cached --quiet || git commit -qm "Skadedyrbrevet: $(python3 -c 'import json;print(json.load(open("site/nyhetsbrev/latest.json"))["slug"])')"

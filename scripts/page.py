@@ -147,7 +147,7 @@ def player():
 <span class="kicker">Episode {e["n"]} · Nyeste</span>
 <h2 style="font-size:clamp(30px,3.6vw,44px)">{html.escape(e["title"])}</h2>
 <p class="mute">{html.escape(e["desc"])}</p>
-<audio id="au" preload="metadata" src="assets/podcast/{e["slug"]}.mp3"></audio>
+<audio id="au" preload="none" src="assets/podcast/{e["slug"]}.mp3"></audio>
 <div class="pbar"><button class="pbtn" id="pb" type="button" aria-label="Spill av"><svg viewBox="0 0 24 24" width="22" height="22"><path id="pi" d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></button>
 <div class="ptrack"><input id="ps" type="range" min="0" max="1000" value="0" aria-label="Posisjon"><div class="ptime"><span id="pc">0:00</span><span id="pd">–:––</span></div></div></div>
 <p class="small mute" id="pmsg" style="margin:10px 0 0"></p>
@@ -163,6 +163,8 @@ a.onloadedmetadata=()=>{{d.textContent=f(a.duration)}};
 a.ontimeupdate=()=>{{c.textContent=f(a.currentTime);if(a.duration)s.value=1000*a.currentTime/a.duration}};
 s.oninput=()=>{{if(a.duration)a.currentTime=s.value/1000*a.duration}};
 a.onerror=()=>{{document.getElementById('pmsg').textContent='Lyden lages fortsatt. Prøv igjen om litt.'}};
+// Varigheten hentes etter at siden er lastet, så lydfilen ikke konkurrerer med tekst og bilder om båndbredden.
+const md=()=>{{if(a.paused&&!a.currentTime&&a.preload==='none'){{a.preload='metadata';a.load()}}}};document.readyState==='complete'?md():addEventListener('load',md,{{once:true}});
 }}</script>'''
 
 

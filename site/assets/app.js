@@ -8,6 +8,11 @@
   const store = { get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } },
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }, del(k) { try { localStorage.removeItem(k); } catch {} } };
   const getJSON = async (u, opt) => { try { const r = await fetch(u, opt); if (!r.ok) throw 0; return await r.json(); } catch { return null; } };
+  // Ytelse: data og tunge deler lastes først når de trengs, så førstevisningen bare venter på tekst og hero-bilde.
+  const once = (f) => { let p; return () => p || (p = f()); };
+  const near = (sel, fn, m) => (window.SG_near ? window.SG_near(sel, fn, m) : fn());
+  const afterLoad = (fn) => { const go = () => (window.requestIdleCallback || ((f) => setTimeout(f, 300)))(fn, { timeout: 3000 });
+    document.readyState === "complete" ? go() : addEventListener("load", go, { once: true }); };
 
   // Settes når bildeanalysen er publisert på Cloudflare Workers.
   const AI_URL = document.documentElement.dataset.ai || "";
@@ -111,12 +116,16 @@
   const hero = $(".hero"), heroImg = hero && hero.querySelector("img");
   function setHeroImage(names, label) {
     if (!heroImg) return;
-    const list = [].concat(names);
+    const list = [].concat(names), source = heroImg.closest("picture")?.querySelector("source");
+    const phone = source && matchMedia(source.media).matches;
     const tryNext = () => {
       const name = list.shift(); if (!name) return;
-      const src = `assets/img/${name}.webp`, test = new Image();
-      test.onload = () => { heroImg.style.opacity = 0; setTimeout(() => { heroImg.src = src; heroImg.style.opacity = 1; }, 300); };
-      test.onerror = tryNext; test.src = src;
+      const full = `assets/img/${name}.webp`, crop = `assets/img/r/${name}-m.webp`, test = new Image();
+      test.onload = () => { heroImg.style.opacity = 0; setTimeout(() => {
+        if (source) source.srcset = phone ? test.src : crop;
+        heroImg.removeAttribute("srcset"); heroImg.src = full; heroImg.style.opacity = 1; }, 300); };
+      test.onerror = () => { if (test.src.endsWith(crop) || test.src.endsWith("-m.webp")) { test.onerror = tryNext; test.src = full; } else tryNext(); };
+      test.src = phone ? crop : full;
     };
     tryNext();
     const k = $("#heroKicker"); if (k && label) k.textContent = label;
@@ -208,7 +217,8 @@
   }
   /* ---------- produkttips (valgt av produktagenten, data/recs.json) ---------- */
   let RECS = null;
-  fetch("data/recs.json").then((r) => r.ok ? r.json() : {}).then((d) => { RECS = d; window.dispatchEvent(new Event("sg-recs")); }).catch(() => (RECS = {}));
+  const loadRecs = once(() => fetch("data/recs.json").then((r) => r.ok ? r.json() : {}).catch(() => ({}))
+    .then((d) => { RECS = d; window.dispatchEvent(new Event("sg-recs")); return d; }));
   const price = (p) => { const n = parseFloat(String(p).replace(",", ".")); return isFinite(n) ? Math.round(n).toLocaleString("nb-NO") + " kr" : ""; };
   function recsHTML(key, camp, n = 3, title = "Riktig utstyr") {
     const list = (RECS && RECS[key] || []).slice(0, n); if (!list.length) return "";
@@ -230,7 +240,7 @@
     const t = $("#seasonTitle"); if (t) t.innerHTML = `Aktuelt i <em>${MONTHS[M]}</em>${reg ? " · " + REGION[reg].name : ""}`;
     box.innerHTML = list.map((a) => `<a href="artikler/${a.slug}.html"><div class="ph" data-label="${esc(a.cat)}">${IMG(a.img)}</div><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3></a>`).join("");
   }
-  const IMG = (n) => `<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">`;
+  const IMG = (n) => window.SG_img ? window.SG_img(n, "card") : `<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">`;
 
   function monthNow() {
     if (!stats?.fhi?.monthly) return "";
@@ -285,7 +295,7 @@
   function locate() {
     if (!navigator.geolocation) return alertMsg("Nettleseren din støtter ikke posisjon. Velg et fylke i kartet.");
     alertMsg("Finner posisjonen din …");
-    navigator.geolocation.getCurrentPosition((p) => { alertMsg(""); applyLoc({ lat: p.coords.latitude, lon: p.coords.longitude }, true); },
+    navigator.geolocation.getCurrentPosition((p) => { alertMsg(""); mapReady().then((ok) => ok && applyLoc({ lat: p.coords.latitude, lon: p.coords.longitude }, true)); },
       () => alertMsg("Fikk ikke tilgang til posisjonen. Velg et fylke i kartet i stedet."), { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
   }
   document.addEventListener("click", (e) => {
@@ -384,23 +394,29 @@
       const t = T[type].find((x) => x[0].includes(M));
       box.innerHTML = `<div class="htype" role="group" aria-label="Type hytte"><button type="button" data-h="fjell" aria-pressed="${type === "fjell"}">Fjellhytte</button><button type="button" data-h="sjo" aria-pressed="${type === "sjo"}">Hytte ved sjøen</button></div>
         <span class="kicker">${g}</span><h2>${t[1]}</h2><p class="mute">${t[2]}</p><ul class="checks">${t[3].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("")}</ul><a class="btn arrow" href="artikler/${art[type]}.html">Les hele guiden </a>${recsHTML("hytte:" + type, "hytte-" + type, 3, "Til hytta")}`;
-      const img = document.querySelector("#monthTip")?.closest(".feat")?.querySelector(".ph img");
-      if (img) img.src = `assets/img/${type === "sjo" ? "region-sor" : "hytte"}.webp`;
+      const img = document.querySelector("#monthTip")?.closest(".feat")?.querySelector(".ph img"), want = type === "sjo" ? "region-sor" : "hytte";
+      if (img && img.dataset.n !== want) { img.dataset.n = want; img.removeAttribute("srcset"); img.src = `assets/img/${want}.webp`; }
     };
     box.addEventListener("click", (e) => { const b = e.target.closest("[data-h]"); if (b) { type = b.dataset.h; store.set("sg-hytte", type); draw(); } });
     draw();
   }
 
   /* ---------- oppstart ---------- */
-  async function init() {
-    startFX(); monthTip();
-    [geo, stats, arts] = await Promise.all([getJSON("data/norge.json"), getJSON("data/stats.json"), getJSON("data/articles.json")]);
-    season2();
-    calendar(); photo();
-    if (!geo || !stats) { const p = $("#panel"); if (p) p.innerHTML = `<p class="mute">Kartdata er ikke tilgjengelig her.</p>`; return; }
-    renderMap(); panelNational();
-    if (loc) applyLoc(loc, false);
-    else weather(59.9, 10.75).then(fxFromWeather);
+  const loadArts = once(() => getJSON("data/articles.json").then((d) => (arts = d)));
+  const loadStats = once(() => getJSON("data/stats.json").then((d) => (stats = d)));
+  const mapReady = once(async () => {
+    [geo] = await Promise.all([getJSON("data/norge.json"), loadStats(), loadArts()]); loadRecs();
+    if (!geo || !stats) { const p = $("#panel"); if (p) p.innerHTML = `<p class="mute">Kartdata er ikke tilgjengelig her.</p>`; return false; }
+    renderMap(); panelNational(); return true;
+  });
+  function init() {
+    photo(); monthTip();
+    near("#monthTip", loadRecs);
+    near("#aktuelt", () => loadArts().then(season2));
+    near("#kalender", () => loadStats().then(calendar));
+    if (loc) mapReady().then((ok) => ok && applyLoc(loc, false));   // lagret posisjon: lokal hero med en gang
+    else near("#lokalt", mapReady, "600px");
+    afterLoad(() => { startFX(); if (wx) fxFromWeather(wx); else if (!loc) weather(59.9, 10.75).then(fxFromWeather); });
   }
   init();
 })();
