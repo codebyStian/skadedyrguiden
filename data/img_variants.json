@@ -1,0 +1,524 @@
+{
+"images": {
+"bedrift": {
+"files": [
+"s/bedrift-320.webp",
+"s/bedrift-480.webp",
+"s/bedrift-680.webp",
+"s/bedrift-800.webp"
+],
+"src": "1cb60451533adc6c"
+},
+"borebille": {
+"files": [
+"s/borebille-320.webp",
+"s/borebille-480.webp",
+"s/borebille-680.webp",
+"s/borebille-800.webp"
+],
+"src": "116f63810acbf906"
+},
+"by-bergen": {
+"files": [
+"m/by-bergen.avif",
+"m/by-bergen.webp",
+"s/by-bergen-320.webp",
+"s/by-bergen-480.webp",
+"s/by-bergen-680.webp",
+"s/by-bergen-800.webp"
+],
+"src": "e7e015a3154717b7"
+},
+"by-bodo": {
+"files": [
+"m/by-bodo.avif",
+"m/by-bodo.webp",
+"s/by-bodo-320.webp",
+"s/by-bodo-480.webp",
+"s/by-bodo-680.webp",
+"s/by-bodo-800.webp"
+],
+"src": "daa7bd06b9e136d9"
+},
+"by-kristiansand": {
+"files": [
+"m/by-kristiansand.avif",
+"m/by-kristiansand.webp",
+"s/by-kristiansand-320.webp",
+"s/by-kristiansand-480.webp",
+"s/by-kristiansand-680.webp",
+"s/by-kristiansand-800.webp"
+],
+"src": "3b8cea6d061a241e"
+},
+"by-oslo": {
+"files": [
+"m/by-oslo.avif",
+"m/by-oslo.webp",
+"s/by-oslo-320.webp",
+"s/by-oslo-480.webp",
+"s/by-oslo-680.webp",
+"s/by-oslo-800.webp"
+],
+"src": "c58400741941393a"
+},
+"by-stavanger": {
+"files": [
+"m/by-stavanger.avif",
+"m/by-stavanger.webp",
+"s/by-stavanger-320.webp",
+"s/by-stavanger-480.webp",
+"s/by-stavanger-680.webp",
+"s/by-stavanger-800.webp"
+],
+"src": "df806d3cdd66b39d"
+},
+"by-tonsberg": {
+"files": [
+"m/by-tonsberg.avif",
+"m/by-tonsberg.webp",
+"s/by-tonsberg-320.webp",
+"s/by-tonsberg-480.webp",
+"s/by-tonsberg-680.webp",
+"s/by-tonsberg-800.webp"
+],
+"src": "a8ac46402fc375ba"
+},
+"by-tromso": {
+"files": [
+"m/by-tromso.avif",
+"m/by-tromso.webp",
+"s/by-tromso-320.webp",
+"s/by-tromso-480.webp",
+"s/by-tromso-680.webp",
+"s/by-tromso-800.webp"
+],
+"src": "467906d33b768970"
+},
+"by-trondheim": {
+"files": [
+"m/by-trondheim.avif",
+"m/by-trondheim.webp",
+"s/by-trondheim-320.webp",
+"s/by-trondheim-480.webp",
+"s/by-trondheim-680.webp",
+"s/by-trondheim-800.webp"
+],
+"src": "e632670c725c4fc7"
+},
+"flaggermus": {
+"files": [
+"s/flaggermus-320.webp",
+"s/flaggermus-480.webp",
+"s/flaggermus-680.webp",
+"s/flaggermus-800.webp"
+],
+"src": "df4e728206e50dfd"
+},
+"fluer": {
+"files": [
+"p/fluer-320.webp",
+"p/fluer-640.webp",
+"s/fluer-320.webp",
+"s/fluer-480.webp",
+"s/fluer-680.webp",
+"s/fluer-800.webp"
+],
+"src": "2b914bd54c82c6e2"
+},
+"foto-flatt": {
+"files": [
+"p/foto-flatt-320.webp",
+"p/foto-flatt-640.webp",
+"s/foto-flatt-320.webp",
+"s/foto-flatt-480.webp",
+"s/foto-flatt-680.webp",
+"s/foto-flatt-800.webp"
+],
+"src": "6066f36fbca0aa4a"
+},
+"foto-jordmaur": {
+"files": [
+"p/foto-jordmaur-320.webp",
+"p/foto-jordmaur-640.webp",
+"s/foto-jordmaur-320.webp",
+"s/foto-jordmaur-480.webp",
+"s/foto-jordmaur-680.webp",
+"s/foto-jordmaur-800.webp"
+],
+"src": "a86c2c9307c2af6c"
+},
+"foto-kakerlakk": {
+"files": [
+"p/foto-kakerlakk-320.webp",
+"p/foto-kakerlakk-640.webp",
+"s/foto-kakerlakk-320.webp",
+"s/foto-kakerlakk-480.webp",
+"s/foto-kakerlakk-680.webp",
+"s/foto-kakerlakk-800.webp"
+],
+"src": "1afc8cfd3df68705"
+},
+"foto-kjempetreveps": {
+"files": [
+"p/foto-kjempetreveps-320.webp",
+"p/foto-kjempetreveps-640.webp",
+"s/foto-kjempetreveps-320.webp",
+"s/foto-kjempetreveps-480.webp",
+"s/foto-kjempetreveps-680.webp",
+"s/foto-kjempetreveps-800.webp"
+],
+"src": "82e2c9105962a8a4"
+},
+"foto-melmoll": {
+"files": [
+"p/foto-melmoll-320.webp",
+"p/foto-melmoll-640.webp",
+"s/foto-melmoll-320.webp",
+"s/foto-melmoll-480.webp",
+"s/foto-melmoll-680.webp",
+"s/foto-melmoll-800.webp"
+],
+"src": "7c4da3121554c8c2"
+},
+"foto-mus": {
+"files": [
+"p/foto-mus-320.webp",
+"p/foto-mus-640.webp",
+"s/foto-mus-320.webp",
+"s/foto-mus-480.webp",
+"s/foto-mus-680.webp",
+"s/foto-mus-800.webp"
+],
+"src": "4422685bc5318c82"
+},
+"foto-rotte": {
+"files": [
+"p/foto-rotte-320.webp",
+"p/foto-rotte-640.webp",
+"s/foto-rotte-320.webp",
+"s/foto-rotte-480.webp",
+"s/foto-rotte-680.webp",
+"s/foto-rotte-800.webp"
+],
+"src": "2a6606f175729a38"
+},
+"foto-skjeggkre": {
+"files": [
+"p/foto-skjeggkre-320.webp",
+"p/foto-skjeggkre-640.webp",
+"s/foto-skjeggkre-320.webp",
+"s/foto-skjeggkre-480.webp",
+"s/foto-skjeggkre-680.webp",
+"s/foto-skjeggkre-800.webp"
+],
+"src": "251e2b933c556be4"
+},
+"foto-skogmus": {
+"files": [
+"p/foto-skogmus-320.webp",
+"p/foto-skogmus-640.webp",
+"s/foto-skogmus-320.webp",
+"s/foto-skogmus-480.webp",
+"s/foto-skogmus-680.webp",
+"s/foto-skogmus-800.webp"
+],
+"src": "95380e2e727453ac"
+},
+"foto-skogsmaur": {
+"files": [
+"p/foto-skogsmaur-320.webp",
+"p/foto-skogsmaur-640.webp",
+"s/foto-skogsmaur-320.webp",
+"s/foto-skogsmaur-480.webp",
+"s/foto-skogsmaur-680.webp",
+"s/foto-skogsmaur-800.webp"
+],
+"src": "93952e68d4bedd62"
+},
+"foto-solvkre": {
+"files": [
+"p/foto-solvkre-320.webp",
+"p/foto-solvkre-640.webp",
+"s/foto-solvkre-320.webp",
+"s/foto-solvkre-480.webp",
+"s/foto-solvkre-680.webp",
+"s/foto-solvkre-800.webp"
+],
+"src": "7b14e9649b0e3ce3"
+},
+"foto-stokkmaur": {
+"files": [
+"p/foto-stokkmaur-320.webp",
+"p/foto-stokkmaur-640.webp",
+"s/foto-stokkmaur-320.webp",
+"s/foto-stokkmaur-480.webp",
+"s/foto-stokkmaur-680.webp",
+"s/foto-stokkmaur-800.webp"
+],
+"src": "d65ca193d83c525d"
+},
+"foto-svaletege": {
+"files": [
+"p/foto-svaletege-320.webp",
+"p/foto-svaletege-640.webp",
+"s/foto-svaletege-320.webp",
+"s/foto-svaletege-480.webp",
+"s/foto-svaletege-680.webp",
+"s/foto-svaletege-800.webp"
+],
+"src": "d7a1a3b6e5730e3c"
+},
+"foto-veggedyr": {
+"files": [
+"p/foto-veggedyr-320.webp",
+"p/foto-veggedyr-640.webp",
+"s/foto-veggedyr-320.webp",
+"s/foto-veggedyr-480.webp",
+"s/foto-veggedyr-680.webp",
+"s/foto-veggedyr-800.webp"
+],
+"src": "4710c603e3a7b2bd"
+},
+"foto-veps": {
+"files": [
+"p/foto-veps-320.webp",
+"p/foto-veps-640.webp",
+"s/foto-veps-320.webp",
+"s/foto-veps-480.webp",
+"s/foto-veps-680.webp",
+"s/foto-veps-800.webp"
+],
+"src": "67b5d448a3c40332"
+},
+"grevling": {
+"files": [
+"s/grevling-320.webp",
+"s/grevling-480.webp",
+"s/grevling-680.webp",
+"s/grevling-800.webp"
+],
+"src": "189433142df36df6"
+},
+"hero": {
+"files": [
+"m/hero.avif",
+"m/hero.webp",
+"s/hero-320.webp",
+"s/hero-480.webp",
+"s/hero-680.webp",
+"s/hero-800.webp"
+],
+"src": "aeaf093310ad8026"
+},
+"hoggorm": {
+"files": [
+"s/hoggorm-320.webp",
+"s/hoggorm-480.webp",
+"s/hoggorm-680.webp",
+"s/hoggorm-800.webp"
+],
+"src": "5d184df33f6fd2b0"
+},
+"humle": {
+"files": [
+"s/humle-320.webp",
+"s/humle-480.webp",
+"s/humle-680.webp",
+"s/humle-800.webp"
+],
+"src": "f2bbe319e280e26c"
+},
+"husbukk": {
+"files": [
+"s/husbukk-320.webp",
+"s/husbukk-480.webp",
+"s/husbukk-680.webp",
+"s/husbukk-800.webp"
+],
+"src": "17ed429dcf93768d"
+},
+"hytte": {
+"files": [
+"s/hytte-320.webp",
+"s/hytte-480.webp",
+"s/hytte-680.webp",
+"s/hytte-800.webp"
+],
+"src": "db80784ffedd5b40"
+},
+"klesmoll": {
+"files": [
+"s/klesmoll-320.webp",
+"s/klesmoll-480.webp",
+"s/klesmoll-680.webp",
+"s/klesmoll-800.webp"
+],
+"src": "4aa11aa7d7c7c2ee"
+},
+"loftsfluer": {
+"files": [
+"s/loftsfluer-320.webp",
+"s/loftsfluer-480.webp",
+"s/loftsfluer-680.webp",
+"s/loftsfluer-800.webp"
+],
+"src": "207ecd34f148225c"
+},
+"maker": {
+"files": [
+"s/maker-320.webp",
+"s/maker-480.webp",
+"s/maker-680.webp",
+"s/maker-800.webp"
+],
+"src": "47e8c941d8f01632"
+},
+"maur": {
+"files": [
+"s/maur-320.webp",
+"s/maur-480.webp",
+"s/maur-680.webp",
+"s/maur-800.webp"
+],
+"src": "4a95a6ce494e5803"
+},
+"melmoll": {
+"files": [
+"s/melmoll-320.webp",
+"s/melmoll-480.webp",
+"s/melmoll-680.webp",
+"s/melmoll-800.webp"
+],
+"src": "31dcd779255246b7"
+},
+"mus": {
+"files": [
+"s/mus-320.webp",
+"s/mus-480.webp",
+"s/mus-680.webp",
+"s/mus-800.webp"
+],
+"src": "6c82526b684341ac"
+},
+"region-midt": {
+"files": [
+"m/region-midt.avif",
+"m/region-midt.webp",
+"s/region-midt-320.webp",
+"s/region-midt-480.webp",
+"s/region-midt-680.webp",
+"s/region-midt-800.webp"
+],
+"src": "4a541c6ffcd003ac"
+},
+"region-nord": {
+"files": [
+"m/region-nord.avif",
+"m/region-nord.webp",
+"s/region-nord-320.webp",
+"s/region-nord-480.webp",
+"s/region-nord-680.webp",
+"s/region-nord-800.webp"
+],
+"src": "b3b97071ea917740"
+},
+"region-ost": {
+"files": [
+"m/region-ost.avif",
+"m/region-ost.webp",
+"s/region-ost-320.webp",
+"s/region-ost-480.webp",
+"s/region-ost-680.webp",
+"s/region-ost-800.webp"
+],
+"src": "2890c139d4ebace8"
+},
+"region-sor": {
+"files": [
+"m/region-sor.avif",
+"m/region-sor.webp",
+"s/region-sor-320.webp",
+"s/region-sor-480.webp",
+"s/region-sor-680.webp",
+"s/region-sor-800.webp"
+],
+"src": "25b03603da961797"
+},
+"region-vest": {
+"files": [
+"m/region-vest.avif",
+"m/region-vest.webp",
+"s/region-vest-320.webp",
+"s/region-vest-480.webp",
+"s/region-vest-680.webp",
+"s/region-vest-800.webp"
+],
+"src": "b682c53da7da597d"
+},
+"rotte": {
+"files": [
+"s/rotte-320.webp",
+"s/rotte-480.webp",
+"s/rotte-680.webp",
+"s/rotte-800.webp"
+],
+"src": "249095ad7ca530fe"
+},
+"skjeggkre": {
+"files": [
+"s/skjeggkre-320.webp",
+"s/skjeggkre-480.webp",
+"s/skjeggkre-680.webp",
+"s/skjeggkre-800.webp"
+],
+"src": "923ab2dd74953b1d"
+},
+"smagnager": {
+"files": [
+"s/smagnager-320.webp",
+"s/smagnager-480.webp",
+"s/smagnager-680.webp",
+"s/smagnager-800.webp"
+],
+"src": "e791ad27b61221b4"
+},
+"snegl": {
+"files": [
+"s/snegl-320.webp",
+"s/snegl-480.webp",
+"s/snegl-680.webp",
+"s/snegl-800.webp"
+],
+"src": "50779844cf1882d7"
+},
+"studio": {
+"files": [
+"s/studio-320.webp",
+"s/studio-480.webp",
+"s/studio-680.webp",
+"s/studio-800.webp"
+],
+"src": "0d7afa84beb5f069"
+},
+"veggedyr": {
+"files": [
+"s/veggedyr-320.webp",
+"s/veggedyr-480.webp",
+"s/veggedyr-680.webp",
+"s/veggedyr-800.webp"
+],
+"src": "453b753dadd2fc0f"
+},
+"veps": {
+"files": [
+"s/veps-320.webp",
+"s/veps-480.webp",
+"s/veps-680.webp",
+"s/veps-800.webp"
+],
+"src": "de030eb01fb07011"
+}
+},
+"version": 5
+}

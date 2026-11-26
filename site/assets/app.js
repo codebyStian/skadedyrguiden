@@ -108,15 +108,18 @@
   }
 
   /* ---------- hero: lokalt bilde + årstids-/væreffekt ---------- */
-  const hero = $(".hero"), heroImg = hero && hero.querySelector("img");
+  const hero = $(".hero"), heroImg = hero && hero.querySelector("img"), heroSrc = hero ? [...hero.querySelectorAll("source")] : [];
   function setHeroImage(names, label) {
     if (!heroImg) return;
     const list = [].concat(names);
+    // Mobil bruker det stående utsnittet (assets/img/m, AVIF eller WebP), slik <picture> i index.html gjør.
+    const mobile = heroSrc.length && matchMedia(heroSrc[0].media).matches, ext = /\.avif$/.test(heroImg.currentSrc) ? "avif" : "webp";
     const tryNext = () => {
       const name = list.shift(); if (!name) return;
       const src = `assets/img/${name}.webp`, test = new Image();
-      test.onload = () => { heroImg.style.opacity = 0; setTimeout(() => { heroImg.src = src; heroImg.style.opacity = 1; }, 300); };
-      test.onerror = tryNext; test.src = src;
+      test.onload = () => { heroImg.style.opacity = 0; setTimeout(() => {
+        heroSrc.forEach((s) => (s.srcset = `assets/img/m/${name}.${s.type === "image/avif" ? "avif" : "webp"}`)); heroImg.src = src; heroImg.style.opacity = 1; }, 300); };
+      test.onerror = tryNext; test.src = mobile ? `assets/img/m/${name}.${ext}` : src;
     };
     tryNext();
     const k = $("#heroKicker"); if (k && label) k.textContent = label;
@@ -153,9 +156,9 @@
     startFX.set = (k) => { if (k !== fxKind) { fxKind = k; make(); } };
   }
   function fxFromWeather(w) {
-    if (!w || !startFX.set) return;
-    const s = w.sym || "";
-    startFX.set(/snow|sleet/.test(s) ? "snow" : /rain|drizzle/.test(s) ? "rain" : FX[season()]);
+    if (!w) return;
+    const s = w.sym || "", k = /snow|sleet/.test(s) ? "snow" : /rain|drizzle/.test(s) ? "rain" : FX[season()];
+    if (startFX.set) startFX.set(k); else fxKind = k;   // effekten har ikke startet ennå: husk været til den gjør det
   }
 
   /* ---------- kart ---------- */
@@ -210,11 +213,22 @@
   let RECS = null;
   fetch("data/recs.json").then((r) => r.ok ? r.json() : {}).then((d) => { RECS = d; window.dispatchEvent(new Event("sg-recs")); }).catch(() => (RECS = {}));
   const price = (p) => { const n = parseFloat(String(p).replace(",", ".")); return isFinite(n) ? Math.round(n).toLocaleString("nb-NO") + " kr" : ""; };
+  // Produktbilde: lokale miniatyrer (scripts/prod_images.py, 240 og 480 px) hvis de finnes, ellers butikkens nedskalering – aldri originalfilen (opptil 1,7 MB).
+  // Kortene her er de kompakte: bildet vises i sin helhet i en flate på 68 px, og et høyt, smalt bilde fyller bare en del av bredden.
+  function pimg(r) {
+    if (r.thumb) {
+      const ss = r.thumb_s && r.tsw && r.tw && r.th ? ` srcset="${esc(r.thumb_s)} ${+r.tsw}w, ${esc(r.thumb)} ${+r.tw}w" sizes="${Math.max(1, Math.round(68 * Math.min(1, r.tw / r.th)))}px"` : "";
+      return `<img src="${esc(r.thumb)}"${ss}${r.tw && r.th ? ` width="${+r.tw}" height="${+r.th}"` : ""} alt="" loading="lazy" onerror="this.remove()">`;
+    }
+    let u = r.image || ""; if (!u) return "";
+    try { const x = new URL(u); if (x.hostname === "skadedyrbutikken.no" && x.pathname.startsWith("/Files/")) u = "https://skadedyrbutikken.no/Admin/Public/GetImage.ashx?Image=" + x.pathname.replace(/&/g, "%26").replace(/\+/g, "%2B") + "&Width=480&Height=480&Crop=5&Format=jpg&Quality=75"; } catch {}
+    return `<img src="${esc(u)}" alt="" loading="lazy" onerror="this.remove()">`;
+  }
   function recsHTML(key, camp, n = 3, title = "Riktig utstyr") {
     const list = (RECS && RECS[key] || []).slice(0, n); if (!list.length) return "";
     const u = (x) => x + (x.includes("?") ? "&" : "?") + "utm_source=kryp.as&utm_medium=referral&utm_campaign=" + camp;
     return `<div class="recs cmp"><div class="rch"><h3 class="ph3" style="margin:0">${esc(title)}</h3></div><div class="rcg">${list.map((r) =>
-      `<a class="rc" href="${esc(u(r.url))}" rel="sponsored noopener"><div class="rci">${r.image ? `<img src="${esc(r.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</div><div class="rcb"><span class="rcr">${esc(r.role || "")}</span><b>${esc(r.name)}</b><span class="rcw">${esc(r.why || "")}</span><span class="rcp">${price(r.price)}<i>Se produktet →</i></span></div></a>`).join("")}</div></div>`;
+      `<a class="rc" href="${esc(u(r.url))}" rel="sponsored noopener"><div class="rci">${pimg(r)}</div><div class="rcb"><span class="rcr">${esc(r.role || "")}</span><b>${esc(r.name)}</b><span class="rcw">${esc(r.why || "")}</span><span class="rcp">${price(r.price)}<i>Se produktet →</i></span></div></a>`).join("")}</div></div>`;
   }
   window.SG_recs = recsHTML;
   window.addEventListener("sg-recs", () => { try { monthTip(); } catch {} });
@@ -230,7 +244,7 @@
     const t = $("#seasonTitle"); if (t) t.innerHTML = `Aktuelt i <em>${MONTHS[M]}</em>${reg ? " · " + REGION[reg].name : ""}`;
     box.innerHTML = list.map((a) => `<a href="artikler/${a.slug}.html"><div class="ph" data-label="${esc(a.cat)}">${IMG(a.img)}</div><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3></a>`).join("");
   }
-  const IMG = (n) => `<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">`;
+  const IMG = (n) => `<img src="assets/img/${n}.webp" srcset="${[320, 480, 680, 800].map((w) => `assets/img/s/${n}-${w}.webp ${w}w`).join(", ")}" sizes="(max-width:600px) 92vw, (max-width:980px) 45vw, (max-width:1378px) 29vw, 395px" alt="" loading="lazy" onerror="SGerr(this)">`;
 
   function monthNow() {
     if (!stats?.fhi?.monthly) return "";
@@ -393,7 +407,11 @@
 
   /* ---------- oppstart ---------- */
   async function init() {
-    startFX(); monthTip();
+    // Årstidseffekten er pynt. Den starter ved første bevegelse (eller etter noen sekunder), ikke mens siden lastes.
+    let fx = 0; const goFX = () => { if (!fx++) startFX(); };
+    ["pointermove", "pointerdown", "touchstart", "keydown", "scroll"].forEach((e) => addEventListener(e, goFX, { once: true, passive: true }));
+    setTimeout(goFX, 5000);
+    monthTip();
     [geo, stats, arts] = await Promise.all([getJSON("data/norge.json"), getJSON("data/stats.json"), getJSON("data/articles.json")]);
     season2();
     calendar(); photo();

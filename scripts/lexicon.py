@@ -1,5 +1,6 @@
 """Leksikonside per art: mørk hero, nøkkeltall fra FHI, kjennetegn, forveksling, sesongkurve, relaterte artikler og sidekolonne."""
 import html as H
+import img as PIC
 
 E = H.escape
 MN = ["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des"]
@@ -15,17 +16,17 @@ CSS = """<style>
 .sx .ph{aspect-ratio:4/3;border-radius:22px;overflow:hidden}.sx .ph img{width:100%;height:100%;object-fit:cover}.sx .ctas{display:flex;flex-wrap:wrap;gap:10px}
 .sx .btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:-46px 0 0;position:relative;box-shadow:0 18px 40px -24px rgba(0,0,0,.35)}
-.tiles.n3{grid-template-columns:repeat(3,1fr)}.tile{background:#fff;padding:22px 24px}.tile small{display:block;color:var(--mute);font-size:13px;margin-bottom:8px}.tile b{font-family:"Instrument Serif",serif;font-weight:400;font-size:40px;line-height:1}.tile span{display:block;font-size:13px;color:var(--mute);margin-top:8px}
+.tiles.n3{grid-template-columns:repeat(3,1fr)}.tile{background:#fff;padding:22px 24px}.tile small{display:block;color:var(--mute);font-size:13px;margin-bottom:8px}.tile b{font-family:"Instrument Serif","Instrument Fallback",serif;font-weight:400;font-size:40px;line-height:1}.tile span{display:block;font-size:13px;color:var(--mute);margin-top:8px}
 .lxb{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;padding:64px 0 80px}.lxb h2{font-size:clamp(28px,3vw,40px);margin:0 0 18px}.lxb section+section{margin-top:60px}
 .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;list-style:none;padding:0;margin:0}.feat li{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0}
 .feat li i{flex:none;width:30px;height:30px;border-radius:50%;background:#f2c230;display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:700;color:#13201c}
 .bars{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;align-items:end;height:180px;border-bottom:1px solid var(--line);margin-bottom:34px}.bars div{background:#dfe7e3;border-radius:6px 6px 0 0;position:relative}.bars div.top{background:#f2c230}
 .bars div span{position:absolute;bottom:-26px;left:0;right:0;text-align:center;font-size:12px;color:#3f4a46}
-.vs{display:grid;grid-template-columns:1fr auto 1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:12px}.vs>div{padding:20px 22px}.vs .mid{display:grid;place-items:center;background:var(--soft);font-family:"Instrument Serif",serif;font-size:22px;padding:0 16px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:12px}.vs>div{padding:20px 22px}.vs .mid{display:grid;place-items:center;background:var(--soft);font-family:"Instrument Serif","Instrument Fallback",serif;font-size:22px;padding:0 16px}
 .cred{font-size:12px;color:var(--mute);margin-top:6px}.cred a{color:inherit}.cred.dk{color:#9fb0aa}.th-f{margin:0 0 14px}.th-f .th{margin-bottom:0!important}
 .fxg{display:grid;gap:14px}.fx{border-radius:18px;padding:22px 24px;background:var(--soft)}.fx small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
 .fx ul,.fx ol{margin:0;padding:0;list-style:none}.fx li{margin:0 0 8px;line-height:1.45}
-.fx.id{display:grid;grid-template-columns:240px 1fr;gap:28px;background:#fff;border:1px solid var(--line)}.fx.id .big b{font-family:"Instrument Serif",serif;font-weight:400;font-size:54px;line-height:1;display:block;margin-bottom:12px}.fx.id .big li{font-size:14px;color:var(--mute)}
+.fx.id{display:grid;grid-template-columns:240px 1fr;gap:28px;background:#fff;border:1px solid var(--line)}.fx.id .big b{font-family:"Instrument Serif","Instrument Fallback",serif;font-weight:400;font-size:54px;line-height:1;display:block;margin-bottom:12px}.fx.id .big li{font-size:14px;color:var(--mute)}
 .fx ul.ok li{padding-left:28px;position:relative}.fx ul.ok li::before{content:"✓";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#f2c230;font-size:12px;font-weight:700;display:grid;place-items:center}
 .fx.sign{background:#0f2a24;color:#fff}.fx.sign small{color:#9fb0aa}.fx.sign ol{counter-reset:s;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}.fx.sign li{counter-increment:s;padding-left:38px;position:relative}
 .fx.sign li::before{content:counter(s);position:absolute;left:0;top:-2px;width:26px;height:26px;border-radius:50%;background:#f2c230;color:#13201c;font-weight:700;font-size:13px;display:grid;place-items:center}
@@ -61,7 +62,7 @@ def credit(sid):
 
 def thumb(sid, fallback, name):
     if sid in PHOTOS:
-        return f'<figure class="th-f"><div class="ph th"><img src="../assets/img/foto-{sid}.webp" alt="{E(name)} ({E(PHOTOS[sid]["taxon"])})" loading="lazy"></div>{credit(sid)}</figure>'
+        return f'<figure class="th-f"><div class="ph th"><img src="../assets/img/foto-{sid}.webp"{PIC.rs("foto-" + sid, "cmp", "../assets/img/")} alt="{E(name)} ({E(PHOTOS[sid]["taxon"])})" loading="lazy"></div>{credit(sid)}</figure>'
     # Navngitte arter vises aldri med illustrasjonsbilde – mangler ekte foto, vises navnekort.
     return f'<figure class="th-f"><div class="ph th" data-ph="1" data-label="{E(name)}"></div></figure>'
     fb = ""
@@ -103,11 +104,11 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
                  f'<div><a href="{slugs[c["id"]]}.html" style="display:block">{thumb(c["id"], (imgs or {}).get(c["id"]), byid[c["id"]]["name"])}</a><b><a href="{slugs[c["id"]]}.html">{E(byid[c["id"]]["name"])}</a></b><em>{E(byid[c["id"]]["latin"])}</em><p>{E(cap(c["how"]))}.</p></div></div>'
                  for c in s["confusable"] if c["id"] in byid)
     relh = "".join(f'<a href="../artikler/{r}.html"><div class="ph" data-label="Artikkel">' +
-                   (f'<img src="../assets/img/{artimg[r]}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">' if artimg.get(r) else "") +
+                   (f'<img src="../assets/img/{artimg[r]}.webp"{PIC.rs(artimg[r], "rel", "../assets/img/")} alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">' if artimg.get(r) else "") +
                    f'</div><b>{E(titles[r])}</b></a>' for r in rel)
     more = "".join(f'<a href="{slugs[o["id"]]}.html">{E(o["name"])}</a>' for o in kb if o is not s)
     if s["id"] in PHOTOS:
-        image = f'<img src="../assets/img/foto-{s["id"]}.webp" alt="{E(s["name"])}">'
+        image = f'<img src="../assets/img/foto-{s["id"]}.webp"{PIC.rs("foto-" + s["id"], "lxhero", "../assets/img/")} alt="{E(s["name"])}" fetchpriority="high">'
     else:
         image = ""
     inf = INFO.get(s["id"], {})
@@ -164,10 +165,10 @@ CMP_CSS = """<style>
 .cmpx .pic .nm{position:absolute;left:14px;bottom:14px;background:rgba(15,42,36,.86);color:#fff;border-radius:12px;padding:8px 14px}.cmpx .pic .nm b{display:block;font-size:18px}.cmpx .pic .nm em{font-size:13px;color:#cfdad6}
 .cmpx .pic .nm a{color:#fff}.cmpx .pic+.pic{border-left:3px solid #fff}
 .cmpx table{width:100%;border-collapse:collapse;font-size:15.5px}.cmpx th,.cmpx td{padding:13px 18px;border-top:1px solid var(--line);vertical-align:top;text-align:left}
-.cmpx th{width:22%;font-weight:600;color:var(--mute);font-size:14px}.cmpx td{width:39%}.cmpx tr.key{background:#fdf3d0}.cmpx tr.key th{color:#13201c}
+.cmpx th{width:22%;font-weight:600;color:var(--mute);font-size:14px}.cmpx td{width:39%}.cmpx thead td{width:22%}.cmpx thead th{width:39%;font-weight:700;color:inherit;font-size:15.5px}.cmpx tr.key{background:#fdf3d0}.cmpx tr.key th{color:#13201c}
 .cmpx tr.key th::after{content:"Sikreste forskjell";display:block;font-size:11px;font-weight:700;color:#8a6a00;margin-top:3px;text-transform:uppercase;letter-spacing:.04em}
 .cmpx .cr{font-size:11.5px;color:var(--mute);padding:10px 18px;border-top:1px solid var(--line)}.cmpx .cr a{color:inherit}
-@media(max-width:640px){.cmpx th{width:28%}.cmpx th,.cmpx td{padding:10px 10px;font-size:14px}.cmpx .pic .nm{left:8px;bottom:8px;padding:6px 10px}.cmpx .pic .nm b{font-size:15px}}
+@media(max-width:640px){.cmpx th,.cmpx thead td{width:28%}.cmpx thead th{width:36%}.cmpx th,.cmpx td{padding:10px 10px;font-size:14px}.cmpx .pic .nm{left:8px;bottom:8px;padding:6px 10px}.cmpx .pic .nm b{font-size:15px}}
 </style>"""
 
 
@@ -178,13 +179,13 @@ def compare_block(a, b, kb_by_id, slugs, base="../", link=True):
     A, B = kb_by_id[a], kb_by_id[b]
 
     def pic(s):
-        img = f'<img src="{base}assets/img/foto-{s["id"]}.webp" alt="{E(s["name"])}" loading="lazy">' if s["id"] in PHOTOS else ""
+        img = f'<img src="{base}assets/img/foto-{s["id"]}.webp"{PIC.rs("foto-" + s["id"], "cmp", base + "assets/img/")} alt="{E(s["name"])}" loading="lazy">' if s["id"] in PHOTOS else ""
         nm = f'<a href="{base}leksikon/{slugs[s["id"]]}.html">{E(s["name"])}</a>' if link else E(s["name"])
         return f'<div class="pic"><div class="ph" data-label="{E(s["name"])}"{"" if img else " data-ph=1"}>{img}</div><div class="nm"><b>{nm}</b><em>{E(s["latin"])}</em></div></div>'
-    rows = "".join(f'<tr class="{"key" if r.get("key") else ""}"><th>{E(r["trait"])}</th><td>{E(cap(r["b"] if flip else r["a"]))}</td><td>{E(cap(r["a"] if flip else r["b"]))}</td></tr>' for r in d["rows"])
+    rows = "".join(f'<tr class="{"key" if r.get("key") else ""}"><th scope="row">{E(r["trait"])}</th><td>{E(cap(r["b"] if flip else r["a"]))}</td><td>{E(cap(r["a"] if flip else r["b"]))}</td></tr>' for r in d["rows"])
     creds = " · ".join(f'{E(kb_by_id[i]["name"])}: {E(who(PHOTOS[i]))}{" (beskåret)" if PHOTOS[i].get("cropped") else ""}, <a href="{E(PHOTOS[i].get("license_url") or PHOTOS[i]["page"])}" rel="license noopener">{E(PHOTOS[i]["license"])}</a>' for i in (a, b) if i in PHOTOS)
     return f'''<div class="cmpx">{f'<div class="test"><b>Raskeste test</b><span>{E(d["test"])}</span></div>' if d.get("test") else ""}
-<div class="pics">{pic(A)}{pic(B)}</div><table><thead><tr><th></th><td><b>{E(A["name"])}</b></td><td><b>{E(B["name"])}</b></td></tr></thead><tbody>{rows}</tbody></table>
+<div class="pics">{pic(A)}{pic(B)}</div><table><thead><tr><td></td><th scope="col">{E(A["name"])}</th><th scope="col">{E(B["name"])}</th></tr></thead><tbody>{rows}</tbody></table>
 {f'<div class="cr">Foto: {creds}</div>' if creds else ""}</div>'''
 
 

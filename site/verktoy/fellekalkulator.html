@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hvor mange musefeller trenger du? Fellekalkulator – Kryp.as</title>
 <meta name="description" content="Regn ut hvor mange musefeller du trenger, hvor de skal stå, hvilket åte som virker og hvorfor musa noen ganger ikke går i fella.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="32x32"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../assets/site.css">
+<!--fonts--><script>(function(d,w){var p=w.performance,c,f,q=[],n=0,j=0,T;function S(){try{if(!p.getEntriesByType("paint").length&&j++<20)return A()}catch(e){}n=1;q.splice(0).forEach(function(x){setTimeout(x,0)})}function A(){if(!n){clearTimeout(T);T=setTimeout(S,250)}}function L(){try{new PerformanceObserver(A).observe({type:"largest-contentful-paint",buffered:true})}catch(e){}A()}d.readyState=="complete"?L():w.addEventListener("load",L);["pointerdown","keydown","touchstart","scroll"].forEach(function(e){w.addEventListener(e,function(){j=99;clearTimeout(T);S()},{once:true,passive:true,capture:true})});w.SGshown=function(x){n?x():q.push(x)};if(!w.FontFace||!d.fonts)return;f=[["Schibsted Grotesk","schibsted-grotesk-latin-wght-normal","400 900","normal"],["Instrument Serif","instrument-serif-latin-400-normal","400","normal"],["Instrument Serif","instrument-serif-latin-400-italic","400","italic"]].map(function(x){return new FontFace(x[0],"url(../assets/fonts/"+x[1]+".woff2) format('woff2')",{weight:x[2],style:x[3],display:"swap",unicodeRange:"U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"})});function add(){f.forEach(function(x){d.fonts.add(x)})}function go(t){Promise.all(f.map(function(x){return x.load()})).then(function(){if(!d.body||!(t||p.getEntriesByType("paint").length))return add();var h=w.innerHeight,m=[];(function k(e){for(e=e.firstElementChild;e;e=e.nextElementSibling){var r=e.getBoundingClientRect();if(r.bottom>0&&r.top<h){m.push(e,r.top);k(e)}}})(d.body);add();for(var i=0;i<m.length;i+=2)if(Math.abs(m[i].getBoundingClientRect().top-m[i+1])>2){f.forEach(function(x){d.fonts.delete(x)});break}},function(){})}try{c=d.referrer.indexOf(location.origin+"/")==0||p.getEntriesByType("navigation")[0].type!="navigate"}catch(e){}if(c||w.innerWidth>700)go(0);else w.SGshown(function(){go(1)})})(document,window)</script>
+<noscript><link rel="stylesheet" href="../assets/fonts.css"></noscript><!--/fonts-->
 <!--seo-->
 <link rel="canonical" href="https://kryp.as/verktoy/fellekalkulator.html">
 <meta property="og:type" content="website">
@@ -34,17 +35,17 @@
 <style>
 .tool-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end}
 .prog{background:var(--soft);border-radius:20px;padding:22px 24px}
-.prog .big{font:400 64px/1 "Instrument Serif",Georgia,serif}
+.prog .big{font:400 64px/1 "Instrument Serif","Instrument Fallback",Georgia,serif}
 .pbar2{height:10px;border-radius:5px;background:var(--bg);overflow:hidden;margin:12px 0 6px}.pbar2 i{display:block;height:100%;background:var(--y);transition:width .4s}
 .grp{margin-top:40px}.grp h2{font-size:clamp(28px,3vw,38px)}
 .item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
 .item b{display:block;font-size:17px}.item span{color:var(--mute);font-size:15px}
 .seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button{min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:600 14.5px "Schibsted Grotesk",sans-serif;cursor:pointer}
+.seg button{min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:600 14.5px "Schibsted Grotesk","Schibsted Fallback",sans-serif;cursor:pointer}
 .seg button[aria-pressed=true].ok{background:#2c4a3f;border-color:#2c4a3f;color:#fff}
 .seg button[aria-pressed=true].fix{background:var(--y);border-color:var(--y);color:#111715}
 .side2{position:sticky;top:96px;background:var(--pine);color:var(--onDark);border-radius:22px;padding:26px}
-.side2 h3{font:400 34px/1 "Instrument Serif",Georgia,serif;margin-bottom:10px}
+.side2 h3{font:400 34px/1 "Instrument Serif","Instrument Fallback",Georgia,serif;margin-bottom:10px}
 .side2 ul{padding-left:1.1em;margin:0 0 16px}.side2 li{margin:6px 0}
 .side2 .mute{color:var(--muteDark)}
 .cols2{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
@@ -56,7 +57,7 @@
 .chips2 input{position:absolute;opacity:0;pointer-events:none}
 .chips2 label:has(input:checked){background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .chips2 label:has(input:focus-visible){outline:3px solid var(--y);outline-offset:3px}
-.result2 .num{font:400 96px/1 "Instrument Serif",Georgia,serif;color:var(--y)}
+.result2 .num{font:400 96px/1 "Instrument Serif","Instrument Fallback",Georgia,serif;color:var(--y)}
 .result2 table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}.result2 td{padding:7px 0;border-bottom:1px solid #2a4840}.result2 td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .warn{background:#7a2a1d;border-radius:14px;padding:14px 16px;margin:12px 0}
 @media(max-width:860px){.tool-hero,.cols2{grid-template-columns:1fr}.side2{position:static}}
@@ -123,9 +124,9 @@ f.addEventListener("change",calc);calc();
 <footer class="band"><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="../index.html">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
-    <div><h3>Les</h3><ul><li><a href="../leksikon/index.html">Kjenn igjen (leksikon)</a></li><li><a href="../artikler/index.html">Råd og løsninger</a></li><li><a href="../podkast.html">Podkast</a></li></ul></div>
-    <div><h3>Verktøy</h3><ul><li><a href="../index.html#hvadet">Hva er det?</a></li><li><a href="../index.html#kalender">Sesongkalender</a></li><li><a href="../om-kryp.html">Om Kryp.as</a></li></ul></div>
-    <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/produkter/gnagere?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Gnagere</a></li><li><a href="https://skadedyrbutikken.no/produkter/insekter?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
+    <div><h2>Les</h2><ul><li><a href="../leksikon/index.html">Kjenn igjen (leksikon)</a></li><li><a href="../artikler/index.html">Råd og løsninger</a></li><li><a href="../podkast.html">Podkast</a></li></ul></div>
+    <div><h2>Verktøy</h2><ul><li><a href="../index.html#hvadet">Hva er det?</a></li><li><a href="../index.html#kalender">Sesongkalender</a></li><li><a href="../om-kryp.html">Om Kryp.as</a></li></ul></div>
+    <div><h2>Handle</h2><ul><li><a href="https://skadedyrbutikken.no/produkter/gnagere?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Gnagere</a></li><li><a href="https://skadedyrbutikken.no/produkter/insekter?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
   </div>
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="../kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>

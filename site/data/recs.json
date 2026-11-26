@@ -6,7 +6,12 @@
    "price": "539.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/revira-avskrekkingsmiddel-mot-jordrotter-og-grevling.png",
    "role": "Forebygg",
-   "why": "Avskrekkende middel for å holde grevlingen unna hagen og tomteområdet."
+   "why": "Avskrekkende middel for å holde grevlingen unna hagen og tomteområdet.",
+   "thumb": "assets/prod/revira-avskrekkingsmiddel-mot-jordrotter-og-grevling-995865.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/revira-avskrekkingsmiddel-mot-jordrotter-og-grevling-995865-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/andre-dyr/katt-som-skadedyr/pestfree-pip-skrem-forsvinn-rentokil",
@@ -14,7 +19,12 @@
    "price": "499.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/pestfree-pip-skrem-forsvinn-rentokil.jpg",
    "role": "Skrem bort",
-   "why": "Sensorstyrt skremmer som holder grevling borte fra uteområdet uten å skade den."
+   "why": "Sensorstyrt skremmer som holder grevling borte fra uteområdet uten å skade den.",
+   "thumb": "assets/prod/pestfree-pip-skrem-forsvinn-rentokil-8938ea.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/pestfree-pip-skrem-forsvinn-rentokil-8938ea-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/andre-dyr/grevlinger/grevlingfelle-levende-fangsfelle-syningfella",
@@ -22,7 +32,12 @@
    "price": "3299.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30008976_6.jpg",
    "role": "Fang levende",
-   "why": "Felle for levende fangst. Krever særskilt tillatelse fra viltforvaltningen og hyppig tilsyn."
+   "why": "Felle for levende fangst. Krever særskilt tillatelse fra viltforvaltningen og hyppig tilsyn.",
+   "thumb": "assets/prod/30008976-6-675d06.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30008976-6-675d06-240.webp",
+   "tsw": 240
   }
  ],
  "art:rotter-i-byen": [
@@ -32,7 +47,12 @@
    "price": "279.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/rottefelle-i-laasbar-sikkerhetsboks-1-stk-rentokil.jpg",
    "role": "Bekjemp",
-   "why": "Låsbar boks med felle som kan brukes trygt utendørs mot rotter."
+   "why": "Låsbar boks med felle som kan brukes trygt utendørs mot rotter.",
+   "thumb": "assets/prod/rottefelle-i-laasbar-sikkerhetsboks-1-stk-rentokil-f026f4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/rottefelle-i-laasbar-sikkerhetsboks-1-stk-rentokil-f026f4-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/rustfritt-sikringsnett-mesh-mot-skadedyr-20-meter-lengde",
@@ -40,7 +60,12 @@
    "price": "1095.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/rustfritt-sikringsnett-mesh-mot-skadedyr_1.png",
    "role": "Tett",
-   "why": "Rustfritt metallnett til tetting av ventiler og større sprekker mot rotter."
+   "why": "Rustfritt metallnett til tetting av ventiler og større sprekker mot rotter.",
+   "thumb": "assets/prod/rustfritt-sikringsnett-mesh-mot-skadedyr-1-8a38e0.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/rustfritt-sikringsnett-mesh-mot-skadedyr-1-8a38e0-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/gnagerstopp-mousestop",
@@ -48,7 +73,12 @@
    "price": "189.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/gnagerstopp-mousestop.jpg",
    "role": "Tett",
-   "why": "Giftfri tetningsmasse for å tette hull og rørgjennomføringer som rotter bruker."
+   "why": "Giftfri tetningsmasse for å tette hull og rørgjennomføringer som rotter bruker.",
+   "thumb": "assets/prod/gnagerstopp-mousestop-8daa85.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/gnagerstopp-mousestop-8daa85-240.webp",
+   "tsw": 240
   }
  ],
  "art:flatt-langs-kysten": [
@@ -58,7 +88,12 @@
    "price": "84.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30009429_1.png",
    "role": "Bekjemp",
-   "why": "Gjør det enkelt å fjerne fastbitt flått trygt og raskt etter turen."
+   "why": "Gjør det enkelt å fjerne fastbitt flått trygt og raskt etter turen.",
+   "thumb": "assets/prod/30009429-1-791d10.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30009429-1-791d10-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/flaatt/buksestrammere-gjoer-det-vanskelig-for-blodsugere-2-stk",
@@ -66,7 +101,12 @@
    "price": "89.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/buksestrammere-gjoer-det-vanskelig-for-blodsugere-2-stk.jpg",
    "role": "Beskytt",
-   "why": "Tettslutter buksebena slik at flått hindres fra å krype oppover."
+   "why": "Tettslutter buksebena slik at flått hindres fra å krype oppover.",
+   "thumb": "assets/prod/buksestrammere-gjoer-det-vanskelig-for-blodsugere-2-stk-37c7c7.webp",
+   "tw": 384,
+   "th": 480,
+   "thumb_s": "assets/prod/buksestrammere-gjoer-det-vanskelig-for-blodsugere-2-stk-37c7c7-240.webp",
+   "tsw": 192
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/flaatt/flaatt-mygg-knott-avvisende-stroemper-lange",
@@ -74,7 +114,12 @@
    "price": "139.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/flatt-mygg-knott-avvisende-stromper-lange-flatt-knocker.jpg",
    "role": "Beskytt",
-   "why": "Lange strømper som forhindrer at flåtten kryper opp langs leggene."
+   "why": "Lange strømper som forhindrer at flåtten kryper opp langs leggene.",
+   "thumb": "assets/prod/flatt-mygg-knott-avvisende-stromper-lange-flatt-knocker-4f5d71.webp",
+   "tw": 480,
+   "th": 403,
+   "thumb_s": "assets/prod/flatt-mygg-knott-avvisende-stromper-lange-flatt-knocker-4f5d71-240.webp",
+   "tsw": 240
   }
  ],
  "art:stokkmaur-eller-skogsmaur": [
@@ -84,7 +129,12 @@
    "price": "839.00",
    "image": "https://skadedyrbutikken.no/Files/Uploads/maurpakke-bekjempelse-stokkmaur-sort-jordmaur.png",
    "role": "Bekjemp",
-   "why": "Komplett pakke med Outcast åtestasjoner og håndbok for bekjempelse av maur."
+   "why": "Komplett pakke med Outcast åtestasjoner og håndbok for bekjempelse av maur.",
+   "thumb": "assets/prod/maurpakke-bekjempelse-stokkmaur-sort-jordmaur-eec809.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/maurpakke-bekjempelse-stokkmaur-sort-jordmaur-eec809-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/inneklima/sopp-og-raate/woodtox-universal-sopp-og-insektmiddel",
@@ -92,7 +142,12 @@
    "price": "329.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/universal-insektmiddel-woodtox-5l-3.jpg",
    "role": "Forebygg",
-   "why": "Forebygger og bekjemper insekter som angriper treverk samt råtesopp."
+   "why": "Forebygger og bekjemper insekter som angriper treverk samt råtesopp.",
+   "thumb": "assets/prod/universal-insektmiddel-woodtox-5l-3-5f31ef.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/universal-insektmiddel-woodtox-5l-3-5f31ef-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/inneklima/luftkvalitetsmaaler/fuktmaaler-trotec-bm12-for-treverk-og-byggematerialer",
@@ -100,7 +155,12 @@
    "price": "249.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/trotec-bm12-fuktmaaler-i-haand.jpg",
    "role": "Overvåk",
-   "why": "Måler fuktighet i treverk og byggematerialer for å avdekke fuktskader."
+   "why": "Måler fuktighet i treverk og byggematerialer for å avdekke fuktskader.",
+   "thumb": "assets/prod/trotec-bm12-fuktmaaler-i-haand-5d6279.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/trotec-bm12-fuktmaaler-i-haand-5d6279-240.webp",
+   "tsw": 240
   }
  ],
  "art:husbukk": [
@@ -110,7 +170,12 @@
    "price": "579.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30009277_6.jpg",
    "role": "Bekjemp",
-   "why": "Middel utviklet for bekjempelse av husbukk og andre treborende insekter i treverk."
+   "why": "Middel utviklet for bekjempelse av husbukk og andre treborende insekter i treverk.",
+   "thumb": "assets/prod/30009277-6-1e5eee.webp",
+   "tw": 480,
+   "th": 384,
+   "thumb_s": "assets/prod/30009277-6-1e5eee-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/biller/borebille-mit/boracol-15-impregneringsmiddel-2-5-liter",
@@ -118,7 +183,12 @@
    "price": "1949.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/boracol-15-impregnering-2-5-liter.jpg",
    "role": "Forebygg",
-   "why": "Impregneringsmiddel som brukes til å forebygge og bekjempe husbukk i bygningstreverk."
+   "why": "Impregneringsmiddel som brukes til å forebygge og bekjempe husbukk i bygningstreverk.",
+   "thumb": "assets/prod/boracol-15-impregnering-2-5-liter-e8e213.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/boracol-15-impregnering-2-5-liter-e8e213-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/hus-og-hage/sproeyteutstyr/sproeytekanne-med-pumpe-green-it-1-liter/1-liter",
@@ -126,7 +196,12 @@
    "price": "151.00",
    "image": "https://skadedyrbutikken.no/Files/Uploads/Hvit 1-liters trykksprøyte.png",
    "role": "Bekjemp",
-   "why": "Sprøytekanne med justerbar dyse for påføring av middel på vanskelige treoverflater."
+   "why": "Sprøytekanne med justerbar dyse for påføring av middel på vanskelige treoverflater.",
+   "thumb": "assets/prod/hvit-1-liters-trykksproyte-687547.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/hvit-1-liters-trykksproyte-687547-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/biller/borebille-mit/vernebriller-pro-uvex-9305-klar",
@@ -134,7 +209,12 @@
    "price": "149.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/vernebriller-uvex-9305-klar.jpg",
    "role": "Beskytt",
-   "why": "Vernebriller som gir nødvendig beskyttelse for øynene under sprøyting av trebeskyttelsesmidler."
+   "why": "Vernebriller som gir nødvendig beskyttelse for øynene under sprøyting av trebeskyttelsesmidler.",
+   "thumb": "assets/prod/vernebriller-uvex-9305-klar-1517f6.webp",
+   "tw": 480,
+   "th": 255,
+   "thumb_s": "assets/prod/vernebriller-uvex-9305-klar-1517f6-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/biller/borebille-mit/engangsdress-3m-4540v",
@@ -142,7 +222,12 @@
    "price": "129.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/engangsdress-3m-4540-vernedress.jpg",
    "role": "Beskytt",
-   "why": "Vernedress som beskytter mot støv og væskesprut ved behandling av treverk."
+   "why": "Vernedress som beskytter mot støv og væskesprut ved behandling av treverk.",
+   "thumb": "assets/prod/engangsdress-3m-4540-vernedress-5db535.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/engangsdress-3m-4540-vernedress-5db535-240.webp",
+   "tsw": 240
   }
  ],
  "art:vepsebol": [
@@ -152,7 +237,12 @@
    "price": "299.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/kvitt-vepseskum-mot-vepsebol-600-ml.png",
    "role": "Bekjemp",
-   "why": "Skum for rask sanering av vepsebol."
+   "why": "Skum for rask sanering av vepsebol.",
+   "thumb": "assets/prod/kvitt-vepseskum-mot-vepsebol-600-ml-2b5234.webp",
+   "tw": 400,
+   "th": 480,
+   "thumb_s": "assets/prod/kvitt-vepseskum-mot-vepsebol-600-ml-2b5234-240.webp",
+   "tsw": 200
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/fluer/vepsespray-med-turbodyse",
@@ -160,7 +250,12 @@
    "price": "285.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Vepsespray_turbodyse.png",
    "role": "Bekjemp",
-   "why": "Spray med lang rekkevidde for bekjempelse av vepsebol på trygg avstand."
+   "why": "Spray med lang rekkevidde for bekjempelse av vepsebol på trygg avstand.",
+   "thumb": "assets/prod/vepsespray-turbodyse-3f40b0.webp",
+   "tw": 320,
+   "th": 480,
+   "thumb_s": "assets/prod/vepsespray-turbodyse-3f40b0-240.webp",
+   "tsw": 160
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veps/vepsefelle-anti-vespo-giftfri",
@@ -168,7 +263,12 @@
    "price": "195.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/vepsefelle-anti-vespo-giftfri.jpg",
    "role": "Bekjemp",
-   "why": "Giftfri felle som fanger nærgående veps rundt uteplassen på sensommeren."
+   "why": "Giftfri felle som fanger nærgående veps rundt uteplassen på sensommeren.",
+   "thumb": "assets/prod/vepsefelle-anti-vespo-giftfri-01b364.webp",
+   "tw": 422,
+   "th": 465,
+   "thumb_s": "assets/prod/vepsefelle-anti-vespo-giftfri-01b364-240.webp",
+   "tsw": 218
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veps/giftfjerner-aspivenin",
@@ -176,7 +276,12 @@
    "price": "314.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/giftfjerner-aspivenin-vakuumpumpe.jpg",
    "role": "Beskytt",
-   "why": "Praktisk pumpe som trekker ut gift og lindrer reaksjoner etter vepsestikk."
+   "why": "Praktisk pumpe som trekker ut gift og lindrer reaksjoner etter vepsestikk.",
+   "thumb": "assets/prod/giftfjerner-aspivenin-vakuumpumpe-d1c943.webp",
+   "tw": 480,
+   "th": 402,
+   "thumb_s": "assets/prod/giftfjerner-aspivenin-vakuumpumpe-d1c943-240.webp",
+   "tsw": 240
   }
  ],
  "art:fukt-solvkre-skjeggkre": [
@@ -186,7 +291,12 @@
    "price": "939.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30008603_6.jpg",
    "role": "Bekjemp",
-   "why": "Giftfri limrull for fangst og sperrelinjer mot skjeggkre og sølvkre."
+   "why": "Giftfri limrull for fangst og sperrelinjer mot skjeggkre og sølvkre.",
+   "thumb": "assets/prod/30008603-6-882b69.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30008603-6-882b69-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/insektmiddel-insektnix-rent-naturprodukt-200-g",
@@ -194,7 +304,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur-veggedyr-200g.jpg",
    "role": "Bekjemp",
-   "why": "Naturlig tørkepulver av kiselgur til påføring i sprekker og langs lister."
+   "why": "Naturlig tørkepulver av kiselgur til påføring i sprekker og langs lister.",
+   "thumb": "assets/prod/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur--1f673c.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur--1f673c-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/skjeggkre/feller-og-limruller/skjeggkrefelle-hvit-med-tellemoenster-3-stk",
@@ -202,7 +317,12 @@
    "price": "59.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30008348_6.jpg",
    "role": "Overvåk",
-   "why": "Limfeller med rutemønster for kartlegging av bestand og plassering i rommene."
+   "why": "Limfeller med rutemønster for kartlegging av bestand og plassering i rommene.",
+   "thumb": "assets/prod/30008348-6-464175.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30008348-6-464175-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/inneklima/avfuktere/bad-og-vaskerom/baderomsvifte-flexit-bodo-prime-hvit",
@@ -210,7 +330,12 @@
    "price": "2190.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/flexit-bodo-prime-baderomsvifte-hvit.jpg",
    "role": "Forebygg",
-   "why": "Baderomsvifte med fuktsensor for å redusere fukten sølvkre trives i."
+   "why": "Baderomsvifte med fuktsensor for å redusere fukten sølvkre trives i.",
+   "thumb": "assets/prod/flexit-bodo-prime-baderomsvifte-hvit-0302a2.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/flexit-bodo-prime-baderomsvifte-hvit-0302a2-240.webp",
+   "tsw": 240
   }
  ],
  "art:stripet-borebille": [
@@ -220,7 +345,12 @@
    "price": "579.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30009277_6.jpg",
    "role": "Bekjemp",
-   "why": "Middel mot treborende insekter som stripet borebille i treverk."
+   "why": "Middel mot treborende insekter som stripet borebille i treverk.",
+   "thumb": "assets/prod/30009277-6-1e5eee.webp",
+   "tw": 480,
+   "th": 384,
+   "thumb_s": "assets/prod/30009277-6-1e5eee-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/biller/borebille-mit/woodtox-universal-sopp-og-insektmiddel",
@@ -228,7 +358,12 @@
    "price": "329.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/universal-insektmiddel-woodtox-5l-3.jpg",
    "role": "Forebygg",
-   "why": "Bekjemper og gir forebyggende behandling mot insekter i treverk og råtesopp."
+   "why": "Bekjemper og gir forebyggende behandling mot insekter i treverk og råtesopp.",
+   "thumb": "assets/prod/universal-insektmiddel-woodtox-5l-3-5f31ef.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/universal-insektmiddel-woodtox-5l-3-5f31ef-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/inneklima/avfuktere/baat/luftavfukter-ebac-3850e-med-smartkontroll",
@@ -236,7 +371,12 @@
    "price": "4499.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/avfukter-ebac-3850e-smartkontroll.jpg",
    "role": "Forebygg",
-   "why": "Fjerner fukt i rommet for å tørke ut treverket under larvenes trivselsnivå."
+   "why": "Fjerner fukt i rommet for å tørke ut treverket under larvenes trivselsnivå.",
+   "thumb": "assets/prod/avfukter-ebac-3850e-smartkontroll-1ebb10.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/avfukter-ebac-3850e-smartkontroll-1ebb10-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/inneklima/luftkvalitetsmaaler/fuktmaaler-trotec-bm12-for-treverk-og-byggematerialer",
@@ -244,7 +384,12 @@
    "price": "249.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/trotec-bm12-fuktmaaler-i-haand.jpg",
    "role": "Overvåk",
-   "why": "Måler fuktnivået i treverket for å kontrollere at treet holder seg tørt."
+   "why": "Måler fuktnivået i treverket for å kontrollere at treet holder seg tørt.",
+   "thumb": "assets/prod/trotec-bm12-fuktmaaler-i-haand-5d6279.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/trotec-bm12-fuktmaaler-i-haand-5d6279-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/biller/borebille-mit/vernemaske-ffp3v-beskyttelse-mot-partikler-og-aerosoler",
@@ -252,7 +397,12 @@
    "price": "198.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/vernemaske-ffp3v-med-utaandingsventil.webp",
    "role": "Beskytt",
-   "why": "Beskytter mot partikler og sprøytetåke ved påføring av impregneringsmidler."
+   "why": "Beskytter mot partikler og sprøytetåke ved påføring av impregneringsmidler.",
+   "thumb": "assets/prod/vernemaske-ffp3v-med-utaandingsventil-e21ffa.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/vernemaske-ffp3v-med-utaandingsventil-e21ffa-240.webp",
+   "tsw": 240
   }
  ],
  "art:mus-pa-garden": [
@@ -262,7 +412,12 @@
    "price": "310.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/musefelle-pakke-metall-5-feller-lokkemiddel.jpg",
    "role": "Bekjemp",
-   "why": "Robuste metallfeller og lokkemiddel for tett utplassering langs vegger og fôrlager."
+   "why": "Robuste metallfeller og lokkemiddel for tett utplassering langs vegger og fôrlager.",
+   "thumb": "assets/prod/musefelle-pakke-metall-5-feller-lokkemiddel-444337.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/musefelle-pakke-metall-5-feller-lokkemiddel-444337-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/musefeller/innvendig-musefeller/musefelle-for-levende-fangst",
@@ -270,7 +425,12 @@
    "price": "239.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/musefelle-for-levende-fangst.jpg",
    "role": "Fang levende",
-   "why": "Flerfangstfelle som fanger mange mus levende, godt egnet i større gårdsbygninger."
+   "why": "Flerfangstfelle som fanger mange mus levende, godt egnet i større gårdsbygninger.",
+   "thumb": "assets/prod/musefelle-for-levende-fangst-91416d.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/musefelle-for-levende-fangst-91416d-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/gnager-metallduk",
@@ -278,7 +438,12 @@
    "price": "939.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/gnagerstopp-metallduk-5-meter.png",
    "role": "Tett",
-   "why": "Rustfri og vevd metallnetting for sikring av ventiler og større åpninger."
+   "why": "Rustfri og vevd metallnetting for sikring av ventiler og større åpninger.",
+   "thumb": "assets/prod/gnagerstopp-metallduk-5-meter-223c04.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/gnagerstopp-metallduk-5-meter-223c04-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/gnagerstopp-mousestop",
@@ -286,7 +451,12 @@
    "price": "189.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/gnagerstopp-mousestop.jpg",
    "role": "Tett",
-   "why": "Giftfri tettemasse for tetting av rørgjennomføringer og sprekker i fôrlager og stabbur."
+   "why": "Giftfri tettemasse for tetting av rørgjennomføringer og sprekker i fôrlager og stabbur.",
+   "thumb": "assets/prod/gnagerstopp-mousestop-8daa85.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/gnagerstopp-mousestop-8daa85-240.webp",
+   "tsw": 240
   }
  ],
  "art:smagnagerar": [
@@ -296,7 +466,12 @@
    "price": "949.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/isola-museband-30-36-perforert-aluminium.webp",
    "role": "Forebygg",
-   "why": "Musebånd i perforert aluminium som hindrer smågnagere i å trenge inn bak kledningen."
+   "why": "Musebånd i perforert aluminium som hindrer smågnagere i å trenge inn bak kledningen.",
+   "thumb": "assets/prod/isola-museband-30-36-perforert-aluminium-1c623e.webp",
+   "tw": 480,
+   "th": 228,
+   "thumb_s": "assets/prod/isola-museband-30-36-perforert-aluminium-1c623e-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/gnagertett-xcluder-mus-og-rottestopper-startkit-10-x-100-cm",
@@ -304,7 +479,12 @@
    "price": "439.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/xcluder-gnagersikringssett-tetting-mus-rotter.png",
    "role": "Tett",
-   "why": "Rustfritt stål og polyfiber til tetting av sprekker og rørgjennomføringer."
+   "why": "Rustfritt stål og polyfiber til tetting av sprekker og rørgjennomføringer.",
+   "thumb": "assets/prod/xcluder-gnagersikringssett-tetting-mus-rotter-17117d.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/xcluder-gnagersikringssett-tetting-mus-rotter-17117d-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/tetningsplate-for-gnagere-245mm-245mm",
@@ -312,7 +492,12 @@
    "price": "585.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/tetningsplate-for-gnagere-245x245-montert.png",
    "role": "Tett",
-   "why": "Solid aluminiumsplate som sikrer lufteventiler og åpninger mot mus og smågnagere."
+   "why": "Solid aluminiumsplate som sikrer lufteventiler og åpninger mot mus og smågnagere.",
+   "thumb": "assets/prod/tetningsplate-for-gnagere-245x245-montert-3f924f.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/tetningsplate-for-gnagere-245x245-montert-3f924f-240.webp",
+   "tsw": 240
   }
  ],
  "art:hytta-ved-sjoen": [
@@ -322,7 +507,12 @@
    "price": "1378.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/victor-multikill-elektrisk-musefelle-anbefalt.png",
    "role": "Bekjemp",
-   "why": "Flerfangstfelle som håndterer flere mus uten tilsyn mens hytta står tom."
+   "why": "Flerfangstfelle som håndterer flere mus uten tilsyn mens hytta står tom.",
+   "thumb": "assets/prod/victor-multikill-elektrisk-musefelle-anbefalt-693d00.webp",
+   "tw": 480,
+   "th": 320,
+   "thumb_s": "assets/prod/victor-multikill-elektrisk-musefelle-anbefalt-693d00-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/musefeller/musefelle-pakke-i-metall-5-feller-lokkemiddel",
@@ -330,7 +520,12 @@
    "price": "310.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/musefelle-pakke-metall-5-feller-lokkemiddel.jpg",
    "role": "Bekjemp",
-   "why": "Flere klassiske feller som settes ut to og to langs hytteveggene."
+   "why": "Flere klassiske feller som settes ut to og to langs hytteveggene.",
+   "thumb": "assets/prod/musefelle-pakke-metall-5-feller-lokkemiddel-444337.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/musefelle-pakke-metall-5-feller-lokkemiddel-444337-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/mus-og-rotte-stopp-tetningsmasse",
@@ -338,7 +533,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/mus-og-rotte-stopp-tetningsmasse.jpg",
    "role": "Tett",
-   "why": "Giftfri tettepasta for å tette sprekker og gjennomføringer rundt rør og kabler."
+   "why": "Giftfri tettepasta for å tette sprekker og gjennomføringer rundt rør og kabler.",
+   "thumb": "assets/prod/mus-og-rotte-stopp-tetningsmasse-6f32c4.webp",
+   "tw": 139,
+   "th": 480,
+   "thumb_s": "assets/prod/mus-og-rotte-stopp-tetningsmasse-6f32c4-240.webp",
+   "tsw": 70
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/rustfritt-sikringsnett-mesh-mot-skadedyr-10-meter-lengde",
@@ -346,7 +546,12 @@
    "price": "649.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/rustfritt-sikringsnett-mesh-mot-skadedyr_4.png",
    "role": "Tett",
-   "why": "Solid metallnett for sikring av lufteventiler og åpninger større enn seks millimeter."
+   "why": "Solid metallnett for sikring av lufteventiler og åpninger større enn seks millimeter.",
+   "thumb": "assets/prod/rustfritt-sikringsnett-mesh-mot-skadedyr-4-6e1e43.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/rustfritt-sikringsnett-mesh-mot-skadedyr-4-6e1e43-240.webp",
+   "tsw": 240
   }
  ],
  "art:fjellhytta": [
@@ -356,7 +561,12 @@
    "price": "1378.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/victor-multikill-elektrisk-musefelle-anbefalt.png",
    "role": "Bekjemp",
-   "why": "Elektrisk flerfangstfelle som egner seg når hytta står tom i lengre perioder."
+   "why": "Elektrisk flerfangstfelle som egner seg når hytta står tom i lengre perioder.",
+   "thumb": "assets/prod/victor-multikill-elektrisk-musefelle-anbefalt-693d00.webp",
+   "tw": 480,
+   "th": 320,
+   "thumb_s": "assets/prod/victor-multikill-elektrisk-musefelle-anbefalt-693d00-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/rustfritt-sikringsnett-mesh-mot-skadedyr-5-meter-lengde",
@@ -364,7 +574,12 @@
    "price": "549.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/rustfritt-sikringsnett-mesh-anbefalt.png",
    "role": "Tett",
-   "why": "Rustfritt metallnett til tetting av åpninger og lufteventiler mot mus."
+   "why": "Rustfritt metallnett til tetting av åpninger og lufteventiler mot mus.",
+   "thumb": "assets/prod/rustfritt-sikringsnett-mesh-anbefalt-3fdcaa.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/rustfritt-sikringsnett-mesh-anbefalt-3fdcaa-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/gnagertett-tetningsmasse-rentokil",
@@ -372,7 +587,12 @@
    "price": "195.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/gnagertett-tetningsmasse-rentokil_3.jpg",
    "role": "Tett",
-   "why": "Giftfri tetningsmasse for tetting rundt rørgjennomføringer, kabler og mindre sprekker."
+   "why": "Giftfri tetningsmasse for tetting rundt rørgjennomføringer, kabler og mindre sprekker.",
+   "thumb": "assets/prod/gnagertett-tetningsmasse-rentokil-3-38b8b9.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/gnagertett-tetningsmasse-rentokil-3-38b8b9-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/tetningsplate-for-gnagere-245mm-245mm",
@@ -380,7 +600,12 @@
    "price": "585.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/tetningsplate-for-gnagere-245x245-montert.png",
    "role": "Tett",
-   "why": "Aluminiumsplate til solid tetting og sikring av utsatte lufteventiler."
+   "why": "Aluminiumsplate til solid tetting og sikring av utsatte lufteventiler.",
+   "thumb": "assets/prod/tetningsplate-for-gnagere-245x245-montert-3f924f.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/tetningsplate-for-gnagere-245x245-montert-3f924f-240.webp",
+   "tsw": 240
   }
  ],
  "art:flaggermus-pa-loftet": [
@@ -390,7 +615,12 @@
    "price": "395.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/Flaggermus_børste_til_tetting.png",
    "role": "Tett",
-   "why": "Skånsom tettebørste som hindrer flaggermus tilgang til hulrom og sprekker under taket."
+   "why": "Skånsom tettebørste som hindrer flaggermus tilgang til hulrom og sprekker under taket.",
+   "thumb": "assets/prod/flaggermus-borste-til-tetting-06b494.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/flaggermus-borste-til-tetting-06b494-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/andre-dyr/flaggermus/flaggermus-boerste-til-tetting-5-m-x-6-cm",
@@ -398,7 +628,12 @@
    "price": "494.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/Flaggermus_børste_til_tetting.png",
    "role": "Forebygg",
-   "why": "Smalere tettebørste for forebyggende tetting mot flaggermus uten å skade dyrene."
+   "why": "Smalere tettebørste for forebyggende tetting mot flaggermus uten å skade dyrene.",
+   "thumb": "assets/prod/flaggermus-borste-til-tetting-06b494.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/flaggermus-borste-til-tetting-06b494-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/gnagertett-xcluder-mus-og-rottestopper-startkit-10-x-100-cm",
@@ -406,7 +641,12 @@
    "price": "439.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/xcluder-gnagersikringssett-tetting-mus-rotter.png",
    "role": "Tett",
-   "why": "Tetningsmateriale i rustfritt stål og polyfiber for varig tetting av sprekker."
+   "why": "Tetningsmateriale i rustfritt stål og polyfiber for varig tetting av sprekker.",
+   "thumb": "assets/prod/xcluder-gnagersikringssett-tetting-mus-rotter-17117d.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/xcluder-gnagersikringssett-tetting-mus-rotter-17117d-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/rustfritt-sikringsnett-mesh-mot-skadedyr-10-meter-lengde",
@@ -414,7 +654,12 @@
    "price": "649.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/rustfritt-sikringsnett-mesh-mot-skadedyr_4.png",
    "role": "Forebygg",
-   "why": "Solid rustfritt stålnett for ventilerende sikring av ventiler og åpninger mot flaggermus."
+   "why": "Solid rustfritt stålnett for ventilerende sikring av ventiler og åpninger mot flaggermus.",
+   "thumb": "assets/prod/rustfritt-sikringsnett-mesh-mot-skadedyr-4-6e1e43.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/rustfritt-sikringsnett-mesh-mot-skadedyr-4-6e1e43-240.webp",
+   "tsw": 240
   }
  ],
  "art:hoggorm": [],
@@ -425,7 +670,12 @@
    "price": "129.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/fluefanger-til-vindu-rentokil-4-stk.png",
    "role": "Bekjemp",
-   "why": "Giftfri vindusfelle som fanger loftsfluer der de samler seg i vinduet."
+   "why": "Giftfri vindusfelle som fanger loftsfluer der de samler seg i vinduet.",
+   "thumb": "assets/prod/fluefanger-til-vindu-rentokil-4-stk-5ed80b.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/fluefanger-til-vindu-rentokil-4-stk-5ed80b-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/fluer/fruktflue-eddikflue-bananflue/produkter-insekter-flue-fruktflue-eddikflue-bananflue-fruktfluefelle-trinol",
@@ -433,7 +683,12 @@
    "price": "129.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/fruktfluefelle-uten-gift-trinol.png",
    "role": "Bekjemp",
-   "why": "Felle med lokkestoff tilpasset fruktfluer på kjøkkenet om høsten."
+   "why": "Felle med lokkestoff tilpasset fruktfluer på kjøkkenet om høsten.",
+   "thumb": "assets/prod/fruktfluefelle-uten-gift-trinol-8a22cd.webp",
+   "tw": 480,
+   "th": 240,
+   "thumb_s": "assets/prod/fruktfluefelle-uten-gift-trinol-8a22cd-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/edderkopper/insektnett-vindu-130x150-cm",
@@ -441,7 +696,12 @@
    "price": "349.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/insektnett-til-vindu-130x150-silverline.jpg",
    "role": "Forebygg",
-   "why": "Finmasket nett for å hindre fluer i å komme inn åpne vinduer."
+   "why": "Finmasket nett for å hindre fluer i å komme inn åpne vinduer.",
+   "thumb": "assets/prod/insektnett-til-vindu-130x150-silverline-e0154b.webp",
+   "tw": 214,
+   "th": 480,
+   "thumb_s": "assets/prod/insektnett-til-vindu-130x150-silverline-e0154b-240.webp",
+   "tsw": 107
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/fluer/husflue/insektsnett-2-stk-73x250-cm-greenline",
@@ -449,7 +709,12 @@
    "price": "149.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/insektsnett-2-stk-73x250-cm-greenline.jpg",
    "role": "Forebygg",
-   "why": "Insektsnett til dør som holder svermende gressfluer og andre insekter ute."
+   "why": "Insektsnett til dør som holder svermende gressfluer og andre insekter ute.",
+   "thumb": "assets/prod/insektsnett-2-stk-73x250-cm-greenline-993a96.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/insektsnett-2-stk-73x250-cm-greenline-993a96-240.webp",
+   "tsw": 240
   }
  ],
  "art:klesmoll-og-pelsbille": [
@@ -459,7 +724,12 @@
    "price": "239.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/trinol-insect-freeze-500ml-kuldespray.jpg",
    "role": "Bekjemp",
-   "why": "Kuldespray som uskadeliggjør insekter raskt og giftfritt på tekstiler."
+   "why": "Kuldespray som uskadeliggjør insekter raskt og giftfritt på tekstiler.",
+   "thumb": "assets/prod/trinol-insect-freeze-500ml-kuldespray-705557.webp",
+   "tw": 474,
+   "th": 474,
+   "thumb_s": "assets/prod/trinol-insect-freeze-500ml-kuldespray-705557-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/moell/klesmoell/klesmoell-felle-2-pack-silverline",
@@ -467,7 +737,12 @@
    "price": "179.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/klesmollfelle-feromon-silverline-2-pk.jpg",
    "role": "Overvåk",
-   "why": "Giftfri feromonfelle som tiltrekker og fanger hannmøll i garderoben."
+   "why": "Giftfri feromonfelle som tiltrekker og fanger hannmøll i garderoben.",
+   "thumb": "assets/prod/klesmollfelle-feromon-silverline-2-pk-63da2a.webp",
+   "tw": 300,
+   "th": 480,
+   "thumb_s": "assets/prod/klesmollfelle-feromon-silverline-2-pk-63da2a-240.webp",
+   "tsw": 150
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/biller/brun-pelsbille-majorstubillen/limrull-10-meter-universal",
@@ -475,7 +750,12 @@
    "price": "559.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30008511_6.jpg",
    "role": "Overvåk",
-   "why": "Giftfri limbarriere som fanger krypende pelsbiller og larver langs lister."
+   "why": "Giftfri limbarriere som fanger krypende pelsbiller og larver langs lister.",
+   "thumb": "assets/prod/30008511-6-b48263.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30008511-6-b48263-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/edderkopper/insektnett-vindu-130x150-cm",
@@ -483,7 +763,12 @@
    "price": "349.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/insektnett-til-vindu-130x150-silverline.jpg",
    "role": "Forebygg",
-   "why": "Hindrer pelsbiller i å fly inn gjennom vinduer på varme sommerdager."
+   "why": "Hindrer pelsbiller i å fly inn gjennom vinduer på varme sommerdager.",
+   "thumb": "assets/prod/insektnett-til-vindu-130x150-silverline-e0154b.webp",
+   "tw": 214,
+   "th": 480,
+   "thumb_s": "assets/prod/insektnett-til-vindu-130x150-silverline-e0154b-240.webp",
+   "tsw": 107
   }
  ],
  "art:brunskogsnegl": [
@@ -493,7 +778,12 @@
    "price": "269.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/30009445_1.jpg",
    "role": "Bekjemp",
-   "why": "Godkjent sneglemiddel med jernfosfat for bekjempelse av brunsnegler i hagen."
+   "why": "Godkjent sneglemiddel med jernfosfat for bekjempelse av brunsnegler i hagen.",
+   "thumb": "assets/prod/30009445-1-a2629c.webp",
+   "tw": 281,
+   "th": 480,
+   "thumb_s": "assets/prod/30009445-1-a2629c-240.webp",
+   "tsw": 140
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/vis-forsikring/andre-dyr/sneglestasjon-bekjempelse-av-mordersnegler-ufostasjon",
@@ -501,7 +791,12 @@
    "price": "289.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/sneglefelle-mordersnegl-bekjempelse.png",
    "role": "Bekjemp",
-   "why": "Stasjon for målrettet reduksjon av mordersnegler uten å skade annet dyreliv."
+   "why": "Stasjon for målrettet reduksjon av mordersnegler uten å skade annet dyreliv.",
+   "thumb": "assets/prod/sneglefelle-mordersnegl-bekjempelse-e61fea.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/sneglefelle-mordersnegl-bekjempelse-e61fea-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/andre-dyr/snegler/snegle-felle-non-toxic-pest-stop",
@@ -509,7 +804,12 @@
    "price": "165.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/Snegle felle - Non-Toxic - Pest-Stop.jpg",
    "role": "Bekjemp",
-   "why": "Giftfri sneglefelle for hagen som er trygg for barn og kjæledyr."
+   "why": "Giftfri sneglefelle for hagen som er trygg for barn og kjæledyr.",
+   "thumb": "assets/prod/snegle-felle-non-toxic-pest-stop-081886.webp",
+   "tw": 268,
+   "th": 480,
+   "thumb_s": "assets/prod/snegle-felle-non-toxic-pest-stop-081886-240.webp",
+   "tsw": 134
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/andre-dyr/snegler/snegle-tape-i-kobber-4-meter-rentokil",
@@ -517,7 +817,12 @@
    "price": "79.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/snegle-tape-i-kobber-4-meter-rentokil.jpg",
    "role": "Forebygg",
-   "why": "Kobbertape som gir en barriere og holder snegler unna utsatte områder."
+   "why": "Kobbertape som gir en barriere og holder snegler unna utsatte områder.",
+   "thumb": "assets/prod/snegle-tape-i-kobber-4-meter-rentokil-efa164.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/snegle-tape-i-kobber-4-meter-rentokil-efa164-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/andre-dyr/snegler/snegle-sperre-1-5-kg-the-green-way",
@@ -525,7 +830,12 @@
    "price": "149.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/Snegle sperre - 1_5 KG - The Green Way.jpg",
    "role": "Forebygg",
-   "why": "Kjemikaliefri sneglebarriere for å beskytte hagen mot angrep fra mordersnegler."
+   "why": "Kjemikaliefri sneglebarriere for å beskytte hagen mot angrep fra mordersnegler.",
+   "thumb": "assets/prod/snegle-sperre-1-5-kg-the-green-way-27c33e.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/snegle-sperre-1-5-kg-the-green-way-27c33e-240.webp",
+   "tsw": 240
   }
  ],
  "art:maker-pa-taket": [
@@ -535,7 +845,12 @@
    "price": "85.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/maakepigg-g4-propoint.png",
    "role": "Forebygg",
-   "why": "Hindrer måker i å lande og etablere seg på tak og gesimser."
+   "why": "Hindrer måker i å lande og etablere seg på tak og gesimser.",
+   "thumb": "assets/prod/maakepigg-g4-propoint-e2ff7b.webp",
+   "tw": 385,
+   "th": 332,
+   "thumb_s": "assets/prod/maakepigg-g4-propoint-e2ff7b-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/fugler/kraaker/maakepigger-pr-stk-33-cm",
@@ -543,7 +858,12 @@
    "price": "89.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/maakepigger-fuglesikring.png",
    "role": "Forebygg",
-   "why": "Fysisk hinder som gjør at måkene ikke får satt seg på taket."
+   "why": "Fysisk hinder som gjør at måkene ikke får satt seg på taket.",
+   "thumb": "assets/prod/maakepigger-fuglesikring-38b72f.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/maakepigger-fuglesikring-38b72f-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/fugler/duer/fuglepigger-10-stk-av-25-cm-ryom",
@@ -551,7 +871,12 @@
    "price": "419.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/fuglepigger-ryom-10-stk-25-cm.jpg",
    "role": "Forebygg",
-   "why": "Pigger som gir varig fysisk sikring mot måker på kanter og fremspring."
+   "why": "Pigger som gir varig fysisk sikring mot måker på kanter og fremspring.",
+   "thumb": "assets/prod/fuglepigger-ryom-10-stk-25-cm-b14518.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/fuglepigger-ryom-10-stk-25-cm-b14518-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/fugler/duer/raxbird-spesiallim-til-fuglepigger-300ml",
@@ -559,7 +884,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/raxbird-spesiallim-til-fuglepigger-300-ml.webp",
    "role": "Forebygg",
-   "why": "Spesiallim med umiddelbart feste for trygg montering av fuglepigger på takflater."
+   "why": "Spesiallim med umiddelbart feste for trygg montering av fuglepigger på takflater.",
+   "thumb": "assets/prod/raxbird-spesiallim-til-fuglepigger-300-ml-07256b.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/raxbird-spesiallim-til-fuglepigger-300-ml-07256b-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/fugler/duer/edderkopp-fugleskremmer-180-cm",
@@ -567,7 +897,12 @@
    "price": "659.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/edderkopp-fugleskremmer-180-cm.jpg",
    "role": "Beskytt",
-   "why": "Mekanisk hinder som fjerner måkenes landingsplasser på pipehatter og tak."
+   "why": "Mekanisk hinder som fjerner måkenes landingsplasser på pipehatter og tak.",
+   "thumb": "assets/prod/edderkopp-fugleskremmer-180-cm-ea534f.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/edderkopp-fugleskremmer-180-cm-ea534f-240.webp",
+   "tsw": 240
   }
  ],
  "art:humler-og-bier-i-veggen": [
@@ -577,7 +912,12 @@
    "price": "195.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/fugemasse-ct1-testvinner.png",
    "role": "Tett",
-   "why": "Fugemasse for å tette sprekker i kledningen når humlebolet er forlatt."
+   "why": "Fugemasse for å tette sprekker i kledningen når humlebolet er forlatt.",
+   "thumb": "assets/prod/fugemasse-ct1-testvinner-4b3d06.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/fugemasse-ct1-testvinner-4b3d06-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/luftespalte-beslag-6-cm",
@@ -585,7 +925,12 @@
    "price": "49.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/luftespalte-beslag-6-cm.png",
    "role": "Tett",
-   "why": "Hindrer insekter i å ta seg inn i veggen gjennom åpne luftespalter."
+   "why": "Hindrer insekter i å ta seg inn i veggen gjennom åpne luftespalter.",
+   "thumb": "assets/prod/luftespalte-beslag-6-cm-fd0bc4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/luftespalte-beslag-6-cm-fd0bc4-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veps/biroekerdrakt-med-avtakbar-hette-komfortabel-og-slitesterk-arbeidsjakke-for-biroekter-og-skadedyrkontroll",
@@ -593,7 +938,12 @@
    "price": "1398.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/vepsedrakt-birokterjakke-med-hette.png",
    "role": "Beskytt",
-   "why": "Beskytter mot stikk under birøkt, inspeksjon eller opprydding ved bolet."
+   "why": "Beskytter mot stikk under birøkt, inspeksjon eller opprydding ved bolet.",
+   "thumb": "assets/prod/vepsedrakt-birokterjakke-med-hette-6a5940.webp",
+   "tw": 320,
+   "th": 480,
+   "thumb_s": "assets/prod/vepsedrakt-birokterjakke-med-hette-6a5940-240.webp",
+   "tsw": 160
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veps/villbie-og-insekts-hotell-laget-av-eiketre",
@@ -601,7 +951,12 @@
    "price": "607.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/villbiehus-hercules-massiv-eik.png",
    "role": "Forebygg",
-   "why": "Gir solitære villbier trygge hekkeplasser i hagen i stedet for husveggen."
+   "why": "Gir solitære villbier trygge hekkeplasser i hagen i stedet for husveggen.",
+   "thumb": "assets/prod/villbiehus-hercules-massiv-eik-37daa2.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/villbiehus-hercules-massiv-eik-37daa2-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veps/giftfjerner-aspivenin",
@@ -609,7 +964,12 @@
    "price": "314.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/giftfjerner-aspivenin-vakuumpumpe.jpg",
    "role": "Beskytt",
-   "why": "Fjerner gift og lindrer reaksjoner dersom et uhell gir stikk."
+   "why": "Fjerner gift og lindrer reaksjoner dersom et uhell gir stikk.",
+   "thumb": "assets/prod/giftfjerner-aspivenin-vakuumpumpe-d1c943.webp",
+   "tw": 480,
+   "th": 402,
+   "thumb_s": "assets/prod/giftfjerner-aspivenin-vakuumpumpe-d1c943-240.webp",
+   "tsw": 240
   }
  ],
  "art:mus-om-hosten": [
@@ -619,7 +979,12 @@
    "price": "399.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/elektronisk-musefelle-rentokil.jpg",
    "role": "Bekjemp",
-   "why": "Elektrisk felle som gir rask og human avliving innendørs uten gift."
+   "why": "Elektrisk felle som gir rask og human avliving innendørs uten gift.",
+   "thumb": "assets/prod/elektronisk-musefelle-rentokil-30a822.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/elektronisk-musefelle-rentokil-30a822-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/mus-og-rotte-stopp-tetningsmasse",
@@ -627,7 +992,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/mus-og-rotte-stopp-tetningsmasse.jpg",
    "role": "Tett",
-   "why": "Giftfri tetningsmasse for rørgjennomføringer og mindre sprekker mus kan komme gjennom."
+   "why": "Giftfri tetningsmasse for rørgjennomføringer og mindre sprekker mus kan komme gjennom.",
+   "thumb": "assets/prod/mus-og-rotte-stopp-tetningsmasse-6f32c4.webp",
+   "tw": 139,
+   "th": 480,
+   "thumb_s": "assets/prod/mus-og-rotte-stopp-tetningsmasse-6f32c4-240.webp",
+   "tsw": 70
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/rustfritt-sikringsnett-mesh-mot-skadedyr-5-meter-lengde",
@@ -635,7 +1005,12 @@
    "price": "549.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/rustfritt-sikringsnett-mesh-anbefalt.png",
    "role": "Forebygg",
-   "why": "Rustfritt stålnett for tetting av lufteventiler, sprekker og åpninger i fasaden."
+   "why": "Rustfritt stålnett for tetting av lufteventiler, sprekker og åpninger i fasaden.",
+   "thumb": "assets/prod/rustfritt-sikringsnett-mesh-anbefalt-3fdcaa.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/rustfritt-sikringsnett-mesh-anbefalt-3fdcaa-240.webp",
+   "tsw": 240
   }
  ],
  "art:veggedyr-pa-reise": [
@@ -645,7 +1020,12 @@
    "price": "199.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/veggedyr-detektor-2-stk-rentokil_1.jpg",
    "role": "Overvåk",
-   "why": "Praktiske detektorfeller til tidlig oppdagelse av veggedyr på reise og hjemme."
+   "why": "Praktiske detektorfeller til tidlig oppdagelse av veggedyr på reise og hjemme.",
+   "thumb": "assets/prod/veggedyr-detektor-2-stk-rentokil-1-4c83f1.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/veggedyr-detektor-2-stk-rentokil-1-4c83f1-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veggedyr/veggedyrfelle-4-ark-5-5-x-30-5-cm-greenline",
@@ -653,7 +1033,12 @@
    "price": "79.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/veggedyrfelle-4-ark-5-5-x-30-5-cm-greenline.jpg",
    "role": "Overvåk",
-   "why": "Enkle limark for overvåking og fanging av veggedyr, velegnet på reise."
+   "why": "Enkle limark for overvåking og fanging av veggedyr, velegnet på reise.",
+   "thumb": "assets/prod/veggedyrfelle-4-ark-5-5-x-30-5-cm-greenline-2d4f84.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/veggedyrfelle-4-ark-5-5-x-30-5-cm-greenline-2d4f84-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/lopper/vannopploeselige-plastsekker-til-aa-putte-i-vaskemaskinen",
@@ -661,7 +1046,12 @@
    "price": "439.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/vannopploselige-vaskesekker-rull.jpg",
    "role": "Forebygg",
-   "why": "Løser seg opp i vask og sikrer trygg klesvask ved hjemkomst."
+   "why": "Løser seg opp i vask og sikrer trygg klesvask ved hjemkomst.",
+   "thumb": "assets/prod/vannopploselige-vaskesekker-rull-56ec13.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/vannopploselige-vaskesekker-rull-56ec13-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/skjeggkre/feller-og-limruller/veggedyr-og-skjeggkre-felle-til-sengebein",
@@ -669,7 +1059,12 @@
    "price": "559.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/veggedyrfelle-til-sengebein-climbup.png",
    "role": "Beskytt",
-   "why": "Plasseres under sengeben for å oppdage og hindre veggedyr i sengen."
+   "why": "Plasseres under sengeben for å oppdage og hindre veggedyr i sengen.",
+   "thumb": "assets/prod/veggedyrfelle-til-sengebein-climbup-36194b.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/veggedyrfelle-til-sengebein-climbup-36194b-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veggedyr/madrass-beskytter-veggedyr-90-x-200-x-30-cm",
@@ -677,7 +1072,12 @@
    "price": "395.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/madrass-beskytter-veggedyr-90-x-200-x-30-cm_1.jpg",
    "role": "Beskytt",
-   "why": "Tett madrassbeskytter som hindrer veggedyr i å trenge inn i madrassen."
+   "why": "Tett madrassbeskytter som hindrer veggedyr i å trenge inn i madrassen.",
+   "thumb": "assets/prod/madrass-beskytter-veggedyr-90-x-200-x-30-cm-1-b0a621.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/madrass-beskytter-veggedyr-90-x-200-x-30-cm-1-b0a621-240.webp",
+   "tsw": 240
   }
  ],
  "sp:mus": [
@@ -687,7 +1087,12 @@
    "price": "139.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/smart-musefelle-plast-dobbel.png",
    "role": "Bekjemp",
-   "why": "Klassisk klappfelle i plast som gir rask og sikker avliving av mus."
+   "why": "Klassisk klappfelle i plast som gir rask og sikker avliving av mus.",
+   "thumb": "assets/prod/smart-musefelle-plast-dobbel-1fe8cf.webp",
+   "tw": 480,
+   "th": 320,
+   "thumb_s": "assets/prod/smart-musefelle-plast-dobbel-1fe8cf-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/musefeller/innvendig-musefeller/musefelle-elektrisk-ryom",
@@ -695,7 +1100,12 @@
    "price": "425.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/musefelle-elektrisk-ryom-med-mus.jpg",
    "role": "Bekjemp",
-   "why": "Elektrisk musefelle til innendørs bruk som avliver mus på en human måte."
+   "why": "Elektrisk musefelle til innendørs bruk som avliver mus på en human måte.",
+   "thumb": "assets/prod/musefelle-elektrisk-ryom-med-mus-3001b3.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/musefelle-elektrisk-ryom-med-mus-3001b3-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/musefeller/innvendig-musefeller/musefelle-for-levende-fangst",
@@ -703,7 +1113,12 @@
    "price": "239.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/musefelle-for-levende-fangst.jpg",
    "role": "Fang levende",
-   "why": "Galvanisert felle som fanger mus levende uten bruk av kjemikalier eller gift."
+   "why": "Galvanisert felle som fanger mus levende uten bruk av kjemikalier eller gift.",
+   "thumb": "assets/prod/musefelle-for-levende-fangst-91416d.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/musefelle-for-levende-fangst-91416d-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/luftespalte-beslag-6-cm",
@@ -711,7 +1126,12 @@
    "price": "49.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/luftespalte-beslag-6-cm.png",
    "role": "Tett",
-   "why": "Beslag som hindrer mus i å trenge inn gjennom åpne luftespalter."
+   "why": "Beslag som hindrer mus i å trenge inn gjennom åpne luftespalter.",
+   "thumb": "assets/prod/luftespalte-beslag-6-cm-fd0bc4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/luftespalte-beslag-6-cm-fd0bc4-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/tetteduk-til-mus-og-insekter-10-meter",
@@ -719,7 +1139,12 @@
    "price": "995.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/tetteduk-til-mus-og-insekter-10-meter.jpg",
    "role": "Tett",
-   "why": "Duk til tetting av sprekker, hull og ventiler for å utestenge mus."
+   "why": "Duk til tetting av sprekker, hull og ventiler for å utestenge mus.",
+   "thumb": "assets/prod/tetteduk-til-mus-og-insekter-10-meter-6feba5.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/tetteduk-til-mus-og-insekter-10-meter-6feba5-240.webp",
+   "tsw": 240
   }
  ],
  "sp:skogmus": [
@@ -729,7 +1154,12 @@
    "price": "139.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/smart-musefelle-plast-dobbel.png",
    "role": "Bekjemp",
-   "why": "Tradisjonell klappfelle i plast med stabil slagmekanisme for rask og sikker avliving."
+   "why": "Tradisjonell klappfelle i plast med stabil slagmekanisme for rask og sikker avliving.",
+   "thumb": "assets/prod/smart-musefelle-plast-dobbel-1fe8cf.webp",
+   "tw": 480,
+   "th": 320,
+   "thumb_s": "assets/prod/smart-musefelle-plast-dobbel-1fe8cf-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/lokkemiddel-til-gnagere-30-g-snap-em-peanoett",
@@ -737,7 +1167,12 @@
    "price": "99.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/snap-em-peanott-lokkemiddel-til-musefelle.jpg",
    "role": "Bekjemp",
-   "why": "Syntetisk lokkemiddel med peanøttlukt som øker fangsteffekten i musefeller."
+   "why": "Syntetisk lokkemiddel med peanøttlukt som øker fangsteffekten i musefeller.",
+   "thumb": "assets/prod/snap-em-peanott-lokkemiddel-til-musefelle-c8ff6f.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/snap-em-peanott-lokkemiddel-til-musefelle-c8ff6f-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/luftespalte-beslag-6-cm",
@@ -745,7 +1180,12 @@
    "price": "49.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/luftespalte-beslag-6-cm.png",
    "role": "Tett",
-   "why": "Hindrer mus i å trenge inn via åpne luftespalter i mur."
+   "why": "Hindrer mus i å trenge inn via åpne luftespalter i mur.",
+   "thumb": "assets/prod/luftespalte-beslag-6-cm-fd0bc4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/luftespalte-beslag-6-cm-fd0bc4-240.webp",
+   "tsw": 240
   }
  ],
  "sp:rotte": [
@@ -755,7 +1195,12 @@
    "price": "279.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/rottefelle-i-laasbar-sikkerhetsboks-1-stk-rentokil.jpg",
    "role": "Bekjemp",
-   "why": "Rottefelle i låsbar boks som ivaretar sikkerheten til barn og husdyr."
+   "why": "Rottefelle i låsbar boks som ivaretar sikkerheten til barn og husdyr.",
+   "thumb": "assets/prod/rottefelle-i-laasbar-sikkerhetsboks-1-stk-rentokil-f026f4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/rottefelle-i-laasbar-sikkerhetsboks-1-stk-rentokil-f026f4-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/mus-og-rotte-stopp-tetningsmasse",
@@ -763,7 +1208,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/mus-og-rotte-stopp-tetningsmasse.jpg",
    "role": "Tett",
-   "why": "Giftfri og vannbestandig tetningsmasse som hindrer rotter i å trenge inn."
+   "why": "Giftfri og vannbestandig tetningsmasse som hindrer rotter i å trenge inn.",
+   "thumb": "assets/prod/mus-og-rotte-stopp-tetningsmasse-6f32c4.webp",
+   "tw": 139,
+   "th": 480,
+   "thumb_s": "assets/prod/mus-og-rotte-stopp-tetningsmasse-6f32c4-240.webp",
+   "tsw": 70
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/desinfisering-etter-gnagere/haand-og-overflate-antibac-wipes-50-stk-rentokil",
@@ -771,7 +1221,12 @@
    "price": "199.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/haand-og-overflate-antibac-wipes-50-stk-rentokil.jpg",
    "role": "Beskytt",
-   "why": "Hygieniske våtservietter for rengjøring etter håndtering av feller og gnagere."
+   "why": "Hygieniske våtservietter for rengjøring etter håndtering av feller og gnagere.",
+   "thumb": "assets/prod/haand-og-overflate-antibac-wipes-50-stk-rentokil-af46f4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/haand-og-overflate-antibac-wipes-50-stk-rentokil-af46f4-240.webp",
+   "tsw": 240
   }
  ],
  "sp:veggedyr": [
@@ -781,7 +1236,12 @@
    "price": "395.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/madrass-beskytter-veggedyr-90-x-200-x-30-cm_1.jpg",
    "role": "Beskytt",
-   "why": "Tett madrassbeskytter som hindrer veggedyr i å etablere seg i madrassen."
+   "why": "Tett madrassbeskytter som hindrer veggedyr i å etablere seg i madrassen.",
+   "thumb": "assets/prod/madrass-beskytter-veggedyr-90-x-200-x-30-cm-1-b0a621.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/madrass-beskytter-veggedyr-90-x-200-x-30-cm-1-b0a621-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/skjeggkre/feller-og-limruller/veggedyr-og-skjeggkre-felle-til-sengebein",
@@ -789,7 +1249,12 @@
    "price": "559.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/veggedyrfelle-til-sengebein-climbup.png",
    "role": "Overvåk",
-   "why": "Plasseres under sengebeina for å oppdage og fange veggedyr på vei opp."
+   "why": "Plasseres under sengebeina for å oppdage og fange veggedyr på vei opp.",
+   "thumb": "assets/prod/veggedyrfelle-til-sengebein-climbup-36194b.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/veggedyrfelle-til-sengebein-climbup-36194b-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/lopper/vannopploeselige-plastsekker-til-aa-putte-i-vaskemaskinen",
@@ -797,7 +1262,12 @@
    "price": "439.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/vannopploselige-vaskesekker-rull.jpg",
    "role": "Forebygg",
-   "why": "Løses opp i vaskemaskinen for trygg vask av infisert tøy og sengetøy."
+   "why": "Løses opp i vaskemaskinen for trygg vask av infisert tøy og sengetøy.",
+   "thumb": "assets/prod/vannopploselige-vaskesekker-rull-56ec13.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/vannopploselige-vaskesekker-rull-56ec13-240.webp",
+   "tsw": 240
   }
  ],
  "sp:svaletege": [],
@@ -808,7 +1278,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur-veggedyr-200g.jpg",
    "role": "Forebygg",
-   "why": "Kiselgurpulver uten nervegift som tørker ut insekter, til forebyggende bruk innendørs."
+   "why": "Kiselgurpulver uten nervegift som tørker ut insekter, til forebyggende bruk innendørs.",
+   "thumb": "assets/prod/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur--1f673c.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur--1f673c-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/skjeggkre/feller-og-limruller/skjeggkrefelle-hvit-med-tellemoenster-3-stk",
@@ -816,7 +1291,12 @@
    "price": "59.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30008348_6.jpg",
    "role": "Overvåk",
-   "why": "Limfelle med tellemønster for kartlegging og overvåking av skjeggkre i boligen."
+   "why": "Limfelle med tellemønster for kartlegging og overvåking av skjeggkre i boligen.",
+   "thumb": "assets/prod/30008348-6-464175.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30008348-6-464175-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/skjeggkre/feller-og-limruller/veggedyr-og-skjeggkre-felle-til-sengebein",
@@ -824,7 +1304,12 @@
    "price": "559.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/veggedyrfelle-til-sengebein-climbup.png",
    "role": "Beskytt",
-   "why": "Feller til sengebein som hindrer skjeggkre i å klatre opp i sengen."
+   "why": "Feller til sengebein som hindrer skjeggkre i å klatre opp i sengen.",
+   "thumb": "assets/prod/veggedyrfelle-til-sengebein-climbup-36194b.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/veggedyrfelle-til-sengebein-climbup-36194b-240.webp",
+   "tsw": 240
   }
  ],
  "sp:solvkre": [],
@@ -835,7 +1320,12 @@
    "price": "299.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/kvitt-vepseskum-mot-vepsebol-600-ml.png",
    "role": "Bekjemp",
-   "why": "Skum for sanering og fjerning av vepsebol."
+   "why": "Skum for sanering og fjerning av vepsebol.",
+   "thumb": "assets/prod/kvitt-vepseskum-mot-vepsebol-600-ml-2b5234.webp",
+   "tw": 400,
+   "th": 480,
+   "thumb_s": "assets/prod/kvitt-vepseskum-mot-vepsebol-600-ml-2b5234-240.webp",
+   "tsw": 200
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/fluer/vepsespray-med-turbodyse",
@@ -843,7 +1333,12 @@
    "price": "285.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Vepsespray_turbodyse.png",
    "role": "Bekjemp",
-   "why": "Lang rekkevidde for behandling av vepsebol på trygg avstand."
+   "why": "Lang rekkevidde for behandling av vepsebol på trygg avstand.",
+   "thumb": "assets/prod/vepsespray-turbodyse-3f40b0.webp",
+   "tw": 320,
+   "th": 480,
+   "thumb_s": "assets/prod/vepsespray-turbodyse-3f40b0-240.webp",
+   "tsw": 160
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veps/vepsefelle-green-protect",
@@ -851,7 +1346,12 @@
    "price": "275.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30009170_6.jpg",
    "role": "Forebygg",
-   "why": "Giftfri felle med lokkemiddel som fanger veps i uterommet."
+   "why": "Giftfri felle med lokkemiddel som fanger veps i uterommet.",
+   "thumb": "assets/prod/30009170-6-318e2f.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30009170-6-318e2f-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/veps/giftfjerner-aspivenin",
@@ -859,7 +1359,12 @@
    "price": "314.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/giftfjerner-aspivenin-vakuumpumpe.jpg",
    "role": "Beskytt",
-   "why": "Bidrar til å lindre ubehag og kløe raskt etter vepsestikk."
+   "why": "Bidrar til å lindre ubehag og kløe raskt etter vepsestikk.",
+   "thumb": "assets/prod/giftfjerner-aspivenin-vakuumpumpe-d1c943.webp",
+   "tw": 480,
+   "th": 402,
+   "thumb_s": "assets/prod/giftfjerner-aspivenin-vakuumpumpe-d1c943-240.webp",
+   "tsw": 240
   }
  ],
  "sp:kjempetreveps": [],
@@ -870,7 +1375,12 @@
    "price": "839.00",
    "image": "https://skadedyrbutikken.no/Files/Uploads/maurpakke-bekjempelse-stokkmaur-sort-jordmaur.png",
    "role": "Bekjemp",
-   "why": "Komplett pakke med veiledningsbok og åtestasjoner spesielt tilpasset stokkmaur."
+   "why": "Komplett pakke med veiledningsbok og åtestasjoner spesielt tilpasset stokkmaur.",
+   "thumb": "assets/prod/maurpakke-bekjempelse-stokkmaur-sort-jordmaur-eec809.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/maurpakke-bekjempelse-stokkmaur-sort-jordmaur-eec809-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/maur/svart-jordmaur/advion-ant-outcast-mauraatestasjon",
@@ -878,7 +1388,12 @@
    "price": "379.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Outcast-mauråte-anbefalt.png",
    "role": "Bekjemp",
-   "why": "Dokumentert effektiv maurgel som også gir god kontroll mot stokkmaur."
+   "why": "Dokumentert effektiv maurgel som også gir god kontroll mot stokkmaur.",
+   "thumb": "assets/prod/outcast-maurate-anbefalt-2c833c.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/outcast-maurate-anbefalt-2c833c-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/inneklima/sopp-og-raate/woodtox-universal-sopp-og-insektmiddel",
@@ -886,7 +1401,12 @@
    "price": "329.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/universal-insektmiddel-woodtox-5l-3.jpg",
    "role": "Beskytt",
-   "why": "Beskytter og forebygger treverk mot råtesopp og insekter som angriper treverk."
+   "why": "Beskytter og forebygger treverk mot råtesopp og insekter som angriper treverk.",
+   "thumb": "assets/prod/universal-insektmiddel-woodtox-5l-3-5f31ef.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/universal-insektmiddel-woodtox-5l-3-5f31ef-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/maur/outcast-aatepunkt-kit",
@@ -894,7 +1414,12 @@
    "price": "408.00",
    "image": "https://skadedyrbutikken.no/Files/Uploads/outcast-atepunkt-kit-mauratestasjon-doseringssproyte.jpg",
    "role": "Bekjemp",
-   "why": "Praktisk sett for presis påføring av gel-åte i sprekker og ganger."
+   "why": "Praktisk sett for presis påføring av gel-åte i sprekker og ganger.",
+   "thumb": "assets/prod/outcast-atepunkt-kit-mauratestasjon-doseringssproyte-b9d4ad.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/outcast-atepunkt-kit-mauratestasjon-doseringssproyte-b9d4ad-240.webp",
+   "tsw": 240
   }
  ],
  "sp:skogsmaur": [],
@@ -905,7 +1430,12 @@
    "price": "379.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Outcast-mauråte-anbefalt.png",
    "role": "Bekjemp",
-   "why": "Ferdigfylt åtestasjon med virkestoff maurene tar med tilbake til reiret."
+   "why": "Ferdigfylt åtestasjon med virkestoff maurene tar med tilbake til reiret.",
+   "thumb": "assets/prod/outcast-maurate-anbefalt-2c833c.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/outcast-maurate-anbefalt-2c833c-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/maur/kvitt-mot-maur-stroemiddel-og-utvanningsmiddel-1-kg",
@@ -913,7 +1443,12 @@
    "price": "369.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/kvitt-mot-maur-mikrogranulat-1-kg.png",
    "role": "Bekjemp",
-   "why": "Middel for utvanning eller strøing mot svart jordmaur utendørs."
+   "why": "Middel for utvanning eller strøing mot svart jordmaur utendørs.",
+   "thumb": "assets/prod/kvitt-mot-maur-mikrogranulat-1-kg-f35ba9.webp",
+   "tw": 169,
+   "th": 480,
+   "thumb_s": "assets/prod/kvitt-mot-maur-mikrogranulat-1-kg-f35ba9-240.webp",
+   "tsw": 84
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/betong-paa-tube-soudal",
@@ -921,7 +1456,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/soudal-repair-express-betong-pa-tube.jpg",
    "role": "Tett",
-   "why": "Tetter sprekker i grunnmur og fuger så maur ikke trekker inn."
+   "why": "Tetter sprekker i grunnmur og fuger så maur ikke trekker inn.",
+   "thumb": "assets/prod/soudal-repair-express-betong-pa-tube-74382c.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/soudal-repair-express-betong-pa-tube-74382c-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/maur/svart-jordmaur/maur-aatestasjon-1-stk",
@@ -929,7 +1469,12 @@
    "price": "44.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30009014_6.jpg",
    "role": "Beskytt",
-   "why": "Beskytter åten mot støv og uønsket berøring fra barn og kjæledyr."
+   "why": "Beskytter åten mot støv og uønsket berøring fra barn og kjæledyr.",
+   "thumb": "assets/prod/30009014-6-a9dcc2.webp",
+   "tw": 480,
+   "th": 384,
+   "thumb_s": "assets/prod/30009014-6-a9dcc2-240.webp",
+   "tsw": 240
   }
  ],
  "sp:melmoll": [
@@ -939,7 +1484,12 @@
    "price": "179.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Melmøllfelle_02.jpg",
    "role": "Bekjemp",
-   "why": "Giftfri feromonfelle som fanger hannmøll for å redusere bestanden av melmøll."
+   "why": "Giftfri feromonfelle som fanger hannmøll for å redusere bestanden av melmøll.",
+   "thumb": "assets/prod/melmollfelle-02-83c263.webp",
+   "tw": 300,
+   "th": 480,
+   "thumb_s": "assets/prod/melmollfelle-02-83c263-240.webp",
+   "tsw": 150
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/moell/melsmalmott/melmoellfeller-2-stk-a-green-way",
@@ -947,7 +1497,12 @@
    "price": "175.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/melmollfelle-med-feromon-2-stk-green-way.png",
    "role": "Bekjemp",
-   "why": "Luktfrie limfeller uten giftstoffer, tilpasset sikker bekjempelse av melmøll innendørs."
+   "why": "Luktfrie limfeller uten giftstoffer, tilpasset sikker bekjempelse av melmøll innendørs.",
+   "thumb": "assets/prod/melmollfelle-med-feromon-2-stk-green-way-827cca.webp",
+   "tw": 360,
+   "th": 480,
+   "thumb_s": "assets/prod/melmollfelle-med-feromon-2-stk-green-way-827cca-240.webp",
+   "tsw": 180
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/moell/melsmalmott/melmoellfelle-feromon-limplater-10-pk",
@@ -955,7 +1510,12 @@
    "price": "439.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/melmollfelle-feromon-limplater-10-pk.png",
    "role": "Bekjemp",
-   "why": "Pakke med ti feromonplater som tiltrekker og fanger melmøll uten kjemikalier."
+   "why": "Pakke med ti feromonplater som tiltrekker og fanger melmøll uten kjemikalier.",
+   "thumb": "assets/prod/melmollfelle-feromon-limplater-10-pk-9da976.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/melmollfelle-feromon-limplater-10-pk-9da976-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/moell/melsmalmott/mel-toerrfuktmoell-limpater-10-stk-holder-3-stk",
@@ -963,7 +1523,12 @@
    "price": "651.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/melmollfelle-pakke-limplater-og-holdere.webp",
    "role": "Overvåk",
-   "why": "Limplater med feromoner og tre holdere for systematisk overvåking av melmøll."
+   "why": "Limplater med feromoner og tre holdere for systematisk overvåking av melmøll.",
+   "thumb": "assets/prod/melmollfelle-pakke-limplater-og-holdere-b5b2e3.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/melmollfelle-pakke-limplater-og-holdere-b5b2e3-240.webp",
+   "tsw": 240
   }
  ],
  "sp:kakerlakk": [
@@ -973,7 +1538,12 @@
    "price": "269.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/kakerlakk-limfelle-hoy-hoy-trap-a-roach.png",
    "role": "Bekjemp",
-   "why": "Effektiv limfelle med lokkemiddel spesielt utviklet for fangst av kakerlakker."
+   "why": "Effektiv limfelle med lokkemiddel spesielt utviklet for fangst av kakerlakker.",
+   "thumb": "assets/prod/kakerlakk-limfelle-hoy-hoy-trap-a-roach-1bd353.webp",
+   "tw": 480,
+   "th": 358,
+   "thumb_s": "assets/prod/kakerlakk-limfelle-hoy-hoy-trap-a-roach-1bd353-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/kakerlakkfelle-pr-30-10-pk",
@@ -981,7 +1551,12 @@
    "price": "549.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30008173_6.jpg",
    "role": "Overvåk",
-   "why": "Felle med fire innganger til deteksjon og kartlegging av kakerlakker."
+   "why": "Felle med fire innganger til deteksjon og kartlegging av kakerlakker.",
+   "thumb": "assets/prod/30008173-6-01571a.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30008173-6-01571a-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/skjeggkre/feller-og-limruller/skjeggkre-hjoernedetektor-30-stk-feller",
@@ -989,7 +1564,12 @@
    "price": "989.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/skjeggkre-hjornedetektor-trappit-suterra.png",
    "role": "Beskytt",
-   "why": "Hjørnefelle tilpasset plassering der kakerlakker og krypende insekter ferdes."
+   "why": "Hjørnefelle tilpasset plassering der kakerlakker og krypende insekter ferdes.",
+   "thumb": "assets/prod/skjeggkre-hjornedetektor-trappit-suterra-065167.webp",
+   "tw": 480,
+   "th": 320,
+   "thumb_s": "assets/prod/skjeggkre-hjornedetektor-trappit-suterra-065167-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/kakerlakker/kakerlakk-limfelle-med-lokkemiddel-3-pk",
@@ -997,7 +1577,12 @@
    "price": "240.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/kakerlakk-limfelle-lokkemiddel-6-feller.png",
    "role": "Forebygg",
-   "why": "Limfeller med lokkemiddel til bekreftelse av mistanke og etterkontroll."
+   "why": "Limfeller med lokkemiddel til bekreftelse av mistanke og etterkontroll.",
+   "thumb": "assets/prod/kakerlakk-limfelle-lokkemiddel-6-feller-c64967.webp",
+   "tw": 480,
+   "th": 320,
+   "thumb_s": "assets/prod/kakerlakk-limfelle-lokkemiddel-6-feller-c64967-240.webp",
+   "tsw": 240
   }
  ],
  "sp:flatt": [
@@ -1007,7 +1592,12 @@
    "price": "84.00",
    "image": "https://skadedyrbutikken.no/Files/Images/30009429_1.png",
    "role": "Bekjemp",
-   "why": "Verktøy i to størrelser for enkel fjerning av fastbitt flått på tur."
+   "why": "Verktøy i to størrelser for enkel fjerning av fastbitt flått på tur.",
+   "thumb": "assets/prod/30009429-1-791d10.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/30009429-1-791d10-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/flaatt/flaattstopp-frys-fjern-sett-trinol-ticks-off-60-doser",
@@ -1015,7 +1605,12 @@
    "price": "285.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/flaattstopp-frys-fjern-sett-trinol-ticks-off-60-doser.Png",
    "role": "Bekjemp",
-   "why": "Frysespray og verktøy for trygg fjerning av flått fra mennesker og dyr."
+   "why": "Frysespray og verktøy for trygg fjerning av flått fra mennesker og dyr.",
+   "thumb": "assets/prod/flaattstopp-frys-fjern-sett-trinol-ticks-off-60-doser-6e80e7.webp",
+   "tw": 480,
+   "th": 240,
+   "thumb_s": "assets/prod/flaattstopp-frys-fjern-sett-trinol-ticks-off-60-doser-6e80e7-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/flaatt/moskito-guard-flaatt-og-myggmiddel-75-ml",
@@ -1023,7 +1618,12 @@
    "price": "169.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml.jpg",
    "role": "Forebygg",
-   "why": "Middel uten DEET som gir langvarig beskyttelse mot flått i naturen."
+   "why": "Middel uten DEET som gir langvarig beskyttelse mot flått i naturen.",
+   "thumb": "assets/prod/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml-ddc406.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml-ddc406-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/flaatt/buksestrammere-gjoer-det-vanskelig-for-blodsugere-2-stk",
@@ -1031,7 +1631,12 @@
    "price": "89.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/buksestrammere-gjoer-det-vanskelig-for-blodsugere-2-stk.jpg",
    "role": "Beskytt",
-   "why": "Strammer buksebeina slik at flått ikke kan krype oppover på beina."
+   "why": "Strammer buksebeina slik at flått ikke kan krype oppover på beina.",
+   "thumb": "assets/prod/buksestrammere-gjoer-det-vanskelig-for-blodsugere-2-stk-37c7c7.webp",
+   "tw": 384,
+   "th": 480,
+   "thumb_s": "assets/prod/buksestrammere-gjoer-det-vanskelig-for-blodsugere-2-stk-37c7c7-240.webp",
+   "tsw": 192
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/flaatt/flaatt-mygg-knott-avvisende-stroemper-lange",
@@ -1039,7 +1644,12 @@
    "price": "139.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/flatt-mygg-knott-avvisende-stromper-lange-flatt-knocker.jpg",
    "role": "Beskytt",
-   "why": "Lange strømper som forhindrer at flåtten kryper opp langs leggene på tur."
+   "why": "Lange strømper som forhindrer at flåtten kryper opp langs leggene på tur.",
+   "thumb": "assets/prod/flatt-mygg-knott-avvisende-stromper-lange-flatt-knocker-4f5d71.webp",
+   "tw": 480,
+   "th": 403,
+   "thumb_s": "assets/prod/flatt-mygg-knott-avvisende-stromper-lange-flatt-knocker-4f5d71-240.webp",
+   "tsw": 240
   }
  ],
  "reg:ost": [
@@ -1049,7 +1659,12 @@
    "price": "839.00",
    "image": "https://skadedyrbutikken.no/Files/Uploads/maurpakke-bekjempelse-stokkmaur-sort-jordmaur.png",
    "role": "Bekjemp",
-   "why": "Komplett pakke med åtestasjoner dokumentert effektiv mot stokkmaur i og rundt boligen."
+   "why": "Komplett pakke med åtestasjoner dokumentert effektiv mot stokkmaur i og rundt boligen.",
+   "thumb": "assets/prod/maurpakke-bekjempelse-stokkmaur-sort-jordmaur-eec809.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/maurpakke-bekjempelse-stokkmaur-sort-jordmaur-eec809-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/startpakke-musesikring",
@@ -1057,7 +1672,12 @@
    "price": "1609.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/startpakke-musesikring-raxwool-raxfoam-e-bok.jpg",
    "role": "Tett",
-   "why": "Tetter sprekker og åpninger for å hindre mus og rotter i hus og hytte."
+   "why": "Tetter sprekker og åpninger for å hindre mus og rotter i hus og hytte.",
+   "thumb": "assets/prod/startpakke-musesikring-raxwool-raxfoam-e-bok-13dd7c.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/startpakke-musesikring-raxwool-raxfoam-e-bok-13dd7c-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/skjeggkre/feller-og-limruller/nokas-limfeller-til-skjeggkre-eske-300-stk",
@@ -1065,7 +1685,12 @@
    "price": "3995.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/limfeller-til-skjeggkre-nokas-eske.png",
    "role": "Overvåk",
-   "why": "Limfeller for kartlegging og fangst av skjeggkre i leiligheter og bygårder."
+   "why": "Limfeller for kartlegging og fangst av skjeggkre i leiligheter og bygårder.",
+   "thumb": "assets/prod/limfeller-til-skjeggkre-nokas-eske-8f7f3d.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/limfeller-til-skjeggkre-nokas-eske-8f7f3d-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/fluer/husflue/veps-og-flue-felle-med-400-ml-lokkemiddel",
@@ -1073,7 +1698,12 @@
    "price": "359.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/veps-og-flue-felle-med-400-ml-lokkemiddel.jpg",
    "role": "Bekjemp",
-   "why": "Effektiv felle med lokkemiddel for å fange veps utendørs ved hus og hytte."
+   "why": "Effektiv felle med lokkemiddel for å fange veps utendørs ved hus og hytte.",
+   "thumb": "assets/prod/veps-og-flue-felle-med-400-ml-lokkemiddel-3e49a3.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/veps-og-flue-felle-med-400-ml-lokkemiddel-3e49a3-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/flaatt/moskito-guard-flaatt-og-myggmiddel-75-ml",
@@ -1081,7 +1711,12 @@
    "price": "169.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml.jpg",
    "role": "Beskytt",
-   "why": "DEET-fri beskyttelse mot flått for hele familien på tur i skog og mark."
+   "why": "DEET-fri beskyttelse mot flått for hele familien på tur i skog og mark.",
+   "thumb": "assets/prod/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml-ddc406.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml-ddc406-240.webp",
+   "tsw": 240
   }
  ],
  "reg:sor": [
@@ -1091,7 +1726,12 @@
    "price": "269.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/ferramol-sneglemiddel-neudorff-jernfosfat.jpg",
    "role": "Bekjemp",
-   "why": "Effektivt middel med jernfosfat mot brunsnegler i hagen."
+   "why": "Effektivt middel med jernfosfat mot brunsnegler i hagen.",
+   "thumb": "assets/prod/ferramol-sneglemiddel-neudorff-jernfosfat-29e758.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/ferramol-sneglemiddel-neudorff-jernfosfat-29e758-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/maur/kvitt-mauraate-i-lokkeboks-fra-protect-home-2-stk",
@@ -1099,7 +1739,12 @@
    "price": "116.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/kvitt-mauraate-lokkeboks-2-stk.png",
    "role": "Bekjemp",
-   "why": "Lokkeboks med mauråte som bekjemper mauren effektivt inne og ute."
+   "why": "Lokkeboks med mauråte som bekjemper mauren effektivt inne og ute.",
+   "thumb": "assets/prod/kvitt-mauraate-lokkeboks-2-stk-73feda.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/kvitt-mauraate-lokkeboks-2-stk-73feda-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/fluer/husflue/veps-og-flue-felle-med-400-ml-lokkemiddel",
@@ -1107,7 +1752,12 @@
    "price": "359.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/veps-og-flue-felle-med-400-ml-lokkemiddel.jpg",
    "role": "Bekjemp",
-   "why": "Felle med lokkemiddel som fanger og reduserer veps ved hytta."
+   "why": "Felle med lokkemiddel som fanger og reduserer veps ved hytta.",
+   "thumb": "assets/prod/veps-og-flue-felle-med-400-ml-lokkemiddel-3e49a3.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/veps-og-flue-felle-med-400-ml-lokkemiddel-3e49a3-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/luftespalte-beslag-6-cm",
@@ -1115,7 +1765,12 @@
    "price": "49.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/luftespalte-beslag-6-cm.png",
    "role": "Tett",
-   "why": "Hindrer mus og veps i å trenge inn i sprekker og luftespalter."
+   "why": "Hindrer mus og veps i å trenge inn i sprekker og luftespalter.",
+   "thumb": "assets/prod/luftespalte-beslag-6-cm-fd0bc4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/luftespalte-beslag-6-cm-fd0bc4-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/flaatt/moskito-guard-flaatt-og-myggmiddel-75-ml",
@@ -1123,7 +1778,12 @@
    "price": "169.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml.jpg",
    "role": "Beskytt",
-   "why": "Gir pålitelig beskyttelse mot flått på tur i kystområdene."
+   "why": "Gir pålitelig beskyttelse mot flått på tur i kystområdene.",
+   "thumb": "assets/prod/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml-ddc406.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/mygg-knottmoskito-guard-flaatt-og-myggmiddel-75-ml-ddc406-240.webp",
+   "tsw": 240
   }
  ],
  "reg:vest": [
@@ -1133,7 +1793,12 @@
    "price": "1525.00",
    "image": "https://skadedyrbutikken.no/Files/Images/ChatGPT Image 10. mai 2026_ 11_06_44.png",
    "role": "Bekjemp",
-   "why": "Sneglestasjoner med Ferramol gir målrettet bekjempelse av brunsnegler i hagen."
+   "why": "Sneglestasjoner med Ferramol gir målrettet bekjempelse av brunsnegler i hagen.",
+   "thumb": "assets/prod/chatgpt-image-10-mai-2026-11-06-44-ebe50e.webp",
+   "tw": 480,
+   "th": 384,
+   "thumb_s": "assets/prod/chatgpt-image-10-mai-2026-11-06-44-ebe50e-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/fugler/maaker/maakepigg-g4-1-stk",
@@ -1141,7 +1806,12 @@
    "price": "85.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/maakepigg-g4-propoint.png",
    "role": "Beskytt",
-   "why": "Lange metallpigger hindrer måker i å lande på tak og gesimser."
+   "why": "Lange metallpigger hindrer måker i å lande på tak og gesimser.",
+   "thumb": "assets/prod/maakepigg-g4-propoint-e2ff7b.webp",
+   "tw": 385,
+   "th": 332,
+   "thumb_s": "assets/prod/maakepigg-g4-propoint-e2ff7b-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/gnager-metallduk",
@@ -1149,7 +1819,12 @@
    "price": "939.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/gnagerstopp-metallduk-5-meter.png",
    "role": "Tett",
-   "why": "Syrefast stålnetting for solid tetting mot mus og rotter i sprekker."
+   "why": "Syrefast stålnetting for solid tetting mot mus og rotter i sprekker.",
+   "thumb": "assets/prod/gnagerstopp-metallduk-5-meter-223c04.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/gnagerstopp-metallduk-5-meter-223c04-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/rotter/rottefeller/rottefelle-i-metall",
@@ -1157,7 +1832,12 @@
    "price": "65.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/rottefelle-i-metall.png",
    "role": "Bekjemp",
-   "why": "Galvanisert metallfelle for giftfri og mekanisk fangst av rotter."
+   "why": "Galvanisert metallfelle for giftfri og mekanisk fangst av rotter.",
+   "thumb": "assets/prod/rottefelle-i-metall-829f03.webp",
+   "tw": 480,
+   "th": 320,
+   "thumb_s": "assets/prod/rottefelle-i-metall-829f03-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/insektmiddel-insektnix-rent-naturprodukt-200-g",
@@ -1165,7 +1845,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur-veggedyr-200g.jpg",
    "role": "Bekjemp",
-   "why": "Naturlig kiselgur uten nervegift til bekjempelse av skjeggkre og sølvkre."
+   "why": "Naturlig kiselgur uten nervegift til bekjempelse av skjeggkre og sølvkre.",
+   "thumb": "assets/prod/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur--1f673c.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/insektmiddel-insektenix-kiselgur-mot-skjeggkre-solvkre-maur--1f673c-240.webp",
+   "tsw": 240
   }
  ],
  "reg:midt": [],
@@ -1176,7 +1861,12 @@
    "price": "1535.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/trinol-musefelle-elektrisk-med-10-fangst-multikill.jpg",
    "role": "Bekjemp",
-   "why": "Elektrisk multikill-felle ideell for hytter og perioder med mange mus."
+   "why": "Elektrisk multikill-felle ideell for hytter og perioder med mange mus.",
+   "thumb": "assets/prod/trinol-musefelle-elektrisk-med-10-fangst-multikill-34bda1.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/trinol-musefelle-elektrisk-med-10-fangst-multikill-34bda1-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/pakkeloesninger/musefelle-storpakke-20-feller-lokkemiddel-og-e-bok",
@@ -1184,7 +1874,12 @@
    "price": "819.00",
    "image": "https://skadedyrbutikken.no/Files/Images/musefelle-storpakke-feller-lokkemiddel-ebok.jpg",
    "role": "Bekjemp",
-   "why": "Pakke med tjue klappfeller og lokkemiddel tilpasset store mengder mus."
+   "why": "Pakke med tjue klappfeller og lokkemiddel tilpasset store mengder mus.",
+   "thumb": "assets/prod/musefelle-storpakke-feller-lokkemiddel-ebok-21f2a1.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/musefelle-storpakke-feller-lokkemiddel-ebok-21f2a1-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/gnagertett-pakke-raxwool-tetningsull-og-spesialsaks",
@@ -1192,7 +1887,12 @@
    "price": "833.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/gnagertett-pakke-raxwool-saks.jpg",
    "role": "Tett",
-   "why": "Raxwool tetningsull med saks hindrer mus og smågnagere i å trenge inn."
+   "why": "Raxwool tetningsull med saks hindrer mus og smågnagere i å trenge inn.",
+   "thumb": "assets/prod/gnagertett-pakke-raxwool-saks-09fe39.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/gnagertett-pakke-raxwool-saks-09fe39-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/mygg-og-knott/mygg-og-knott-felle-dekning-opptil-150-kvm-amt-200",
@@ -1200,7 +1900,12 @@
    "price": "1590.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/mygg-og-knott-felle-dekning-opptil-150-kvm-amt-200.jpg",
    "role": "Bekjemp",
-   "why": "Elektrisk felle som fanger mygg og knott ute ved hage og hytte."
+   "why": "Elektrisk felle som fanger mygg og knott ute ved hage og hytte.",
+   "thumb": "assets/prod/mygg-og-knott-felle-dekning-opptil-150-kvm-amt-200-8b2ab5.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/mygg-og-knott-felle-dekning-opptil-150-kvm-amt-200-8b2ab5-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/insekter/edderkopper/insektnett-vindu-130x150-cm",
@@ -1208,7 +1913,12 @@
    "price": "349.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/insektnett-til-vindu-130x150-silverline.jpg",
    "role": "Forebygg",
-   "why": "Finmasket vindusnett som hindrer mygg og fluer i å fly inn."
+   "why": "Finmasket vindusnett som hindrer mygg og fluer i å fly inn.",
+   "thumb": "assets/prod/insektnett-til-vindu-130x150-silverline-e0154b.webp",
+   "tw": 214,
+   "th": 480,
+   "thumb_s": "assets/prod/insektnett-til-vindu-130x150-silverline-e0154b-240.webp",
+   "tsw": 107
   }
  ],
  "tool:tett-huset": [],
@@ -1222,7 +1932,12 @@
    "price": "1199.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/sporingspulver-rosa-fluorescerende-mus-rotter.jpg",
    "role": "Overvåk",
-   "why": "Avslører spor og bevegelsesmønster til mus for å finne hvor de ferdes."
+   "why": "Avslører spor og bevegelsesmønster til mus for å finne hvor de ferdes.",
+   "thumb": "assets/prod/sporingspulver-rosa-fluorescerende-mus-rotter-f6ee0b.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/sporingspulver-rosa-fluorescerende-mus-rotter-f6ee0b-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/gnagertett-xcluder-mus-og-rottestopper-startkit-10-x-100-cm",
@@ -1230,7 +1945,12 @@
    "price": "439.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/xcluder-gnagersikringssett-tetting-mus-rotter.png",
    "role": "Tett",
-   "why": "Rustfritt stål og polyfiber for varig tetting av sprekker og rørgjennomføringer."
+   "why": "Rustfritt stål og polyfiber for varig tetting av sprekker og rørgjennomføringer.",
+   "thumb": "assets/prod/xcluder-gnagersikringssett-tetting-mus-rotter-17117d.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/xcluder-gnagersikringssett-tetting-mus-rotter-17117d-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/betong-paa-tube-soudal",
@@ -1238,7 +1958,12 @@
    "price": "219.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/soudal-repair-express-betong-pa-tube.jpg",
    "role": "Tett",
-   "why": "Reparasjonsmasse for å tette sprekker og hulrom i mur mot gnagere."
+   "why": "Reparasjonsmasse for å tette sprekker og hulrom i mur mot gnagere.",
+   "thumb": "assets/prod/soudal-repair-express-betong-pa-tube-74382c.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/soudal-repair-express-betong-pa-tube-74382c-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/tetningsplate-for-gnagere-245mm-245mm",
@@ -1246,7 +1971,12 @@
    "price": "585.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/tetningsplate-for-gnagere-245x245-montert.png",
    "role": "Tett",
-   "why": "Solid aluminiumsplate til sikring av åpninger og lufteventiler i grunnmuren."
+   "why": "Solid aluminiumsplate til sikring av åpninger og lufteventiler i grunnmuren.",
+   "thumb": "assets/prod/tetningsplate-for-gnagere-245x245-montert-3f924f.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/tetningsplate-for-gnagere-245x245-montert-3f924f-240.webp",
+   "tsw": 240
   }
  ],
  "art:musebaesj": [
@@ -1256,7 +1986,12 @@
    "price": "1199.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/sporingspulver-rosa-fluorescerende-mus-rotter.jpg",
    "role": "Overvåk",
-   "why": "Avdekk faste ruter og skjulesteder til gnagere langs lister og vegger."
+   "why": "Avdekk faste ruter og skjulesteder til gnagere langs lister og vegger.",
+   "thumb": "assets/prod/sporingspulver-rosa-fluorescerende-mus-rotter-f6ee0b.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/sporingspulver-rosa-fluorescerende-mus-rotter-f6ee0b-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/desinfisering-etter-gnagere/haand-og-overflate-antibac-wipes-50-stk-rentokil",
@@ -1264,7 +1999,12 @@
    "price": "199.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/haand-og-overflate-antibac-wipes-50-stk-rentokil.jpg",
    "role": "Beskytt",
-   "why": "Hygieniske våtservietter for trygg rengjøring etter håndtering og opprydding av ekskrementer."
+   "why": "Hygieniske våtservietter for trygg rengjøring etter håndtering og opprydding av ekskrementer.",
+   "thumb": "assets/prod/haand-og-overflate-antibac-wipes-50-stk-rentokil-af46f4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/haand-og-overflate-antibac-wipes-50-stk-rentokil-af46f4-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/mus/tetningsprodukter/gnagertett-xcluder-mus-og-rottestopper-startkit-10-x-100-cm",
@@ -1272,7 +2012,12 @@
    "price": "439.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/xcluder-gnagersikringssett-tetting-mus-rotter.png",
    "role": "Tett",
-   "why": "Giftfri tetting som stenger mus, rotter og flaggermus ute fra åpninger."
+   "why": "Giftfri tetting som stenger mus, rotter og flaggermus ute fra åpninger.",
+   "thumb": "assets/prod/xcluder-gnagersikringssett-tetting-mus-rotter-17117d.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/xcluder-gnagersikringssett-tetting-mus-rotter-17117d-240.webp",
+   "tsw": 240
   }
  ],
  "art:rengjoring-etter-mus": [
@@ -1282,7 +2027,12 @@
    "price": "79.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/munnbind-filtrerende-moldex-ffp2.jpg",
    "role": "Beskytt",
-   "why": "FFP2-maske som beskytter mot innånding av smittefarlig støv under rengjøringen."
+   "why": "FFP2-maske som beskytter mot innånding av smittefarlig støv under rengjøringen.",
+   "thumb": "assets/prod/munnbind-filtrerende-moldex-ffp2-849f30.webp",
+   "tw": 305,
+   "th": 440,
+   "thumb_s": "assets/prod/munnbind-filtrerende-moldex-ffp2-849f30-240.webp",
+   "tsw": 166
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/lagersalg/nitrilhansker-granberg/strl-10",
@@ -1290,7 +2040,12 @@
    "price": "54.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/arbeidshansker-nitril-granberg.png",
    "role": "Beskytt",
-   "why": "Beskytter hendene mot smitte ved opptørking av museavføring og døde mus."
+   "why": "Beskytter hendene mot smitte ved opptørking av museavføring og døde mus.",
+   "thumb": "assets/prod/arbeidshansker-nitril-granberg-d136d7.webp",
+   "tw": 360,
+   "th": 480,
+   "thumb_s": "assets/prod/arbeidshansker-nitril-granberg-d136d7-240.webp",
+   "tsw": 180
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/desinfisering-etter-gnagere/desinfeksjons-tabletter-virkon-50-stk-x-5-gram",
@@ -1298,7 +2053,12 @@
    "price": "995.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/virkon-desinfisering-etter-gnagere.png",
    "role": "Forebygg",
-   "why": "Dokumentert desinfeksjonsmiddel som fjerner virus og bakterier etter gnagerangrep."
+   "why": "Dokumentert desinfeksjonsmiddel som fjerner virus og bakterier etter gnagerangrep.",
+   "thumb": "assets/prod/virkon-desinfisering-etter-gnagere-e08df7.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/virkon-desinfisering-etter-gnagere-e08df7-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/desinfisering-etter-gnagere/haand-og-overflate-antibac-wipes-50-stk-rentokil",
@@ -1306,7 +2066,12 @@
    "price": "199.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/haand-og-overflate-antibac-wipes-50-stk-rentokil.jpg",
    "role": "Beskytt",
-   "why": "Hygieniske våtservietter for rask rengjøring av hender og overflater etter gnagere."
+   "why": "Hygieniske våtservietter for rask rengjøring av hender og overflater etter gnagere.",
+   "thumb": "assets/prod/haand-og-overflate-antibac-wipes-50-stk-rentokil-af46f4.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/haand-og-overflate-antibac-wipes-50-stk-rentokil-af46f4-240.webp",
+   "tsw": 240
   },
   {
    "url": "https://skadedyrbutikken.no/produkter/gnagere/xcluder-mus-og-rottestopper-startkit-3-m",
@@ -1314,7 +2079,12 @@
    "price": "895.00",
    "image": "https://skadedyrbutikken.no/Files/Images/Produktbilder/xcluder-mus-og-rottestopper-startkit-3-m.png",
    "role": "Tett",
-   "why": "Tetter sprekker og gjennomføringer slik at nye mus ikke slipper inn."
+   "why": "Tetter sprekker og gjennomføringer slik at nye mus ikke slipper inn.",
+   "thumb": "assets/prod/xcluder-mus-og-rottestopper-startkit-3-m-6407cd.webp",
+   "tw": 480,
+   "th": 480,
+   "thumb_s": "assets/prod/xcluder-mus-og-rottestopper-startkit-3-m-6407cd-240.webp",
+   "tsw": 240
   }
  ]
 }

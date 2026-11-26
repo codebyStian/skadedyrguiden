@@ -5,6 +5,19 @@ PICTURE: store redaksjonelle fotografier (Gemini/Imagen), ett per skadedyr
 COLOUR and TYPE: hvit grunn, dyp furugrønn for mørke flater, signalgul som eneste aksent; Instrument Serif i titler, Schibsted Grotesk i tekst
 LAYOUT: helbilde-hero med søk, leksikonrutenett, magasinoppsett for artikler, mørke bånd for verktøy og podkast
 */
+/* Skrifter: Instrument Serif og Schibsted Grotesk ligger på kryp.as (assets/fonts, SIL Open Font License), ikke hos Google Fonts.
+   De tre filene alle sider bruker (latin), hentes av skriptet i <head> (fonts_head i scripts/page.py) når siden er ferdig
+   lastet, og byttes inn bare hvis ingenting på skjermen flytter seg. latin-ext under hentes bare hvis en side har tegn
+   utenfor latin. */
+@font-face{font-family:"Schibsted Grotesk";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/schibsted-grotesk-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-ext-400-italic.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+/* Reserveskrifter som tar like stor plass som nettskriftene, så teksten ikke flytter seg når nettskriften er lastet.
+   Tallene er målt mot Arial og Times New Roman (og Liberation, som har samme bredder) med ekte tekst fra siden. */
+@font-face{font-family:"Schibsted Fallback";font-weight:100 500;src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("LiberationSans"),local("Arimo"),local("Roboto");size-adjust:104.2%;ascent-override:93.7%;descent-override:24.7%;line-gap-override:0%}
+@font-face{font-family:"Schibsted Fallback";font-weight:600 900;src:local("Arial Bold"),local("Arial-BoldMT"),local("Liberation Sans Bold"),local("LiberationSans-Bold"),local("Arimo Bold"),local("Roboto Bold");size-adjust:101%;ascent-override:96.7%;descent-override:25.5%;line-gap-override:0%}
+@font-face{font-family:"Instrument Fallback";font-style:normal;src:local("Times New Roman"),local("TimesNewRomanPSMT"),local("Liberation Serif"),local("LiberationSerif"),local("Tinos");size-adjust:83.1%;ascent-override:119.1%;descent-override:37.3%;line-gap-override:0%}
+@font-face{font-family:"Instrument Fallback";font-style:italic;src:local("Times New Roman Italic"),local("TimesNewRomanPS-ItalicMT"),local("Liberation Serif Italic"),local("LiberationSerif-Italic"),local("Tinos Italic");size-adjust:87.6%;ascent-override:113%;descent-override:35.4%;line-gap-override:0%}
 :root{color-scheme:light;
 --bg:light-dark(#ffffff,#0c1210);--ink:light-dark(#111715,#ecefed);--mute:light-dark(#5a6561,#9eaaa5);
 --soft:light-dark(#f1f3f2,#151d1a);--line:light-dark(#e1e5e3,#25302c);
@@ -12,11 +25,11 @@ LAYOUT: helbilde-hero med søk, leksikonrutenett, magasinoppsett for artikler, m
 :root,:root[data-theme=dark]{color-scheme:light}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Schibsted Grotesk","Schibsted Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img{display:block;max-width:100%}
 h1,h2,h3{font-weight:700;line-height:1.06;text-wrap:balance;margin:0 0 .45em;letter-spacing:-.025em}
-h1,h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1}
+h1,h2{font-family:"Instrument Serif","Instrument Fallback",Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1}
 h1{font-size:clamp(44px,7vw,92px)}
 h2{font-size:clamp(34px,4.4vw,56px)}
 h1 em,h2 em{font-style:italic}
@@ -33,7 +46,7 @@ p{margin:0 0 1em}
 .dark .kicker{color:var(--muteDark)}
 .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
 .head p{max-width:52ch;margin:0}
-.btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:0 22px;border-radius:999px;font:600 16px "Schibsted Grotesk",sans-serif;text-decoration:none;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .2s,color .2s}
+.btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:0 22px;border-radius:999px;font:600 16px "Schibsted Grotesk","Schibsted Fallback",sans-serif;text-decoration:none;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .2s,color .2s}
 .btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .btn.y{background:var(--y);border-color:var(--y);color:#111715}
 .btn.y:hover{background:#fff;border-color:#fff;color:#111715}
@@ -48,7 +61,7 @@ a:hover .ph img{transform:scale(1.035)}
 /* bilde som ikke finnes ennå: bevisst, typografisk flate i stedet for et gjentatt foto */
 .ph[data-ph]{background:radial-gradient(90% 120% at 100% 0%,#2b5248 0%,#163a32 45%,#0f2a24 100%)}
 .ph[data-ph]::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(242,194,48,.18) 1.2px,transparent 1.3px);background-size:18px 18px;-webkit-mask:linear-gradient(135deg,#000,transparent 70%);mask:linear-gradient(135deg,#000,transparent 70%)}
-.ph[data-ph]::after{content:attr(data-label);position:absolute;left:22px;bottom:16px;right:22px;font:400 clamp(30px,3.4vw,44px)/1 "Instrument Serif",Georgia,serif;color:var(--y);letter-spacing:-.01em}
+.ph[data-ph]::after{content:attr(data-label);position:absolute;left:22px;bottom:16px;right:22px;font:400 clamp(30px,3.4vw,44px)/1 "Instrument Serif","Instrument Fallback",Georgia,serif;color:var(--y);letter-spacing:-.01em}
 a:nth-child(3n+2) .ph[data-ph]{background:radial-gradient(90% 120% at 0% 100%,#3a4f2a 0%,#24361c 50%,#18261a 100%)}
 a:nth-child(3n) .ph[data-ph]{background:radial-gradient(90% 120% at 100% 100%,#4a3524 0%,#2e2118 55%,#1d1612 100%)}
 /* header */
@@ -66,7 +79,7 @@ footer{background:#0a1714;color:#b9c6c1;font-size:15px}
 footer .cols{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:32px}
 footer a{color:#eef3f1;text-decoration:none}footer a:hover{text-decoration:underline}
 footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-footer h3{color:#fff;font-size:15px;letter-spacing:0;margin-bottom:12px}
+footer h2{color:#fff;font:700 15px/1.2 "Schibsted Grotesk","Schibsted Fallback",sans-serif;letter-spacing:0;margin:0 0 12px;text-wrap:wrap}
 footer .logo{color:#fff;margin-bottom:12px}
 footer .base{border-top:1px solid #1f322d;margin-top:40px;padding-top:20px;font-size:13.5px}
 /* article pages */
@@ -77,6 +90,7 @@ footer .base{border-top:1px solid #1f322d;margin-top:40px;padding-top:20px;font-
 .art h2{font-size:28px;margin-top:1.7em}
 .art li{margin-bottom:.45em}
 .art ul{padding-left:1.2em}
+.art{overflow-wrap:break-word}.tblw{overflow-x:auto;margin:16px 0}.tblw .tbl{margin:0}
 .art .tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:16px}.art .tbl th,.art .tbl td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}.art .tbl thead th{font-weight:600;border-bottom:2px solid var(--ink)}
 .box{background:var(--soft);border-radius:16px;padding:22px 24px;margin:1.8em 0}
 .box b{display:block;margin-bottom:4px}
@@ -95,7 +109,7 @@ footer .base{border-top:1px solid #1f322d;margin-top:40px;padding-top:20px;font-
 .trans summary{font-size:16px}
 .trans p{margin:10px 0;max-width:68ch;font-size:16px}
 @media(max-width:860px){.top .wrap{gap:6px 14px;padding-block:10px}.nav{order:3;flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:22px;font-size:15px;scrollbar-width:none}.nav a{flex:none;padding:4px 0}.top .btn{margin-left:auto}.ahero{grid-template-columns:1fr}footer .cols{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.prod{grid-template-columns:1fr}footer .cols{grid-template-columns:1fr}}
+@media(max-width:600px){.prod{grid-template-columns:1fr}footer .cols{grid-template-columns:1fr}.art .tbl{font-size:14.5px}.art .tbl th,.art .tbl td{padding:8px 7px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 section[id]{scroll-margin-top:84px}
 /* Produkttips fra produktagenten */
@@ -103,16 +117,19 @@ section[id]{scroll-margin-top:84px}
 .rcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:12px}
 .rc{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;transition:transform .15s,box-shadow .15s}
 .rc:hover{transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(0,0,0,.4)}
-.rci{aspect-ratio:1/1;background:#f6f5f1;display:grid;place-items:center;padding:14px}.rci img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+/* Bildeflaten har fast form, og bildet ligger absolutt plassert inni den. Da kan et høyt eller stort produktbilde aldri blåse opp kortet. */
+.rci{position:relative;aspect-ratio:1/1;background:#f6f5f1;overflow:hidden}.rci img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:contain;mix-blend-mode:multiply}
 .rcb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}.rcr{align-self:flex-start;font-size:12px;font-weight:600;background:#f2c230;color:#13201c;border-radius:999px;padding:3px 10px}
 .rcb b{font-size:15.5px;line-height:1.3}.rcw{font-size:14px;color:var(--mute);line-height:1.4}.rcp{margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;font-weight:700;font-size:15px}.rcp i{font-style:normal;font-weight:600;font-size:13px}
 .art .recs .rcg{grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr))}
-.recs.cmp .rcg{grid-template-columns:1fr}.recs.cmp .rc{flex-direction:row}.recs.cmp .rci{width:96px;flex:none;aspect-ratio:auto}
+.recs.cmp .rcg{grid-template-columns:1fr}.recs.cmp .rc{flex-direction:row}.recs.cmp .rci{width:96px;flex:none;aspect-ratio:auto;min-height:96px}
+/* Smale skjermer: liggende kort med lite bilde, så produktbildene ikke fyller hele skjermen. */
+@media(max-width:560px){.recs .rcg,.art .recs .rcg{grid-template-columns:1fr}.recs .rc{flex-direction:row}.recs .rci{width:108px;flex:none;aspect-ratio:auto;min-height:108px}}
 #drawer .cred{display:block;font-size:11.5px;color:var(--mute);padding:6px 28px 0}#drawer .cred a{color:inherit}
 .also{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.also a{text-decoration:none;display:flex;flex-direction:column;gap:6px}.also .ph{aspect-ratio:4/3;border-radius:14px;overflow:hidden}.also .ph img{width:100%;height:100%;object-fit:cover}.also b{font-size:16px;line-height:1.3}
 @media(max-width:640px){.also{grid-template-columns:1fr 1fr}}
 .agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:28px 22px;margin-top:26px}.agrid a{text-decoration:none;display:flex;flex-direction:column;gap:8px}.agrid .ph{aspect-ratio:4/3;border-radius:16px;overflow:hidden}.agrid .ph img{width:100%;height:100%;object-fit:cover}.agrid b{font-size:19px;line-height:1.3}
-.afil{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.afil button{min-height:38px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 14.5px "Schibsted Grotesk",sans-serif;cursor:pointer}.afil button[aria-pressed=true]{background:#0f2a24;color:#fff}
+.afil{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.afil button{min-height:38px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 14.5px "Schibsted Grotesk","Schibsted Fallback",sans-serif;cursor:pointer}.afil button[aria-pressed=true]{background:#0f2a24;color:#fff}
 .twin{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:14px}.twin .tw{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:6px 0;font-size:14px}.twin .tw b{text-align:right}.twin .btn{margin-top:10px}
 .conf.alt i{background:#9fb0aa}
 .twin .conf{margin:0}

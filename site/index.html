@@ -7,22 +7,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kryp.as – kunnskap om skadedyr i hus, hage og hytte</title>
 <meta name="description" content="Fagartikler, podkast og verktøy om skadedyr i hus, hage og bedrift. Finn ut hva du har, hva du gjør først, og hva du trenger.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="32x32"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/site.css">
+<!--fonts--><script>(function(d,w){var p=w.performance,c,f,q=[],n=0,j=0,T;function S(){try{if(!p.getEntriesByType("paint").length&&j++<20)return A()}catch(e){}n=1;q.splice(0).forEach(function(x){setTimeout(x,0)})}function A(){if(!n){clearTimeout(T);T=setTimeout(S,250)}}function L(){try{new PerformanceObserver(A).observe({type:"largest-contentful-paint",buffered:true})}catch(e){}A()}d.readyState=="complete"?L():w.addEventListener("load",L);["pointerdown","keydown","touchstart","scroll"].forEach(function(e){w.addEventListener(e,function(){j=99;clearTimeout(T);S()},{once:true,passive:true,capture:true})});w.SGshown=function(x){n?x():q.push(x)};if(!w.FontFace||!d.fonts)return;f=[["Schibsted Grotesk","schibsted-grotesk-latin-wght-normal","400 900","normal"],["Instrument Serif","instrument-serif-latin-400-normal","400","normal"],["Instrument Serif","instrument-serif-latin-400-italic","400","italic"]].map(function(x){return new FontFace(x[0],"url(assets/fonts/"+x[1]+".woff2) format('woff2')",{weight:x[2],style:x[3],display:"swap",unicodeRange:"U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"})});function add(){f.forEach(function(x){d.fonts.add(x)})}function go(t){Promise.all(f.map(function(x){return x.load()})).then(function(){if(!d.body||!(t||p.getEntriesByType("paint").length))return add();var h=w.innerHeight,m=[];(function k(e){for(e=e.firstElementChild;e;e=e.nextElementSibling){var r=e.getBoundingClientRect();if(r.bottom>0&&r.top<h){m.push(e,r.top);k(e)}}})(d.body);add();for(var i=0;i<m.length;i+=2)if(Math.abs(m[i].getBoundingClientRect().top-m[i+1])>2){f.forEach(function(x){d.fonts.delete(x)});break}},function(){})}try{c=d.referrer.indexOf(location.origin+"/")==0||p.getEntriesByType("navigation")[0].type!="navigate"}catch(e){}if(c||w.innerWidth>700)go(0);else w.SGshown(function(){go(1)})})(document,window)</script>
+<noscript><link rel="stylesheet" href="assets/fonts.css"></noscript><!--/fonts-->
 <style>
+/* Seksjonene under første skjermbilde tegnes først når de nærmer seg skjermen. Det gir raskere første visning. */
+main>section.band{content-visibility:auto;contain-intrinsic-size:auto 800px}
 .hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;color:#fff;background:radial-gradient(90% 120% at 85% 20%,#2b5248 0%,#0f2a24 55%,#08140f 100%);overflow:hidden}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
+.hero>picture{display:contents}.hero>picture>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
 #fx{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:screen}
 .locrow{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap;margin-top:18px;color:#d6e0dc}
-.loc{display:inline-flex;gap:8px;align-items:center;min-height:40px;padding:0 4px;border:0;background:none;color:#fff;font:600 15px "Schibsted Grotesk",sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--y)}
+.loc{display:inline-flex;gap:8px;align-items:center;min-height:40px;padding:0 4px;border:0;background:none;color:#fff;font:600 15px "Schibsted Grotesk","Schibsted Fallback",sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--y)}
 .chip:empty{display:none}.chip{font-size:14px;background:rgba(255,255,255,.12);padding:6px 12px;border-radius:999px}.chip button{background:none;border:0;color:var(--y);font:inherit;cursor:pointer;text-decoration:underline;min-height:24px}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,13,.88) 0%,rgba(6,16,13,.55) 45%,rgba(6,16,13,.05) 80%),linear-gradient(0deg,rgba(6,16,13,.7),transparent 45%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding:0 max(5vw,18px) clamp(40px,6vw,80px)}
 .hero h1{max-width:12ch;margin-bottom:.25em}
 .hero .intro{max-width:46ch;font-size:19px;color:#d6e0dc}
 .search{position:relative;max-width:560px;margin-top:26px}
-.search input{width:100%;height:60px;border-radius:999px;border:0;padding:0 120px 0 26px;font:17px "Schibsted Grotesk",sans-serif;color:#111715;background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.search input{width:100%;height:60px;border-radius:999px;border:0;padding:0 120px 0 26px;font:17px "Schibsted Grotesk","Schibsted Fallback",sans-serif;color:#111715;background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.3)}
 .search .btn{position:absolute;right:7px;top:7px;min-height:46px}
 .hits{position:absolute;left:0;right:0;top:68px;background:#fff;color:#111715;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.35);overflow:hidden;display:none;z-index:3}
 .hits.on{display:block}
@@ -31,7 +34,7 @@
 .hits a:hover,.hits a:focus{background:#f6f3e4}
 .hits span{color:#5a6561;font-size:14px}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-.chips button{min-height:38px;padding:0 15px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font:500 14.5px "Schibsted Grotesk",sans-serif;cursor:pointer;backdrop-filter:blur(6px)}
+.chips button{min-height:38px;padding:0 15px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font:500 14.5px "Schibsted Grotesk","Schibsted Fallback",sans-serif;cursor:pointer;backdrop-filter:blur(6px)}
 .chips button:hover{background:#fff;color:#111715}
 .credit{position:absolute;right:max(5vw,18px);bottom:16px;z-index:2;font-size:12.5px;color:rgba(255,255,255,.6)}
 .strip{border-bottom:1px solid var(--line)}
@@ -43,7 +46,7 @@
 .sp .ph{aspect-ratio:3/4}
 .sp .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,14,11,.82))}
 .sp .cap{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:#fff}
-.sp h3{margin:0 0 2px;font:400 clamp(28px,2.6vw,34px)/1 "Instrument Serif",Georgia,serif;letter-spacing:0}
+.sp h3{margin:0 0 2px;font:400 clamp(28px,2.6vw,34px)/1 "Instrument Serif","Instrument Fallback",Georgia,serif;letter-spacing:0}
 .sp em{color:rgba(255,255,255,.75);font-size:13.5px}
 .sp .season{position:absolute;left:14px;top:14px;z-index:1;background:rgba(255,255,255,.92);color:#111715;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px}
 
@@ -71,7 +74,7 @@
 .signs label:has(input:checked){background:var(--y);border-color:var(--y);color:#111715}
 .signs label:has(input:focus-visible){outline:3px solid var(--y);outline-offset:3px}
 .res{background:var(--pine2);border-radius:22px;padding:30px;min-height:330px}
-.res .top1{font:400 clamp(44px,5vw,64px)/1 "Instrument Serif",Georgia,serif;margin:4px 0 20px}
+.res .top1{font:400 clamp(44px,5vw,64px)/1 "Instrument Serif","Instrument Fallback",Georgia,serif;margin:4px 0 20px}
 .res .row{display:grid;grid-template-columns:7em minmax(0,1fr) 3.2em;gap:12px;align-items:center;margin:12px 0;font-size:15.5px}
 .res .bar{height:8px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden}
 .res .bar i{display:block;height:100%;background:var(--y);border-radius:4px;transition:width .45s}
@@ -79,7 +82,7 @@
 .mag{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,3vw,44px)}
 .lead-art{text-decoration:none}
 .lead-art .ph{aspect-ratio:16/11;margin-bottom:20px}
-.lead-art h3{font:400 clamp(32px,3.6vw,46px)/1.02 "Instrument Serif",Georgia,serif;letter-spacing:0}
+.lead-art h3{font:400 clamp(32px,3.6vw,46px)/1.02 "Instrument Serif","Instrument Fallback",Georgia,serif;letter-spacing:0}
 .side{display:grid;gap:22px;align-content:start}
 .side a{display:grid;grid-template-columns:minmax(0,1fr) 132px;gap:18px;text-decoration:none;padding-bottom:22px;border-bottom:1px solid var(--line)}
 .side .ph{aspect-ratio:1;border-radius:14px}
@@ -107,7 +110,7 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .checks li::before{content:"";grid-row:span 2;width:22px;height:22px;border-radius:50%;background:var(--y) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6 11.5l3.2 3L16 8' fill='none' stroke='%23111715' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;margin-top:2px}
 .checks span{color:var(--mute);font-size:15.5px}
 .htype{display:inline-flex;gap:4px;background:var(--soft);padding:4px;border-radius:999px;margin:0 0 18px}
-.htype button{min-height:40px;padding:0 16px;border:0;border-radius:999px;background:none;color:var(--ink);font:600 14.5px "Schibsted Grotesk",sans-serif;cursor:pointer}
+.htype button{min-height:40px;padding:0 16px;border:0;border-radius:999px;background:none;color:var(--ink);font:600 14.5px "Schibsted Grotesk","Schibsted Fallback",sans-serif;cursor:pointer}
 .htype button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
 .biz{background:var(--soft)}
 @media(max-width:860px){.feat,.feat.rev{grid-template-columns:1fr}.feat .ph{aspect-ratio:4/3}.feat.rev .ph{order:-1}}
@@ -130,7 +133,7 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .ph3{font-size:18px;margin:28px 0 8px}
 .now{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:8px}
 .wx{display:flex;gap:14px;align-items:center;background:var(--soft);border-radius:16px;padding:16px 18px}
-.wx b{font:400 52px/1 "Instrument Serif",Georgia,serif;white-space:nowrap}
+.wx b{font:400 52px/1 "Instrument Serif","Instrument Fallback",Georgia,serif;white-space:nowrap}
 .risk{border-radius:16px;padding:14px 18px;background:var(--pine);color:var(--onDark)}
 .risk small{display:block;color:var(--muteDark)}.risk b{font-size:22px;display:block}.risk span{font-size:14.5px;color:#cfdcd7}
 .risk.r-høy{background:#7a2a1d}.risk.r-lav{background:#2c4a3f}
@@ -147,7 +150,7 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .rarts a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none}
 .rarts .cat{grid-column:1;margin:0}.rarts b{grid-column:1;font-weight:600}.rarts .soon{grid-column:2;grid-row:1/3;align-self:center;font-size:12.5px;color:var(--mute);background:var(--soft);padding:3px 10px;border-radius:999px}
 .tabs{display:flex;gap:4px;background:var(--pine2);padding:4px;border-radius:999px}
-.tabs button{min-height:42px;padding:0 18px;border:0;border-radius:999px;background:none;color:var(--onDark);font:600 15px "Schibsted Grotesk",sans-serif;cursor:pointer}
+.tabs button{min-height:42px;padding:0 18px;border:0;border-radius:999px;background:none;color:var(--onDark);font:600 15px "Schibsted Grotesk","Schibsted Fallback",sans-serif;cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--y);color:#111715}
 .drop{position:relative;border:1.5px dashed #3d5f56;border-radius:20px;min-height:230px;display:grid;place-items:center;cursor:pointer;overflow:hidden;margin:22px 0 14px;transition:border-color .2s,background .2s}
 .drop:hover,.drop.over{border-color:var(--y);background:rgba(242,194,48,.06)}
@@ -156,8 +159,8 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 .drop.has .dz{position:relative;z-index:1;background:rgba(8,20,16,.7);border-radius:14px;padding:10px 16px}
 .drop.has .dz svg,.drop.has .dz .small{display:none}
 .hintl{display:flex;flex-direction:column;gap:6px;font-size:14.5px;color:var(--muteDark)}
-.hintl select{min-height:48px;border-radius:12px;border:1px solid #2d4d45;background:var(--pine2);color:var(--onDark);font:16px "Schibsted Grotesk",sans-serif;padding:0 12px}
-.aicard h3{font:400 clamp(34px,4vw,48px)/1 "Instrument Serif",Georgia,serif;margin:6px 0 14px}.aicard h3 em{font-size:.5em;color:var(--muteDark)}
+.hintl select{min-height:48px;border-radius:12px;border:1px solid #2d4d45;background:var(--pine2);color:var(--onDark);font:16px "Schibsted Grotesk","Schibsted Fallback",sans-serif;padding:0 12px}
+.aicard h3{font:400 clamp(34px,4vw,48px)/1 "Instrument Serif","Instrument Fallback",Georgia,serif;margin:6px 0 14px}.aicard h3 em{font-size:.5em;color:var(--muteDark)}
 .aicard ul{margin:0 0 12px;padding-left:1.2em}
 .conf{height:8px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:16px}.conf i{display:block;height:100%;background:var(--y)}
 .aicard.busy{display:grid;gap:8px;justify-items:start}
@@ -166,9 +169,9 @@ a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-t
 @media(max-width:600px){.mrow{grid-template-columns:6.8em minmax(0,1fr) 3em;font-size:14.5px}.tabs{width:100%}.tabs button{flex:1}}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:26px}
 .steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px}
-.steps .n{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--y);color:var(--y);display:grid;place-items:center;font:400 24px/1 "Instrument Serif",Georgia,serif}
+.steps .n{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--y);color:var(--y);display:grid;place-items:center;font:400 24px/1 "Instrument Serif","Instrument Fallback",Georgia,serif}
 .steps b{font-size:18px}.steps p{margin:4px 0 12px}
-.steps select{width:100%;min-height:48px;border-radius:12px;border:1px solid #2d4d45;background:var(--pine2);color:var(--onDark);font:16px "Schibsted Grotesk",sans-serif;padding:0 12px}
+.steps select{width:100%;min-height:48px;border-radius:12px;border:1px solid #2d4d45;background:var(--pine2);color:var(--onDark);font:16px "Schibsted Grotesk","Schibsted Fallback",sans-serif;padding:0 12px}
 #analyze:disabled{opacity:.45;cursor:not-allowed}
 .steps .drop{margin:0}
 .calg{display:grid;grid-template-columns:8.5em repeat(12,minmax(0,1fr));gap:4px;align-items:center}
@@ -213,7 +216,7 @@ details[open] summary::after{content:"−"}
 details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 .news{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
 .news form{display:flex;gap:10px;flex-wrap:wrap}
-.news input{flex:1 1 240px;min-height:52px;border-radius:999px;border:1px solid #2d4d45;background:transparent;color:#fff;padding:0 22px;font:16px "Schibsted Grotesk",sans-serif}
+.news input{flex:1 1 240px;min-height:52px;border-radius:999px;border:1px solid #2d4d45;background:transparent;color:#fff;padding:0 22px;font:16px "Schibsted Grotesk","Schibsted Fallback",sans-serif}
 .news input::placeholder{color:var(--muteDark)}
 @media(max-width:980px){.lex{grid-template-columns:repeat(2,minmax(0,1fr))}.row3{grid-template-columns:1fr 1fr}.tools{grid-template-columns:1fr 1fr}}
 @media(max-width:860px){.idt,.mag,.pod,.faq,.news{grid-template-columns:1fr}.strip .wrap{grid-template-columns:1fr 1fr}.shopgrid{grid-template-columns:1fr 1fr}.shopgrid a:not(:nth-child(3n)){border-right:0}.shopgrid a:nth-child(odd){border-right:1.5px solid #111715}}
@@ -243,7 +246,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 
 <main>
 <section class="hero">
-  <img src="assets/img/hero.webp" alt="" fetchpriority="high" onerror="this.remove()">
+  <picture><source media="(max-width:480px)" type="image/avif" srcset="assets/img/m/hero.avif"><source media="(max-width:480px)" srcset="assets/img/m/hero.webp"><img src="assets/img/hero.webp" alt="" fetchpriority="high" onerror="var s=this.parentNode.querySelector('source');s?s.remove():this.remove()"></picture>
   <canvas id="fx" aria-hidden="true"></canvas>
   <div class="wrap">
     <span class="kicker" style="color:#d6e0dc" id="heroKicker">Høstsesong: musene leter etter vinterkvarter</span>
@@ -291,7 +294,7 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
   <div id="t-foto" class="idt" role="tabpanel">
     <ol class="steps">
       <li><span class="n">1</span><div><b>Ta eller velg et bilde</b><p class="mute small">Skarpt og ovenfra, gjerne med en mynt ved siden av for størrelse.</p>
-        <div class="drop" id="drop" tabindex="0" role="button" aria-label="Last opp bilde"><div id="prev"></div><div class="dz"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><b id="dzText">Slipp bildet her eller trykk for å velge</b><span class="small">JPG, PNG eller WEBP. Bildet lagres ikke.</span></div></div>
+        <div class="drop" id="drop" tabindex="0" role="button"><div id="prev"></div><div class="dz"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><b id="dzText">Slipp bildet her eller trykk for å velge</b><span class="small">JPG, PNG eller WEBP. Bildet lagres ikke.</span></div></div>
         <input type="file" id="file" accept="image/*" hidden></div></li>
       <li><span class="n">2</span><div><b>Hvor fant du det?</b><p class="mute small">Valgfritt, men det hjelper analysen.</p>
         <select id="hint" aria-label="Hvor fant du det?"><option value="">Vet ikke</option><option>Kjøkken</option><option>Bad</option><option>Soverom eller seng</option><option>Loft eller kjeller</option><option>Ute eller på terrassen</option><option>Hytte</option></select></div></li>
@@ -400,9 +403,9 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 <footer class="band"><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="./">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
-    <div><h3>Les</h3><ul><li><a href="leksikon/index.html">Kjenn igjen (leksikon)</a></li><li><a href="artikler/index.html">Råd og løsninger</a></li><li><a href="podkast.html">Podkast</a></li></ul></div>
-    <div><h3>Verktøy</h3><ul><li><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
-    <div><h3>Handle</h3><ul><li><a href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
+    <div><h2>Les</h2><ul><li><a href="leksikon/index.html">Kjenn igjen (leksikon)</a></li><li><a href="artikler/index.html">Råd og løsninger</a></li><li><a href="podkast.html">Podkast</a></li></ul></div>
+    <div><h2>Verktøy</h2><ul><li><a href="#lokalt">Der du bor</a><a href="#hvadet">Hva er det?</a></li><li><a href="#kalender">Sesongkalender</a></li><li><a href="#nyhetsbrev">Nyhetsbrev</a></li></ul></div>
+    <div><h2>Handle</h2><ul><li><a href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Skadedyrbutikken</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
   </div>
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>
@@ -415,7 +418,14 @@ details p{margin:12px 0 0;color:var(--mute);max-width:62ch}
 <script>
 {
 const U=(p,c)=>'https://skadedyrbutikken.no/produkter/'+p+'?utm_source=kryp.as&utm_medium=referral&utm_campaign='+c;
-const IMG=n=>`<img src="assets/img/${n}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()">`;
+// Bilder: mindre utgaver (assets/img/s, 320–800 px) der flaten er liten. Mangler utgaven, prøver vi originalen før plassholderen vises.
+window.SGerr=i=>{if(i.srcset){i.removeAttribute('srcset');i.removeAttribute('sizes')}else{i.parentNode.dataset.ph=1;i.remove()}};
+const SZ={card:'(max-width:600px) 92vw, (max-width:980px) 45vw, (max-width:1378px) 29vw, 395px',side:'176px',sp:'(max-width:600px) calc(50vw - 24px), (max-width:980px) 45vw, (max-width:1378px) 21vw, 297px'};
+const IMG=(n,z='card')=>`<img src="assets/img/${n}.webp" srcset="${[320,480,680,800].map(w=>`assets/img/s/${n}-${w}.webp ${w}w`).join(', ')}" sizes="${SZ[z]}" alt="" loading="lazy" onerror="SGerr(this)">`;
+// Artskortene er stående (3:4) og får ferdig beskårne utgaver (assets/img/p).
+const PIMG=n=>`<img src="assets/img/${n}.webp" srcset="assets/img/p/${n}-320.webp 320w, assets/img/p/${n}-640.webp 640w" sizes="${SZ.sp}" alt="" loading="lazy" onerror="SGerr(this)">`;
+// Det som ikke trengs for første skjermbilde, venter til det står på skjermen (SGshown, i <head>) – da får forsidebildet hele linja først.
+const AFTER=f=>window.SGshown?SGshown(f):setTimeout(f,0);
 const P=[
  {k:'mus',n:'Mus',l:'Husmus · Mus musculus',s:'Sep–mar',where:'Loft, kjeller, hytte',size:'7–10 cm + hale',signs:['Små mørke ekskrementer på størrelse med riskorn','Gnagemerker på isolasjon og matpakker','Krafsing i tak og vegger om natten'],first:'Finn og tett åpninger rundt rør, under dører og i takfoten. Sett feller langs veggene der musa går.',cat:'gnagere',art:'artikler/mus-om-hosten.html',tags:'mus gnager loft krafsing ekskrementer'},
  {k:'rotte',n:'Rotte',l:'Brunrotte · Rattus norvegicus',s:'Okt–mar',where:'Kjeller, avløp, uthus',size:'20–27 cm + hale',signs:['Ekskrementer på 1–2 cm','Mørke fettstriper langs vegger','Gnag på rør, ledninger og dører'],first:'Kontakt en skadedyrtekniker. Rotter innendørs er sjelden et gjør-det-selv-prosjekt.',cat:'gnagere',art:'artikler/rotter-i-byen.html',tags:'rotte rotter kjeller avløp'},
@@ -428,11 +438,12 @@ const P=[
 
 // Navngitte arter vises med ekte, fritt lisensiert foto (site/data/photos.json) – ikke illustrasjon.
 const KBID={mus:'mus',rotte:'rotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'veps',melmoll:'melmoll'};let PH={};
-const SPIMG=k=>PH[KBID[k]]?`<img src="assets/img/foto-${KBID[k]}.webp" alt="" loading="lazy">`:IMG(k);
+const SPIMG=k=>PIMG(PH[KBID[k]]?'foto-'+KBID[k]:k);
 const CRED=k=>{const p=PH[KBID[k]];return p?`<span class="cred">Foto: ${/^no rights/i.test(p.author)?'iNaturalist-bruker':p.author}${p.cropped?' (beskåret)':''} · <a href="${p.license_url||p.page}" rel="license noopener">${p.license}</a> · <a href="${p.page}" rel="noopener">kilde</a></span>`:''};
 const LX={mus:'husmus',rotte:'brunrotte',veggedyr:'veggedyr',maur:'stokkmaur',skjeggkre:'skjeggkre',veps:'stikkeveps',melmoll:'melmoll'};
-const drawLex=()=>{document.getElementById('lex').innerHTML=P.map(p=>`<a class="sp" data-k="${p.k}" href="${DEST(p.k)}"><div class="ph">${SPIMG(p.k)}<span class="season">${p.s}</span><div class="cap"><h3>${p.n}</h3><em>${p.l}</em></div></div></a>`).join('')};
-drawLex();fetch('data/photos.json').then(r=>r.ok?r.json():{}).then(d=>{PH=d;drawLex()}).catch(()=>{});
+// Kortene tegnes med én gang (uten bilde), og bildene settes inn når vi vet hvilke arter som har foto. Før ble hvert bilde lastet to ganger.
+document.getElementById('lex').innerHTML=P.map(p=>`<a class="sp" data-k="${p.k}" href="${DEST(p.k)}"><div class="ph"><span class="season">${p.s}</span><div class="cap"><h3>${p.n}</h3><em>${p.l}</em></div></div></a>`).join('');
+AFTER(()=>fetch('data/photos.json').then(r=>r.ok?r.json():{}).catch(()=>({})).then(d=>{PH=d;document.querySelectorAll('#lex .sp').forEach(a=>a.firstElementChild.insertAdjacentHTML('afterbegin',SPIMG(a.dataset.k)))}));
 const dr=document.getElementById('drawer'),db=document.getElementById('dbody');let last=null;
 // Kort og treff går rett til en egen side (leksikon, ellers artikkel) – ingen skuff fra høyre.
 function DEST(k){const p=P.find(x=>x.k===k)||{};return LX[k]?'leksikon/'+LX[k]+'.html':({fluer:'artikler/fluer-om-hosten.html'}[k]||p.art||'leksikon/index.html')}
@@ -474,15 +485,15 @@ function score(){const on=[...sEl.querySelectorAll('input:checked')].map(i=>i.va
 sEl.addEventListener('change',score);rEl.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b)open(b.dataset.k)});score();
 
 const A=[['Vilt i hagen · 6 min','Grevling på tomta: hva kan du gjøre – og hva har du lov til?','artikler/grevling-pa-tomta.html','grevling'],['Insekter · 5 min','Veggedyr på hotellet: sjekk rommet på to minutter','artikler/veggedyr-pa-reise.html','veggedyr'],['Veps · 4 min','Vepsebolet: fjern det tidlig i sesongen','artikler/vepsebol.html','veps'],['Insekter · 5 min','Sølvkre og skjeggkre: hva er forskjellen, og hva hjelper?','artikler/fukt-solvkre-skjeggkre.html','skjeggkre']];
-document.getElementById('side').innerHTML=A.map(([c,t,h,i])=>`<a href="${h}"><div><span class="cat">${c}</span><h3>${t}</h3></div><div class="ph" data-label="">${IMG(i)}</div></a>`).join('');
+document.getElementById('side').innerHTML=A.map(([c,t,h,i])=>`<a href="${h}"><div><span class="cat">${c}</span><h3>${t}</h3></div><div class="ph" data-label="">${IMG(i,'side')}</div></a>`).join('');
 const B=[['Gnagere','Rotter i byen: hva er ditt ansvar, og hva gjør kommunen?','artikler/rotter-i-byen.html','rotte'],['Maur','Stokkmaur eller skogsmaur? Slik ser du forskjellen','artikler/stokkmaur-eller-skogsmaur.html','maur'],['Hytte','Fjellhytta: mus gjennom vinteren og besøk i skisesongen','artikler/fjellhytta.html','hytte']];
 document.getElementById('row3').innerHTML=B.map(([c,t,h,i])=>`<a href="${h}"><div class="ph" data-label="${c}">${IMG(i)}</div><span class="cat">${c}</span><h3>${t}</h3></a>`).join('');
 // Artikkellistene bygges fra data/articles.json: aktuelle denne måneden først, så resten med filter per kategori.
-fetch('data/articles.json').then(r=>r.json()).then(all=>{
+AFTER(()=>fetch('data/articles.json').then(r=>r.json()).then(all=>{
   const m=new Date().getMonth()+1, lead='mus-om-hosten';
   const list=all.filter(a=>a.slug!==lead).sort((a,b)=>((b.months||[]).includes(m))-((a.months||[]).includes(m)));
   const card=a=>`<a href="artikler/${a.slug}.html"><div class="ph" data-label="${a.cat}">${IMG(a.img)}</div><span class="cat">${a.cat}${(a.months||[]).includes(m)?' · aktuelt nå':''}</span><h3>${a.title}</h3></a>`;
-  document.getElementById('side').innerHTML=list.slice(0,4).map(a=>`<a href="artikler/${a.slug}.html"><div><span class="cat">${a.cat}</span><h3>${a.title}</h3></div><div class="ph" data-label="">${IMG(a.img)}</div></a>`).join('');
+  document.getElementById('side').innerHTML=list.slice(0,4).map(a=>`<a href="artikler/${a.slug}.html"><div><span class="cat">${a.cat}</span><h3>${a.title}</h3></div><div class="ph" data-label="">${IMG(a.img,'side')}</div></a>`).join('');
   document.getElementById('row3').innerHTML=list.slice(4,7).map(card).join('');
   const rest=list.slice(7), cats=['Alle',...new Set(rest.map(a=>a.cat))];
   const draw=c=>{document.getElementById('allArts').innerHTML=rest.filter(a=>c==='Alle'||a.cat===c).map(card).join('');
@@ -490,9 +501,9 @@ fetch('data/articles.json').then(r=>r.json()).then(all=>{
   document.getElementById('artChips').innerHTML=cats.map(c=>`<button type="button" class="chip" data-c="${c}">${c}</button>`).join('');
   document.getElementById('artChips').onclick=e=>{const b=e.target.closest('button');if(b)draw(b.dataset.c)};
   draw('Alle');
-}).catch(()=>{});
+}).catch(()=>{}));
 
-fetch('data/episodes.json').then(r=>r.ok?r.json():[]).then(E=>{document.getElementById('eps').innerHTML=E.slice(0,3).map(e=>`<a class="ep" href="podkast.html#ep-${e.n}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${e.n}</small><br><b>${e.title}</b></span><span class="len">Lytt nå</span></a>`).join('')}).catch(()=>{});
+AFTER(()=>fetch('data/episodes.json').then(r=>r.ok?r.json():[]).then(E=>{document.getElementById('eps').innerHTML=E.slice(0,3).map(e=>`<a class="ep" href="podkast.html#ep-${e.n}" style="text-decoration:none"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2.5l9 5.5-9 5.5z" fill="#f2c230"/></svg></span><span><small>Episode ${e.n}</small><br><b>${e.title}</b></span><span class="len">Lytt nå</span></a>`).join('')}).catch(()=>{}));
 
 
 
@@ -502,6 +513,6 @@ document.getElementById('aiOut').addEventListener('click',e=>{const b=e.target.c
 }
 </script>
 <script src="assets/nl.js" defer></script>
-<script src="assets/app.js" defer></script>
+<script>{const go=()=>{const s=document.createElement('script');s.src='assets/app.js';document.body.appendChild(s)};window.SGshown?SGshown(go):go()}</script>
 </body>
 </html>
