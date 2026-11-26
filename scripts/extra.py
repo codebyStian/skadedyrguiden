@@ -1,8 +1,15 @@
 """FAQ-side og leksikonsider (én side per art). Kalles fra page.py."""
 import json, html as H, pathlib
+import img as PIC
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 ROOT = REPO / "site"
+
+
+def EAGER(n):
+    """Det første kortet er det største bildet på skjermen når siden åpnes: det lastes med en gang og med høy prioritet.
+    Resten lastes når de nærmer seg skjermen, så de ikke konkurrerer med det første på en treg mobillinje."""
+    return ' fetchpriority="high"' if n == 0 else ' loading="lazy"'
 SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=kryp.as&utm_medium=referral&utm_campaign={}"
 
 # Hvilke artikler hører til hvilken art (for intern lenking)
@@ -32,7 +39,7 @@ def build(head, foot, prod, recs=None):
     n = sum(len(q) for _, q in FAQ)
     body = f'''<style>.faqg{{margin-top:44px}}.faqg h2{{font-size:clamp(28px,3vw,38px)}}details{{border-bottom:1px solid var(--line);padding:18px 0}}details:first-of-type{{border-top:1px solid var(--line)}}
 summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}}summary::-webkit-details-marker{{display:none}}summary::after{{content:"+";font-size:24px;line-height:1;color:var(--mute)}}details[open] summary::after{{content:"−"}}details p{{margin:10px 0 0;max-width:66ch}}
-.qsearch{{width:100%;max-width:560px;min-height:52px;border-radius:999px;border:1.5px solid var(--line);padding:0 22px;font:17px "Schibsted Grotesk",sans-serif;background:var(--bg);color:var(--ink);margin-top:10px}}</style>
+.qsearch{{width:100%;max-width:560px;min-height:52px;border-radius:999px;border:1.5px solid var(--line);padding:0 22px;font:17px "Schibsted Grotesk","Schibsted Fallback",sans-serif;background:var(--bg);color:var(--ink);margin-top:10px}}</style>
 <section class="band" style="padding-bottom:0"><div class="wrap" style="max-width:900px"><span class="kicker">Spørsmål og svar</span>
 <h1 style="font-size:clamp(40px,5.4vw,72px)">{n} svar om <em>skadedyr</em></h1>
 <p class="mute" style="font-size:19px;max-width:52ch">Korte svar på det folk lurer mest på – med lenke til artikkelen som forklarer mer. Bygger på Folkehelseinstituttet og andre offentlige kilder.</p>
@@ -53,14 +60,14 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
     _i = REPO / 'kb/species_info.json'; lexicon.INFO.update(json.loads(_i.read_text()) if _i.exists() else {})
     stats = json.loads((ROOT / "data/stats.json").read_text())["fhi"]
     artimg = {x["slug"]: x.get("img") for x in ARTICLES + EXTRA}
-    for s in kb:
+    for n, s in enumerate(kb):
         slug = SLUG[s["id"]]
         body = lexicon.page(s, kb=kb, byid=byid, slugs=SLUG, img=IMG.get(s["id"]), imgs=IMG, rel=[r for r in REL.get(s["id"], []) if r in titles], titles=titles,
                             artimg=artimg, stats=stats, shop=SHOP.format(CAT.get(s["group"], "insekter"), "leksikon-" + slug))
         desc = f'{s["name"]} ({s["latin"]}): kjennetegn, forvekslingsarter og hva du gjør. Basert på Folkehelseinstituttets skadedyrhåndbok.'
         (L / f"{slug}.html").write_text(head(f'{s["name"]} – kjennetegn og råd – Kryp.as', desc, "../") + body + foot("../"), encoding="utf-8")
         ph = lexicon.PHOTOS.get(s["id"])
-        pic = (f'<div class="lxi"><img src="../assets/img/foto-{s["id"]}.webp" alt="{H.escape(s["name"])} ({H.escape(s["latin"])})" loading="lazy" onerror="this.remove()"></div>'
+        pic = (f'<div class="lxi"><img src="../assets/img/foto-{s["id"]}.webp"{PIC.rs("foto-" + s["id"], "lxg", "../assets/img/")} alt="{H.escape(s["name"])} ({H.escape(s["latin"])})"{EAGER(n)} onerror="this.remove()"></div>'
                f'<small class="lxc">Foto: {H.escape(lexicon.who(ph))} · {H.escape(ph.get("license", ""))}</small>') if ph else '<div class="lxi"></div>'
         cards.append(f'<a class="lx" href="{slug}.html">{pic}<div class="lxt"><b>{H.escape(s["name"])}</b><em>{H.escape(s["latin"])}</em><span>{"Skadedyr" if s["pest"] else "Ufarlig"}</span></div></a>')
     idx = f'''<style>.lxg{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px;margin-top:30px}}.lx{{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none}}.lxi{{aspect-ratio:4/3;background:var(--soft);overflow:hidden}}.lxi img{{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}}.lx:hover .lxi img{{transform:scale(1.04)}}.lxc{{font-size:11px;color:var(--mute);padding:6px 22px 0}}.lxt{{display:grid;gap:2px;padding:12px 22px 20px}}.lx:hover{{background:var(--soft)}}.lx b{{font-size:19px}}.lx em{{color:var(--mute)}}.lx span{{font-size:13px;color:var(--mute);margin-top:6px}}</style>
@@ -74,7 +81,7 @@ def newsletter_pages(head, foot):
     """Arkiv for Skadedyrbrevet + landingssider for bekreft/avmeld."""
     N = ROOT / "nyhetsbrev"; N.mkdir(exist_ok=True)
     form = '''<form class="nlf" data-nl><input type="email" required placeholder="din@epost.no" aria-label="E-postadresse"><input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button class="btn y" type="submit">Meld meg på</button><p class="small mute" data-nlmsg aria-live="polite"></p></form>'''
-    css = "<style>.nlf{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.nlf input[type=email]{flex:1;min-width:220px;min-height:50px;border-radius:999px;border:1.5px solid var(--line);padding:0 20px;font:16px 'Schibsted Grotesk',sans-serif}.nlf p{flex-basis:100%;margin:0}.iss{display:block;padding:20px 0;border-top:1px solid var(--line);text-decoration:none}.iss b{font-size:20px;display:block}</style>"
+    css = "<style>.nlf{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.nlf input[type=email]{flex:1;min-width:220px;min-height:50px;border-radius:999px;border:1.5px solid var(--line);padding:0 20px;font:16px 'Schibsted Grotesk','Schibsted Fallback',sans-serif}.nlf p{flex-basis:100%;margin:0}.iss{display:block;padding:20px 0;border-top:1px solid var(--line);text-decoration:none}.iss b{font-size:20px;display:block}</style>"
     issues = sorted((json.loads(p.read_text()) for p in N.glob("20??-??.json")), key=lambda d: d["slug"], reverse=True)
     for d in issues:
         items = "".join(f'<h2>{H.escape(i["title"])}</h2><p>{H.escape(i["text"])}</p><p><a href="{H.escape(i["link"])}">{H.escape(i.get("link_label") or "Les mer")} →</a></p>' for i in d["items"])
@@ -99,7 +106,7 @@ def credits_page(head, foot):
     """Kilder, foto og lisenser – samlet kreditering for alt innhold som ikke er laget av Kryp.as."""
     import lexicon
     byid = lexicon.load(REPO)
-    rows = "".join(f'''<tr><td><img src="assets/img/foto-{i}.webp" alt="" loading="lazy" style="width:96px;height:72px;object-fit:cover;border-radius:8px"></td>
+    rows = "".join(f'''<tr><td><img src="assets/img/foto-{i}.webp"{PIC.rs("foto-" + i, "thumb", "assets/img/")} alt="" loading="lazy" style="width:96px;height:72px;object-fit:cover;border-radius:8px"></td>
 <td><b>{H.escape(byid[i]["name"])}</b><br><em class="small mute">{H.escape(p.get("taxon", ""))}</em></td><td>{H.escape(lexicon.who(p))}</td>
 <td><a href="{H.escape(p.get("license_url") or p["page"])}" rel="license noopener">{H.escape(p["license"])}</a></td>
 <td><a href="{H.escape(p["page"])}" rel="noopener">{H.escape(p.get("source") or "Wikimedia Commons")}</a></td><td>{"Beskåret" if p.get("cropped") else "Skalert"}</td></tr>'''
@@ -111,7 +118,7 @@ def credits_page(head, foot):
 <p>Bildene av navngitte arter er ekte fotografier fra Wikimedia Commons og iNaturalist. Vi bruker bare bilder med lisenser som tillater kommersiell bruk:
 CC0 (ingen rettigheter forbeholdt), CC BY (kreditering) og CC BY-SA (kreditering, del på samme vilkår). Bilder med «ikke-kommersiell» (NC) eller «ingen bearbeidelse» (ND) brukes ikke.
 Bildene er skalert, og noen er beskåret slik at dyret fyller bildet. Beskårne versjoner av CC BY-SA-bilder deles videre under samme lisens som originalen.</p>
-<div style="overflow-x:auto"><table class="small" style="width:100%;border-collapse:collapse"><thead><tr><th></th><th align="left">Art</th><th align="left">Fotograf</th><th align="left">Lisens</th><th align="left">Original</th><th align="left">Endring</th></tr></thead><tbody>{rows}</tbody></table></div>
+<div style="overflow-x:auto"><table class="small" style="width:100%;border-collapse:collapse"><thead><tr><th scope="col" align="left">Bilde</th><th scope="col" align="left">Art</th><th scope="col" align="left">Fotograf</th><th scope="col" align="left">Lisens</th><th scope="col" align="left">Original</th><th scope="col" align="left">Endring</th></tr></thead><tbody>{rows}</tbody></table></div>
 <h2>Illustrasjonsbilder</h2>
 <p>Stemningsbilder i artikler, på forsiden og i regionene er generert med kunstig intelligens (Cloudflare Workers AI / FLUX og Google Gemini) og viser ikke virkelige steder eller personer. De brukes aldri for å vise hvordan en bestemt art ser ut.</p>
 <h2>Data og fagkilder</h2>
@@ -131,8 +138,8 @@ def articles_index(head, foot):
     from articles import ARTICLES, EXTRA
     arts = ARTICLES + EXTRA
     cats = sorted({a["cat"] for a in arts})
-    cards = "".join(f'''<a href="{a["slug"]}.html" data-c="{H.escape(a["cat"])}"><div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a.get("img") or "hero"}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
-<span class="small mute">{H.escape(a["cat"])}</span><b>{H.escape(a["title"])}</b>{f'<span class="mute" style="font-size:15px">{H.escape(a.get("lead", "")[:140])}…</span>' if a.get("lead") else ""}</a>''' for a in arts)
+    cards = "".join(f'''<a href="{a["slug"]}.html" data-c="{H.escape(a["cat"])}"><div class="ph" data-label="{H.escape(a["cat"])}"><img src="../assets/img/{a.get("img") or "hero"}.webp"{PIC.rs(a.get("img") or "hero", "agrid", "../assets/img/")} alt=""{EAGER(n)} onerror="this.parentNode.dataset.ph=1;this.remove()"></div>
+<span class="small mute">{H.escape(a["cat"])}</span><b>{H.escape(a["title"])}</b>{f'<span class="mute" style="font-size:15px">{H.escape(a.get("lead", "")[:140])}…</span>' if a.get("lead") else ""}</a>''' for n, a in enumerate(arts))
     body = f'''<section class="band"><div class="wrap"><span class="kicker">Råd og løsninger</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Hva gjør <em>jeg</em>?</h1>
 <p class="mute" style="font-size:19px;max-width:56ch">{len(arts)} artikler om hva du gjør når skadedyrene er der: slik blir du kvitt dem, slik forebygger du, og når du bør få hjelp. Basert på Folkehelseinstituttet og andre offentlige kilder. Vil du først finne ut hvilket dyr det er? Se <a href="../leksikon/index.html">Kjenn igjen</a>.</p>
 <div class="afil" id="af"><button type="button" aria-pressed="true" data-c="">Alle</button>{"".join(f'<button type="button" aria-pressed="false" data-c="{H.escape(c)}">{H.escape(c)}</button>' for c in cats)}</div>

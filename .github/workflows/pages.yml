@@ -19,8 +19,16 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: Build pages + SEO
-        env: { SITE_URL: "${{ vars.SITE_URL }}", PREVIEW: "${{ vars.PREVIEW || '0' }}" }
+        # INLINE_CSS=1: stilarket legges rett inn i hver side, så nettleseren kan tegne siden uten å hente en fil til.
+        env: { SITE_URL: "${{ vars.SITE_URL }}", PREVIEW: "${{ vars.PREVIEW || '0' }}", INLINE_CSS: "1" }
         run: python scripts/page.py && SITE_URL="${SITE_URL:-https://kryp.as}" python scripts/seo.py
+      - name: Minify scripts
+        # Bare den publiserte kopien minifiseres; filene i repoet er lesbare. Feiler det, publiseres skriptene som de er.
+        run: |
+          for f in site/assets/app.js site/assets/nl.js; do
+            if npx --yes terser@5.51.4 "$f" --compress --mangle --output "$f.min"; then mv "$f.min" "$f"
+            else rm -f "$f.min"; echo "::warning::Fikk ikke minifisert $f – publiserer den uendret."; fi
+          done
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }

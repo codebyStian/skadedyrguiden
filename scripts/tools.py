@@ -5,17 +5,17 @@ SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=kryp.as&utm_medium=r
 STYLE = """<style>
 .tool-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end}
 .prog{background:var(--soft);border-radius:20px;padding:22px 24px}
-.prog .big{font:400 64px/1 "Instrument Serif",Georgia,serif}
+.prog .big{font:400 64px/1 "Instrument Serif","Instrument Fallback",Georgia,serif}
 .pbar2{height:10px;border-radius:5px;background:var(--bg);overflow:hidden;margin:12px 0 6px}.pbar2 i{display:block;height:100%;background:var(--y);transition:width .4s}
 .grp{margin-top:40px}.grp h2{font-size:clamp(28px,3vw,38px)}
 .item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
 .item b{display:block;font-size:17px}.item span{color:var(--mute);font-size:15px}
 .seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button{min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:600 14.5px "Schibsted Grotesk",sans-serif;cursor:pointer}
+.seg button{min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:600 14.5px "Schibsted Grotesk","Schibsted Fallback",sans-serif;cursor:pointer}
 .seg button[aria-pressed=true].ok{background:#2c4a3f;border-color:#2c4a3f;color:#fff}
 .seg button[aria-pressed=true].fix{background:var(--y);border-color:var(--y);color:#111715}
 .side2{position:sticky;top:96px;background:var(--pine);color:var(--onDark);border-radius:22px;padding:26px}
-.side2 h3{font:400 34px/1 "Instrument Serif",Georgia,serif;margin-bottom:10px}
+.side2 h3{font:400 34px/1 "Instrument Serif","Instrument Fallback",Georgia,serif;margin-bottom:10px}
 .side2 ul{padding-left:1.1em;margin:0 0 16px}.side2 li{margin:6px 0}
 .side2 .mute{color:var(--muteDark)}
 .cols2{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
@@ -27,7 +27,7 @@ STYLE = """<style>
 .chips2 input{position:absolute;opacity:0;pointer-events:none}
 .chips2 label:has(input:checked){background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .chips2 label:has(input:focus-visible){outline:3px solid var(--y);outline-offset:3px}
-.result2 .num{font:400 96px/1 "Instrument Serif",Georgia,serif;color:var(--y)}
+.result2 .num{font:400 96px/1 "Instrument Serif","Instrument Fallback",Georgia,serif;color:var(--y)}
 .result2 table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}.result2 td{padding:7px 0;border-bottom:1px solid #2a4840}.result2 td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .warn{background:#7a2a1d;border-radius:14px;padding:14px 16px;margin:12px 0}
 @media(max-width:860px){.tool-hero,.cols2{grid-template-columns:1fr}.side2{position:static}}

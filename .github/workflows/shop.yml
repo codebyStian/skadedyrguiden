@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       crawl: { description: "Hent katalogen på nytt (true/false)", default: "true" }
+      match: { description: "La agenten velge produkter på nytt (true/false). crawl=false og match=false lager bare produktbildene.", default: "true" }
 
 permissions: { contents: write, actions: write }
 concurrency: { group: shop, cancel-in-progress: false }
@@ -21,15 +22,19 @@ jobs:
         if: ${{ inputs.crawl != 'false' }}
         run: python scripts/crawl_shop.py 3000
       - name: Match products to pages
-        if: ${{ hashFiles('scripts/products_match.py') != '' }}
+        if: ${{ hashFiles('scripts/products_match.py') != '' && inputs.match != 'false' }}
         env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
         run: python scripts/products_match.py
+      - name: Product thumbnails
+        # Små WebP-utgaver av produktbildene (butikkens originaler er opptil 1,7 MB). Uendrede bilder hentes ikke på nytt.
+        run: pip install -q pillow && python scripts/prod_images.py
       - name: Commit
         env: { GH_TOKEN: "${{ github.token }}" }
         run: |
           git config user.name "skadedyrguiden-bot"; git config user.email "actions@users.noreply.github.com"
-          for f in data/products.json site/data/recs.json; do [ -f $f ] && git add $f; done
+          for f in data/products.json site/data/recs.json data/prod_thumbs.json; do [ -f $f ] && git add $f; done
+          [ -d site/assets/prod ] && git add -A site/assets/prod
           git diff --cached --quiet || git commit -qm "Produktkatalog og produkttips"
           git checkout -- . && git clean -fdq
           git pull --rebase -q && git push -q
-          gh workflow run pages.yml
+          if [ "$GITHUB_REF_NAME" = "main" ]; then gh workflow run pages.yml; fi
