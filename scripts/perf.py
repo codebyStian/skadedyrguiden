@@ -18,7 +18,7 @@ SITE = REPO / "site"
 IMG = SITE / "assets/img"
 VAR = IMG / "r"
 MANIFEST = VAR / "manifest.json"
-WIDTHS = (480, 800, 1200)
+WIDTHS = (480, 640, 800, 1200)  # 640 dekker vanlige mobiler (ca. 350 px bredt bilde × 1,75–2 i pikseltetthet)
 Q = 74
 # Bilder som brukes som helsides hero på forsiden: får et eget utsnitt for smale mobiler (se index.html og app.js).
 HERO = re.compile(r"^(hero|by-.+|region-.+)$")
@@ -136,7 +136,8 @@ def build_variants():
         sha = hashlib.sha1(data).hexdigest()[:12]
         old = man.get(name)
         files = lambda e: [VAR / f"{name}-{w}.webp" for w in e["v"]] + ([VAR / f"{name}-m.webp"] if e.get("m") else [])
-        if old and old["sha"] == sha and all(f.exists() for f in files(old)):
+        want = lambda e: [w for w in WIDTHS if w < e["w"] * 0.9]  # nye bredder i WIDTHS gir nye varianter
+        if old and old["sha"] == sha and old["v"] == want(old) and all(f.exists() for f in files(old)):
             out[name] = old; continue
         if Image is None:
             continue

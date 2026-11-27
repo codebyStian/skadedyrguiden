@@ -164,6 +164,6 @@ f.addEventListener("change",calc);calc();
 
 
 TOOLS = {
- "tett-huset": ("Tett huset før vinteren", "Interaktiv sjekkliste: gå runden og få en handleliste for å stenge mus ute.", _check_body()),
+ "tett-huset": ("Tett huset mot mus før vinteren: sjekkliste", "Interaktiv sjekkliste for å tette huset mot mus: gå runden ute og inne, kryss av for åpningene og få en handleliste før vinteren.", _check_body()),
  "fellekalkulator": ("Hvor mange musefeller trenger du? Fellekalkulator", "Regn ut hvor mange musefeller du trenger, hvor de skal stå, hvilket åte som virker og hvorfor musa noen ganger ikke går i fella.", _calc_body()),
 }

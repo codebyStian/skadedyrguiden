@@ -92,8 +92,24 @@ def main():
             name = re.search(r"<h1[^>]*>(.*?)</h1>", h, re.S).group(1)
             name = re.sub("<[^>]+>", "", name)
             items = [home, ("Skadedyrleksikon", BASE + "/leksikon/")] + ([] if rel.endswith("index.html") else [(name, u)])
+            if rel.endswith("index.html"):
+                spp = re.findall(r'<a class="lx" href="([a-z0-9-]+)\.html">(?:(?!</a>).)*?<b>(.*?)</b>', h, re.S)
+                ld.append({"@context": "https://schema.org", "@type": "CollectionPage", "name": title.split(" – ")[0], "description": desc, "url": u,
+                           "inLanguage": "nb-NO", "publisher": ORG, "mainEntity": {"@type": "ItemList", "itemListElement": [
+                               {"@type": "ListItem", "position": i + 1, "url": f"{BASE}/leksikon/{sl}.html", "name": re.sub("<[^>]+>", "", n).strip()}
+                               for i, (sl, n) in enumerate(spp)]}})
+            else:
+                # Artssiden: artsfotoet øverst blir delingsbilde, og siden beskrives som en artikkel om arten (Taxon).
+                m = re.search(r'<section class="sx">.*?<img[^>]+src="\.\./(assets/img/[^"]+)"[^>]*?(?:alt="([^"]*)")?', h, re.S)
+                if m: img = f"{BASE}/{m.group(1)}"
+                lat = re.search(r'<p class="lat">(.*?)</p>', h, re.S)
+                taxon = {"@type": "Taxon", "name": H.unescape(lat.group(1)) if lat else name, "alternateName": name}
+                ld.append({"@context": "https://schema.org", "@type": "Article", "headline": title.split(" – ")[0][:110], "description": desc,
+                           "image": img, "inLanguage": "nb-NO", "author": ORG, "publisher": ORG, "mainEntityOfPage": u, "about": taxon,
+                           "isPartOf": {"@type": "CollectionPage", "name": "Skadedyrleksikon", "url": BASE + "/leksikon/"}})
+                extra_meta = [f'<meta property="og:image:alt" content="{H.escape(name)}">']
             ld += [{"@context": "https://schema.org", **crumbs(items)}]
-            otype = "website"
+            otype = "website" if rel.endswith("index.html") else "article"
         elif rel == "om-kryp.html":
             ld += [{"@context": "https://schema.org", "@type": "AboutPage", "name": title, "url": u, "inLanguage": "nb-NO", "about": ORG},
                    {"@context": "https://schema.org", **crumbs([home, ("Om Kryp.as", u)])}]

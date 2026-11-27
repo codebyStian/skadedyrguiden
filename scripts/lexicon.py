@@ -164,7 +164,7 @@ CMP_CSS = """<style>
 .cmpx .pic .nm{position:absolute;left:14px;bottom:14px;background:rgba(15,42,36,.86);color:#fff;border-radius:12px;padding:8px 14px}.cmpx .pic .nm b{display:block;font-size:18px}.cmpx .pic .nm em{font-size:13px;color:#cfdad6}
 .cmpx .pic .nm a{color:#fff}.cmpx .pic+.pic{border-left:3px solid #fff}
 .cmpx table{width:100%;border-collapse:collapse;font-size:15.5px}.cmpx th,.cmpx td{padding:13px 18px;border-top:1px solid var(--line);vertical-align:top;text-align:left}
-.cmpx th{width:22%;font-weight:600;color:var(--mute);font-size:14px}.cmpx td{width:39%}.cmpx tr.key{background:#fdf3d0}.cmpx tr.key th{color:#13201c}
+.cmpx th{width:22%;font-weight:600;color:var(--mute);font-size:14px}.cmpx td{width:39%}.cmpx thead th.c{width:39%;color:inherit;font-weight:400;font-size:inherit}.cmpx tr.key{background:#fdf3d0}.cmpx tr.key th{color:#13201c}
 .cmpx tr.key th::after{content:"Sikreste forskjell";display:block;font-size:11px;font-weight:700;color:#8a6a00;margin-top:3px;text-transform:uppercase;letter-spacing:.04em}
 .cmpx .cr{font-size:11.5px;color:var(--mute);padding:10px 18px;border-top:1px solid var(--line)}.cmpx .cr a{color:inherit}
 @media(max-width:640px){.cmpx th{width:28%}.cmpx th,.cmpx td{padding:10px 10px;font-size:14px}.cmpx .pic .nm{left:8px;bottom:8px;padding:6px 10px}.cmpx .pic .nm b{font-size:15px}}
@@ -181,10 +181,10 @@ def compare_block(a, b, kb_by_id, slugs, base="../", link=True):
         img = f'<img src="{base}assets/img/foto-{s["id"]}.webp" alt="{E(s["name"])}" loading="lazy">' if s["id"] in PHOTOS else ""
         nm = f'<a href="{base}leksikon/{slugs[s["id"]]}.html">{E(s["name"])}</a>' if link else E(s["name"])
         return f'<div class="pic"><div class="ph" data-label="{E(s["name"])}"{"" if img else " data-ph=1"}>{img}</div><div class="nm"><b>{nm}</b><em>{E(s["latin"])}</em></div></div>'
-    rows = "".join(f'<tr class="{"key" if r.get("key") else ""}"><th>{E(r["trait"])}</th><td>{E(cap(r["b"] if flip else r["a"]))}</td><td>{E(cap(r["a"] if flip else r["b"]))}</td></tr>' for r in d["rows"])
+    rows = "".join(f'<tr class="{"key" if r.get("key") else ""}"><th scope="row">{E(r["trait"])}</th><td>{E(cap(r["b"] if flip else r["a"]))}</td><td>{E(cap(r["a"] if flip else r["b"]))}</td></tr>' for r in d["rows"])
     creds = " · ".join(f'{E(kb_by_id[i]["name"])}: {E(who(PHOTOS[i]))}{" (beskåret)" if PHOTOS[i].get("cropped") else ""}, <a href="{E(PHOTOS[i].get("license_url") or PHOTOS[i]["page"])}" rel="license noopener">{E(PHOTOS[i]["license"])}</a>' for i in (a, b) if i in PHOTOS)
     return f'''<div class="cmpx">{f'<div class="test"><b>Raskeste test</b><span>{E(d["test"])}</span></div>' if d.get("test") else ""}
-<div class="pics">{pic(A)}{pic(B)}</div><table><thead><tr><th></th><td><b>{E(A["name"])}</b></td><td><b>{E(B["name"])}</b></td></tr></thead><tbody>{rows}</tbody></table>
+<div class="pics">{pic(A)}{pic(B)}</div><table><thead><tr><td></td><th scope="col" class="c"><b>{E(A["name"])}</b></th><th scope="col" class="c"><b>{E(B["name"])}</b></th></tr></thead><tbody>{rows}</tbody></table>
 {f'<div class="cr">Foto: {creds}</div>' if creds else ""}</div>'''
 
 

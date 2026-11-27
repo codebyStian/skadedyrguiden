@@ -32,9 +32,9 @@ def foot(base):
 <footer class="band"><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="{base}index.html">Kryp.as<i></i></a><p>Kunnskap om skadedyr i hus, hage og bedrift. Fra Skadedyrbutikken.</p></div>
-    <div><h3>Les</h3><ul><li><a href="{base}leksikon/index.html">Kjenn igjen (leksikon)</a></li><li><a href="{base}artikler/index.html">Råd og løsninger</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
-    <div><h3>Verktøy</h3><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li><li><a href="{base}om-kryp.html">Om Kryp.as</a></li></ul></div>
-    <div><h3>Handle</h3><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
+    <div><h2>Les</h2><ul><li><a href="{base}leksikon/index.html">Kjenn igjen (leksikon)</a></li><li><a href="{base}artikler/index.html">Råd og løsninger</a></li><li><a href="{base}podkast.html">Podkast</a></li></ul></div>
+    <div><h2>Verktøy</h2><ul><li><a href="{base}index.html#hvadet">Hva er det?</a></li><li><a href="{base}index.html#kalender">Sesongkalender</a></li><li><a href="{base}om-kryp.html">Om Kryp.as</a></li></ul></div>
+    <div><h2>Handle</h2><ul><li><a href="{SHOP.format('gnagere','footer')}">Gnagere</a></li><li><a href="{SHOP.format('insekter','footer')}">Insekter</a></li><li><a href="https://skadedyrbutikken.no/kundeservice/frakt-og-levering?utm_source=kryp.as&utm_medium=referral&utm_campaign=footer">Frakt og levering</a></li></ul></div>
   </div>
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="{base}kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>
@@ -224,7 +224,7 @@ def regional_pages():
 {(f'<div class="box"><b>Vil du ha en trinn-for-trinn-guide?</b>Skadedyrbutikken har en egen guide til dette: <a href="{H.escape(a["guide"][1])}" rel="noopener">{H.escape(a["guide"][0])} →</a></div>') if a.get("guide") else ""}
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
 {faq}
-<h2 id="kilder">Kilder</h2><ul class="small">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
+<h2 id="kilder">Kilder</h2><ul class="small src">{"".join(f'<li><a href="{u}" rel="noopener">{H.escape(t)}</a></li>' for t, u in a["sources"])}</ul>
 <p class="small mute">Artikkelen er skrevet av redaksjonen i Kryp.as og bygger på kildene over. Den erstatter ikke råd fra lege, veterinær eller fagperson.</p>
 {('<h2>Les også</h2><div class="also">' + "".join(f'<a href="{b["slug"]}.html"><div class="ph" data-label="{H.escape(b["cat"])}"><img src="../assets/img/{b["img"]}.webp" alt="" loading="lazy" onerror="this.parentNode.dataset.ph=1;this.remove()"></div><span class="small mute">{H.escape(b["cat"])}</span><b>{H.escape(b["title"])}</b></a>' for b in others) + '</div>') if others else ""}
 </div></article>'''
@@ -250,5 +250,5 @@ if __name__ == "__main__":
         f.write_text(head(title, desc, "../") + body + foot("../"), encoding="utf-8")
     (ROOT / "om-kryp.html").write_text(head("Om Kryp.as – hvem vi er og hvordan vi skriver", "Kryp.as er en norsk fagside om skadedyr, drevet av folkene bak Skadedyrbutikken. Slik velger vi kilder, skriver artikler og velger produkter.", "") + ABOUT + foot(""), encoding="utf-8")
     (ROOT / "data" / "episodes.json").write_text(json.dumps([{"n": e["n"], "title": e["title"], "articles": e["articles"]} for e in reversed(episodes()) if e["audio"]], ensure_ascii=False, indent=1), encoding="utf-8")
-    (ROOT / "podkast.html").write_text(head("Podkast – Kryp.as", "Podkasten Kryp & kunnskap om skadedyr.", "") + PODCAST_T.replace("{PLAYER}", player()).replace("{EPISODES}", episode_list()) + foot(""), encoding="utf-8")
+    (ROOT / "podkast.html").write_text(head("Podkast om skadedyr: Kryp & kunnskap – Kryp.as", "Podkast om skadedyr i hus, hage og hytte. Marte og Jonas tar ett skadedyr per episode, med råd fra fagartiklene på Kryp.as.", "") + PODCAST_T.replace("{PLAYER}", player()).replace("{EPISODES}", episode_list()) + foot(""), encoding="utf-8")
     print("ok")

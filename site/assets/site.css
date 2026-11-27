@@ -66,7 +66,7 @@ footer{background:#0a1714;color:#b9c6c1;font-size:15px}
 footer .cols{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:32px}
 footer a{color:#eef3f1;text-decoration:none}footer a:hover{text-decoration:underline}
 footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-footer h3{color:#fff;font-size:15px;letter-spacing:0;margin-bottom:12px}
+footer h2,footer h3{color:#fff;font:700 15px/1.2 "Schibsted Grotesk",sans-serif;letter-spacing:0;margin:0 0 12px}
 footer .logo{color:#fff;margin-bottom:12px}
 footer .base{border-top:1px solid #1f322d;margin-top:40px;padding-top:20px;font-size:13.5px}
 /* article pages */
@@ -143,4 +143,5 @@ section[id]{scroll-margin-top:84px}
 .podbox audio{width:100%}
 
 /* Ytelse: deler langt nede på siden tegnes først når de nærmer seg skjermen (førstevisningen regner bare ut toppen) */
-footer,.art>.recs,.art>.faqs,.art>.also{content-visibility:auto;contain-intrinsic-size:auto 600px}
+.art>.recs,.art>.faqs,.art>.also{content-visibility:auto;contain-intrinsic-size:auto 600px}
+.src li{margin-bottom:.2em}.src a{display:inline-block;padding:3px 0}

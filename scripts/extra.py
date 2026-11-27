@@ -58,7 +58,7 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
         body = lexicon.page(s, kb=kb, byid=byid, slugs=SLUG, img=IMG.get(s["id"]), imgs=IMG, rel=[r for r in REL.get(s["id"], []) if r in titles], titles=titles,
                             artimg=artimg, stats=stats, shop=SHOP.format(CAT.get(s["group"], "insekter"), "leksikon-" + slug))
         desc = f'{s["name"]} ({s["latin"]}): kjennetegn, forvekslingsarter og hva du gjør. Basert på Folkehelseinstituttets skadedyrhåndbok.'
-        (L / f"{slug}.html").write_text(head(f'{s["name"]} – kjennetegn og råd – Kryp.as', desc, "../") + body + foot("../"), encoding="utf-8")
+        (L / f"{slug}.html").write_text(head(f'{s["name"]}: kjennetegn, forveksling og råd – Kryp.as', desc, "../") + body + foot("../"), encoding="utf-8")
         ph = lexicon.PHOTOS.get(s["id"])
         # Første bilde er det største elementet på mobil: last det først. Resten lazy-loades.
         load = 'fetchpriority="high"' if not cards else 'loading="lazy"'
@@ -69,7 +69,7 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
 <section class="band"><div class="wrap"><span class="kicker">Kjenn igjen · leksikon</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Kjenn igjen <em>dyret</em></h1>
 <p class="mute" style="font-size:19px;max-width:56ch">Kjennetegn og forvekslingsarter for {len(kb)} dyr du kan møte i og rundt huset. Basert på Folkehelseinstituttets skadedyrhåndbok. Vet du hva det er og lurer på hva du skal gjøre? Se <a href="../artikler/index.html">Råd og løsninger</a>.</p>
 <div class="lxg">{"".join(cards)}</div></div></section>'''
-    (L / "index.html").write_text(head("Skadedyrleksikon – Kryp.as", "Kjennetegn og forvekslingsarter for vanlige skadedyr i Norge, fra husmus og rotter til skjeggkre, veggedyr og veps.", "../") + idx + foot("../"), encoding="utf-8")
+    (L / "index.html").write_text(head("Skadedyrleksikon: kjenn igjen skadedyr i Norge – Kryp.as", "Kjennetegn og forvekslingsarter for vanlige skadedyr i Norge, fra husmus og rotter til skjeggkre, veggedyr og veps.", "../") + idx + foot("../"), encoding="utf-8")
 
 
 def newsletter_pages(head, foot):
