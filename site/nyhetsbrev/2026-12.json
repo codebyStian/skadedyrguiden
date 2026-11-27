@@ -1,76 +1,68 @@
 {
- "subject": "Skadedyrbrevet for desember: Mus i vegger og vintersikring",
- "preheader": "Slik holder du gnagere ute av bolig og hytte, og unngår skader på isolasjon og rør.",
- "intro": "Når kulden fester grepet i desember, søker mus og rotter inn i oppvarmede boliger og hytter for å finne ly og næring. Smågnagere etablerer seg gjerne i vegger og himlinger, der de kan gjøre skade på isolasjon og fuktsperrer. Med fysiske tiltak og riktig felleplassering kan du forebygge skader gjennom vintermånedene.",
+ "subject": "Desember: råd om gnagere, fjellhytte og julepapp",
+ "preheader": "Sikre hytta mot mus før jul, og unngå skjeggkre i eskene fra julehandelen.",
+ "intro": "I desember trekker mus og rotter inn i bygninger og hytter på jakt etter ly og varme. Samtidig fører julehandelen til at store mengder pappesker tas inn i boligene, noe som kan bringe med seg uønskede insekter. Med målrettet fysisk sikring og gode rutiner forebygger du skader gjennom vintermånedene.",
  "items": [
   {
-   "title": "Steng musene ute av boligen",
-   "text": "Mus trenger kun syv millimeter for å presse seg inn i en oppvarmet bygning. I vinterkulden etablerer storskogmus og husmus seg gjerne i vegger og himlinger. Dyrenes gnaging kan skade fuktsperrer og det elektriske anlegget, noe som kan gi både fuktproblemer og brannfare. Folkehelseinstituttet anbefaler å prioritere fysisk tetting fremfor kjemisk bekjempelse, da gift medfører risiko for sekundærforgiftning av rovdyr og kjæledyr. Bruk gjerne et mobilkamera langs kledningen for å oppdage sprekker, og tett ventiler og hull med gnagersikre materialer som metallnetting eller stålull kombinert med fugemasse. Har du allerede fått mus i huset, bør mekaniske klappfeller plasseres vinkelrett langs veggene.",
-   "link": "https://kryp.as/artikler/mus-om-hosten.html",
-   "link_label": "Les mer om tetting mot mus",
-   "source_urls": [
-    "https://kryp.as/artikler/mus-om-hosten.html",
-    "https://www.if.no/magasinet/bolig/flytte/unnga-skadedyr-i-hus",
-    "https://www.huseierne.no/alt-om-bolig/inneklima-og-miljo/skadedyr-i-hjemmet/mus-som-skadedyr---slik-forebygger-og-bekjemper-du-dem/",
-    "https://www.fhi.no/sk/skadedyr/skadedyrbekjempelse/"
-   ]
-  },
-  {
-   "title": "Vintersikring av hytta i fjellet og ved kysten",
-   "text": "Før hytter forlates for vinteren, bør det gjøres grundige tiltak mot kulde og skadedyr. Smågnagere som klatremus kan trekke opp til 1400 meter over havet i Sør-Norge, mens rødmus finnes i Nord-Norge. Frende Forsikring anbefaler å tette hull og sprekker utvendig så mus ikke etablerer bol i isolasjonen. I tillegg bør hovedstoppekranen stenges for å unngå frostskader, og vedlagre sikres. Unngå å etterlate matrester mellom besøkene, og fjern fuglematere og buskas like ved husveggen. Dersom du må rydde opp ekskrementer etter mus, bør du bruke hansker og unngå å virvle opp støv, ettersom både klatremus og rødmus kan spre musepest.",
+   "title": "Sikring av fjellhytta for vinteren",
+   "text": "Fritidsboliger står ofte kalde og ubevoktet i lange perioder, noe som gjør dem spesielt sårbare for gnagere. På fjellet i Sør-Norge er det særlig klatremus som trekker inn, mens rødmus dominerer i nord. Mus trenger kun en åpning på seks millimeter for å ta seg inn, og skader på isolasjon, møbler og kabler kan bli svært kostbare. Sørg for å sikre ventiler med metallnetting, monter musebørster og oppbevar mat i tette beholdere. Må du rydde ekskrementer under julebesøket, bør disse alltid fuktes før de tørkes opp for å unngå smitte fra musepest.",
    "link": "https://kryp.as/artikler/fjellhytta.html",
-   "link_label": "Råd for sikring av fjellhytta",
+   "link_label": "Les mer om sikring av fjellhytta",
    "source_urls": [
     "https://kryp.as/artikler/fjellhytta.html",
-    "https://www.frende.no/aktuelt/fiks-hytta-for-hoststormen-kommer/",
-    "https://www.gjensidige.no/godtforberedt/sak/na-vil-musene-inn"
+    "https://www.huseierne.no/alt-om-bolig/vedlikehold-og-oppussing/forbered-hytta-pa-vinteren/",
+    "https://kommunikasjon.ntb.no/pressemelding/sa-mye-kan-en-museskade-koste-dette-er-nokkelen-for-a-unnga-skader"
    ]
   },
   {
-   "title": "Skjeggkre og veggedyr i vintermånedene",
-   "text": "Selv om utetemperaturen faller, lever insekter uforstyrret innendørs. Folkehelseinstituttets statistikk viser at skjeggkre forblir det mest bekjempede skadedyret i Norge, tett etterfulgt av veggedyr. Veggedyrbekjempelser har en tendens til å øke etter ferie- og reiseperioder, og FHI understreker viktigheten av å inspisere både overnattingssteder og bagasje for å unngå å ta med blindpassasjerer hjem. For skjeggkre har bruken av målrettet forgiftet åte bidratt til å stabilisere forekomsten. Åten legges ut som små dråper mange steder langs veggene i alle rom. I motsetning til sølvkre klarer skjeggkre seg også godt i tørre rom, og uttørking alene er derfor ikke tilstrekkelig for bekjempelse.",
+   "title": "Pappemballasje kan bringe skjeggkre inn i boligen",
+   "text": "Under julehandelen og etter store handledager fraktes mange pappesker rett inn i oppholdsrommene. Skjeggkre trives godt i tørre rom i hele huset og blir ofte med som blindpassasjerer i forsendelser fra netthandel. Biolog Ragna Byrkjeland råder til å åpne pakkene utendørs eller i garasjen, kaste pappen raskt og støvsuge nye møbler før de tas i bruk. Har skjeggkre først etablert seg, er grundig overvåking og profesjonell behandling med forgiftet åte lagt ut i små dråper den mest dokumenterte og effektive metoden for å bli kvitt dem.",
    "link": "https://kryp.as/artikler/fukt-solvkre-skjeggkre.html",
-   "link_label": "Les om tiltak mot skjeggkre",
+   "link_label": "Les mer om skjeggkre og tiltak",
    "source_urls": [
+    "https://kommunikasjon.ntb.no/pressemelding/dette-er-julegaven-du-ikke-vil-ha",
     "https://kryp.as/artikler/fukt-solvkre-skjeggkre.html",
-    "https://www.fhi.no/nyheter/2026/stabil-forekomst-av-fleire-skadedyrartar-lita-nedgang-for-skjeggkre/"
+    "https://kommunikasjon.ntb.no/pressemelding/mange-tror-de-har-solvkre-men-har-egentlig-skjeggkre"
+   ]
+  },
+  {
+   "title": "Gnagersesong i storbyene: fysisk sikring fremfor gift",
+   "text": "Aktiviteten fra mus og rotter er høy inn mot vinteren, og storbyer som Oslo, Bergen og Kristiansand opplever flest bekjempelser. En museskade koster i gjennomsnitt 60 000 kroner å utbedre, og storskader på tekniske installasjoner kan bli vesentlig dyrere. Siden privat bruk av musegift fases ut, er mekanisk sikring den viktigste løsningen. Tett alle sprekker over seks millimeter for mus og tolv millimeter for rotter med metallnetting eller børster. Det frarådes å bruke gift privat, da døde gnagere i vegger og gulv skaper kraftig og langvarig lukt.",
+   "link": "https://kryp.as/artikler/mus-om-hosten.html",
+   "link_label": "Les mer om tetting mot gnagere",
+   "source_urls": [
+    "https://kommunikasjon.ntb.no/pressemelding/mus-og-rotter-pa-full-fart-inn-storbyene-pa-uonsket-topp",
+    "https://kommunikasjon.ntb.no/pressemelding/sa-mye-kan-en-museskade-koste-dette-er-nokkelen-for-a-unnga-skader",
+    "https://kryp.as/artikler/mus-om-hosten.html"
    ]
   }
  ],
  "checklist": [
   {
-   "text": "Tett lufteventiler og sprekker med metallnetting eller gnagersikre materialer.",
+   "text": "Pakk opp forsendelser utendørs og kast pappemballasjen raskt.",
    "source_urls": [
-    "https://www.gjensidige.no/godtforberedt/sak/na-vil-musene-inn",
-    "https://www.if.no/magasinet/bolig/flytte/unnga-skadedyr-i-hus",
-    "https://kryp.as/artikler/mus-om-hosten.html"
+    "https://kommunikasjon.ntb.no/pressemelding/dette-er-julegaven-du-ikke-vil-ha"
    ]
   },
   {
-   "text": "Steng hovedstoppekranen og sikre vedlagre på hytta før frost og uvær.",
-   "source_urls": [
-    "https://www.frende.no/aktuelt/fiks-hytta-for-hoststormen-kommer/"
-   ]
-  },
-  {
-   "text": "Plasser mekaniske klappfeller innendørs langs vegger i stedet for gift.",
-   "source_urls": [
-    "https://www.if.no/magasinet/bolig/flytte/unnga-skadedyr-i-hus",
-    "https://www.fhi.no/sk/skadedyr/skadedyrbekjempelse/",
-    "https://kryp.as/artikler/mus-pa-garden.html"
-   ]
-  },
-  {
-   "text": "Bruk hansker og unngå å virvle opp støv ved muselort.",
+   "text": "Tett åpninger over seks millimeter med metallnetting eller musebørster.",
    "source_urls": [
     "https://kryp.as/artikler/fjellhytta.html",
-    "https://kryp.as/artikler/mus-pa-garden.html"
+    "https://kommunikasjon.ntb.no/pressemelding/mus-og-rotter-pa-full-fart-inn-storbyene-pa-uonsket-topp"
    ]
   },
   {
-   "text": "Undersøk bagasje og overnattingssteder nøye for å hindre spredning av veggedyr.",
+   "text": "Oppbevar all mat og dyrefôr i tette beholdere på hytta.",
    "source_urls": [
-    "https://www.fhi.no/nyheter/2026/stabil-forekomst-av-fleire-skadedyrartar-lita-nedgang-for-skjeggkre/"
+    "https://kryp.as/artikler/fjellhytta.html",
+    "https://www.huseierne.no/alt-om-bolig/vedlikehold-og-oppussing/forbered-hytta-pa-vinteren/"
+   ]
+  },
+  {
+   "text": "Fukt museekskrementer før fjerning og unngå feiing eller støvsuging.",
+   "source_urls": [
+    "https://kryp.as/artikler/fjellhytta.html",
+    "https://kryp.as/artikler/musebaesj.html"
    ]
   }
  ],
@@ -78,17 +70,16 @@
  "month": "desember",
  "year": 2026,
  "sources": [
+  "https://kommunikasjon.ntb.no/pressemelding/dette-er-julegaven-du-ikke-vil-ha",
+  "https://kommunikasjon.ntb.no/pressemelding/mange-tror-de-har-solvkre-men-har-egentlig-skjeggkre",
+  "https://kommunikasjon.ntb.no/pressemelding/mus-og-rotter-pa-full-fart-inn-storbyene-pa-uonsket-topp",
+  "https://kommunikasjon.ntb.no/pressemelding/sa-mye-kan-en-museskade-koste-dette-er-nokkelen-for-a-unnga-skader",
   "https://kryp.as/artikler/fjellhytta.html",
   "https://kryp.as/artikler/fukt-solvkre-skjeggkre.html",
   "https://kryp.as/artikler/mus-om-hosten.html",
-  "https://kryp.as/artikler/mus-pa-garden.html",
-  "https://www.fhi.no/nyheter/2026/stabil-forekomst-av-fleire-skadedyrartar-lita-nedgang-for-skjeggkre/",
-  "https://www.fhi.no/sk/skadedyr/skadedyrbekjempelse/",
-  "https://www.frende.no/aktuelt/fiks-hytta-for-hoststormen-kommer/",
-  "https://www.gjensidige.no/godtforberedt/sak/na-vil-musene-inn",
-  "https://www.huseierne.no/alt-om-bolig/inneklima-og-miljo/skadedyr-i-hjemmet/mus-som-skadedyr---slik-forebygger-og-bekjemper-du-dem/",
-  "https://www.if.no/magasinet/bolig/flytte/unnga-skadedyr-i-hus"
+  "https://kryp.as/artikler/musebaesj.html",
+  "https://www.huseierne.no/alt-om-bolig/vedlikehold-og-oppussing/forbered-hytta-pa-vinteren/"
  ],
  "model": "gemini-3.8-flash",
- "generated": "2026-11-18"
+ "generated": "2026-11-27"
 }
