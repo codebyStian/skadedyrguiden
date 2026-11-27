@@ -52,17 +52,67 @@
   }
  },
  "skogmus": {
-  "storrelse": [],
-  "utseende": [],
-  "hvor": [],
-  "tegn": [],
-  "livssyklus": [],
-  "skade": [],
-  "forebygg": [],
-  "tiltak": [],
+  "storrelse": [
+   "Småskogmus: kropp 7–10 cm, hale 7–9 cm og vekt 8–28 g",
+   "Storskogmus: kropp 8–13 cm, hale 9–13 cm (ofte litt lengre enn kroppen) og vekt 12–55 g",
+   "Ekskrementene er 3–6 mm lange",
+   "Bakfoten setter avtrykk på ca. 20–24 mm"
+  ],
+  "utseende": [
+   "Småskogmus er gråbrun på ryggen med gråhvit buk og ofte en utydelig, avlang gulbrun flekk på brystet",
+   "Storskogmus er oftest brunrød på ryggen med hvit buk og et tydelig gulbrunt halsbånd",
+   "Spissere snute enn husmus, og store, fremtredende øyne og ører",
+   "Storskogmus er større og har lengre hale enn småskogmus",
+   "Fire tær på forbeina og fem på bakbeina"
+  ],
+  "hvor": [
+   "Lavereliggende skog i Sør-Norge og langs Vestlandskysten (småskogmus)",
+   "Dalene på Østlandet og kysten nord til Trondheim (storskogmus)",
+   "Kulturlandskap, skogkanter, kratt og hager",
+   "Bol i ganger i bakken, storskogmus også i trær og fuglekasser",
+   "Ikke i høyfjellet",
+   "Inne i hus og hytter om høsten"
+  ],
+  "tegn": [
+   "Korte, tykke ekskrementer med spisse ender (3–6 mm)",
+   "Fotspor med slepespor av halen mellom avtrykkene, synlig i støv eller i mel eller talkum du strør ut",
+   "Gnagemerker, og hull i emballasje eller vegger der den har kommet til mat",
+   "Skader i isolasjon inne i bygningen",
+   "Flaggermusavføring kan ligne, men smuldrer når du tar på den og inneholder bare insektrester"
+  ],
+  "livssyklus": [
+   "Får unger ute i sommerhalvåret, og yngler ikke inne i bygninger",
+   "To til tre kull i året med 3–7 unger, etter omtrent tre ukers drektighet",
+   "Kjønnsmoden etter 5–8 uker og lever omtrent ett år",
+   "Trekker inn i hus og hytter om høsten for å overvintre: småskogmus helst nederst i huset, storskogmus helst øverst",
+   "Nattaktiv, klatrer, hopper og svømmer godt, og holder seg vanligvis noen få meter fra boet"
+  ],
+  "skade": [
+   "Spiser mat og dyrefôr og forurenser med urin og avføring",
+   "Gnager i vegger, gulv, isolasjon, møbler, tekstiler og elektriske ledninger",
+   "Døde dyr i vegger og gulv kan gi vond lukt",
+   "Gnagere kan spre smitte, men skogmus smitter ikke med musepest",
+   "Vask opp etter mus med våt klut i stedet for å koste eller støvsuge, og bruk hansker"
+  ],
+  "forebygg": [
+   "Tett alle åpninger større enn 6 mm",
+   "Hele kjellervinduer og kraftig metallnetting over ventiler",
+   "Tette dører, eventuelt med metallbeslag nederst",
+   "Tett rundt rørgjennomføringer med betong, tettemasse eller galvaniserte plater",
+   "Ikke la greiner henge inn over taket, og hold vegetasjon unna veggene",
+   "Ikke la mat, søppel, kompost eller fuglemat ligge tilgjengelig"
+  ],
+  "tiltak": [
+   "Klappfeller langs veggene der musene går, gjerne to og to med 2–3 cm mellomrom, og mange av dem",
+   "Åte som peanøttsmør, sjokolade, rosiner, nøtter eller leverpostei",
+   "Limfeller og drukningsfeller er ikke tillatt",
+   "FHI anbefaler ikke gift i og rundt private boliger; private kan bare bruke ferdigfylte åtestasjoner innendørs",
+   "Ultralyd og andre skremmemidler er ikke vist å virke",
+   "Sjekk etterpå for nye spor, og finn årsaken hvis aktiviteten fortsetter"
+  ],
   "kilde": {
-   "title": "FHI Skadedyrhåndboka: oversikt over skadedyr",
-   "url": "https://fhi.no/sk/skadedyrhandboka/oversikter/alfabetisk-etter-norsk-navn"
+   "title": "FHI Skadedyrhåndboka: Småskogmus",
+   "url": "https://www.fhi.no/sk/skadedyrhandboka/gnagere/smaskogmus/"
   }
  },
  "rotte": {
@@ -602,6 +652,67 @@
   "kilde": {
    "title": "FHI Skadedyrveilederen: Tysk kakerlakk",
    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/kakerlakker/tysk-kakerlakk/"
+  }
+ },
+ "flatt": {
+  "storrelse": [
+   "Larve ca. 0,5 mm",
+   "Nymfe ca. 1,5 mm",
+   "Voksen hann 2–3 mm og voksen hunn 3–4 mm",
+   "En fullsugd hunn kan bli inntil 1,5 cm"
+  ],
+  "utseende": [
+   "En midd, altså et edderkoppdyr, med åtte bein som nymfe og voksen",
+   "Larven har bare seks bein, men ligner ellers de eldre stadiene",
+   "Hunnen har brunrød bakkropp som blir gråblå når hun er fullsugd",
+   "Nymfene er så små at de lett blir oversett, også når de har bitt seg fast"
+  ],
+  "hvor": [
+   "Vanlig langs kysten fra Østfold til Brønnøysund",
+   "Nordligste faste bestand på Dønna i Nordland",
+   "Enkeltdyr langt inn i landet og nord for polarsirkelen",
+   "Fuktige steder med gress, busker og kratt",
+   "Åpen skog med mye hjort, særlig der hjorten hviler",
+   "Færre jo lenger inn i landet og høyere opp du kommer"
+  ],
+  "tegn": [
+   "Kryper raskt oppover beina og inn under klærne",
+   "Biter seg gjerne fast i knehaser, lyske, armhuler og bak ørene",
+   "Et vanlig bitt gir en liten hevelse og et rødt merke på et par cm, som et myggstikk, og er ufarlig",
+   "Rødlig utslett som vokser til over 5 cm rundt bittet, 3–30 dager senere, er det vanligste tegnet på borreliose"
+  ],
+  "livssyklus": [
+   "Går gjennom egg, larve, nymfe og voksen, og må suge blod mellom hvert stadium",
+   "Hele utviklingen tar 3–5 år",
+   "Aktiv når det er varmegrader, telefritt og snøen har gått",
+   "Mest flått om våren; aktiviteten kan avta midt på sommeren når det er varmt og tørt",
+   "Hunnen suger blod i 7–10 dager og legger 2000–3000 egg i strølaget"
+  ],
+  "skade": [
+   "Regnes som den viktigste smittespreder blant blodsugerne i Nord-Europa",
+   "Kan overføre borreliose og skogflåttencefalitt (TBE), og sjeldnere andre sykdommer",
+   "Fjernes flåtten innen ett døgn, er risikoen for borreliose lav",
+   "Kontakt lege ved voksende utslett, eller hvis du får slapphet, hodepine, feber, ansiktslammelse, muskelsmerter eller hovne ledd",
+   "Det finnes vaksine mot TBE; snakk med fastlegen hvis du ofte blir bitt der det er påvist TBE"
+  ],
+  "forebygg": [
+   "Lange bukser stappet ned i strømpene, og lyse klær så du ser flåtten",
+   "Myggmiddel med DEET eller ikaridin på klærne",
+   "Gå på stier i stedet for i høyt gress, lyng og kratt",
+   "Sjekk kroppen etter turen, og rist, vask eller heng ut klærne",
+   "Sjekk hund og katt daglig; veterinæren kan gi flåttmiddel på resept",
+   "Høyt gress, busker og kratt rundt huset kan fjernes for å få færre flått"
+  ],
+  "tiltak": [
+   "Fjern flåtten så fort som mulig med pinsett eller flåttfjerner",
+   "Ta tak helt inne ved huden og trekk den rett ut; en voksen flått kan vris litt samtidig",
+   "Det betyr lite for smitten om litt av munnen blir sittende igjen i huden",
+   "Desinfiserende sårsalve kan hindre betennelse i såret",
+   "Flått i naturen kan som regel ikke bekjempes, og sprøyting frarådes på grunn av miljøet"
+  ],
+  "kilde": {
+   "title": "FHI Skadedyrhåndboka: Skogflått (flått)",
+   "url": "https://fhi.no/sk/skadedyrhandboka/edderkoppdyr/skogflatt"
   }
  }
 }

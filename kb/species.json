@@ -39,21 +39,32 @@
    "features": [
     "store ører",
     "store, utstående øyne",
-    "lang hale",
-    "lys eller hvit buk",
-    "brunlig rygg"
+    "spissere snute enn husmus",
+    "lang hale, omtrent som kroppen eller litt lengre",
+    "gulbrun flekk eller halsbånd på brystet",
+    "brunlig rygg og lys eller hvit buk"
    ],
    "confusable": [
     {
      "id": "mus",
-     "how": "husmus har små ører og mer ensfarget grå pels"
+     "how": "husmus mangler den gulbrune flekken på brystet og har mindre øyne og ører"
     }
    ],
    "source": {
-    "title": "FHI Skadedyrhåndboka: oversikt over skadedyr",
-    "url": "https://fhi.no/sk/skadedyrhandboka/oversikter/alfabetisk-etter-norsk-navn"
+    "title": "FHI Skadedyrhåndboka: Småskogmus",
+    "url": "https://www.fhi.no/sk/skadedyrhandboka/gnagere/smaskogmus/"
    },
-   "checked": false
+   "checked": true,
+   "sources": [
+    {
+     "title": "FHI Skadedyrhåndboka: Småskogmus",
+     "url": "https://www.fhi.no/sk/skadedyrhandboka/gnagere/smaskogmus/"
+    },
+    {
+     "title": "FHI Skadedyrhåndboka: Storskogmus",
+     "url": "https://www.fhi.no/sk/skadedyrhandboka/gnagere/storskogmus/"
+    }
+   ]
   },
   {
    "id": "rotte",
@@ -326,10 +337,10 @@
    ],
    "confusable": [],
    "source": {
-    "title": "FHI Skadedyrveilederen: Melsmalmott",
-    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/moll-og-sommerfugler/melmoll/"
+    "title": "FHI Skadedyrhåndboka: Melsmalmott",
+    "url": "https://www.fhi.no/sk/skadedyrhandboka/moll-og-sommerfugler/melmoll/"
    },
-   "checked": false
+   "checked": true
   },
   {
    "id": "kakerlakk",
@@ -338,11 +349,11 @@
    "group": "insekt",
    "pest": true,
    "features": [
-    "lysebrun",
-    "flat, oval kropp",
-    "lange antenner",
-    "to mørke lengdestriper på brystskjoldet",
-    "rask og sky for lys"
+    "lysebrun til brungul, 1,0–1,6 cm",
+    "to svarte lengdestriper på halsskjoldet",
+    "velutviklede vinger, brukes til glideflukt",
+    "nymfene er vingeløse og mørkere",
+    "lys brun, svakt buet eggkapsel på ca. 8 mm"
    ],
    "confusable": [
     {
@@ -351,10 +362,10 @@
     }
    ],
    "source": {
-    "title": "FHI Skadedyrveilederen: Tysk kakerlakk",
-    "url": "https://www.fhi.no/nettpub/skadedyrveilederen/kakerlakker/tysk-kakerlakk/"
+    "title": "FHI Skadedyrhåndboka: Tysk kakerlakk",
+    "url": "https://www.fhi.no/sk/skadedyrhandboka/kakerlakker/tysk-kakerlakk/"
    },
-   "checked": false
+   "checked": true
   },
   {
    "id": "flatt",
@@ -363,17 +374,17 @@
    "group": "midd",
    "pest": true,
    "features": [
-    "åtte bein (voksne og nymfer)",
-    "liten, flat og dråpeformet",
-    "mørkebrun til rødbrun",
-    "svulmer opp og blir gråaktig etter blodmåltid"
+    "åtte bein som nymfe og voksen (larven har seks)",
+    "larve ca. 0,5 mm, nymfe ca. 1,5 mm, voksen 2–4 mm",
+    "hunnen har brunrød bakkropp",
+    "fullsugd hunn blir inntil 1,5 cm og gråblå"
    ],
    "confusable": [],
    "source": {
-    "title": "FHI: Flått og flåttbårne sykdommer",
-    "url": "https://www.fhi.no/skadedyr"
+    "title": "FHI Skadedyrhåndboka: Skogflått (flått)",
+    "url": "https://fhi.no/sk/skadedyrhandboka/edderkoppdyr/skogflatt"
    },
-   "checked": false
+   "checked": true
   }
  ]
 }

@@ -22,6 +22,7 @@ def head(title, desc, base):
 <header class="top"><div class="wrap">
   <a class="logo" href="{base}index.html">Kryp.as<i></i></a>
   <nav class="nav" aria-label="Hovedmeny"><a href="{base}leksikon/index.html">Kjenn igjen</a><a href="{base}artikler/index.html">Råd og løsninger</a><a href="{base}index.html#hvadet">Hva er det?</a><a href="{base}podkast.html">Podkast</a><a href="{base}sporsmal-og-svar.html">Spørsmål og svar</a></nav>
+  <button class="sbtn" type="button" data-search aria-label="Søk i Kryp.as" title="Søk (/)"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
   <a class="btn y arrow" href="https://skadedyrbutikken.no/?utm_source=kryp.as&utm_medium=referral&utm_campaign=header">Butikken </a>
 </div></header>
 <main>
@@ -39,11 +40,35 @@ def foot(base):
   <div class="base">Illustrasjonsbildene er AI-genererte. Artsfoto er ekte fotografier med fri lisens. <a href="{base}kilder-og-lisenser.html" style="color:inherit">Kilder, foto og lisenser</a></div>
 </div></footer>
 <script src="{base}assets/nl.js" defer></script>
+<script src="{base}assets/search.js" defer></script>
 </body>
 </html>
 '''
 
 _RECS = None
+
+
+def tables_a11y(h):
+    """Tabeller i artiklene: kolonneoverskrifter med scope, og første celle i hver rad som radoverskrift.
+    Radoverskriftene vises halvfete (se .tbl i site.css)."""
+    import re
+    def one(t):
+        head, sep, body = t.partition("<tbody>")
+        head = re.sub(r"<th>(?=[^<]*</th>)", '<th scope="col">', head.replace("<thead><tr><th></th>", "<thead><tr><td></td>"))
+        return head + sep + re.sub(r"<tr><td>(.*?)</td>", r'<tr><th scope="row">\1</th>', body)
+    return re.sub(r'<table class="tbl">.*?</table>', lambda m: one(m.group(0)), h, flags=re.S)
+
+
+def kjenn(slug):
+    """«Kjenn igjen dyret»: lenker fra artikkelen til leksikonsidene for artene den handler om (fra extra.REL)."""
+    import extra
+    kb = {x["id"]: x for x in json.loads((ROOT.parent / "kb/species.json").read_text())["species"]}
+    ids = [i for i, arts in extra.REL.items() if slug in arts and i in kb and i in extra.SLUG]
+    if not ids: return ""
+    card = lambda i: (f'<a href="../leksikon/{extra.SLUG[i]}.html">'
+                      + (f'<img src="../assets/img/foto-{i}.webp" alt="" loading="lazy" width="64" height="64">' if (ROOT / f"assets/img/foto-{i}.webp").exists() else "")
+                      + f'<span><b>{H.escape(kb[i]["name"])}</b><em>{H.escape(kb[i]["latin"])}</em></span></a>')
+    return f'<aside class="kjenn" aria-label="Kjenn igjen dyret"><span class="kicker">Kjenn igjen dyret</span><div>{"".join(card(i) for i in ids)}</div></aside>'
 
 
 def recs_for(key):
@@ -203,6 +228,7 @@ def regional_pages():
             txt = m.group(1); i = _slug(txt); heads.append((i, _re.sub(r"<[^>]+>", "", txt))); return f'<h2 id="{i}">{txt}</h2>'
         body = _re.sub(r"<h2>(.*?)</h2>", _h2, a["body"])
         if cmpb: body = body.replace("</p>", "</p>" + cmpb, 1)
+        body = tables_a11y(body)
         toc = ('<nav class="toc" aria-label="Innhold"><b>I denne artikkelen</b><ol>' + "".join(f'<li><a href="#{i}">{H.escape(t)}</a></li>' for i, t in heads) +
                ('<li><a href="#vanlige-sporsmal">Vanlige spørsmål</a></li>' if a.get("faq") else "") + '</ol></nav>') if len(heads) >= 4 else ""
         faq = ('<h2 id="vanlige-sporsmal">Vanlige spørsmål</h2><div class="faqs">' +
@@ -221,6 +247,7 @@ def regional_pages():
 </div></section>
 <article class="band"><div class="art">{kort}{pod}{toc}{body}
 {box}
+{kjenn(a["slug"])}
 {(f'<div class="box"><b>Vil du ha en trinn-for-trinn-guide?</b>Skadedyrbutikken har en egen guide til dette: <a href="{H.escape(a["guide"][1])}" rel="noopener">{H.escape(a["guide"][0])} →</a></div>') if a.get("guide") else ""}
 {recs("art:" + a["slug"], "art-" + a["slug"]) or (prod(*a["prod"], "art-" + a["slug"]) if a["prod"] else "")}
 {faq}

@@ -18,10 +18,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install -q pillow
+      - run: pip install -q pillow rjsmin
       - name: Build pages + SEO + performance
         env: { SITE_URL: "${{ vars.SITE_URL }}", PREVIEW: "${{ vars.PREVIEW || '0' }}" }
-        run: python scripts/page.py && SITE_URL="${SITE_URL:-https://kryp.as}" python scripts/seo.py && python scripts/perf.py
+        run: python scripts/page.py && SITE_URL="${SITE_URL:-https://kryp.as}" python scripts/seo.py && python scripts/search.py && python scripts/perf.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }

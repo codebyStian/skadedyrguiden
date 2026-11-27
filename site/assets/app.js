@@ -116,14 +116,22 @@
   const hero = $(".hero"), heroImg = hero && hero.querySelector("img");
   function setHeroImage(names, label) {
     if (!heroImg) return;
-    const list = [].concat(names), source = heroImg.closest("picture")?.querySelector("source");
+    const list = [].concat(names), source = heroImg.closest("picture")?.querySelector("source:not([type])");
     const phone = source && matchMedia(source.media).matches;
     const tryNext = () => {
       const name = list.shift(); if (!name) return;
       const full = `assets/img/${name}.webp`, crop = `assets/img/r/${name}-m.webp`, test = new Image();
-      test.onload = () => { heroImg.style.opacity = 0; setTimeout(() => {
+      // Bytt uten å tone ut: det gamle bildet ligger som bakgrunn til det nye er tegnet (ingen mørk blink).
+      // Valget huskes, så neste besøk starter med riktig bilde (se skriptet etter hero-bildet i index.html).
+      test.onload = () => {
+        store.set("sg-hero", name);
+        if (heroImg.dataset.n === name) return;
+        heroImg.style.background = `url("${heroImg.currentSrc}") center/cover`;
+        heroImg.closest("picture")?.querySelectorAll("source[type]").forEach((s) => s.remove()); // AVIF-kildene gjelder bare startbildet
         if (source) source.srcset = phone ? test.src : crop;
-        heroImg.removeAttribute("srcset"); heroImg.src = full; heroImg.style.opacity = 1; }, 300); };
+        heroImg.removeAttribute("srcset"); heroImg.src = full; heroImg.dataset.n = name;
+        heroImg.decode?.().catch(() => {}).finally(() => { heroImg.style.background = ""; });
+      };
       test.onerror = () => { if (test.src.endsWith(crop) || test.src.endsWith("-m.webp")) { test.onerror = tryNext; test.src = full; } else tryNext(); };
       test.src = phone ? crop : full;
     };
@@ -300,7 +308,7 @@
   }
   document.addEventListener("click", (e) => {
     if (e.target.closest("[data-locate]")) locate();
-    if (e.target.closest("[data-forget]")) { store.del("sg-loc"); loc = null; location.reload(); }
+    if (e.target.closest("[data-forget]")) { store.del("sg-loc"); store.del("sg-hero"); loc = null; location.reload(); }
   });
 
   /* ---------- sesongkalender fra FHI ---------- */
@@ -395,7 +403,7 @@
       box.innerHTML = `<div class="htype" role="group" aria-label="Type hytte"><button type="button" data-h="fjell" aria-pressed="${type === "fjell"}">Fjellhytte</button><button type="button" data-h="sjo" aria-pressed="${type === "sjo"}">Hytte ved sjøen</button></div>
         <span class="kicker">${g}</span><h2>${t[1]}</h2><p class="mute">${t[2]}</p><ul class="checks">${t[3].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("")}</ul><a class="btn arrow" href="artikler/${art[type]}.html">Les hele guiden </a>${recsHTML("hytte:" + type, "hytte-" + type, 3, "Til hytta")}`;
       const img = document.querySelector("#monthTip")?.closest(".feat")?.querySelector(".ph img"), want = type === "sjo" ? "region-sor" : "hytte";
-      if (img && img.dataset.n !== want) { img.dataset.n = want; img.removeAttribute("srcset"); img.src = `assets/img/${want}.webp`; }
+      if (img && img.dataset.n !== want) { img.dataset.n = want; img.closest("picture")?.querySelectorAll("source").forEach((s) => s.remove()); img.removeAttribute("srcset"); img.src = `assets/img/${want}.webp`; }
     };
     box.addEventListener("click", (e) => { const b = e.target.closest("[data-h]"); if (b) { type = b.dataset.h; store.set("sg-hytte", type); draw(); } });
     draw();

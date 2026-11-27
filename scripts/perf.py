@@ -18,8 +18,9 @@ SITE = REPO / "site"
 IMG = SITE / "assets/img"
 VAR = IMG / "r"
 MANIFEST = VAR / "manifest.json"
-WIDTHS = (480, 640, 800, 1200)  # 640 dekker vanlige mobiler (ca. 350 px bredt bilde × 1,75–2 i pikseltetthet)
+WIDTHS = (240, 480, 640, 800, 1200)  # 640 dekker vanlige mobiler (ca. 350 px bredt bilde × 1,75–2 i pikseltetthet)
 Q = 74
+AQ = 50  # AVIF: samme synlige kvalitet som WebP 74, ca. 40 % mindre filer
 # Bilder som brukes som helsides hero på forsiden: får et eget utsnitt for smale mobiler (se index.html og app.js).
 HERO = re.compile(r"^(hero|by-.+|region-.+)$")
 HERO_ASPECT, HERO_Q = 0.68, 58
@@ -59,6 +60,7 @@ SIZES = {
     "lead-art": (16 / 11, [(860, "92vw")], 720),              # forsiden: hovedartikkel
     "feat": (4 / 5, [(860, "92vw")], 560),                    # forsiden: hyttetips (4:3 på mobil)
     "pod": (4 / 3, [(860, "92vw")], 600),                     # forsiden: podkast
+    "kjenn": (1, [], 56),                                     # artikkel: «Kjenn igjen dyret» (små kvadrater)
 }
 DEFAULT_SIZES = "(max-width: 860px) 92vw, 50vw"
 HERO_CONTEXTS = ("sx", "ahero")  # bildet her er det største elementet på skjermen (LCP)
@@ -123,12 +125,21 @@ def load_manifest():
     except Exception: return {}
 
 
+def lqip(im):
+    """Bittelite, uskarpt forhåndsbilde (32 px bredt, under 1 KB) som vises før hovedbildet er lastet."""
+    import base64, io
+    im = im.convert("RGB"); w = 32; h = max(1, round(im.height * w / im.width))
+    b = io.BytesIO(); im.resize((w, h)).save(b, "WEBP", quality=40)
+    return base64.b64encode(b.getvalue()).decode()
+
+
 def build_variants():
     """Lager manglende/utdaterte varianter. Uten Pillow brukes bare varianter som allerede er laget for samme originalbilde."""
     try:
-        from PIL import Image
+        from PIL import Image, features
+        avif = features.check("avif")
     except ImportError:
-        Image = None
+        Image, avif = None, False
     man, out = load_manifest(), {}
     VAR.mkdir(parents=True, exist_ok=True)
     for src in sorted(IMG.glob("*.webp")):
@@ -137,7 +148,9 @@ def build_variants():
         old = man.get(name)
         files = lambda e: [VAR / f"{name}-{w}.webp" for w in e["v"]] + ([VAR / f"{name}-m.webp"] if e.get("m") else [])
         want = lambda e: [w for w in WIDTHS if w < e["w"] * 0.9]  # nye bredder i WIDTHS gir nye varianter
-        if old and old["sha"] == sha and old["v"] == want(old) and all(f.exists() for f in files(old)):
+        avifs = lambda e: [VAR / f"{name}-{w}.avif" for w in e["v"] + [e["w"]]] + ([VAR / f"{name}-m.avif"] if e.get("m") else [])
+        if old and old["sha"] == sha and old["v"] == want(old) and (old.get("a") or not avif) and all(f.exists() for f in files(old) + (avifs(old) if old.get("a") else [])):
+            if "q" not in old and Image is not None: old["q"] = lqip(Image.open(src))
             out[name] = old; continue
         if Image is None:
             continue
@@ -145,18 +158,27 @@ def build_variants():
         if im.mode not in ("RGB", "RGBA"): im = im.convert("RGB")
         W, Ht = im.size
         e = {"sha": sha, "w": W, "h": Ht, "v": []}
+        rgb = im.convert("RGB")
         for w in WIDTHS:
             if w < W * 0.9:
-                im.resize((w, round(Ht * w / W)), Image.LANCZOS).save(VAR / f"{name}-{w}.webp", "WEBP", quality=Q, method=6)
+                r = im.resize((w, round(Ht * w / W)), Image.LANCZOS)
+                r.save(VAR / f"{name}-{w}.webp", "WEBP", quality=Q, method=6)
+                if avif: r.convert("RGB").save(VAR / f"{name}-{w}.avif", "AVIF", quality=AQ, speed=4)
                 e["v"].append(w)
+        if avif: rgb.save(VAR / f"{name}-{W}.avif", "AVIF", quality=AQ, speed=4)  # full bredde
         if HERO.match(name):
             cw = min(W, round(Ht * HERO_ASPECT)); x = (W - cw) // 2
-            im.crop((x, 0, x + cw, Ht)).save(VAR / f"{name}-m.webp", "WEBP", quality=HERO_Q, method=6)
+            c = im.crop((x, 0, x + cw, Ht))
+            c.save(VAR / f"{name}-m.webp", "WEBP", quality=HERO_Q, method=6)
+            if avif: c.convert("RGB").save(VAR / f"{name}-m.avif", "AVIF", quality=AQ - 6, speed=4)
             e["m"] = [cw, Ht]
+        e["a"] = avif
+        e["q"] = lqip(im)
         out[name] = e
-    for f in VAR.glob("*.webp"):  # rydd bort varianter av bilder som ikke finnes lenger
+    for f in [*VAR.glob("*.webp"), *VAR.glob("*.avif")]:  # rydd bort varianter av bilder som ikke finnes lenger
         n, _, w = f.stem.rpartition("-")
-        if n not in out or (w != "m" and int(w) not in out[n]["v"]) or (w == "m" and not out[n].get("m")):
+        full = f.suffix == ".avif" and n in out and w.isdigit() and int(w) == out[n]["w"]
+        if n not in out or (w != "m" and not full and int(w) not in out[n]["v"]) or (w == "m" and not out[n].get("m")):
             f.unlink()
     MANIFEST.write_text(json.dumps(out, indent=0, sort_keys=True))
     return out
@@ -165,6 +187,23 @@ def build_variants():
 def srcset(name, e, base):
     parts = [f"{base}assets/img/r/{name}-{w}.webp {w}w" for w in e["v"]] + [f"{base}assets/img/{name}.webp {e['w']}w"]
     return ", ".join(parts)
+
+
+def srcset_avif(name, e, base):
+    return ", ".join(f"{base}assets/img/r/{name}-{w}.avif {w}w" for w in e["v"] + [e["w"]])
+
+
+# <picture> og <source> som perf.py selv har lagt til, merkes med data-p og fjernes før hver kjøring (idempotent).
+PERF_PIC = re.compile(r'<picture data-p>(<source data-p [^>]*>)(<img [^>]*>)</picture>')
+PERF_SRC = re.compile(r'<source data-p [^>]*>')
+PERF_ATTR = re.compile(r' srcset="[^"]*assets/img/r/[^"]*"| style="background:url\(data:image/webp;base64,[^"]*"')  # sizes beholdes: håndskrevne verdier (f.eks. hero 100vw) skal stå
+
+
+def unwrap(h):
+    h = PERF_PIC.sub(lambda m: m.group(2), h)
+    h = PERF_SRC.sub("", h)
+    # srcset/sizes som perf.py har laget (peker til assets/img/r/) lages på nytt, så nye bredder kommer med
+    return re.sub(r'<img [^>]*(?:srcset="[^"]*assets/img/r/|style="background:url\(data:)[^>]*>', lambda m: PERF_ATTR.sub("", m.group(0)), h)
 
 
 class ImgScanner(HTMLParser):
@@ -193,39 +232,80 @@ class ImgScanner(HTMLParser):
 
 
 def responsive_images(h, base, man):
+    h = unwrap(h)
     sc = ImgScanner(h)
     try: sc.feed(h); sc.close()
     except Exception: return h
     for start, end, a, classes, in_picture in reversed(sc.imgs):
         src = a.get("src") or ""
         m = re.fullmatch(re.escape(base) + r"assets/img/([\w-]+)\.webp", src)
-        if not m or "srcset" in a or in_picture or "${" in src: continue
+        if not m or "srcset" in a or "${" in src: continue
         name = m.group(1); e = man.get(name)
         if not e: continue
         tag = h[start:end]
         ctx = next((c for c in reversed(classes) if c in SIZES), None)
-        sizes = sizes_for(ctx, e)
+        fixed = re.search(r"(?:^|;)\s*width:\s*(\d+)px", a.get("style") or "")  # fast bredde i style: bruk den
+        sizes = a.get("sizes") or (f"{fixed.group(1)}px" if fixed else sizes_for(ctx, e))
         add = []
-        if e["v"]: add += [f'srcset="{srcset(name, e, base)}"', f'sizes="{sizes}"']
+        if e["v"]: add += [f'srcset="{srcset(name, e, base)}"'] + ([] if "sizes" in a else [f'sizes="{sizes}"'])
         if "width" not in a: add += [f'width="{e["w"]}"', f'height="{e["h"]}"']
         if a.get("loading") == "lazy" and "decoding" not in a: add.append('decoding="async"')
         hero_ctx = next((c for c in HERO_CONTEXTS if c in classes), None)
         if hero_ctx and "fetchpriority" not in a and a.get("loading") != "lazy":
             add.append('fetchpriority="high"')
-        if not add: continue
-        new = tag[:-1].rstrip("/").rstrip() + " " + " ".join(add) + ">"
+        if (a.get("fetchpriority") == 'high' or 'fetchpriority="high"' in add) and e.get("q") and "style" not in a:
+            # hovedbildet: uskarp forhåndsvisning som bakgrunn, så feltet ikke står tomt mens bildet lastes
+            add.append(f'style="background:url(data:image/webp;base64,{e["q"]}) center/cover"')
+        new = tag[:-1].rstrip("/").rstrip() + (" " + " ".join(add) if add else "") + ">"
+        if e.get("a"):
+            if "parentNode" in new:  # bildet ligger nå i <picture>: plassholderen skal fortsatt settes på boksen rundt
+                new = new.replace("this.parentNode.", "this.closest('picture').parentNode.")
+            src_avif = f'<source data-p type="image/avif" srcset="{srcset_avif(name, e, base)}" sizes="{sizes}">'
+            new = (src_avif + new) if in_picture else f"<picture data-p>{src_avif}{new}</picture>"
         h = h[:start] + new + h[end:]
-    return h
+    return hero_avif(h, base, man)
+
+
+def hero_avif(h, base, man):
+    """Forsidens hero er en håndskrevet <picture> med mobilutsnitt: legg AVIF-kilder foran WebP-kildene."""
+    def src(m):
+        tag = m.group(0)
+        mm = re.search(r'srcset="' + re.escape(base) + r'assets/img/r/([\w-]+)-m\.webp"', tag)
+        if not mm or not man.get(mm.group(1), {}).get("a"): return tag
+        media = re.search(r'media="([^"]*)"', tag)
+        return (f'<source data-p type="image/avif"{f' media="{media.group(1)}"' if media else ""} '
+                f'srcset="{base}assets/img/r/{mm.group(1)}-m.avif">' + tag)
+    return re.sub(r'<source (?!data-p)[^>]*>', src, h)
 
 
 def image_widths_js(man):
     """Liten oversikt over hvilke bredder som finnes, så forsidens skript kan bruke srcset på bilder det lager selv."""
-    return json.dumps({n: e["v"] + [e["w"]] for n, e in sorted(man.items()) if e["v"]}, separators=(",", ":"))
+    return json.dumps({n: e["v"] + [e["w"]] for n, e in sorted(man.items()) if e["v"]}, separators=(",", ":"))  # alle har også AVIF i samme bredder
+
+
+def minify_js():
+    """Lager assets/<navn>.min.js av hvert skript (rjsmin). Uten rjsmin brukes de vanlige filene."""
+    try:
+        import rjsmin
+    except ImportError:
+        return set()
+    done = set()
+    for f in sorted((SITE / "assets").glob("*.js")):
+        if f.name.endswith(".min.js"): continue
+        (f.with_name(f.stem + ".min.js")).write_text(rjsmin.jsmin(f.read_text(encoding="utf-8"), keep_bang_comments=False), encoding="utf-8")
+        done.add(f.stem)
+    return done
 
 
 def main():
     css = minify_css((SITE / "assets/site.css").read_text(encoding="utf-8"))
     man = build_variants()
+    hj = SITE / "assets/home.js"  # forsidens skript bygger egne kort: fortell det hvilke bredder som finnes
+    if hj.exists():
+        t = hj.read_text(encoding="utf-8")
+        t2 = re.sub(r"^window\.IMGW=\{.*?\};", lambda m: "window.IMGW=" + image_widths_js(man) + ";", t, count=1, flags=re.M)
+        if t2 != t: hj.write_text(t2, encoding="utf-8")
+    minified = minify_js()
     n = 0
     for p in sorted(SITE.rglob("*.html")):
         rel = p.relative_to(SITE).as_posix()
@@ -238,6 +318,8 @@ def main():
         # Ved ny kjøring: legg CSS-lenken tilbake der blokken stod, så rekkefølgen i <head> (og dermed CSS-kaskaden) beholdes.
         h = BLOCK.sub(lambda _: f'<link rel="stylesheet" href="{base}assets/site.css">\n', h, count=1)
         h = GOOGLE_FONTS.sub("", h)
+        # Sidene bruker de minifiserte skriptene (app.min.js osv.) når de finnes; kildene beholdes urørt.
+        h = re.sub(r'(assets/(\w+))(\.min)?\.js"', lambda m: f'{m.group(1)}{".min" if m.group(2) in minified else ""}.js"', h)
         scripts = "".join((p.parent / s).read_text(encoding="utf-8") for s in re.findall(r'<script src="([^"]+\.js)"', h)
                           if not s.startswith("http") and (p.parent / s).exists())
         block = head_block(base, purge_css(css, h + scripts))
@@ -247,11 +329,6 @@ def main():
             h = h.replace("</head>", block + "</head>", 1)
         h = responsive_images(h, base, man)
         p.write_text(h, encoding="utf-8"); n += 1
-    hj = SITE / "assets/home.js"  # forsidens skript bygger egne kort: fortell det hvilke bredder som finnes
-    if hj.exists():
-        t = hj.read_text(encoding="utf-8")
-        t2 = re.sub(r"^window\.IMGW=\{.*?\};", lambda m: "window.IMGW=" + image_widths_js(man) + ";", t, count=1, flags=re.M)
-        if t2 != t: hj.write_text(t2, encoding="utf-8")
     print(f"perf: {n} sider, {len(man)} bilder med varianter")
 
 

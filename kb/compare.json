@@ -107,6 +107,12 @@
  "mus|skogmus": {
   "rows": [
    {
+    "trait": "Bryst",
+    "a": "Ingen gulbrun flekk",
+    "b": "Gulbrun flekk (småskogmus) eller tydelig halsbånd (storskogmus)",
+    "key": true
+   },
+   {
     "trait": "Ører",
     "a": "Små ører",
     "b": "Store ører",
@@ -119,25 +125,31 @@
     "key": true
    },
    {
+    "trait": "Snute",
+    "a": "Spiss snute",
+    "b": "Enda spissere snute",
+    "key": false
+   },
+   {
     "trait": "Pels på ryggen",
-    "a": "Gråbrun eller grålig med nyanser av brunt",
-    "b": "Brunlig rygg",
+    "a": "Grålig med nyanser av brunt",
+    "b": "Gråbrun (småskogmus) eller brunrød (storskogmus)",
     "key": false
    },
    {
     "trait": "Buk / underside",
     "a": "Lysere underside",
-    "b": "Lys eller hvit buk",
+    "b": "Gråhvit eller hvit buk",
     "key": false
    },
    {
     "trait": "Hale",
     "a": "7–10 cm, omtrent like lang som kroppen",
-    "b": "Lang hale",
+    "b": "7–13 cm, like lang som kroppen eller litt lengre",
     "key": false
    }
   ],
-  "test": "Skogmus har store ører og store øyne, mens husmus har små ører og små øyne."
+  "test": "Se på brystet: skogmus har en gulbrun flekk eller et halsbånd, og større øyne og ører enn husmus."
  },
  "skjeggkre|solvkre": {
   "rows": [

@@ -1,12 +1,19 @@
 """FAQ-side og leksikonsider (én side per art). Kalles fra page.py."""
-import json, html as H, pathlib
+import json, html as H, pathlib, re, unicodedata
+
+
+def qid(q):
+    """Lenkeanker for et spørsmål: «Hvor små hull kan en mus komme gjennom?» -> hvor-sma-hull-kan-en-mus-komme-gjennom"""
+    t = q.lower().replace("æ", "ae").replace("ø", "o").replace("å", "a")
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")[:70]
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 ROOT = REPO / "site"
 SHOP = "https://skadedyrbutikken.no/produkter/{}?utm_source=kryp.as&utm_medium=referral&utm_campaign={}"
 
 # Hvilke artikler hører til hvilken art (for intern lenking)
-REL = {"mus": ["mus-om-hosten", "fjellhytta", "hytta-ved-sjoen"], "skogmus": ["mus-pa-garden", "smagnagerar"], "rotte": ["rotter-i-byen"],
+REL = {"mus": ["mus-om-hosten", "mus-i-veggen", "musebaesj", "rengjoring-etter-mus", "fjellhytta", "hytta-ved-sjoen"], "skogmus": ["mus-pa-garden", "smagnagerar"], "rotte": ["rotter-i-byen"],
        "veggedyr": ["veggedyr-pa-reise"], "svaletege": ["veggedyr-pa-reise"], "skjeggkre": ["fukt-solvkre-skjeggkre"], "solvkre": ["fukt-solvkre-skjeggkre"],
        "veps": ["vepsebol", "humler-og-bier-i-veggen"], "kjempetreveps": ["vepsebol"], "stokkmaur": ["stokkmaur-eller-skogsmaur"],
        "skogsmaur": ["stokkmaur-eller-skogsmaur"], "jordmaur": ["stokkmaur-eller-skogsmaur"], "melmoll": [], "kakerlakk": [], "flatt": ["flatt-langs-kysten"]}
@@ -27,7 +34,7 @@ def build(head, foot, prod, recs=None):
 
     # --- FAQ ---
     groups = "".join(f'''<section class="faqg"><h2>{H.escape(g)}</h2>''' + "".join(
-        f'''<details><summary>{H.escape(q)}</summary><p>{H.escape(a)}</p>{f'<p class="small"><a href="artikler/{s}.html">Les mer: {H.escape(titles.get(s, s))} →</a></p>' if s else ""}</details>'''
+        f'''<details id="{qid(q)}"><summary>{H.escape(q)}</summary><p>{H.escape(a)}</p>{f'<p class="small"><a href="artikler/{s}.html">Les mer: {H.escape(titles.get(s, s))} →</a></p>' if s else ""}</details>'''
         for q, a, s in qs) + "</section>" for g, qs in FAQ)
     n = sum(len(q) for _, q in FAQ)
     body = f'''<style>.faqg{{margin-top:44px}}.faqg h2{{font-size:clamp(28px,3vw,38px)}}details{{border-bottom:1px solid var(--line);padding:18px 0}}details:first-of-type{{border-top:1px solid var(--line)}}
@@ -64,11 +71,22 @@ summary{{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:f
         load = 'fetchpriority="high"' if not cards else 'loading="lazy"'
         pic = (f'<div class="lxi"><img src="../assets/img/foto-{s["id"]}.webp" alt="{H.escape(s["name"])} ({H.escape(s["latin"])})" {load} onerror="this.remove()"></div>'
                f'<small class="lxc">Foto: {H.escape(lexicon.who(ph))} · {H.escape(ph.get("license", ""))}</small>') if ph else '<div class="lxi"></div>'
-        cards.append(f'<a class="lx" href="{slug}.html">{pic}<div class="lxt"><b>{H.escape(s["name"])}</b><em>{H.escape(s["latin"])}</em><span>{"Skadedyr" if s["pest"] else "Ufarlig"}</span></div></a>')
-    idx = f'''<style>.lxg{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px;margin-top:30px}}.lx{{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none}}.lxi{{aspect-ratio:4/3;background:var(--soft);overflow:hidden}}.lxi img{{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}}.lx:hover .lxi img{{transform:scale(1.04)}}.lxc{{font-size:11px;color:var(--mute);padding:6px 22px 0}}.lxt{{display:grid;gap:2px;padding:12px 22px 20px}}.lx:hover{{background:var(--soft)}}.lx b{{font-size:19px}}.lx em{{color:var(--mute)}}.lx span{{font-size:13px;color:var(--mute);margin-top:6px}}</style>
+        kj = " · ".join(s["features"][:2])
+        cards.append((s["id"], f'<a class="lx" href="{slug}.html">{pic}<div class="lxt"><b>{H.escape(s["name"])}</b><em>{H.escape(s["latin"])}</em><span class="lxk">{H.escape(kj[:1].upper() + kj[1:])}</span><span>{"Skadedyr" if s["pest"] else "Ufarlig"}</span></div></a>'))
+    LXG = [("gnagere", "Mus og rotter", ["mus", "skogmus", "rotte"]), ("teger", "Veggedyr og svaletege", ["veggedyr", "svaletege"]),
+           ("kre", "Skjeggkre og sølvkre", ["skjeggkre", "solvkre"]), ("veps", "Veps", ["veps", "kjempetreveps"]),
+           ("maur", "Maur", ["stokkmaur", "skogsmaur", "jordmaur"]), ("kjokken", "I kjøkkenet og matskapet", ["melmoll", "kakerlakk"]), ("flatt", "Flått", ["flatt"])]
+    used = {i for *_, ids in LXG for i in ids}
+    groups = [(g, n, ids) for g, n, ids in LXG if any(i for i, _ in cards if i in ids)] + ([("andre", "Andre", [i for i, _ in cards if i not in used])] if any(i not in used for i, _ in cards) else [])
+    idx = f'''<style>.lxs{{scroll-margin-top:90px;margin-top:44px}}.lxs h2{{font-size:clamp(28px,3vw,38px);margin:0}}.lxs .lxg{{margin-top:16px}}.lxk{{font-size:14px;line-height:1.4;color:var(--mute)}}.lxj{{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}}.lxj a{{border:1px solid var(--line);border-radius:999px;padding:9px 16px;text-decoration:none;font-size:15px;font-weight:500}}.lxj a:hover{{background:var(--soft)}}.lxh{{margin-top:56px;background:var(--soft);border-radius:20px;padding:24px 28px}}.lxh h2{{font-size:clamp(26px,3vw,34px);margin:0 0 10px}}.lxh ul{{margin:0;padding-left:1.2em;display:grid;gap:6px}}.lxg{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px;margin-top:30px}}.lx{{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none}}.lxi{{aspect-ratio:4/3;background:var(--soft);overflow:hidden}}.lxi img{{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}}.lx:hover .lxi img{{transform:scale(1.04)}}.lxc{{font-size:11px;color:var(--mute);padding:6px 22px 0}}.lxt{{display:grid;gap:2px;padding:12px 22px 20px}}.lx:hover{{background:var(--soft)}}.lx b{{font-size:19px}}.lx em{{color:var(--mute)}}.lx span{{font-size:13px;color:var(--mute);margin-top:6px}}</style>
 <section class="band"><div class="wrap"><span class="kicker">Kjenn igjen · leksikon</span><h1 style="font-size:clamp(40px,5.4vw,72px)">Kjenn igjen <em>dyret</em></h1>
 <p class="mute" style="font-size:19px;max-width:56ch">Kjennetegn og forvekslingsarter for {len(kb)} dyr du kan møte i og rundt huset. Basert på Folkehelseinstituttets skadedyrhåndbok. Vet du hva det er og lurer på hva du skal gjøre? Se <a href="../artikler/index.html">Råd og løsninger</a>.</p>
-<div class="lxg">{"".join(cards)}</div></div></section>'''
+<nav class="lxj" aria-label="Hopp til gruppe">{"".join(f'<a href="#{gid}">{H.escape(gn)}</a>' for gid, gn, _ in groups)}</nav>
+{"".join(f'<section class="lxs" id="{gid}"><h2>{H.escape(gn)}</h2><div class="lxg">{"".join(c for i, c in cards if i in ids)}</div></section>' for gid, gn, ids in groups)}
+<aside class="lxh"><h2>Usikker på hva du har sett?</h2><ul>
+<li><a href="../index.html#hvadet">Last opp et bilde</a> og få forslag til hvilket dyr det kan være.</li>
+<li>Se <a href="../sporsmal-og-svar.html">spørsmål og svar</a> om spor, lyder og bitt.</li>
+<li>Vet du hva det er? <a href="../artikler/index.html">Råd og løsninger</a> forklarer hva du gjør først.</li></ul></aside></div></section>'''
     (L / "index.html").write_text(head("Skadedyrleksikon: kjenn igjen skadedyr i Norge – Kryp.as", "Kjennetegn og forvekslingsarter for vanlige skadedyr i Norge, fra husmus og rotter til skjeggkre, veggedyr og veps.", "../") + idx + foot("../"), encoding="utf-8")
 
 
@@ -101,7 +119,7 @@ def credits_page(head, foot):
     """Kilder, foto og lisenser – samlet kreditering for alt innhold som ikke er laget av Kryp.as."""
     import lexicon
     byid = lexicon.load(REPO)
-    rows = "".join(f'''<tr><td><img src="assets/img/foto-{i}.webp" alt="" loading="lazy" style="width:96px;height:72px;object-fit:cover;border-radius:8px"></td>
+    rows = "".join(f'''<tr><td><img src="assets/img/foto-{i}.webp" alt="" loading="lazy" style="width:96px;max-width:none;height:72px;object-fit:cover;border-radius:8px"></td>
 <td><b>{H.escape(byid[i]["name"])}</b><br><em class="small mute">{H.escape(p.get("taxon", ""))}</em></td><td>{H.escape(lexicon.who(p))}</td>
 <td><a href="{H.escape(p.get("license_url") or p["page"])}" rel="license noopener">{H.escape(p["license"])}</a></td>
 <td><a href="{H.escape(p["page"])}" rel="noopener">{H.escape(p.get("source") or "Wikimedia Commons")}</a></td><td>{"Beskåret" if p.get("cropped") else "Skalert"}</td></tr>'''
@@ -113,7 +131,7 @@ def credits_page(head, foot):
 <p>Bildene av navngitte arter er ekte fotografier fra Wikimedia Commons og iNaturalist. Vi bruker bare bilder med lisenser som tillater kommersiell bruk:
 CC0 (ingen rettigheter forbeholdt), CC BY (kreditering) og CC BY-SA (kreditering, del på samme vilkår). Bilder med «ikke-kommersiell» (NC) eller «ingen bearbeidelse» (ND) brukes ikke.
 Bildene er skalert, og noen er beskåret slik at dyret fyller bildet. Beskårne versjoner av CC BY-SA-bilder deles videre under samme lisens som originalen.</p>
-<div style="overflow-x:auto"><table class="small" style="width:100%;border-collapse:collapse"><thead><tr><th></th><th align="left">Art</th><th align="left">Fotograf</th><th align="left">Lisens</th><th align="left">Original</th><th align="left">Endring</th></tr></thead><tbody>{rows}</tbody></table></div>
+<div style="overflow-x:auto"><table class="small" style="width:100%;border-collapse:collapse"><thead><tr><th scope="col"><span class="sr">Foto</span></th><th align="left">Art</th><th align="left">Fotograf</th><th align="left">Lisens</th><th align="left">Original</th><th align="left">Endring</th></tr></thead><tbody>{rows}</tbody></table></div>
 <h2>Illustrasjonsbilder</h2>
 <p>Stemningsbilder i artikler, på forsiden og i regionene er generert med kunstig intelligens (Cloudflare Workers AI / FLUX og Google Gemini) og viser ikke virkelige steder eller personer. De brukes aldri for å vise hvordan en bestemt art ser ut.</p>
 <h2>Data og fagkilder</h2>

@@ -131,7 +131,7 @@ def page(s, *, kb, byid, slugs, img, imgs=None, rel, titles, artimg, stats, shop
     trio = "".join(f'<div class="fx {c}"><small>{t}</small><ul>{li(k)}</ul></div>' for k, t, c in [("skade", "Skade og helse", "harm"), ("forebygg", "Forebygging", "prev"), ("tiltak", "Slik blir du kvitt den", "act")] if inf.get(k))
     if trio: parts.append(f'<div class="trio">{trio}</div>')
     infoh = "".join(parts)
-    infoh = f'<section><h2>Fakta om {E(s["name"].lower())}</h2><div class="fxg">{infoh}</div><p class="small mute">Kilde: <a href="{E(s["source"]["url"])}" rel="noopener">{E(s["source"]["title"])}</a>.</p></section>' if infoh else ""
+    infoh = f'<section><h2>Fakta om {E(s["name"].lower())}</h2><div class="fxg">{infoh}</div><p class="small mute">{"Kilder" if len(s.get("sources") or [1]) > 1 else "Kilde"}: {" og ".join(f'<a href="{E(x["url"])}" rel="noopener">{E(x["title"])}</a>' for x in (s.get("sources") or [s["source"]]))}.</p></section>' if infoh else ""
     pest_card = (f'<div class="card sf"><h3>Utstyr mot {E(s["name"].lower())}</h3><p>Feller, åter og forebygging hos Skadedyrbutikken.</p><a class="btn arrow" href="{shop}">Se utvalget </a></div>'
                  if s["pest"] else '<div class="card sf"><h3>Ikke et skadedyr</h3><p>Denne arten gjør normalt ingen skade og trenger ikke bekjempes.</p></div>')
     return f'''{CSS}{CMP_CSS}<section class="sx"><div class="wrap"><div>
